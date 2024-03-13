@@ -18,7 +18,7 @@
             <form class="email-input-container">
               <label for="emailInput" class="visually-hidden">Enter your email</label>
               <input type="email" id="emailInput" class="email-input" placeholder="Enter your email" aria-label="Enter your email" />
-              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d484ebf327e7f5f26c1b64221034aac01d7d563177d370a8bd83d7971ad4f72c?apiKey=de754edacf6d4fbeaf990b709fcfe0b5&" class="email-icon" alt="" />
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d484ebf327e7f5f26c1b64221034aac01d7d5Femail-icon" alt="" />
             </form>
           </div>
           <div class="support-content">
