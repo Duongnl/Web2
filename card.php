@@ -18,17 +18,18 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <style>
-.card-img-top:hover {
-  transform: scale(1.2);
-}
+
 
 .card-img-top {
-  transition: transform .5s ease;
+  transition: All .5s ease-in-out;
 }
 
 .wrap-img {
   padding: 40px;
-  background-color: #F5F5F5
+  background-color: #F5F5F5;
+  position: relative;
+
+  
 }
 
 /* .wrap-img::before {
@@ -84,7 +85,32 @@
   opacity: 0.5;
   text-decoration: line-through
 }
+
+.price{
+  background-color:black;
+  position:absolute;
+  width:100%;
+  bottom:22%;
+  color:red;
+  opacity:0;
+  transition: all 0.5 ease-in-out;
+}
+.card:hover .label {
+      opacity: 1;
+      transform: translateY(-20px);
+  }
+
+
+/* .card-img-top:hover {
+  transform: translateY(-20px);
+} */
+
+
 </style>
+
+
+
+</script>
 
 <body>
   <header style="height:120px; border-bottom:1px solid #ccc;">Header</header>
@@ -98,9 +124,10 @@
     <div class="row">
       <div class="col-6 col-xs-6 col-sm-4 col-md-3 col-xxl-3">
         <div class="card product">
-          <a href="" class="wrap-img" width="270px" height="250px">
+          <a href="" class="wrap-img " width="270px" height="250px">
             <img class="card-img-top" src="./product.png" width="140px" height="146px"></i>
           </a>
+          <label class="price" for""> Add to Cart </label>
           <div class="d-flex justify-content-between align-items-center mx-1 my-2">
             <div class="product-body">
               <a href="" class="product-title">The north coat</a>
