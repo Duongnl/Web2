@@ -33,7 +33,7 @@
             <div class="login">
                 <label for="">Already have an account? <a href="#">Login</a> </label>
             </div>
-            <button>Register</button>
+            <button class="btn-register"><p>Register</p></button>
 
         </form>
     </section>
