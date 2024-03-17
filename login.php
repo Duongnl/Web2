@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 </head>
 <body>
@@ -28,10 +29,10 @@
                 </label>
                 <a href="#" >Forget Password</a>
             </div>
-            <button>Login</button>
-            <div class="register">
-                <p> <a href="#">Register</a></p>
-            </div>
+            <button class="btn-login"><p>Login</p></button>
+            <button class="register">
+                <p> Register</p>
+            </button>
         </form>
 
     </section>
