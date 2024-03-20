@@ -58,6 +58,8 @@
 .dropdown-toggle{
     width: 100%;
     border: 1px solid black; /* Màu và độ dày của viền */
+    padding-left: 0px;
+
 }
 
 .dropdown-toggle.show {

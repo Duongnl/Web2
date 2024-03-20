@@ -17,7 +17,7 @@
         
         <!-- Nhãn bộ lọc -->
         <div class="row row-filter-lable" >
-        <h5 style="margin-top: 20px;" > <i class="fa-solid fa-filter"></i> Bộ lọc</h5>
+        <h5 style="margin-top: 20px;" > <i class="fa-solid fa-filter"></i> Filter</h5>
         </div>
 
         <!--Bộ lọc -->
@@ -36,7 +36,7 @@
             <div class="col-6 col-sm-4 col-md-2 col-Filter" >
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Giá
+                        Price
                     </button>
                     <ul class="dropdown-menu">
                         <li>
@@ -53,10 +53,10 @@
             <!-- Giới tính  -->
             <div class="col-6 col-sm-4 col-md-2 col-Filter">
                 <select class="form-select select-filter-sex" aria-label="Default select example">
-                    <option value="" disabled selected hidden >Giới tính</option>
+                    <option value="" disabled selected hidden >Sex</option>
                     <option value="0" select>Tất cả giới tính</option>
-                    <option value="1">Nam</option>
-                    <option value="2">Nữ</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
                 </select>
             </div>
             <!-- Size -->
@@ -373,14 +373,19 @@
             range: true,
             min: 0,
             max: 500,
-            values: [ 75, 300 ],
+            values: [ 0, 500 ],
             slide: function( event, ui ) {
                 $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
             }
             });
             $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
             " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-        } );
+            
+            $("#slider-range").on("slidestop", function(event, ui) {
+            $(".dropdown-toggle").text("$" + ui.values[0] + "-$" + ui.values[1]);
+            });
+
+        });
     </script>
 </body>
 </html>
