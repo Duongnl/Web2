@@ -103,10 +103,16 @@
     background-color: #f5f5f5;
     padding:10px 20px;
   }
+  .rightNav
+    {
+      display: flex;
+    flex-direction: row;
+    }
   .iconsearch{
     display: flex;
     align-items: center;
     text-decoration: none;
+    margin-left:10px;
   }
   .fav-shop{
     display:flex;
@@ -258,8 +264,8 @@
         </a>
       </div>
         <div class="fav-shop">
-          <i class="fa-regular fa-heart fs20 pdrl20"></i> 
-          <i class="fa-solid fa-cart-plus fs20 "></i>
+           <i class="fa-solid fa-cart-plus fs20 pdrl20 "></i>
+          <i class="fa-solid fa-user fs20 "></i> 
         </div>
       </div>
     </div>
