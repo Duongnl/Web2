@@ -7,9 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-  
-    <title>Document</title>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </head>
+
   <body>
     <section class="newsletter-section">
         <div class="newsletter-container">
@@ -18,9 +19,9 @@
             <p class="newsletter-offer">Subscribe </p>
             <p class="newsletter-offer" id ="small"> Get 10% off your first order</p>
             <form class="email-input-container">
-              <label for="emailInput" class="visually-hidden">Enter your email</label>
-              <input type="email" id="emailInput" class="email-input" placeholder="Enter your email" aria-label="Enter your email" />
-              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d484ebf327e7f5f26c1b64221034aac01d7d5Femail-icon" alt="" />
+              <input type="email" id="emailInput" class="email-input" placeholder="Enter your email" style="color:white" />
+              <a href="#" > <ion-icon name="mail-unread-outline"></ion-icon> </ion-icon> </a>
+              
             </form>
           </div>
           <div class="support-content">
@@ -68,6 +69,9 @@
     
   </body>
   </html>
+
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
   <style>
     *{
         margin : 0;
@@ -143,8 +147,16 @@
       margin-top: 16px;
       justify-content: space-between;
       gap: 10px;
-      padding: 12px 16px;
     }
+    .email-input-container a ion-icon {
+      color:white;
+      display:flex;
+      text-align:center;
+      font-size:38px;
+
+    }
+    
+
   
     .social-media-container {
       display: flex;
@@ -250,6 +262,7 @@
       justify-content: space-between;
       gap: 20px;
     }
+    
   
     .socialMediaIcon {
       aspect-ratio: 1;
@@ -274,7 +287,8 @@
     background:none;
     border:none;
     font-weight: 600;
-    
+    padding: 12px 16px;
+    width:80%;
   }
 
   .email-icon {
