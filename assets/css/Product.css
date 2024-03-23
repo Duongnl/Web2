@@ -15,7 +15,7 @@
 }
 
 .btn-filter-label {
-   background-color: red;
+   background-color: #DB4444;
     color: white;
     border: 1px solid black; /* Màu và độ dày của viền */
 }
@@ -37,13 +37,13 @@
   width: 100%;
 }
 
-#slider-range{
+.slider-range{
     width: 90%;
     margin: 0 auto; 
-    color: red;
+    color: #DB4444;
 }
 
-.btn-filter-price{
+/* .btn-filter-price{
     margin-top: 10px;
     float: right;
     margin-right: 10px;
@@ -53,7 +53,7 @@
     padding-left: 6px;
     color: black;
   
-}
+} */
 
 .dropdown-toggle{
     width: 100%;
@@ -63,7 +63,7 @@
 }
 
 .dropdown-toggle.show {
-    background-color: red;
+    background-color: #DB4444;
 }
 
 .dropdown-toggle {
@@ -72,14 +72,14 @@
 }
 
 .dropdown-toggle:hover {
-    background-color: red;
+    background-color: #DB4444;
     color: white;
 }
 
-.btn-filter-price:hover {
+/* .btn-filter-price:hover {
     background-color: red;
     color: white;
-}
+} */
 
 .btn-outline-secondary{
     color: black;
@@ -87,7 +87,7 @@
 }
 
 .filter-sale .btn-check:checked + .btn.btn-outline-secondary {
-    background-color: red; 
+    background-color: #DB4444; 
     color: white; 
 }
 
@@ -106,7 +106,7 @@
 
 /* Đặt màu nền đỏ cho phần tử .active */
 .pagination .page-item.active .page-link {
-  background-color: red;
+  background-color: #DB4444;
   color: white; /* Màu chữ trắng */
 }
 
@@ -183,7 +183,7 @@
 }
 
 .new-price {
-  color: red;
+  color: #DB4444;
   font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -225,4 +225,51 @@
     padding: 2px 8px;
   }
 }
+
+.btn-filter-hidden{
+  color: black;
+  width: 120px;
+  border-color: black;
+  
+}
+
+/* .btn-filter-hidden:hover {
+  color: white;
+} */
+.filter-hidden{
+  margin-top: 10px;
+  margin-left: 10px;
+  
+  width: 200px;
+}
+
+
+.dropdown-hidden{
+  display: none;
+  margin-top: 20px;
+}
+
+.select-filter-sort {
+  width: 200px;
+  float: right;
+  border: 1px solid black; /* Màu và độ dày của viền */
+}
+
+@media (max-width: 768px) {
+   .row-filter {
+    display: none;
+  }
+  .h5-filter{
+    display: none;
+  }
+  
+  .dropdown-hidden {
+    display: block;
+  }
+.select-filter-sort{
+  width: 160px;
+}
+
+}
+
 

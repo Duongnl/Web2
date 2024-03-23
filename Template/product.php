@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet"  type="text/css" href="../assets/css/Product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -17,7 +17,73 @@
         
         <!-- Nhãn bộ lọc -->
         <div class="row row-filter-lable" >
-        <h5 style="margin-top: 20px;" > <i class="fa-solid fa-filter"></i> Filter</h5>
+        <h5 style="margin-top: 20px;" class="h5-filter"> <i class="fa-solid fa-filter"></i> Filter</h5>
+        <!-- <button type="button" class="btn btn-outline-danger btn-filter-hidden" ><i class="fa-solid fa-filter"></i> Filter</button> -->
+            <div class="dropdown dropdown-hidden"  >
+                <button class="btn btn-secondary dropdown-toggle btn-filter-hidden" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-filter"></i> Filter
+                </button>
+                <ul class="dropdown-menu dropdown-menu-hidden" onclick="event.stopPropagation();" style="width: 220px;"  >
+                    <li >
+                        <select class="form-select select-filter-type filter-hidden" aria-label="Default select example">
+                            <option value="" disabled selected hidden >Loại sản phẩm</option>
+                            <option value="0" select>Tất cả loại</option>
+                            <option value="1">Loại thể thao</option>
+                            <option value="2">Loại du lịch</option>
+                            <option value="3">Áo thun cao cổ</option>
+                        </select>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle btn-filter-price filter-hidden" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Price
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <p>
+                                        <label for="amount" style="padding-left: 10px;"  >Price range:</label>
+                                        <input type="text" class="amount"  readonly style="border:0; color:#000000; font-weight:bold;padding-left: 10px;">
+                                    </p>
+                                    <div class="slider-range"></div>
+                                   
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <select class="form-select select-filter-sex filter-hidden" aria-label="Default select example">
+                            <option value="" disabled selected hidden >Sex</option>
+                            <option value="0" select>Tất cả giới tính</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select class="form-select select-filter-size filter-hidden" aria-label="Default select example">
+                            <option value="" disabled selected hidden >Size</option>
+                            <option value="0" select>Tất cả size</option>
+                            <option value="1">XXL</option>
+                            <option value="2">XL</option>
+                            <option value="3">L</option>
+                            <option value="4">M</option>
+                            <option value="5">S</option>
+                        </select>
+                    </li>
+                    <li>
+                        <div class="filter-sale filter-hidden" >
+                            <input type="checkbox" class="btn-check" id="btn-check-2-outlined"   autocomplete="off" style=" border: 1px solid black; color:black">
+                            <label class="btn btn-outline-secondary" for="btn-check-2-outlined" style="width:100%;border: 1px solid black; "> <i class="fa-solid fa-percent"></i> Sale</label>
+                        </div> 
+                    </li>
+                    <li>
+                        <div class="filter-label filter-hidden" >
+                            <button type="button" class="btn btn-danger btn-filter-label"   style="float:right;">
+                            <!-- <i class="fa-solid fa-filter"></i>  -->
+                            Lọc</button>
+                        </div>  
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <!--Bộ lọc -->
@@ -35,17 +101,19 @@
             <!-- Giá -->
             <div class="col-6 col-sm-4 col-md-2 col-Filter" >
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle btn-filter-price" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Price
                     </button>
                     <ul class="dropdown-menu">
                         <li>
                             <p>
                                 <label for="amount" style="padding-left: 10px;"  >Price range:</label>
-                                <input type="text" id="amount"  readonly style="border:0; color:#000000; font-weight:bold;padding-left: 10px;">
+                                <input type="text" class="amount"  readonly style="border:0; color:#000000; font-weight:bold;padding-left: 10px;">
                             </p>
-                            <div id="slider-range"></div>
-                            <!-- <button type="button" class="btn btn-outline-secondary btn-filter-price">Chọn</button>  -->
+                            <div class="slider-range">
+                                
+                            </div>
+                        
                         </li>
                     </ul>
                 </div>
@@ -75,14 +143,14 @@
             <!-- Sale -->
             <div  class="col-6 col-sm-4 col-md-2 col-Filter" >
                 <div class="filter-sale" >
-                    <input type="checkbox" class="btn-check" id="btn-check-2-outlined"   autocomplete="off" style=" border: 1px solid black; color:black">
-                    <label class="btn btn-outline-secondary" for="btn-check-2-outlined" style="width:100%;border: 1px solid black; "> <i class="fa-solid fa-percent"></i> Sale</label>
+                    <input type="checkbox" class="btn-check" id="btn-check-3-outlined"   autocomplete="off" style=" border: 1px solid black; color:black">
+                    <label class="btn btn-outline-secondary" for="btn-check-3-outlined" style="width:100%;border: 1px solid black; "> <i class="fa-solid fa-percent"></i> Sale</label>
                 </div> 
             </div>
             <!-- button lọc -->
             <div class="col-6 col-sm-4 col-md-1 col-Filter" >
                 <div class="filter-label" >
-                    <button type="button" class="btn btn-danger btn-filter-label">
+                    <button type="button" class="btn btn-danger btn-filter-label" >
                     <!-- <i class="fa-solid fa-filter"></i>  -->
                     Lọc</button>
                 </div>  
@@ -106,7 +174,14 @@
 
         <!-- Nhãn sản phẩm -->
         <div class="row " style="margin-top: 40px;"  >
-            <h3>Product</h3>
+            <h3>Product
+            <select class="form-select select-filter-sort" aria-label="Default select example">
+                <option value="" disabled selected hidden >Sort</option>
+                <option value="0" select>Mặc định</option>
+                <option value="1" select>Giá cao đến thấp</option>
+                <option value="2">Giá thấp đến cao</option>
+            </select>
+            </h3>
         </div>
 
         <!-- Sản phẩm -->
@@ -369,23 +444,26 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
         $( function() {
-            $( "#slider-range" ).slider({
+            $( ".slider-range" ).slider({
             range: true,
             min: 0,
             max: 500,
             values: [ 0, 500 ],
             slide: function( event, ui ) {
-                $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                $( ".amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
             }
             });
-            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-            " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+            $( ".amount" ).val( "$" + $( ".slider-range" ).slider( "values", 0 ) +
+            " - $" + $( ".slider-range" ).slider( "values", 1 ) );
             
-            $("#slider-range").on("slidestop", function(event, ui) {
-            $(".dropdown-toggle").text("$" + ui.values[0] + "-$" + ui.values[1]);
+            $(".slider-range").on("slidestop", function(event, ui) {
+            $(".btn-filter-price").text("$" + ui.values[0] + "-$" + ui.values[1]);
             });
 
         });
+
+      
+
     </script>
 </body>
 </html>
