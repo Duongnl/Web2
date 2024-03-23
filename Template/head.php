@@ -220,6 +220,36 @@
     object-fit: contain;
     width: 24px;
   }
+
+  .a-hidden {
+    display: block; /* Đảm bảo phần tử a hiển thị dạng block để có thể chỉnh kích thước và margin */
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    width: 100%;
+    border-bottom: 1px solid black; 
+    border-radius: 5px;
+  }
+  /* 884 */
+  .ctn-hidden {
+    display: none;
+  }
+  .header {
+    border-bottom: 1px solid black;
+  }
+  @media (max-width: 904px) {
+   .navigation-container {
+    display: none;
+   }
+   .ctn-hidden {
+    display: block;
+  }
+  .header {
+    border-bottom: 0px;
+  }
+
+  }
+
 </style>
 
 <!DOCTYPE html>
@@ -230,6 +260,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
   <div class="announcement-container">
@@ -247,8 +278,8 @@
 
 
 
-<header class="header">
-  <nav class="navigation-container">
+<header class="header" >
+  <nav class="navigation-container" style="margin-bottom: 10px">
     <div class="logo">Exclusive</div>
     <div class="menu">
       <a href="/" class="home">Home</a>
@@ -258,21 +289,46 @@
     </div>
     <div class="rightNav">
       <div class="searching">
-      <input type="email" id="input-search" class="inputsearch" placeholder="What are you looking for?" aria-label="What are you looking for?" />
+      <input type="email" id="input-search" class="inputsearch" placeholder="What are you looking for?" aria-label="What are you looking for?" style="width: 205px;"/>
         <a href="/" class="iconsearch"> 
           <i class="fa-solid fa-magnifying-glass fs20" style="color: #000;"></i>
         </a>
       </div>
         <div class="fav-shop">
            <i class="fa-solid fa-cart-plus fs20 pdrl20 "></i>
-          <i class="fa-solid fa-user fs20 "></i> 
+          <i class="fa-solid fa-user fs20 " style="margin-right: 20px;"></i> 
         </div>
       </div>
     </div>
   </nav>
+  
+  <!-- nav hidden -->
+  <div class="container ctn-hidden" >
+      <div class="row" >
+        <nav class="navbar navbar-light bg-dark" style="background-color:white !important;">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" style  = "border: 1px solid black; width : 100% ">
+              <span class="navbar-toggler-icon" style="color: black; float:left;"  ></span>
+            </button>
+          </div>
+        </nav>
+        <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark"  style="padding-top: 10px;" >
+          <div class="bg-light p-4" style="border: 1px solid black; box-shadow: 0 20px 40px -17px rgba(0, 0, 0, 0.5);" >
+            
+              <a class = "a-hidden"  style="padding-top: 0px;" href="/" class="home">Home</a> 
+              <a class = "a-hidden" href="/contact" class="contact">Product</a> 
+              <a class = "a-hidden" href="/about" class="about">About</a> 
+              <a class = "a-hidden" href="/signup" class="sign-up">Sign Up</a>
+          </div>
+          
+        </div>
+      </div>
+  </div>
+  
+  
 
 </header>
-
+    <script type="text/javascript" src="../assets/js/bootstrap.js" ></script>
 </body>
 </html>
 
