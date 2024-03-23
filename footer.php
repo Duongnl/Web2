@@ -183,12 +183,15 @@
       .newsletter-container,
       .email-input-container,
       .social-media-container,
-      .footer {
+      .footer
+      
+       {
         max-width: 100%;
         flex-wrap: wrap;
         padding-right: 20px;
       }
-  
+
+      
       .newsletter-title,
       .support-title,
       .account-title,
@@ -204,6 +207,8 @@
         white-space: initial;
         
       }
+      
+      
     }
     .email-input-label {
       font-family: Poppins, sans-serif;
