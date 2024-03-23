@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="cart.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+<link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.4.2-web/css/all.min.css">
 <div class="cart_form">
     <div class="cart_form-product">
         <div class="cart_form-product-1">
@@ -26,7 +26,7 @@
                             <td><span>180.000</span>đ</td>
                             <td><input type="number" min="0" value="1"></td>
                             <td><span>180.000</span>đ</td>
-                            <td><button>Delete</button></td>
+                            <td><button><i class="fa-solid fa-trash-can"></i></button></td>
                         </tr>
                         <tr>
                             <th>1</th>
@@ -35,7 +35,7 @@
                             <td><span>180.000</span>đ</td>
                             <td><input type="number" min="0" value="1"></td>
                             <td><span>180.000</span>đ</td>
-                            <td><button>Delete</button></td>
+                            <td><button><i class="fa-solid fa-trash-can"></i></button></td>
                         </tr>
                     </tbody>
                     
