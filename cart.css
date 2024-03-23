@@ -15,7 +15,7 @@ table {
     position: sticky;
     top: 0;
     z-index: 2;
-    background-color: #c07373;
+    background-color: #DB4444;
     color: #dddddd;
 }
 
@@ -112,7 +112,7 @@ h2 {
     width: 1280px;
 }
 .table_2 thead th {
-    background-color: #c07373;
+    background-color: #DB4444;
     color: #dddddd;
 }
 .table_2 tbody td {
