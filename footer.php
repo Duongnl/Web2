@@ -20,8 +20,8 @@
             <p class="newsletter-offer" id ="small"> Get 10% off your first order</p>
             <form class="email-input-container">
               <input type="email" id="emailInput" class="email-input" placeholder="Enter your email" style="color:white" />
-              <a href="#" > <ion-icon name="mail-unread-outline"></ion-icon> </ion-icon> </a>
-              
+              <a href="#"  style="position:relative;"> <ion-icon name="arrow-forward-circle-outline" style="position:absolute; right:0px;"></ion-icon> </ion-icon> </a>
+    
             </form>
           </div>
           <div class="support-content">
@@ -146,7 +146,6 @@
       display: flex;
       margin-top: 16px;
       justify-content: space-between;
-      gap: 10px;
     }
     .email-input-container a ion-icon {
       color:white;
@@ -287,8 +286,8 @@
     background:none;
     border:none;
     font-weight: 600;
-    padding: 12px 16px;
-    width:80%;
+    padding: 10px 16px;
+    width:100%;
   }
 
   .email-icon {
