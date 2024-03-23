@@ -27,11 +27,17 @@ tr {
 td input {
     width: 50px;
 }
-
+.table_product tbody td button{
+    border: none;
+    background-color: #ffffff;
+}
+.fa-trash-can{
+    font-size: 20px;
+    color: #DB4444;
+}
 h2 {
     font-family: Arial, Helvetica, sans-serif;
 }
-
 .cart_form-product {
     display: flex;
     justify-content: center;
@@ -66,17 +72,12 @@ h2 {
     height: 50px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 22px;
-    color: #DB4444;
-    background-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    border: 2px solid #DB4444 ;
-}
-.btn_pay:hover{
     background-color: #DB4444;
     color: aliceblue;
     cursor: pointer;
+    border-radius: 5px;
+    border: none;
 }
-
 .group_btn {
     margin: 50px 0 50px 160px;
 }
