@@ -84,7 +84,11 @@ h2 {
     border-radius: 5px;
     color: #dddddd;
 }
-
+.cart_list-item{
+    height: 140px;
+    width: 1280px;
+    overflow-y: auto;
+}
 .cart_list {
     margin: 15px 100px 30px 100px;
     border-radius: 5px;
@@ -93,15 +97,16 @@ h2 {
     box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.4);
 }
 .table_2{
-    height: 180px;
+    height: 100px;
     width: 1280px;
-    overflow-y: auto;
 }
 .table_2 thead th {
     background-color: #ff0000;
     color: #dddddd;
 }
-
+.table_2 tbody td {
+    height: 40px;
+}
 .cart_list-title {
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -128,7 +133,7 @@ h2 {
 }
 
 .btn_see-more {
-    margin-top: 30px;
+    margin-top: 15px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     padding: 5px;
@@ -148,12 +153,13 @@ a {
     height: 200px;
 }
 
-@media (max-width: 800px) {
+@media only screen and (min-width: 200px) and (max-width: 500px) {
     .cart_form {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin: 0;
     }
 
     .cart_form-product {
@@ -187,9 +193,66 @@ a {
     .refresh{
         width: 85px;
     }
-    .table_2{
-        height: 200px;
-        width: 250px;
+    .cart_list-item{
+        height: 177px;
+        width: 340px;
         overflow-y: scroll;
+    }
+    .table_2{
+        height: 120px;
+        width: 700px;
+    }
+}
+@media only screen and (min-width: 800px) and (max-width: 1023px){
+    .cart_form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    .cart_form-product {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .group_btn {
+        align-items: center;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+    .product_item-content {
+        height: 300px;
+        width: 600px;
+        overflow-y: auto;
+    }
+    .cart_list-filler{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: left;
+    }
+    .input_date{
+        width: 200px;
+        margin: 10px 0 10px 0;
+    }
+    .filler{
+        width: 60px;
+        margin: 5px 0 15px 0;
+    }
+    .refresh{
+        width: 85px;
+    }
+    .cart_list-item{
+        height: 177px;
+        width: 600px;
+        overflow-y: scroll;
+    }
+    .table_2{
+        height: 120px;
+        width: 700px;
     }
 }

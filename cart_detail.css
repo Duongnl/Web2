@@ -80,7 +80,7 @@ a{
     border-radius: 5px;
     text-decoration: none;
 }
-@media (max-width: 800px) {
+@media only screen  and (min-width: 280px) and (max-width: 500px) {
     h2{
         width: 200px;
         font-size: 18px;
@@ -101,4 +101,25 @@ a{
         overflow-x: auto;
     }
 }
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
+    h2{
+        width: 400px;
+        font-size: 22px;
+    }
+    .cart_detail-info{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2px solid #ff0000;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    .cart_detail-table {
+        width: 420px;
+        overflow-x: auto;
+    }
+}
+
 
