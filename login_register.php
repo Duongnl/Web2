@@ -4,9 +4,6 @@
   <div class="cont">
     <div class="form sign-in"><section>
         <form method="post" action ="login_register.php " class="xulylogin">
-            <?php 
-              require 'xuly.php';
-            ?>;
             <h1>Login</h1>
             <div class="input_login">
                 <ion-icon name="mail-outline"></ion-icon>

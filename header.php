@@ -66,16 +66,7 @@
     object-position: center;
     width: 32px;
   }
-  @media (max-width:991px) {
-    .navigation-container,
-    .menu {
-      max-width: 100%;
-      flex-wrap: wrap;
-    }
-    .logo {
-      white-space: initial;
-    }
-  }
+  
   .menu a {
     text-decoration: none;
     color: black;
@@ -137,12 +128,6 @@
     padding: 12px 60px;
   }
   
-  @media (max-width: 991px) {
-    .announcement-container {
-      max-width: 100%;
-      padding: 0 20px;
-    }
-  }
   
   .announcement-inner {
     display: flex;
@@ -158,18 +143,45 @@
       margin-right: 10px;
       flex-wrap: wrap;
     }
+    .announcement-container {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+    .sale-message {
+      flex-wrap: wrap;
+    }
+    .navigation-container,
+    .menu ,
+    .rightNav{
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+    .logo {
+      white-space: initial;
+    }
+    .language-selector {
+      white-space: initial;
+    }
+    .searching{
+        padding:0;
+      }
+    .rightNav
+       {
+        height:30px;
+        padding: 3px 20px;
+      }
+      .sale-text {
+      max-width: 100%;
+    }
   }
+  
   
   .sale-message {
     display: flex;
     gap: 8px;
   }
   
-  @media (max-width: 991px) {
-    .sale-message {
-      flex-wrap: wrap;
-    }
-  }
+  
   
   .sale-text {
     font-family: 'Poppins', sans-serif;
@@ -180,11 +192,7 @@
     margin: auto 0;
   }
   
-  @media (max-width: 991px) {
-    .sale-text {
-      max-width: 100%;
-    }
-  }
+ 
   
   .shop-now {
     text-align: center;
@@ -204,11 +212,7 @@
     line-height: 150%;
   }
   
-  @media (max-width: 991px) {
-    .language-selector {
-      white-space: initial;
-    }
-  }
+ 
   
   .language-text {
     font-family: 'Poppins', sans-serif;
