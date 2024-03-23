@@ -174,12 +174,12 @@
 
         <!-- Nhãn sản phẩm -->
         <div class="row " style="margin-top: 40px;"  >
-            <h3>Product
+            <h3> <span style="padding-right: 50px;" > Product</span>                                                               
             <select class="form-select select-filter-sort" aria-label="Default select example">
                 <option value="" disabled selected hidden >Sort</option>
                 <option value="0" select>Mặc định</option>
-                <option value="1" select>Giá cao đến thấp</option>
-                <option value="2">Giá thấp đến cao</option>
+                <option value="1" select>Price from low to high</option>
+                <option value="2">Price from high to low</option>
             </select>
             </h3>
         </div>

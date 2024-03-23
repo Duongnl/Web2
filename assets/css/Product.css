@@ -250,9 +250,10 @@
 }
 
 .select-filter-sort {
-  width: 200px;
+  width: 220px;
   float: right;
   border: 1px solid black; /* Màu và độ dày của viền */
+  /* margin-left: 20px; */
 }
 
 @media (max-width: 768px) {
@@ -266,8 +267,18 @@
   .dropdown-hidden {
     display: block;
   }
-.select-filter-sort{
+/* .select-filter-sort{
   width: 160px;
+} */
+
+}
+
+@media (max-width: 377px) {
+ 
+
+.select-filter-sort{
+ float: left;
+ margin-top: 10px;
 }
 
 }
