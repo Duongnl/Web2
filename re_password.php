@@ -14,7 +14,7 @@
             <h1>Repassword</h1>
             <div class="input_login">
                 <ion-icon name="mail-outline"></ion-icon>
-                <input type ="email" placeholder='' required>
+                <input id ="ip_user" type ="email" placeholder='' value=" " required>
                 <label for="">User</label>
             </div>
             <div class="input_login">
@@ -37,4 +37,13 @@
     </section>
     </div>
 </body>
+<script>
+    console.log(document.getElementById('ip_user').value=1);
+    window.onload = function() {
+        document.getElementById('ip_user').value="";
+
+    };
+
+
+</script>
 </html>

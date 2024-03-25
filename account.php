@@ -373,6 +373,7 @@
   .account{
     width:80%;
     margin:auto;
+    padding-bottom:5%;
   }
   .account-sidebar a {
     text-decoration: none;
@@ -390,14 +391,6 @@
     flex-direction: column;
   }
 </style>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-  <title>Document</title>
-</head>
 <body>
   <div class="account">
   <div class="container">
