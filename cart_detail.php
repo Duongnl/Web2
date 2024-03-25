@@ -1,9 +1,13 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="cart_detail.css">
+
+<div id="header">
+		<?php require('head.php'); ?>
+</div>
 <div class="cart_detail">
     <div class="cart_detail-group">
-        <h2>CHI TIẾT HÓA ĐƠN</h2>
+        <h2 class="cart_detail-title">CHI TIẾT HÓA ĐƠN</h2>
         <div class="cart_detail-info">
             <div class="cart_detail-info-1">
                 <p>Mã Đơn Hàng: 24</p>
@@ -46,7 +50,10 @@
             
         </div>
         <div class="btn_submit">
-            <a href="cart.php">Xác nhận</a>
+            <a href="cart.php" class ="btn_submit-a">Xác nhận</a>
             </div>
     </div>
+</div>
+<div id="footer">
+		<?php include('footer.php');?>
 </div>

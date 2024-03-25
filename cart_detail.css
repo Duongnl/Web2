@@ -1,7 +1,6 @@
 .cart_detail {
     display: flex;
     justify-content: center;
-    width: 100%;
     margin-top: 50px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
@@ -12,12 +11,12 @@
     justify-content: center;
     align-items: center;
     width: 60%;
-    border: 5px solid #DB4444;
+    border: 3.5px solid #DB4444;
     text-align: center;
     border-radius: 5px;
     padding-bottom: 30px;
 }
-h2{
+.cart_detail-title{
     margin-top: 20px;
     width: 400px;
     background-color: #DB4444 ;
@@ -58,9 +57,6 @@ th, td {
 td input{
     width: 50px;
 }
-h2{
-    font-family: Arial, Helvetica, sans-serif;
-}
 
 th {
     background-color: #f2f2f2;
@@ -68,7 +64,7 @@ th {
 .btn_submit{
     margin-top: 30px;
 }
-a{
+.btn_submit-a{
     padding: 10px;
     font-weight: bold;
     font-size: 20px;
@@ -77,34 +73,17 @@ a{
     border-radius: 5px;
     text-decoration: none;
 }
-@media only screen  and (min-width: 280px) and (max-width: 500px) {
+@media (max-width: 991px) {
     .cart_detail{
-        margin-top: 20px;
+        width: 100%;
+        margin: 0 auto;
     }
-    h2{
-        width: 200px;
+    .cart_detail-title{
+        width: 90%;
         font-size: 18px;
     }
-    .cart_detail-info{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-bottom: 2px solid #DB4444;
-        padding: 5px;
-        margin-bottom: 10px;
-    }
-    .cart_detail-table {
-        width: 250px;
-        max-width: 600px;
-        overflow-x: auto;
-    }
-}
-@media only screen and (min-width: 600px) and (max-width: 1000px) {
-    h2{
-        width: 400px;
-        font-size: 22px;
+    .cart_detail-group{
+        width: 95%;
     }
     .cart_detail-info{
         width: 100%;
@@ -116,8 +95,11 @@ a{
         padding: 5px;
         margin-bottom: 10px;
     }
+    .cart_detail-info-2{
+        text-align: center;
+    }
     .cart_detail-table {
-        width: 420px;
+        width: 100%;
         overflow-x: auto;
     }
 }

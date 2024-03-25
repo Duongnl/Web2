@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="cart.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.4.2-web/css/all.min.css">
+<div id="header">
+		<?php require('head.php'); ?>
+</div>
 <div class="cart_form">
     <div class="cart_form-product">
         <div class="cart_form-product-1">
@@ -97,4 +100,7 @@
             <button class="btn_see-more">Xem thêm</button>
         </div>
     </div>
+</div>
+<div id="footer">
+		<?php include('footer.php');?>
 </div>
