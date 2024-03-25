@@ -21,7 +21,7 @@
             <p class="tieude"> Forgot password </p>
             <div class="input_Register">
                 <ion-icon name="mail-outline"></ion-icon>
-                <input type = "email" required>
+                <input id="ip_user" type = "email" value =""  required>
                 <label for ="">Email</label>
             </div>
             <label > </label>
@@ -31,4 +31,11 @@
     </section>
 </div>
 </body>
+<script>
+    window.onload= function()
+    {
+        document.getElementsById("ip_user").value="";
+    };
+
+</script>
 </html>
