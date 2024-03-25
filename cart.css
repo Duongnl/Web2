@@ -10,15 +10,13 @@ table {
     width: 100%;
 
 }
-
 .table_product thead th {
     position: sticky;
     top: 0;
     z-index: 2;
-    background-color: #DB4444;
-    color: #dddddd;
+    background-color: #e0e0e0;
+    color: #2b2b2b;
 }
-
 tr {
     text-align: center;
     width: 80px;
@@ -87,18 +85,19 @@ h2 {
     margin-right: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
-    color: #DB4444;
-    background-color: rgb(255, 255, 255);
+    color: #2b2b2b;
+    background-color: #ffffff;
     border-radius: 5px;
-    border: 2px solid #DB4444 ;
+    border: 2px solid #2b2b2b ;
 }
 .group_btn-item:hover{
     background-color: #DB4444;
     color: rgb(255, 255, 255);
+    border: 2px solid #DB4444 ;
 }
 .cart_list-item{
     height: 140px;
-    width: 1280px;
+    width: 100%;
     overflow-y: auto;
 }
 .cart_list {
@@ -113,8 +112,8 @@ h2 {
     width: 1280px;
 }
 .table_2 thead th {
-    background-color: #DB4444;
-    color: #dddddd;
+    background-color: #e0e0e0;
+    color: #2b2b2b;
 }
 .table_2 tbody td {
     height: 40px;
@@ -139,14 +138,15 @@ h2 {
     font-size: 15px;
     padding: 5px;
     margin-right: 20px;
+    color: #2b2b2b;
     background-color: #ffffff;
-    color: #DB4444;
     border-radius: 5px;
-    border: 2px solid #DB4444 ;
+    border: 2px solid #2b2b2b ;
 }
 .cart_list-filler button:hover{
     background-color: #DB4444;
     color: #ffffff;
+    border: 2px solid #DB4444 ;
 }
 .btn_see-more {
     margin-top: 15px;
@@ -154,26 +154,37 @@ h2 {
     font-size: 15px;
     padding: 5px;
     margin-right: 20px;
+    color: #2b2b2b;
     background-color: #ffffff;
-    color: #DB4444;
     border-radius: 5px;
-    border: 2px solid #DB4444 ;
+    border: 2px solid #2b2b2b ;
 }
 .btn_see-more:hover{
     background-color: #DB4444;
     color: #ffffff;
+    border: 2px solid #DB4444 ;
 }
 a {
     color: #DB4444;
 }
-
+.btn_status{
+    color: #2b2b2b;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 2px solid #2b2b2b ;
+}
+.btn_status:hover{
+    background-color: #DB4444;
+    color: #ffffff;
+    border: 2px solid #DB4444 ;
+}
 /* bfvjbjhvdbvjdbfvhjdbfbvbdjdfh */
 .table_product {
     width: 100%;
     height: 200px;
 }
 
-@media only screen and (min-width: 200px) and (max-width: 500px) {
+/* @media only screen and (min-width: 200px) and (max-width: 500px) {
     .cart_form {
         display: flex;
         flex-direction: column;
@@ -222,57 +233,46 @@ a {
         height: 120px;
         width: 700px;
     }
-}
-@media only screen and (min-width: 800px) and (max-width: 1023px){
-    .cart_form {
+} */
+@media (max-width: 991px){
+    .cart_form-product{
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        margin: 0;
-    }
-
-    .cart_form-product {
-        display: flex;
         flex-direction: column;
-        align-items: center;
     }
-    .group_btn {
-        align-items: center;
+    .product_item-content{
+        margin: 0 40px 0 40px;
+        width: 90%;
+    }
+    .table_product{
+        height: 250px;
+        font-size: 24px;
+    }
+    .group_btn{
+        width: 80%;
+        display: flex;
+        justify-content: center;
         margin: 0 auto;
-        margin-bottom: 30px;
     }
-    .product_item-content {
-        height: 300px;
-        width: 600px;
-        overflow-y: auto;
-    }
-    .cart_list-filler{
+    .cart_form-product-2{
         display: flex;
         justify-content: center;
-        text-align: center;
         align-items: center;
         flex-direction: column;
-        text-align: left;
     }
-    .input_date{
-        width: 200px;
-        margin: 10px 0 10px 0;
-    }
-    .filler{
-        width: 60px;
-        margin: 5px 0 15px 0;
-    }
-    .refresh{
-        width: 85px;
+    .cart_list{
+        margin: 20px;
     }
     .cart_list-item{
-        height: 177px;
-        width: 600px;
-        overflow-y: scroll;
+        width: 100%;
+    }
+    .cart_form-product-order{
+        width: 40%;
+    }
+    .cart_list-filler{
+        font-size: 22px;
     }
     .table_2{
-        height: 120px;
-        width: 700px;
+        font-size: 22px;
     }
 }
