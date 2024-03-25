@@ -70,6 +70,7 @@
   .menu a {
     text-decoration: none;
     color: black;
+    padding: 10px 6px;
   }
   .inputsearch{
     font-family: Poppins, sans-serif;
@@ -130,12 +131,9 @@
   
   
   .announcement-inner {
-    display: flex;
-    margin-right: 76px;
-    width: 859px;
+    
     max-width: 100%;
-    justify-content: space-between;
-    gap: 20px;
+    
   }
   
   @media (max-width: 991px) {
@@ -224,16 +222,29 @@
     object-fit: contain;
     width: 24px;
   }
+  .menu a:hover {
+    border-radius:32px;
+    border: 1px soild;
+    background-color:black;
+    color:white;
+    
+    
+  }
+  ion-icon {
+  color: black;
+  }
+
 </style>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </head>
 <body>
   <div class="announcement-container">
@@ -242,9 +253,6 @@
         <p class="sale-text">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
         <div tabindex="0" role="button" class="shop-now">Shop Now</div>
       </div>
-      <div class="language-selector">
-        <div class="language-text">English</div>
-        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c458026ddcb4daaaca9291897ab1b8ab8e65bd1233e48db8bbc95eb90ee3e16?apiKey=de754edacf6d4fbeaf990b709fcfe0b5&" alt="Country flag" class="country-flag" loading="lazy"/>
       </div>
     </div>
   </div>
@@ -258,7 +266,6 @@
       <a href="/" class="home">Home</a>
       <a href="/contact" class="contact">Contact</a>
       <a href="/about" class="about">About</a>
-      <a href="/signup" class="sign-up">Sign Up</a>
     </div>
     <div class="rightNav">
       <div class="searching">
@@ -268,8 +275,9 @@
         </a>
       </div>
         <div class="fav-shop">
-           <i class="fa-solid fa-cart-plus fs20 pdrl20 "></i>
-          <i class="fa-solid fa-user fs20 "></i> 
+         <ion-icon name="person-circle-outline " class="fs20 pdrl20"></ion-icon>
+           <!-- <i class="fa-solid fa-cart-plus fs20 pdrl20 "></i>
+          <i class='bx bx-user-circle'></i></ion-icon>  -->
         </div>
       </div>
     </div>
