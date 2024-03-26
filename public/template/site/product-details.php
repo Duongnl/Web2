@@ -12,11 +12,11 @@
 </head>
 <body>
 <div class="chiTietMonHang_main">
-    <div class="container">
-        <div class="row chiTietMonHang_SanPham">
-
+    <div c
             <div class="chiTietMonHang_chiTietCacAnh col-lg-2 col-md-4 ">
-                <img src="../assets/images/img.png" class="img-fluid img_cacAnh" alt="...">
+                <img src="../assetlass="container">
+        <div class="row chiTietMonHang_SanPham">
+s/images/img.png" class="img-fluid img_cacAnh" alt="...">
                 <img src="../assets/images/img.png" class="img-fluid img_cacAnh" alt="...">
                 <img src="../assets/images/img.png" class="img-fluid img_cacAnh" alt="...">
                 <img src="../assets/images/img.png" class="img-fluid img_cacAnh" alt="...">

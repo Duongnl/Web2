@@ -8,13 +8,13 @@
 <body>
     <div id = "wrapper" >
         <div id="header">
-            <?php require('template/head.php'); ?>
+            <?php require('../../public/template/site/head.php'); ?>
         </div>
         <div id="content">
-            <?php require('template/product.php'); ?>
+            <?php require('../../public/template/site/product.php'); ?>
         </div>
         <div id="footer">
-            <?php require('template/footer.php'); ?>
+            <?php require('../../public/template/site/footer.php'); ?>
         </div>
     </div>
     
