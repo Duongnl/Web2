@@ -15,18 +15,31 @@
 <div class="chiTietMonHang_main">
     <div class="container">
         <div class="row chiTietMonHang_SanPham">
-
-            <div class="chiTietMonHang_chiTietCacAnh col-lg-2 col-md-4 ">
-                <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
-                <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
-                <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
-                <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
-
-            </div>
-            <div class="chiTietMonHang_AnhChinh col-lg-5 col-md-8">
-                <img src="./img/img.png" class="img-fluid img_anhChinh" alt="...">
-            </div>
-            <div class="chiTietMonHang_thongTin col-lg-5 col-12">
+           <div class="row col-md-8 ">
+            <div class="chiTietMonHang_chiTietCacAnh  col-md-2 col-sm-4 ">
+              <div class="row" >
+                <div class="col-3 col-md-12">
+                  <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
+                </div>
+                <div class="col-3 col-md-12">
+                  <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
+                </div>
+                <div class="col-3 col-md-12">
+                  <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
+                </div>
+                <div class="col-3 col-md-12" >
+                  <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
+                </div>
+              </div>
+             
+          </div>
+          <div class="chiTietMonHang_AnhChinh  col-md-5 col-sm-8">
+              <img src="./img/img.png" class="img-fluid img_anhChinh" alt="...">
+          </div>
+           </div>
+           
+            <div class="chiTietMonHang_thongTin col-sm-12  col-md-4">
+             
                 <h1 class="chiTietMonHang_title">Havic HV G-92 Gamepad</h1>    
                 <div class="chiTietMonHang_AnhChinh_price">$192.00</div>
                 <p class="product-description">
@@ -83,15 +96,36 @@
                     </div>
                   </div>
             </div>
+        
+           </div>
         </div>
-        <div class="sanPhamLienQuan">
-          <div class="row sanPhamLienQuan_top">
-            <p class="cacSanPhamKhac col-2">
-            </p>
-            <p class="col-10 sanPhamLienQuan_top_text">CAC SAN PHAM</p>
-          </div>
-          
-          <div class="row sanPhamLienQuan_bottom">
+        <div class="row">
+          <div class=" sanPhamLienQuan">
+            <div class="row sanPhamLienQuan_top">
+              <p class="cacSanPhamKhac col-2">
+              </p>
+              <p class="col-10 sanPhamLienQuan_top_text">CAC SAN PHAM</p>
+            </div>
+            
+            <div class="row sanPhamLienQuan_bottom">
+              <div class="col-6  col-md-3 col-xxl-3 product">
+                <a href="" class="wrap-img">
+                <img class="img-product" src="./img/img.png">
+                <div class="deal"><span>-50%</span></div>
+                </a>
+                <div class="d-flex justify-content-between align-items-center mx-1 my-2">
+                    <div class="product-body">
+                        <a href="./img/img.png" class="product-title">The north coat</a>
+                        <div class="prices">
+                        <div class="new-price">$260</div>
+                        <div class="old-price">$260</div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+              </div>
             <div class="col-6  col-md-3 col-xxl-3 product">
               <a href="" class="wrap-img">
               <img class="img-product" src="./img/img.png">
@@ -110,7 +144,7 @@
                   </button>
               </div>
             </div>
-          <div class="col-6  col-md-3 col-xxl-3 product">
+            <div class="col-6  col-md-3 col-xxl-3 product">
             <a href="" class="wrap-img">
             <img class="img-product" src="./img/img.png">
             <div class="deal"><span>-50%</span></div>
@@ -127,7 +161,8 @@
                     <i class="fa-solid fa-cart-plus"></i>
                 </button>
             </div>
-          </div><div class="col-6  col-md-3 col-xxl-3 product">
+             </div>
+             <div class="col-6  col-md-3 col-xxl-3 product">
           <a href="" class="wrap-img">
           <img class="img-product" src="./img/img.png">
           <div class="deal"><span>-50%</span></div>
@@ -144,29 +179,17 @@
                   <i class="fa-solid fa-cart-plus"></i>
               </button>
           </div>
-           </div><div class="col-6  col-md-3 col-xxl-3 product">
-        <a href="" class="wrap-img">
-        <img class="img-product" src="./img/img.png">
-        <div class="deal"><span>-50%</span></div>
-        </a>
-        <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-                <a href="./img/img.png" class="product-title">The north coat</a>
-                <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-                </div>
+             </div>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-                <i class="fa-solid fa-cart-plus"></i>
-            </button>
-        </div>
-    </div>
           </div>
-           
         </div>
+        
+        
+
       </div>
 </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="./js/chiTietMonHang.js"></script>
 </body>
