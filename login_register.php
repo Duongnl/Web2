@@ -12,7 +12,7 @@
             </div>
             <div class="input_login">
                 <ion-icon name="lock-closed-outline"></ion-icon>
-                <input type="password" name="input_pass" value="" required>
+                <input type="password" name="input_pass" value="" required ">
                 <label for="">Password</label>
 
             </div>
