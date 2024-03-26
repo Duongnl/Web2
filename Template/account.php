@@ -11,6 +11,7 @@
     margin-top: 10%;
     width: 100%;
   }
+  
 
   @media (max-width: 991px) {
     .account-management {
