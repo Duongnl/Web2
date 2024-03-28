@@ -7,13 +7,13 @@
             <h1>Login</h1>
             <div class="input_login">
                 <ion-icon name="mail-outline"></ion-icon>
-                <input type ="text" name="input_user"placeholder='' required>
-                <label for="">User</label>
+                <input type ="text" name="input_user"placeholder='User' required>
+                <!-- <label for="">User</label> -->
             </div>
             <div class="input_login">
                 <ion-icon name="lock-closed-outline"></ion-icon>
-                <input type="password" name="input_pass" value="" required ">
-                <label for="">Password</label>
+                <input type="password" name="input_pass" value="" placeholder="Password" required ">
+                <!-- <label for="">Password</label> -->
 
             </div>
             <div class="forget">
@@ -24,7 +24,7 @@
             </div>
             <button class="btn-login"><a href="#">Login</a></button>
             <button class="register">
-                <p> Register</p>
+                 Register
             </button>
         </form>
 
@@ -54,23 +54,23 @@
                 <h1>Register</h1>
                 <div class="input_Register">
                     <ion-icon name="mail-outline"></ion-icon>
-                    <input type = "text" required>
-                    <label for ="">User Name</label>
+                    <input type = "text" placeholder="User" required>
+                    <!-- <label for ="">User Name</label> -->
                 </div>
                 <div class="input_Register">
                     <ion-icon name="mail-outline"></ion-icon>
-                    <input type = "email" required>
-                    <label for ="">Email</label>
+                    <input type = "email" placeholder="Email" required>
+                    <!-- <label for ="">Email</label> -->
                 </div>
                 <div class="input_Register">
                     <ion-icon name="mail-outline"></ion-icon>
-                    <input type = "text" required>
-                    <label for ="">Phone Number</label>
+                    <input type = "text" placeholder="Phone Number" required>
+                    <!-- <label for ="">Phone Number</label> -->
                 </div>
                 <div class="input_Register">
                     <ion-icon name="lock-closed-outline"></ion-icon>
-                    <input type = "password" required>
-                    <label for ="">Password</label>
+                    <input type = "password" placeholder="Password" required>
+                    <!-- <label for ="">Password</label> -->
                 </div>
                 <div class="login">
                     <label for="">Already have an account? <a href="#" class="buttonlogin">Login</a> </label>
@@ -93,7 +93,7 @@
 
 document.querySelector('.register').addEventListener('click', function()
 	{
-		document.querySelector('.cont').classList.toggle('s-signup')
+		document.querySelector('.cont').classList.toggle('s-signup');
 	}
 );
 document.querySelector('.buttonlogin').addEventListener('click', function()
@@ -101,6 +101,8 @@ document.querySelector('.buttonlogin').addEventListener('click', function()
 		document.querySelector('.cont').classList.toggle('s-signup')
 	}
 );
+
+
 </script>
 
 <style>
@@ -113,7 +115,8 @@ document.querySelector('.buttonlogin').addEventListener('click', function()
 
 .signinandout{
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
+  margin:10% 0;
   justify-content:center;
   display: flex;
   align-items: center;
@@ -567,10 +570,14 @@ h1{
 
 }
 
-input:focus ~ label,
-input:valid ~ label {
+/* input:focus ~ label,
+input:valid ~ label,
+input:visited ~ label, 
+input:active ~label 
+
+{
   top: -5px;
-}
+} */
 
 .forget label {
   display:flex;
@@ -607,7 +614,7 @@ button {
   width:100%;
   height:40px;
   border-radius:40px;
-  background-color: rgb(0,0,0,1);
+  background-color: rgb(0,0,0,1); 
   outline:none;
   cursor:pointer;
   font-size:1rem;
@@ -645,7 +652,40 @@ button:hover{
   animation-timing-function: cubic-bezier(0.5, -0.6, 1, 1);
 
 }
+@media (max-width: 900px){
+  .form {
+    
+    width: 300px;
+    transition: transform 0.9s ease-in-out, -webkit-transform 1.2s ease-in-out;
+}
+    
+  }
+  .cont {
+    
+   
+    
+    width: 300px;
+    
 
+  }
+
+  .sub-cont {
+    transition: transform 0.9s ease-in-out;
+  }
+  .img {
+    display:none;
+  }
+  .cont.s-signup .sub-cont {
+    -webkit-transform: translate3d(-900px, 0, 0);
+    transform: translate3d(-900px, 0, 0);
+    transition:all 0.4 ease;
+
+}
+.sign-up {
+    -webkit-transform: translate3d(-600px, 0, 0);
+    transform: translate3d(-600px, 0, 0);
+}
+}
 
 
 </style>
