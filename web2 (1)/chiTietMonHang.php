@@ -15,25 +15,25 @@
 <div class="chiTietMonHang_main">
     <div class="container">
         <div class="row chiTietMonHang_SanPham">
-           <div class="row col-md-8 ">
+           <div class="row col-md-8 chiTietMonHang_SanPham_left mb-sm-4">
             <div class="chiTietMonHang_chiTietCacAnh  col-md-2 col-sm-4 ">
               <div class="row" >
-                <div class="col-3 col-md-12">
+                <div class="col-3 col-sm-12 chiTietMonHang_chiTietCacAnh_Anh p-0 ">
                   <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
                 </div>
-                <div class="col-3 col-md-12">
+                <div class="col-3 col-sm-12 chiTietMonHang_chiTietCacAnh_Anh p-0">
                   <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
                 </div>
-                <div class="col-3 col-md-12">
+                <div class="col-3 col-sm-12 chiTietMonHang_chiTietCacAnh_Anh p-0">
                   <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
                 </div>
-                <div class="col-3 col-md-12" >
+                <div class="col-3 col-sm-12 chiTietMonHang_chiTietCacAnh_Anh p-0" >
                   <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
                 </div>
               </div>
              
           </div>
-          <div class="chiTietMonHang_AnhChinh  col-md-5 col-sm-8">
+          <div class="chiTietMonHang_AnhChinh  col-md-5 col-sm-8 chiTietMonHang_SanPham_right">
               <img src="./img/img.png" class="img-fluid img_anhChinh" alt="...">
           </div>
            </div>
@@ -64,14 +64,14 @@
                 
                 
                 <div class="chiTietMonHang_soLuong row mt-4 justify-content-center">
-                    <div class="size-label col-xxl-3 col-3">Số lượng:</div>
+                    <div class="size-label col-xxl-3 col-3 mb-4">Số lượng:</div>
 
-                    <div class="chiTietMonHang_thongTin_BUY_SoLuong col-xxl-4 col-9">
+                    <div class="chiTietMonHang_thongTin_BUY_SoLuong col-xxl-9 col-9 mb-4">
                         <button id="decrease" class="btn_giamSoLuong">-</button>
                         <input type="text" id="chiTietMonHang_thongTin_BUY_SoLuong" class="chiTietMonHang_thongTin_BUY_SoLuong" value="1" readonly>
                         <button id="increase" class="btn_tangSoLuong">+</button>
                     </div>
-                    <div class="col-xxl-5 col-12 chiTietMonHang_themVaoGioHang mt-3 mt-xxl-0">
+                    <div class=" col-12 chiTietMonHang_themVaoGioHang mt-3 mt-xxl-0">
                       <button class="btn_ThemVaoGioHang">Thêm vào giỏ hàng</button>
                     </div>
                 </div>
