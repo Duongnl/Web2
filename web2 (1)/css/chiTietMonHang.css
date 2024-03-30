@@ -29,7 +29,7 @@
   .img_cacAnh{
     padding: 5px;
     background-color: #ccc;
-    height: 150px;
+    height: 190px;
     width: 100%;
   }
   .chiTietMonHang_AnhChinh{
@@ -242,7 +242,7 @@
   .chiTietMonHang_title {
     color: var(--Text2, #000);
     letter-spacing: 0.72px;
-    font: 600 24px/100% Inter, sans-serif;
+    font: 600 30px/100% Inter, sans-serif;
   }
   
   .product-info {
@@ -482,7 +482,7 @@
     border-radius: 4px;
     border: 1px solid rgba(0, 0, 0, 0.5);
     display: flex;
-    margin-top: 40px;
+    margin-top: 40px !important;
     flex-direction: column;
     align-items: start;
     color: #000;
@@ -797,7 +797,6 @@
   @media screen and (min-width:575px) and (max-width: 992px) {
     .chiTietMonHang_AnhChinh{
       width: 38vw;
-      height: 600px;
       margin-left: auto;
       margin-top: 0;
     }
@@ -839,6 +838,20 @@
     font-size: 12px;
     padding: 2px 8px;
   }
+  }
+  @media (max-width: 768px) {
+    .chiTietMonHang_SanPham_left {
+      flex-direction: column-reverse;
+    }
+    .chiTietMonHang_SanPham_right{
+      width: 100%;
+    }
+    .img_cacAnh{
+      width: 92%;
+    }
+    .chiTietMonHang_chiTietCacAnh_Phu{
+      margin-left: 2px;
+    }
   }
   @media (max-width: 501px) {
     .cacSanPhamKhac {
