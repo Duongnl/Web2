@@ -21,8 +21,8 @@
             <p class="tieude"> Forgot password </p>
             <div class="input_Register">
                 <ion-icon name="mail-outline"></ion-icon>
-                <input id="ip_user" type = "email" value =""  required>
-                <label for ="">Email</label>
+                <input id="ip_user" type = "email" value =""  placeholder="Email"  required>
+                <!-- <label for ="">Email</label> -->
             </div>
             <label > </label>
             <button class="btn-register"><p>Forgot password </p></button>
