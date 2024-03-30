@@ -657,16 +657,10 @@ button:hover{
     
     width: 300px;
     transition: transform 0.9s ease-in-out, -webkit-transform 1.2s ease-in-out;
-}
     
   }
   .cont {
-    
-   
-    
     width: 300px;
-    
-
   }
 
   .sub-cont {
