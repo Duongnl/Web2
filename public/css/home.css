@@ -10,26 +10,6 @@ hr {
   margin: 60px 0;
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 8px;
-}
-
-
-/* Track */
-::-webkit-scrollbar-track {
-  border-radius: 2px;
-  margin: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #ccc;
-  height: 10px;
-  border-radius: 4px;
-}
-
 .banner {
   width: 100%;
   height: 600px;
@@ -42,6 +22,7 @@ hr {
   height: 100%;
   object-fit: cover;
   display: none;
+  transition: display 0s;
 }
 
 .img-slide.active {
@@ -268,6 +249,7 @@ hr {
   padding: 10px 0;
   flex-wrap: nowrap;
   overflow-x: auto;
+  scroll-behavior: smooth
 }
 
 .block .btn-view-all-products {
@@ -310,6 +292,7 @@ hr {
   margin: 100px auto;
   justify-content: space-between;
   display: flex;
+  gap: 8px;
 }
 
 .policy-item {
@@ -365,6 +348,22 @@ hr {
   .banner .content p {
     font-size: 14px;
   }
+
+
+  .block .left .desc {
+    margin-top: 10px;
+    font-size: 22px;
+  }
+
+  .block .right {
+    align-items: center;
+  }
+
+  .category-group {
+    height: 145px
+  }
+
+
 
   .wrap-img {
     padding: 20px;

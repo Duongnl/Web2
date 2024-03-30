@@ -17,20 +17,21 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="./public/css/home.css">
+  <script src="./public/js/home.js"></script>
 </head>
 
 
 <body>
   <div class="container">
     <div class="banner">
-      <img alt="" class="img-slide" src="./public/images/slide1.jpg">
-      <img alt="" class="img-slide active " src="./public/images/slide2.jpg">
+      <img alt="" class="img-slide active" src="./public/images/slide1.jpg">
+      <img alt="" class="img-slide" src="./public/images/slide2.jpg">
       <img alt="" class="img-slide " src="./public/images/slide3.jpg">
       <div class="group-nav">
         <i class="fa-solid fa-angle-left"></i>
         <div class="badge-nav">
-          <span class="badge"></span>
           <span class="badge active"></span>
+          <span class="badge"></span>
           <span class="badge"></span>
         </div>
         <i class="fa-solid fa-angle-right"></i>
@@ -53,8 +54,8 @@
           <div class="desc">Browse By Category</div>
         </div>
         <div class="right">
-          <i class="fa-solid fa-arrow-left"></i>
-          <i class="fa-solid fa-arrow-right"></i>
+          <i class="fa-solid fa-arrow-left scrollToLeft"></i>
+          <i class="fa-solid fa-arrow-right scrollToRight"></i>
         </div>
       </div>
       <div class="bottom row">
