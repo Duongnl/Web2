@@ -316,18 +316,13 @@ button{
 
 }
 
-.bodylogin 
-{
- 
-  
 
-} 
+
 section
 {
 
   position:relative;
   max-width: 100%;
-  background-color: transparent;
   border: 2px soild rgba(255,255,255,0,5);
   border-radius: 20px;
   backdrop-filter: blur(55px);
@@ -542,5 +537,6 @@ button:hover{
   animation-timing-function: cubic-bezier(0.5, -0.6, 1, 1);
 
 }
+
 
 
