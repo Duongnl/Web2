@@ -6,10 +6,26 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-
+    <style>
+        .repass {
+            border-radius: 45px;
+            width: 30%;
+            height: 550px;
+            background: #fff;
+            box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+            justify-content: center;
+            display: flex;
+            align-items: center;
+        }
+        @media (max-width: 900px){
+        .repass{
+        width:80%;
+        }
+ }
+    </style>
 </head>
 <body>
-    <div class="bodylogin"><section>
+    <div class="repass"><section>
         <form>
             <h1>Repassword</h1>
             <div class="input_login">
