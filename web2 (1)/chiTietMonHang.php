@@ -15,32 +15,32 @@
 <div class="chiTietMonHang_main">
     <div class="container">
         <div class="row chiTietMonHang_SanPham">
-           <div class="row col-md-8 chiTietMonHang_SanPham_left mb-sm-4">
-            <div class="chiTietMonHang_chiTietCacAnh  col-md-2 col-sm-4 ">
-              <div class="row" >
-                <div class="col-3 col-sm-12 chiTietMonHang_chiTietCacAnh_Anh p-0 ">
+           <div class="row col-sm-12 col-md-8 chiTietMonHang_SanPham_left mb-sm-4">
+            <div class="chiTietMonHang_chiTietCacAnh  col-md-2 col-sm-12 ">
+              <div class="row chiTietMonHang_chiTietCacAnh_Phu" >
+                <div class="col-3 col-md-12 chiTietMonHang_chiTietCacAnh_Anh p-0 ">
                   <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
                 </div>
-                <div class="col-3 col-sm-12 chiTietMonHang_chiTietCacAnh_Anh p-0">
+                <div class="col-3 col-md-12 chiTietMonHang_chiTietCacAnh_Anh p-0">
                   <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
                 </div>
-                <div class="col-3 col-sm-12 chiTietMonHang_chiTietCacAnh_Anh p-0">
+                <div class="col-3 col-md-12 chiTietMonHang_chiTietCacAnh_Anh p-0">
                   <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
                 </div>
-                <div class="col-3 col-sm-12 chiTietMonHang_chiTietCacAnh_Anh p-0" >
+                <div class="col-3 col-md-12 chiTietMonHang_chiTietCacAnh_Anh p-0" >
                   <img src="./img/img.png" class="img-fluid img_cacAnh" alt="...">
                 </div>
               </div>
              
           </div>
-          <div class="chiTietMonHang_AnhChinh  col-md-5 col-sm-8 chiTietMonHang_SanPham_right">
+          <div class="chiTietMonHang_AnhChinh  col-md-5 col-sm-12 chiTietMonHang_SanPham_right">
               <img src="./img/img.png" class="img-fluid img_anhChinh" alt="...">
           </div>
            </div>
-           
+           <!-- thông tin -->
             <div class="chiTietMonHang_thongTin col-sm-12  col-md-4">
              
-                <h1 class="chiTietMonHang_title">Havic HV G-92 Gamepad</h1>    
+                <h1 class="chiTietMonHang_title pb-4">Havic HV G-92 Gamepad</h1>    
                 <div class="chiTietMonHang_AnhChinh_price">$192.00</div>
                 <p class="product-description">
                   PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install &amp; mess free removal Pressure sensitive.
@@ -71,7 +71,7 @@
                         <input type="text" id="chiTietMonHang_thongTin_BUY_SoLuong" class="chiTietMonHang_thongTin_BUY_SoLuong" value="1" readonly>
                         <button id="increase" class="btn_tangSoLuong">+</button>
                     </div>
-                    <div class=" col-12 chiTietMonHang_themVaoGioHang mt-3 mt-xxl-0">
+                    <div class=" col-12 chiTietMonHang_themVaoGioHang mt-4">
                       <button class="btn_ThemVaoGioHang">Thêm vào giỏ hàng</button>
                     </div>
                 </div>
@@ -99,6 +99,7 @@
         
            </div>
         </div>
+        <!-- sản phẩm liên quan -->
         <div class="row">
           <div class=" sanPhamLienQuan">
             <div class="row sanPhamLienQuan_top">
