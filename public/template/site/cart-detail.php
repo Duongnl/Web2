@@ -47,7 +47,7 @@
             
         </div>
         <div class="btn_submit">
-            <a href="cart.php" class ="btn_submit-a">Confirm</a>
+            <a href="card-page.php" class ="btn_submit-a">Confirm</a>
             </div>
     </div>
 </div>

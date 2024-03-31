@@ -1,11 +1,11 @@
-#header{
+/* #header{
     top: 0;
     left: 0;
     right: 0;
     position: fixed;
     z-index: 1000;
     background-color: #ffffff;
-}
+} */
 .product_item-content {
     height: 340px;
     width: 800px;
@@ -46,7 +46,7 @@ h2 {
 .cart_form-product {
     display: flex;
     justify-content: center;
-    margin-top: 150px;
+    margin-top: 50px;
     margin-bottom: 50px;
 }
 
