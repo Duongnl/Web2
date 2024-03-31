@@ -326,7 +326,7 @@
       padding: 0 20px;
     }
   }
-  .container {
+  .ctn-account {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -339,7 +339,7 @@
   }
 
   @media (max-width: 991px) {
-    .container {
+    .ctn-account {
       flex-wrap: wrap;
       margin-top: 40px;
     }
@@ -373,6 +373,7 @@
   .account{
     width:80%;
     margin:auto;
+    padding-bottom:5%;
   }
   .account-sidebar a {
     text-decoration: none;
@@ -390,17 +391,9 @@
     flex-direction: column;
   }
 </style>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-  <title>Document</title>
-</head>
 <body>
   <div class="account">
-  <div class="container"  style=" margin-bottom: 40px; margin-top: 20px;">
+  <div class="container ctn-account">
     <div class="nav">
       <a href="#" class="nav-item">Home/</a>
       <a href="#" class="nav-item">My Account</a>
@@ -409,7 +402,7 @@
       Welcome! <span class="highlight">Md Rimel</span>
     </div>
   </div>
-<div class="account-management" style="margin-top: 0px;" >
+<div class="account-management">
   <div class="account-management-container">
     <aside class="account-sidebar">
       <nav class="account-sidebar-menu">
