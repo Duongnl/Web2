@@ -8,9 +8,9 @@
 </head>
 
 <body>
-  <?php require('./public/template/site/head.php')?>
-  <?php include('./public/template/site/home.php')?>
-  <?php require('./public/template/site/footer.php')?>
+  
+  <?php include('site/view/indx.php')?>
+  
 </body>
 
 </html>
