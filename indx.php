@@ -9,7 +9,9 @@
 
 <body>
   
-  <?php include('site/view/indx.php')?>
+<?php require('./public/template/site/head.php')?>
+<?php include('./public/template/site/indx.php')?>
+<?php require('./public/template/site/footer.php')?>
   
 </body>
 
