@@ -11,7 +11,6 @@
                 <table class="table table_product">
                     <thead>
                         <tr>
-                            <th scope="col">Order</th>
                             <th scope="col">Img</th>
                             <th scope="col">Name Product</th>
                             <th scope="col">Price</th>
@@ -22,70 +21,64 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th>1</th>
                             <td><img src="../../public/images/arsenal1.jpg" alt="" width="50px"></td>
-                            <td>Áo đá bóng</td>
+                            <td>Áo đá bóng <div class="size">Size: M</div>
+                            </td>
                             <td><span>180</span>$</td>
-                            <td><input type="number" min="0" value="1"></td>
+                            <td><button class="reduce">-</button><input type="text" min="0" value="1"><button class="increase">+</button></td>
                             <td><span>180</span>$</td>
-                            <td><button><i class="fa-solid fa-trash-can"></i></button></td>
+                            <td><button class="trash"><i class="fa-solid fa-trash-can"></i></button></td>
                         </tr>
                         <tr>
-                            <th>1</th>
                             <td><img src="../../public/images/arsenal1.jpg" alt="" width="50px"></td>
-                            <td>Áo đá bóng</td>
+                            <td>Áo đá bóng <div class="size">Size: M</div>
                             <td><span>180</span>$</td>
-                            <td><input type="number" min="0" value="1"></td>
+                            <td><button class="reduce">-</button><input type="text" min="0" value="1"><button class="increase">+</button></td>
                             <td><span>180</span>$</td>
-                            <td><button><i class="fa-solid fa-trash-can"></i></button></td>
+                            <td><button class="trash"><i class="fa-solid fa-trash-can"></i></button></td>
                         </tr>
                         <tr>
-                            <th>1</th>
                             <td><img src="../../public/images/arsenal1.jpg" alt="" width="50px"></td>
-                            <td>Áo đá bóng</td>
+                            <td>Áo đá bóng <div class="size">Size: M</div>
                             <td><span>180</span>$</td>
-                            <td><input type="number" min="0" value="1"></td>
+                            <td><button class="reduce">-</button><input type="text" min="0" value="1"><button class="increase">+</button></td>
                             <td><span>180</span>$</td>
-                            <td><button><i class="fa-solid fa-trash-can"></i></button></td>
+                            <td><button class="trash"><i class="fa-solid fa-trash-can"></i></button></td>
                         </tr>
                         <tr>
-                            <th>1</th>
                             <td><img src="../../public/images/arsenal1.jpg" alt="" width="50px"></td>
-                            <td>Áo đá bóng</td>
+                            <td>Áo đá bóng <div class="size">Size: M</div>
                             <td><span>180</span>$</td>
-                            <td><input type="number" min="0" value="1"></td>
+                            <td><button class="reduce">-</button><input type="text" min="0" value="1"><button class="increase">+</button></td>
                             <td><span>180</span>$</td>
-                            <td><button><i class="fa-solid fa-trash-can"></i></button></td>
+                            <td><button class="trash"><i class="fa-solid fa-trash-can"></i></button></td>
                         </tr>
                         <tr>
-                            <th>1</th>
                             <td><img src="../../public/images/arsenal1.jpg" alt="" width="50px"></td>
-                            <td>Áo đá bóng</td>
+                            <td>Áo đá bóng <div class="size">Size: M</div>
                             <td><span>180</span>$</td>
-                            <td><input type="number" min="0" value="1"></td>
+                            <td><button class="reduce">-</button><input type="text" min="0" value="1"><button class="increase">+</button></td>
                             <td><span>180</span>$</td>
-                            <td><button><i class="fa-solid fa-trash-can"></i></button></td>
+                            <td><button class="trash"><i class="fa-solid fa-trash-can"></i></button></td>
                         </tr>
                         <tr>
-                            <th>1</th>
                             <td><img src="../../public/images/arsenal1.jpg" alt="" width="50px"></td>
-                            <td>Áo đá bóng</td>
+                            <td>Áo đá bóng <div class="size">Size: M</div>
                             <td><span>180</span>$</td>
-                            <td><input type="number" min="0" value="1"></td>
+                            <td><button class="reduce">-</button><input type="text" min="0" value="1"><button class="increase">+</button></td>
                             <td><span>180</span>$</td>
-                            <td><button><i class="fa-solid fa-trash-can"></i></button></td>
+                            <td><button class="trash"><i class="fa-solid fa-trash-can"></i></button></td>
                         </tr>
                         <tr>
-                            <th>1</th>
                             <td><img src="../../public/images/arsenal1.jpg" alt="" width="50px"></td>
-                            <td>Áo đá bóng</td>
+                            <td>Áo đá bóng <div class="size">Size: M</div>
                             <td><span>180</span>$</td>
-                            <td><input type="number" min="0" value="1"></td>
+                            <td><button class="reduce">-</button><input type="text" min="0" value="1"><button class="increase">+</button></td>
                             <td><span>180</span>$</td>
-                            <td><button><i class="fa-solid fa-trash-can"></i></button></td>
+                            <td><button class="trash"><i class="fa-solid fa-trash-can"></i></button></td>
                         </tr>
                     </tbody>
-                    
+
                 </table>
             </div>
         </div>
@@ -146,3 +139,32 @@
         </div>
     </div>
 </div>
+<script>
+    // Lấy tất cả các button có class là "reduce" và "increase"
+    const reduceButtons = document.querySelectorAll('.reduce');
+    const increaseButtons = document.querySelectorAll('.increase');
+
+    // Lặp qua từng button "Tăng" và thêm sự kiện click
+    increaseButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Lấy ô input tương ứng với button được click
+            const input = button.parentNode.querySelector('input[type="text"]');
+            // Tăng giá trị của ô input lên 1 đơn vị nếu giá trị hiện tại nhỏ hơn giá trị tối đa (nếu có)
+            if (input.value < input.max || !input.hasAttribute('max')) {
+                input.value = parseInt(input.value) + 1;
+            }
+        });
+    });
+
+    // Lặp qua từng button "Giảm" và thêm sự kiện click
+    reduceButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Lấy ô input tương ứng với button được click
+            const input = button.parentNode.querySelector('input[type="text"]');
+            // Giảm giá trị của ô input đi 1 đơn vị nếu giá trị hiện tại lớn hơn giá trị tối thiểu (nếu có)
+            if (input.value > input.min || !input.hasAttribute('min')) {
+                input.value = parseInt(input.value) - 1;
+            }
+        });
+    });
+</script>
