@@ -17,7 +17,7 @@
   .huongDanChonSize a{
     text-decoration: none;
     color: gray;
-    font-size: 15px;
+    font-size: 20px;
   }
   .huongDanChonSize a:hover{
     transition: 0.5;
@@ -28,25 +28,23 @@
   .img_cacAnh{
     padding: 5px;
     background-color: #ccc;
-    height: 140px;
+    height: 170px;
     width: 100%;
-    gap: 20px;
   }
   .chiTietMonHang_AnhChinh{
-    top: 0;
-    height: 100%;
-    width: 650px;
+    height: 92%;
+    width: 700px;
   }
   .img_anhChinh{
     width: 100%;
-    height: 95%;
+    height: 100%;
   }
   .chiTietMonHang_thongTin{
   }
   .delivery-info{
-    margin-top: 0 !important;
+    margin-top: 20px !important;
+    padding-top: 5px !important;
     padding-bottom: 5px !important;
-    padding: 0 !important;
 
   }
   /* chiTietMonHang_thongTin_TenSP */
@@ -243,7 +241,7 @@
   .chiTietMonHang_title {
     color: var(--Text2, #000);
     letter-spacing: 0.72px;
-    font: 600 23px/100% Inter, sans-serif;
+    font: 600 30px/100% Inter, sans-serif;
   }
   
   .product-info {
@@ -287,7 +285,7 @@
     color: var(--Text2, red);
     letter-spacing: 0.72px;
     margin-top: 17px;
-    font: 400 20px/100% Inter, sans-serif;
+    font: 400 24px/100% Inter, sans-serif;
   }
   
   .product-description {
@@ -301,7 +299,7 @@
     border-style: solid;
     border-width: 1px;
     background-color: #000;
-    margin-top: 20px;
+    margin-top: 29px;
     height: 1px;
   }
   
@@ -792,7 +790,7 @@
     .chiTietMonHang_AnhChinh{
       width: 41vw;
       margin: auto;
-      margin-top: 0px;
+
     }
   }
   @media screen and (min-width:575px) and (max-width: 992px) {
