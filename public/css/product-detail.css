@@ -17,7 +17,7 @@
   .huongDanChonSize a{
     text-decoration: none;
     color: gray;
-    font-size: 20px;
+    font-size: 15px;
   }
   .huongDanChonSize a:hover{
     transition: 0.5;
@@ -28,24 +28,25 @@
   .img_cacAnh{
     padding: 5px;
     background-color: #ccc;
-    height: 170px;
+    height: 140px;
     width: 100%;
+    gap: 20px;
   }
   .chiTietMonHang_AnhChinh{
     top: 0;
     height: 100%;
-    width: 700px;
+    width: 650px;
   }
   .img_anhChinh{
     width: 100%;
-    height: 100%;
+    height: 95%;
   }
   .chiTietMonHang_thongTin{
   }
   .delivery-info{
-    margin-top: 20px !important;
-    padding-top: 5px !important;
+    margin-top: 0 !important;
     padding-bottom: 5px !important;
+    padding: 0 !important;
 
   }
   /* chiTietMonHang_thongTin_TenSP */
@@ -242,7 +243,7 @@
   .chiTietMonHang_title {
     color: var(--Text2, #000);
     letter-spacing: 0.72px;
-    font: 600 30px/100% Inter, sans-serif;
+    font: 600 23px/100% Inter, sans-serif;
   }
   
   .product-info {
@@ -286,7 +287,7 @@
     color: var(--Text2, red);
     letter-spacing: 0.72px;
     margin-top: 17px;
-    font: 400 24px/100% Inter, sans-serif;
+    font: 400 20px/100% Inter, sans-serif;
   }
   
   .product-description {
@@ -300,7 +301,7 @@
     border-style: solid;
     border-width: 1px;
     background-color: #000;
-    margin-top: 29px;
+    margin-top: 20px;
     height: 1px;
   }
   
