@@ -32,7 +32,8 @@
     width: 100%;
   }
   .chiTietMonHang_AnhChinh{
-    height: 92%;
+    top: 0;
+    height: 100%;
     width: 700px;
   }
   .img_anhChinh{
@@ -790,7 +791,7 @@
     .chiTietMonHang_AnhChinh{
       width: 41vw;
       margin: auto;
-
+      margin-top: 0px;
     }
   }
   @media screen and (min-width:575px) and (max-width: 992px) {
