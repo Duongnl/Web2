@@ -43,7 +43,7 @@
                 <h1 class="chiTietMonHang_title pb">Havic HV G-92 Gamepad</h1>    
                 <div class="chiTietMonHang_AnhChinh_price">$192.00</div>
                 <p class="product-description">
-                  PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install &amp; mess free removal Pressure sensitive.
+                ubble free install &amp; mess free removal Pressure sensitive.
                 </p>
                 <hr class="separator" />
                 <div class="huongDanChonSize">
@@ -81,7 +81,7 @@
                     <div class="delivery-details">
                       <div class="delivery-label">Free Delivery</div>
               <div class="delivery-input">
-                        Enter your postal code for Delivery Availability
+                        Enter your postal code for Delivery 
                       </div>
                     </div>
                   </div>
@@ -91,7 +91,7 @@
                     <div class="return-details">
                       <div class="return-label">Return Delivery</div>
                       <div class="return-description">
-                        Free 30 Days Delivery Returns. <span>Details</span>
+                        Free 30 Days Delivery Returns. 
                       </div>
                     </div>
                   </div>
