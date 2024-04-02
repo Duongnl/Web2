@@ -171,9 +171,9 @@ label span{
 input{
   display: block;
   width: 100%;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   font-size: 16px;
-  padding-bottom: 5px;
+  /* padding-bottom: 5px; */
   border-bottom: 1px solid rgba(109, 93, 93, 0.4);
 }
 
