@@ -1,16 +1,126 @@
-*, *:before, *:after{
+
+<body>
+  <div class="signinandout">
+  <div class="cont">
+    <div class="form sign-in"><section>
+        <form method="post" action ="login_register.php " class="xulylogin">
+            <h1>Login</h1>
+            <div class="input_login">
+                <ion-icon name="mail-outline"></ion-icon>
+                <input type ="text" name="input_user"placeholder='User' required>
+                <!-- <label for="">User</label> -->
+            </div>
+            <div class="input_login">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input type="password" name="input_pass" value="" placeholder="Password" required ">
+                <!-- <label for="">Password</label> -->
+
+            </div>
+            <div class="forget">
+                <label for ="">
+                    <input type ="checkbox"> Remember
+                </label>
+                <a href="#" >Forget Password</a>
+            </div>
+            <button class="btn-login"><a href="#">Login</a></button>
+            <button class="register">
+                 Register
+            </button>
+        </form>
+
+    </section>
+
+    
+    </div>
+
+    <div class="sub-cont">
+      <div class="img">
+        <div class="img-text m-up">
+          <h2>Đăng ký ở đây nè!</h2>
+          <p>Chưa có tài khoản à? <br> Đăng ký đê !</p>
+        </div>
+        <div class="img-text m-in">
+          <h2>Đăng nhập đê! </h2>
+          <p>Nếu có rồi thì đăng nhập thôi  </p>
+        </div>
+        <div class="img-btn">
+          <span class="m-up">Đăng ký</span>
+          <span class="m-in">Đăng Nhập </span>
+        </div>
+      </div>
+      <div class="form sign-up">
+        <section>
+            <form>
+                <h1>Register</h1>
+                <div class="input_Register">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type = "text" placeholder="User" required>
+                    <!-- <label for ="">User Name</label> -->
+                </div>
+                <div class="input_Register">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type = "email" placeholder="Email" required>
+                    <!-- <label for ="">Email</label> -->
+                </div>
+                <div class="input_Register">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type = "text" placeholder="Phone Number" required>
+                    <!-- <label for ="">Phone Number</label> -->
+                </div>
+                <div class="input_Register">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type = "password" placeholder="Password" required>
+                    <!-- <label for ="">Password</label> -->
+                </div>
+                <div class="login">
+                    <label for="">Already have an account? <a href="#" class="buttonlogin">Login</a> </label>
+                </div>
+                <label > </label>
+                <button class="btn-register"><p>Register</p></button>
+    
+            </form>
+        </section>
+    </div>
+    </div>
+  </div>
+  </div>
+<script >
+    document.querySelector('.img-btn').addEventListener('click', function()
+	{
+		document.querySelector('.cont').classList.toggle('s-signup')
+	}
+);
+
+document.querySelector('.register').addEventListener('click', function()
+	{
+		document.querySelector('.cont').classList.toggle('s-signup');
+	}
+);
+document.querySelector('.buttonlogin').addEventListener('click', function()
+	{
+		document.querySelector('.cont').classList.toggle('s-signup')
+	}
+);
+
+
+</script>
+
+<style>
+  *, *:before, *:after{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'popping', sans-serif;
 }
 
-body{
+.signinandout{
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
+  margin:10% 0;
+  justify-content:center;
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 input, button{
@@ -43,7 +153,6 @@ input, button{
 h2{
   width: 100%;
   font-size: 30px;
-  text-align: center;
 }
 
 label{
@@ -66,7 +175,7 @@ input{
   font-size: 16px;
   padding-bottom: 5px;
   border-bottom: 1px solid rgba(109, 93, 93, 0.4);
-} 
+}
 
 button{
   display: block;
@@ -163,7 +272,7 @@ button{
   top: 0;
   width: 900px;
   height: 100%;
-  background-image: url('imgmainlogin.jpg');
+  background-image: url('../../public/images/imgmainlogin.jpg');
   background-size: cover;
   border-radius: 45px;
   transition: -webkit-transform 1.2s ease-in-out;
@@ -317,14 +426,16 @@ button{
 }
 
 
+  
+
 
 section
 {
 
   position:relative;
   max-width: 100%;
+  background-color: transparent;
   border: 2px soild rgba(255,255,255,0,5);
-  border-radius: 20px;
   backdrop-filter: blur(55px);
   display:flex;
   justify-content: center;
@@ -459,10 +570,14 @@ h1{
 
 }
 
-input:focus ~ label,
-input:valid ~ label {
+/* input:focus ~ label,
+input:valid ~ label,
+input:visited ~ label, 
+input:active ~label 
+
+{
   top: -5px;
-}
+} */
 
 .forget label {
   display:flex;
@@ -499,7 +614,7 @@ button {
   width:100%;
   height:40px;
   border-radius:40px;
-  background-color: rgb(0,0,0,1);
+  background-color: rgb(0,0,0,1); 
   outline:none;
   cursor:pointer;
   font-size:1rem;
@@ -537,6 +652,41 @@ button:hover{
   animation-timing-function: cubic-bezier(0.5, -0.6, 1, 1);
 
 }
+@media (max-width: 900px){
+  .form {
+    
+    width: 300px;
+    transition: transform 0.9s ease-in-out, -webkit-transform 1.2s ease-in-out;
+    
+  }
+  .cont {
+    width: 300px;
+  }
+
+  .sub-cont {
+    transition: transform 0.9s ease-in-out;
+  }
+  .img {
+    display:none;
+  }
+  .cont.s-signup .sub-cont {
+    -webkit-transform: translate3d(-900px, 0, 0);
+    transform: translate3d(-900px, 0, 0);
+    transition:all 0.4 ease;
+
+}
+.sign-up {
+    -webkit-transform: translate3d(-600px, 0, 0);
+    transform: translate3d(-600px, 0, 0);
+}
+}
 
 
-
+</style>
+<header>
+<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</header>
+</body>
+</html>
