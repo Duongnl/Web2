@@ -144,7 +144,7 @@
               <img class="img-product" src="./public/images/img1.png">
               <div class="deal">-50%</div>
             </a>
-            <div class="d-flex justify-content-between align-items-center mx-1 my-2">
+            <div class="product-info">
               <div class="product-body">
                 <a href="" class="product-title">The north coat</a>
                 <div class="prices">
@@ -158,58 +158,64 @@
             </div>
           </div>
         </div>
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3 product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/img.png">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
               </div>
+              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3 product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/arsenal1.jpg">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
               </div>
+              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3 product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/img1.png">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
               </div>
+              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
       </div>
@@ -225,220 +231,244 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3 product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/img1.png">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
               </div>
+              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3 product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/img1.png">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
               </div>
+              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3 product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/img1.png">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
               </div>
+              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3 product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/img1.png">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
               </div>
+              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3 product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/img1.png">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
               </div>
+              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3 product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/img1.png">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
               </div>
+              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3 product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/img1.png">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
               </div>
+              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3 product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/img1.png">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
               </div>
+              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3 product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/img1.png">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
               </div>
+              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3 product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/img1.png">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
               </div>
+              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3 product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/img1.png">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
               </div>
+              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3 product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="d-flex justify-content-between align-items-center mx-1 my-2">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/img1.png">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
               </div>
+              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
       </div>
