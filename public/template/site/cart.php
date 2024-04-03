@@ -30,10 +30,10 @@
                 </div>
                 <div class="product-details-column">
                   <div class="product-details">
-                    <p class="product-price size">M</p>
+                    <p class="product-price size"><span class="size_product">Size: </span>M</p>
                     <p class="product-price">$650</p>
                     <div class="change_quantity"><button class="reduce">-</button><input type="text" min="0" value="1" class="input_quantity"><button class="increase">+</button></div>
-                    <p class="product-subtotal">$650</p>
+                    <p class="product-subtotal"><span class="total_product">Total: </span><span>$</span>650</p>
                     <button class="trash"><i class="fa-solid fa-trash-can"></i></button>
                   </div>
                 </div>
@@ -49,10 +49,10 @@
                 </div>
                 <div class="product-details-column">
                   <div class="product-details">
-                    <p class="product-price size">M</p>
+                    <p class="product-price size"><span class="size_product">Size: </span>M</p>
                     <p class="product-price">$650</p>
                     <div class="change_quantity"><button class="reduce">-</button><input type="text" min="0" value="1" class="input_quantity"><button class="increase">+</button></div>
-                    <p class="product-subtotal">$650</p>
+                    <p class="product-subtotal"><span class="total_product">Total: </span><span>$</span>650</p>
                     <button class="trash"><i class="fa-solid fa-trash-can"></i></button>
                   </div>
                 </div>
@@ -68,10 +68,10 @@
                 </div>
                 <div class="product-details-column">
                   <div class="product-details">
-                    <p class="product-price size">M</p>
+                    <p class="product-price size"><span class="size_product">Size: </span>M</p>
                     <p class="product-price">$650</p>
                     <div class="change_quantity"><button class="reduce">-</button><input type="text" min="0" value="1" class="input_quantity"><button class="increase">+</button></div>
-                    <p class="product-subtotal">$650</p>
+                    <p class="product-subtotal"><span class="total_product">Total: </span><span>$</span>650</p>
                     <button class="trash"><i class="fa-solid fa-trash-can"></i></button>
                   </div>
                 </div>
