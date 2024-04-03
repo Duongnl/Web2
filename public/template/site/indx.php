@@ -23,13 +23,13 @@
 <body>
   <div class="container">
     <div class="banner">
-      <img alt="" class="img-slide active" src="./public/images/slide1.jpg">
+      <img alt="" class="img-slide" src="./public/images/slide1.jpg">
       <img alt="" class="img-slide" src="./public/images/slide2.jpg">
       <img alt="" class="img-slide " src="./public/images/slide3.jpg">
       <div class="group-nav">
         <i class="fa-solid fa-angle-left"></i>
         <div class="badge-nav">
-          <span class="badge active" onclick='showSlide(1)'></span>
+          <span class="badge" onclick='showSlide(1)'></span>
           <span class="badge" onclick='showSlide(2)'></span>
           <span class="badge" onclick='showSlide(3)'></span>
         </div>

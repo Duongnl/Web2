@@ -22,25 +22,38 @@ btnScrollRight.addEventListener('click', () => {
   contentCategories.scrollLeft = contentScrollLeft
 })
 
-let currentIndexSlide = 1;
-
-setInterval(() => {
-  showSlide(currentIndexSlide)
-  if (currentIndexSlide >= 3) {
-    currentIndexSlide = 1;
-  } else {
-    currentIndexSlide += 1;
-  }
-}, 2000)
+// slideshow 
+let currentIndexSlide = 1
 
 const showSlide = (index) => {
-  currentIndexSlide = index
-  document.querySelector('.banner .img-slide.active').classList.remove('active')
-  document.querySelector(`.banner > img:nth-child(${index})`).classList.add('active')
-  document.querySelector('.badge-nav .badge.active').classList.remove('active')
-  document.querySelector(`.badge-nav span:nth-child(${index})`).classList.add('active')
+  console.log('currentIndexSlide', currentIndexSlide)
+  console.log('show ', index)
+  if (index > 3) {
+    currentIndexSlide = 1
+  }
+  if (index < 1) {
+    currentIndexSlide = 3
+  }
+  const slides = document.querySelectorAll('.banner img')
+  const badges = document.querySelectorAll('.badge-nav .badge')
+  slides.forEach(s => { s.classList.remove('active') })
+  badges.forEach(b => { b.classList.remove('active') })
+  slides[currentIndexSlide - 1].classList.add('active')
+  badges[currentIndexSlide - 1].classList.add('active')
 }
+showSlide(currentIndexSlide)
 
+setInterval(() => {
+  showSlide(currentIndexSlide += 1)
+}, 5000)
+
+document.querySelector('.group-nav .fa-angle-left').addEventListener('click', () => {
+  showSlide(currentIndexSlide -= 1)
+})
+
+document.querySelector('.group-nav .fa-angle-right').addEventListener('click', (e) => {
+  showSlide(currentIndexSlide += 1)
+})
 
 
 
