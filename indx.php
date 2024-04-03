@@ -14,3 +14,4 @@
 </body>
 
 </html>
+<script src="./public/js/home.js"></script>
