@@ -39,10 +39,9 @@
   }
   .img_anhChinh{
     width: 100%;
-    height: 95%;
+    height: 82%;
   }
-  .chiTietMonHang_thongTin{
-  }
+  
   .delivery-info{
     margin-top: 0 !important;
     padding-bottom: 5px !important;
@@ -571,8 +570,7 @@
   
   /* RESPONSIVE */
   @media (max-width: 766px) {
-    .chiTietMonHang_chiTietCacAnh{
-    }
+   
     .chiTietMonHang_AnhChinh{
       height: 400px;
     }
