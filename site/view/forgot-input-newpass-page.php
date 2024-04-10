@@ -29,4 +29,5 @@
   <?php require('../../public/template/site/footer.php'); ?>
 </body>
 <style>
-</styl></html>
+</style>
+</html>

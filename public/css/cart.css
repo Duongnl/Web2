@@ -10,6 +10,11 @@ h4 {
     margin: 0px 0 20px 50px;
 }
 
+.ctn-header-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .cart_items {
     margin: 0 auto;
     width: 80%;

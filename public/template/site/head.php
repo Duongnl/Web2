@@ -40,7 +40,7 @@
     <div class="container ctn-hidden">
       <div class="row">
         <nav class="navbar navbar-light bg-dark" style="background-color:white !important;">
-          <div class="container-fluid">
+          <div class="container-fluid ctn-header-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
               data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
               aria-expanded="false" aria-label="Toggle navigation" style="border: 1px solid black; width : 100% ">
@@ -64,6 +64,3 @@
 
 
   </header>
-  <!-- <script type="text/javascript" src="../../system/library/popper.min.js"></script> -->
-  <!-- <script type="text/javascript" src="../../system/library/bootstrap.js" ></script> -->
-  <!-- helooo ae -->
