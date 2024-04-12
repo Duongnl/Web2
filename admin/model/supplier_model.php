@@ -7,7 +7,7 @@ class supplier_model {
 
     }
 
-    function getSupplierData () {
+     function getSupplierData () {
        
         $this->db_config->connect();
         $sql = "SELECT * FROM nhacungcap";
@@ -20,6 +20,19 @@ class supplier_model {
         $sql = "INSERT INTO nhacungcap (MaNCC, TenNCC, TrangThai) VALUES (null,'$tenNCC', '$trangThai') ";
         return  $this->db_config->execute($sql);
        
+    }
+
+    function UpdateSupplierData ($maNCC,$tenNCC ) {
+        $this->db_config->connect();
+        $sql = "UPDATE nhacungcap SET TenNCC = '$tenNCC' WHERE MaNCC = '$maNCC' ";
+        return  $this->db_config->execute($sql);
+    }
+
+    // xoa du lieu 
+    function DeleteSupplierData ($maNCC) {
+        $this->db_config->connect();
+        $sql = "DELETE FROM nhacungcap WHERE MaNCC = '$maNCC'";
+        return  $this->db_config->execute($sql);
     }
 
 }

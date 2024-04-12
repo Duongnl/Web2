@@ -1,7 +1,9 @@
 
 <div class="main-content">
     <h3 class="h1-head-name" >Supplier management</h3>
-    
+    <button type="button" class="btn btn-success" style="float:right; margin-top: 10px; margin-bottom: 10px; "  onclick="supplier_form('','','Add new supplier','add')">
+    <i class="fa-solid fa-circle-plus"></i> Add new supplier</button>
+
     <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -22,12 +24,10 @@
         <td><?php echo $row['TenNCC'] ?></td>
         <td><?php echo $row['TrangThai'] ?></td>
         <td>
-          <form action="../controller/supplier-controller.php" method="GET"> 
-            <button type="button button-edit" class="btn btn-warning" name="Action" value="edit" >Edit</button>
-            <button type="button button-delete" class="btn btn-danger" name="Action" value="delete">Delete</button>
-            
-            <input type="hidden" name="MaNCC" value="<?php echo $row['MaNCC'] ?>" > 
-          </form> 
+          <!-- <form action="../controller/supplier-controller.php" method="GET">  -->
+            <button type="button" class="btn btn-warning"  onclick="supplier_form('<?php echo $row['MaNCC'] ?>' ,'<?php echo $row['TenNCC'] ?>','Edit supplier','edit')" ><i class="fa-solid fa-pen-to-square"></i></button>
+            <button type="button" class="btn btn-danger"  ><i class="fa-solid fa-trash"></i></button>
+          <!-- </form>  -->
         </td>
       </tr>
     <?php
@@ -36,6 +36,9 @@
   </tbody>
 </table>
 
-
+<?php 
+    require_once('../../public/template/admin/supplier_form.php');
+?>
 
 </div>
+
