@@ -134,13 +134,7 @@
   transform: scale(1.2);
 }
 
-.img-product {
-  height: 65%;
-  width: 65%;
-  transition: transform .5s;
-  object-fit: cover;
-  object-position: 50% 50%;
-}
+
 
 .wrap-img {
   position: relative;
