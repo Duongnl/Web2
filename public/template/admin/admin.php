@@ -239,6 +239,8 @@
     transition: all 0.5s ease;
     width: calc(100% - 80px);
     padding: 1rem;
+    overflow-y:scroll; 
+    height: 500px;
 }
 
 

@@ -14,15 +14,10 @@ if ( isset($_POST['action'])  && isset($_POST['supplier_id']) && isset($_POST['s
     }
     else if ($action =='edit') {
         $supplier_model->UpdateSupplierData( $supplier_id, trim($supplier_name));
-    } 
+    } else if ($action == 'delete') {
+        $supplier_model->DeleteSupplierData($supplier_id);
+    }
     
-
-    
-
-
-
-
-
 
     $_SESSION['back_from_controller'] = true;
     header("Location: ../view/supplier_page.php");
