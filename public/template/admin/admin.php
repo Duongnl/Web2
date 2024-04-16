@@ -11,7 +11,7 @@
 
         </div>
         <div class="user">
-            <img src="../../public/images/logo.png" class="user-img">
+            <img src="../../public/images/arsenal1.jpg" class="user-img">
             <div>
                 <p class="bold"> Dinh Chien</p>
                 <p>Admin</p>
