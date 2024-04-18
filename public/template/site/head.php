@@ -1,54 +1,58 @@
-  <div class="announcement-container">
-    <!-- <div class="announcement-inner"> -->
-    <div class="sale-message">
-      <p class="sale-text">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
-      <div tabindex="0" role="button" class="shop-now">Shop Now</div>
-    </div>
-    <!-- <div class="language-selector">
+ <div class="announcement-container">
+   <!-- <div class="announcement-inner"> -->
+   <div class="sale-message">
+     <p class="sale-text">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
+     <div tabindex="0" role="button" class="shop-now">Shop Now</div>
+   </div>
+   <!-- <div class="language-selector">
         <div class="language-text">English</div>
         <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c458026ddcb4daaaca9291897ab1b8ab8e65bd1233e48db8bbc95eb90ee3e16?apiKey=de754edacf6d4fbeaf990b709fcfe0b5&" alt="Country flag" class="country-flag" loading="lazy"/>
       </div> -->
-    <!-- </div> -->
-  </div>
+   <!-- </div> -->
+ </div>
 
-  <header class="header">
-    <!-- <nav class="navigation-container"> -->
-    <div class="header-mobile">
-      <i class="nav-bar-mobile fa-solid fa-bars p-2" style="font-size:28px"></i>
-      <i class="search-mobile fa-solid fa-magnifying-glass p-2 fs20"></i>
-    </div>
-    <ul class="menu-mobile">
-      <li><a href="">Home</a></li>
-      <li><a href="">Product</a></li>
-      <li><a href="">About</a></li>
-    </ul>
-    <div class="logo">Exclusive</div>
-    <div class="menu">
-      <a href="/store/Web2-main/Web2-main/indx.php" class="home">Home</a>
-      <a href="/contact" class="contact">Product</a>
-      <a href="/about" class="about">About</a>
-      <!-- <a href="/store/Web2-main/Web2-main/site/view/login-register-page.php" class="sign-up">Sign Up</a> -->
-    </div>
-    <div class="rightNav">
-      <div class="searching">
-        <input type="text" id="input-search" class="inputsearch" placeholder="What are you looking for?"
-          aria-label="What are you looking for?" style="width: 215px;" />
-        <a href="/" class="iconsearch">
-          <i class="fa-solid fa-magnifying-glass fs20"></i>
-        </a>
-        <i class="close-search-mobile-tablet fa-solid fa-x fs20 p-2"></i>
-      </div>
-      <div class="fav-shop">
-        <i class="search-tablet fa-solid fa-magnifying-glass fs20 p-2"></i>
-        <i class="fa-solid fa-cart-plus fs20 p-2"></i>
-        <i class="fa-solid fa-user fs20 p-2"></i>
-      </div>
-    </div>
-    </div>
-    <!-- </nav> -->
+ <header class="header">
+   <!-- <nav class="navigation-container"> -->
+   <div class="header-mobile">
+     <i class="nav-bar-mobile fa-solid fa-bars p-2" style="font-size:28px"></i>
+     <i class="search-mobile fa-solid fa-magnifying-glass p-2 fs20"></i>
+   </div>
+   <ul class="menu-mobile">
+     <li><a href="/Web2">Home</a></li>
+     <li><a href="/Web2/product">Product</a></li>
+     <li><a href="/Web2/about">About</a></li>
+   </ul>
+   <div class="logo">Exclusive</div>
+   <div class="menu">
+     <a href="/Web2" class="home">Home</a>
+     <a href="/Web2/product" class="about">Product</a>
+     <a href="/Web2/about" class="about">About</a>
+     <!-- <a href="/store/Web2-main/Web2-main/site/view/login-register-page.php" class="sign-up">Sign Up</a> -->
+   </div>
+   <div class="rightNav">
+     <div class="searching">
+       <input type="text" id="input-search" class="inputsearch" placeholder="What are you looking for?"
+         aria-label="What are you looking for?" style="width: 215px;" />
+       <a href="/" class="iconsearch">
+         <i class="fa-solid fa-magnifying-glass fs20"></i>
+       </a>
+       <i class="close-search-mobile-tablet fa-solid fa-x fs20 p-2"></i>
+     </div>
+     <div class="fav-shop">
+       <i class="search-tablet fa-solid fa-magnifying-glass fs20 p-2"></i>
+       <a href="/Web2/cart">
+         <i class="fa-solid fa-cart-plus fs20 p-2"></i>
+       </a>
+       <a href="/Web2/login">
+         <i href="" class="fa-solid fa-user fs20 p-2"></i>
+       </a>
+     </div>
+   </div>
+   </div>
+   <!-- </nav> -->
 
-    <!-- nav hidden -->
-    <!-- <div class="container ctn-hidden">
+   <!-- nav hidden -->
+   <!-- <div class="container ctn-hidden">
       <div class="row">
         <nav class="navbar navbar-light bg-dark" style="background-color:white !important;">
           <div class="container-fluid ctn-header-fluid">
@@ -74,5 +78,5 @@
 
 
 
-  </header>
-  <script src="./public/js/header.js"></script>
+ </header>
+ <script src="./public/js/header.js"></script>

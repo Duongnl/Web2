@@ -19,7 +19,7 @@
               <label for="">
                 <input type="checkbox"> Remember
               </label>
-              <a href="#">Forget Password</a>
+              <a href="/Web2/forget">Forget Password</a>
             </div>
             <button class="btn-login"><a href="#">Login</a></button>
             <button class="register">

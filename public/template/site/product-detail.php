@@ -5,22 +5,22 @@
         <div class="chiTietMonHang_chiTietCacAnh  col-md-2 col-sm-12 ">
           <div class="row chiTietMonHang_chiTietCacAnh_Phu">
             <div class="col-3 col-md-12 chiTietMonHang_chiTietCacAnh_Anh p-0 ">
-              <img src="../../public/images/img.png" class="img-fluid img_cacAnh" alt="...">
+              <img src="./public/images/img.png" class="img-fluid img_cacAnh" alt="...">
             </div>
             <div class="col-3 col-md-12 chiTietMonHang_chiTietCacAnh_Anh p-0">
-              <img src="../../public/images/img.png" class="img-fluid img_cacAnh" alt="...">
+              <img src="./public/images/img.png" class="img-fluid img_cacAnh" alt="...">
             </div>
             <div class="col-3 col-md-12 chiTietMonHang_chiTietCacAnh_Anh p-0">
-              <img src="../../public/images/img.png" class="img-fluid img_cacAnh" alt="...">
+              <img src="./public/images/img.png" class="img-fluid img_cacAnh" alt="...">
             </div>
             <div class="col-3 col-md-12 chiTietMonHang_chiTietCacAnh_Anh p-0">
-              <img src="../../public/images/img.png" class="img-fluid img_cacAnh" alt="...">
+              <img src="./public/images/img.png" class="img-fluid img_cacAnh" alt="...">
             </div>
           </div>
 
         </div>
         <div class="chiTietMonHang_AnhChinh  col-md-5 col-sm-12 chiTietMonHang_SanPham_right">
-          <img src="../../public/images/img.png" class="img-fluid img_anhChinh" alt="...">
+          <img src="./public/images/img.png" class="img-fluid img_anhChinh" alt="...">
         </div>
       </div>
       <!-- thông tin -->
@@ -33,7 +33,7 @@
         </p>
         <hr class="separator" />
         <div class="huongDanChonSize">
-          <a href="../../public/images/img.png">*Xem hướng dẫn chọn size</a>
+          <a href="./public/images/img.png">*Xem hướng dẫn chọn size</a>
         </div>
         <div class="chiTietMonHang_Size chonSize row">
           <div class="col-3 tag_size">Size:</div>
@@ -102,12 +102,12 @@
         <div class="row sanPhamLienQuan_bottom">
           <div class="col-6  col-md-3 col-xxl-3 product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/img.png">
+              <img class="img-product" src="./public/images/img.png">
               <div class="deal"><span>-50%</span></div>
             </a>
             <div class="d-flex justify-content-between align-items-center mx-1 my-2">
               <div class="product-body">
-                <a href="../../public/images/img.png" class="product-title">The north coat</a>
+                <a href="./public/images/img.png" class="product-title">The north coat</a>
                 <div class="prices">
                   <div class="new-price">$260</div>
                   <div class="old-price">$260</div>
@@ -120,12 +120,12 @@
           </div>
           <div class="col-6  col-md-3 col-xxl-3 product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/img.png">
+              <img class="img-product" src="./public/images/img.png">
               <div class="deal"><span>-50%</span></div>
             </a>
             <div class="d-flex justify-content-between align-items-center mx-1 my-2">
               <div class="product-body">
-                <a href="../../public/images/img.png" class="product-title">The north coat</a>
+                <a href="./public/images/img.png" class="product-title">The north coat</a>
                 <div class="prices">
                   <div class="new-price">$260</div>
                   <div class="old-price">$260</div>
@@ -138,12 +138,12 @@
           </div>
           <div class="col-6  col-md-3 col-xxl-3 product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/img.png">
+              <img class="img-product" src="./public/images/img.png">
               <div class="deal"><span>-50%</span></div>
             </a>
             <div class="d-flex justify-content-between align-items-center mx-1 my-2">
               <div class="product-body">
-                <a href="../../public/images/img.png" class="product-title">The north coat</a>
+                <a href="./public/images/img.png" class="product-title">The north coat</a>
                 <div class="prices">
                   <div class="new-price">$260</div>
                   <div class="old-price">$260</div>
@@ -156,12 +156,12 @@
           </div>
           <div class="col-6  col-md-3 col-xxl-3 product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/img.png">
+              <img class="img-product" src="./public/images/img.png">
               <div class="deal"><span>-50%</span></div>
             </a>
             <div class="d-flex justify-content-between align-items-center mx-1 my-2">
               <div class="product-body">
-                <a href="../../public/images/img.png" class="product-title">The north coat</a>
+                <a href="./public/images/img.png" class="product-title">The north coat</a>
                 <div class="prices">
                   <div class="new-price">$260</div>
                   <div class="old-price">$260</div>
@@ -183,4 +183,4 @@
 </div>
 
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
-<script src="../../public/js/product-detail.js"></script>
+<script src="./public/js/product-detail.js"></script>
