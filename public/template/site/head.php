@@ -1,7 +1,5 @@
 <?php 
-  if (isset($_SESSION['origin_path'])) {
-    $origin_path = $_SESSION['origin_path'];
-}
+ $url = handle_url::getUrl();
 ?>
 <div class="announcement-container">
    <!-- <div class="announcement-inner"> -->
@@ -23,15 +21,15 @@
      <i class="search-mobile fa-solid fa-magnifying-glass p-2 fs20"></i>
    </div>
    <ul class="menu-mobile">
-     <li><a href="<?php  echo $origin_path.'' ?>">Home</a></li>
-     <li><a href="<?php echo $origin_path.'product'?>">Product</a></li>
-     <li><a href="<?php echo ""; echo ($baseName != 'about') ? $request . 'about' : $request; ?>">About</a></li>
+     <li><a href="<?php echo  $url; ?>">Home</a></li>
+     <li><a href="<?php echo  $url.'/product'; ?>">Product</a></li>
+     <li><a href="<?php echo  $url.'/about'; ?>">About</a></li>
    </ul>
    <div class="logo">Exclusive</div>
    <div class="menu">
-     <a href="<?php  echo $origin_path.''?>" class="home">Home</a>
-     <a href="<?php echo $origin_path.'product'?>" class="about">Product</a>
-     <a href="<?php echo $origin_path.'about' ?>" class="about">About</a>
+     <a href="<?php echo  $url; ?>" class="home">Home</a>
+     <a href="<?php  echo  $url.'/product'; ?>" class="about">Product</a>
+     <a href="<?php  echo  $url.'/about';?>" class="about">About</a>
      <!-- <a href="/store/Web2-main/Web2-main/site/view/login-register-page.php" class="sign-up">Sign Up</a> -->
    </div>
    <div class="rightNav">
@@ -45,10 +43,10 @@
      </div>
      <div class="fav-shop">
        <i class="search-tablet fa-solid fa-magnifying-glass fs20 p-2"></i>
-       <a href="<?php  echo $origin_path.'cart';?>">
+       <a href="<?php echo  $url.'/card' ?>">
          <i class="fa-solid fa-cart-plus fs20 p-2"></i>
        </a>
-       <a href="<?php  echo $origin_path.'login';?>">
+       <a href="<?php  echo  $url.'/login' ?>">
          <i href="" class="fa-solid fa-user fs20 p-2"></i>
        </a>
      </div>

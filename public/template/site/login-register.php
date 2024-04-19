@@ -1,3 +1,6 @@
+<?php 
+$url = handle_url::getUrl();
+?>
   <div class="signinandout">
     <div class="cont">
       <div class="form sign-in">
@@ -19,7 +22,7 @@
               <label for="">
                 <input type="checkbox"> Remember
               </label>
-              <a href="/Web2/forget">Forget Password</a>
+              <a href="<?php  echo $url.'/forgot' ?>">Forgot Password</a>
             </div>
             <button class="btn-login"><a href="#">Login</a></button>
             <button class="register">
