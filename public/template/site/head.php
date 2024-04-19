@@ -1,4 +1,9 @@
- <div class="announcement-container">
+<?php 
+  if (isset($_SESSION['origin_path'])) {
+    $origin_path = $_SESSION['origin_path'];
+}
+?>
+<div class="announcement-container">
    <!-- <div class="announcement-inner"> -->
    <div class="sale-message">
      <p class="sale-text">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
@@ -18,15 +23,15 @@
      <i class="search-mobile fa-solid fa-magnifying-glass p-2 fs20"></i>
    </div>
    <ul class="menu-mobile">
-     <li><a href="/Web2">Home</a></li>
-     <li><a href="/Web2/product">Product</a></li>
-     <li><a href="/Web2/about">About</a></li>
+     <li><a href="<?php  echo $origin_path.'' ?>">Home</a></li>
+     <li><a href="<?php echo $origin_path.'product'?>">Product</a></li>
+     <li><a href="<?php echo ""; echo ($baseName != 'about') ? $request . 'about' : $request; ?>">About</a></li>
    </ul>
    <div class="logo">Exclusive</div>
    <div class="menu">
-     <a href="/Web2" class="home">Home</a>
-     <a href="/Web2/product" class="about">Product</a>
-     <a href="/Web2/about" class="about">About</a>
+     <a href="<?php  echo $origin_path.''?>" class="home">Home</a>
+     <a href="<?php echo $origin_path.'product'?>" class="about">Product</a>
+     <a href="<?php echo $origin_path.'about' ?>" class="about">About</a>
      <!-- <a href="/store/Web2-main/Web2-main/site/view/login-register-page.php" class="sign-up">Sign Up</a> -->
    </div>
    <div class="rightNav">
@@ -40,10 +45,10 @@
      </div>
      <div class="fav-shop">
        <i class="search-tablet fa-solid fa-magnifying-glass fs20 p-2"></i>
-       <a href="/Web2/cart">
+       <a href="<?php  echo $origin_path.'cart';?>">
          <i class="fa-solid fa-cart-plus fs20 p-2"></i>
        </a>
-       <a href="/Web2/login">
+       <a href="<?php  echo $origin_path.'login';?>">
          <i href="" class="fa-solid fa-user fs20 p-2"></i>
        </a>
      </div>
