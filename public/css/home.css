@@ -11,22 +11,27 @@ hr {
 }
 
 .banner {
+  position: relative;
+  margin-top: 5px;
   width: 100%;
   height: 600px;
   position: relative;
 }
 
 .img-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
   border-radius: 4px;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: none;
-  transition: display 0s;
+  opacity: 0;
+  transition: opacity ease-in-out .5s;
 }
 
 .img-slide.active {
-  display: block;
+  opacity: 1;
 }
 
 .group-nav {

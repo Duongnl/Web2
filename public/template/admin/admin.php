@@ -1,5 +1,5 @@
 
-<div class="sidebar">
+    <div class="sidebar">
         <div class="top">
             <div class="logo">
                 <i class='bx bxs-bug'></i>
@@ -11,7 +11,7 @@
 
         </div>
         <div class="user">
-            <img src="../../public/images/arsenal1.jpg" class="user-img">
+            <img src="../../public/images/logo.png" class="user-img">
             <div>
                 <p class="bold"> Dinh Chien</p>
                 <p>Admin</p>
@@ -239,6 +239,8 @@
     transition: all 0.5s ease;
     width: calc(100% - 80px);
     padding: 1rem;
+    overflow-y:scroll; 
+    height: 500px;
 }
 
 

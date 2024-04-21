@@ -14,7 +14,6 @@ btnScrollLeft.addEventListener('click', () => {
 
 btnScrollRight.addEventListener('click', () => {
   contentScrollLeft += 200
-  console.log(contentScrollLeft, contentScrollWidth)
   if (contentScrollLeft >= contentScrollWidth) {
     contentScrollLeft = contentScrollWidth
   } else {
@@ -26,8 +25,6 @@ btnScrollRight.addEventListener('click', () => {
 let currentIndexSlide = 1
 
 const showSlide = (index) => {
-  console.log('currentIndexSlide', currentIndexSlide)
-  console.log('show ', index)
   if (index > 3) {
     currentIndexSlide = 1
   }
@@ -51,7 +48,7 @@ document.querySelector('.group-nav .fa-angle-left').addEventListener('click', ()
   showSlide(currentIndexSlide -= 1)
 })
 
-document.querySelector('.group-nav .fa-angle-right').addEventListener('click', (e) => {
+document.querySelector('.group-nav .fa-angle-right').addEventListener('click', () => {
   showSlide(currentIndexSlide += 1)
 })
 

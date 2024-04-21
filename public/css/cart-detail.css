@@ -6,6 +6,11 @@
     z-index: 1000;
     background-color: #ffffff;
 } */
+.ctn-header-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .cart_detail {
     display: flex;
     justify-content: center;
