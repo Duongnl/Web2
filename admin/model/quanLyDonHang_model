@@ -18,11 +18,15 @@ class quanLyDonHang_model {
 
         $this->db_config->connect();
         $sql = "INSERT INTO hoadon (MaHD, MaTK, ThoiGian,ThanhToan,Mota,TrangThai) VALUES (null,'$MaTK', '$ThoiGian', '$ThanhToan', '$Mota', '$TrangThai') ";
+        return  $this->db_config->execute($sql);   
+    }
+//update
+    function UpdateTrangThaiDonHang ($MaHD,$TrangThai ) {
+        $this->db_config->connect();
+        $sql = "UPDATE hoadon SET TrangThai = '$TrangThai' WHERE MaHD = '$MaHD' ";
         return  $this->db_config->execute($sql);
-       
     }
 
-    
     // xoa du lieu 
     function deleteDonHangData ($maHD) {
         $this->db_config->connect();
