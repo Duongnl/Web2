@@ -1,0 +1,34 @@
+<?php 
+class quanLyDonHang_model {
+    private $db_config ;
+
+    public function __construct() {
+        $this->db_config =  new db_config();
+
+    }
+
+     function getDonHangData () {
+       
+        $this->db_config->connect();
+        $sql = "SELECT * FROM hoadon";
+        return $this->db_config->execute($sql);
+    }
+    
+    function insertDonHangData ( $MaTK, $ThoiGian,$ThanhToan,$Mota,$TrangThai) {
+
+        $this->db_config->connect();
+        $sql = "INSERT INTO hoadon (MaHD, MaTK, ThoiGian,ThanhToan,Mota,TrangThai) VALUES (null,'$MaTK', '$ThoiGian', '$ThanhToan', '$Mota', '$TrangThai') ";
+        return  $this->db_config->execute($sql);
+       
+    }
+
+    
+    // xoa du lieu 
+    function deleteDonHangData ($maHD) {
+        $this->db_config->connect();
+        $sql = "DELETE FROM hoadon WHERE MaHD = '$maHD'";
+        return  $this->db_config->execute($sql);
+    }
+
+}
+
