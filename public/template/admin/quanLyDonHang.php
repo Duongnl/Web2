@@ -5,11 +5,27 @@
 
   .btn-delete {
     display: none;
+    back
   }
 
   .tr-body:hover .btn-edit,
   .tr-body:hover .btn-delete {
     display: inline;
+  
+  }
+  td {
+            text-align: center; /* Căn giữa nội dung trong ô */
+            padding-top: 15px !important; /* Thêm padding để tạo khoảng cách giữa nội dung và viền */
+     }
+  th{
+    text-align: center; /* Căn giữa nội dung trong ô */
+            padding-top: 15px !important; /* Thêm padding để tạo khoảng cách giữa nội dung và viền */
+  }
+  .form_container{
+            display: inline-block;
+  }
+  .td_form{
+    padding-top:9px!important;
   }
 </style>
 
@@ -41,27 +57,40 @@
       $query = $quanLyDonHang_model->getDonHangData();
       while ($row = mysqli_fetch_array($query)) {
       ?>
-        <tr class="tr-body" style="height: 55px;">
+        <tr class="tr-body" style="height: 57px;">
           <th scope="row"><?php echo $row['MaHD'] ?></th>
           <td><?php echo $row['MaTK'] ?></td>
           <td><?php echo $row['ThoiGian'] ?></td>
-          <td><?php echo $row['TrangThai'] ?></td>
-          <td><?php echo $row['ThanhToan'] ?></td>
-          <td>
-            <!-- <form action="../controller/supplier-controller.php" method="GET">  -->
-            <!-- <button type="button" class="btn btn-warning btn-edit" onclick="supplier_form('<?php echo $row['MaNCC'] ?>' ,'<?php echo $row['TenNCC'] ?>','Edit supplier','edit','Save')">Xử lý</button>
-            <button type="button" class="btn btn-danger btn-delete"  onclick="supplier_form('<?php echo $row['MaNCC'] ?>' ,'<?php echo $row['TenNCC'] ?>','Delete supplier','delete', 'Delete')">Hủy</button> -->
-            <button type="button">Xử lý</button>
-            <button type="button">Hủy</button>
+          <?php if($row['TrangThai']==0){
 
-            <!-- </form>  -->
+              echo '<td style="background-color:yellow" >Chờ xử lý</td>';
+              
+          }else if($row['TrangThai']==1){
+            echo '<td style="background-color:green">Đã xử lý</td>';
+            
+          }
+          else if($row['TrangThai']==2){
+            echo '<td style="background-color:red">Đã hủy</td>';
+          
+           };
+           ?>
+          <td><?php echo $row['ThanhToan'] ?></td>
+          <td class="td_form">
+            <?php if($row['TrangThai']==0){?>
+            <form action="../controller/quanLyDonHang_controller.php" method="POST" class="form_container"> 
+              <button type="submit" class="btn btn-warning btn-edit" >Xử lý</button>
+              <input type="hidden" name="MaHD" value="<?php echo $row['MaHD']?> ">
+              <input type="hidden" name="action" value="XuLy">
+            </form> 
+            <form action="../controller/quanLyDonHang_controller.php" method="POST" class="form_container"> 
+              <button type="submit" class="btn btn-danger btn-edit" >Hủy</button>
+              <input type="hidden" name="MaHD" value="<?php echo $row['MaHD']?> ">
+              <input type="hidden" name="action" value="Huy">
+            </form> 
+              <?php };?>
           </td>
-          <td>
-            <!-- <form action="../controller/supplier-controller.php" method="GET">  -->
-            <!-- <button type="button" class="btn btn-warning btn-edit" onclick="supplier_form('<?php echo $row['MaNCC'] ?>' ,'<?php echo $row['TenNCC'] ?>','Edit supplier','edit','Save')"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button type="button" class="btn btn-danger btn-delete"  onclick="supplier_form('<?php echo $row['MaNCC'] ?>' ,'<?php echo $row['TenNCC'] ?>','Delete supplier','delete', 'Delete')"><i class="fa-solid fa-trash"></i></button> -->
-            <button type> Xem chi tiết</button>
-            <!-- </form>  -->
+          <td class="td_form " style="width:200px">
+            <button type="button" class="btn btn-warning btn-edit" onclick="quanLyDonHang('<?php echo $row['MaHD'] ?>' ,'<?php echo $row['MaTK'] ?>','<?php echo $row['ThoiGian'] ?>' ,'<?php echo $row['ThanhToan'] ?>' ,'<?php echo $row['MoTa'] ?>' ,'Xem ChiTietDonHang','','Xuất Hóa Đơn')">Chi tiết đơn hàng</button>
           </td>
         </tr>
       <?php
