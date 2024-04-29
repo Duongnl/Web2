@@ -21,11 +21,11 @@ class discount_model {
        
     }
 
-    function UpdatediscountData ($maKM,$tenKM, $phantramKM ) {
+    function UpdatediscountData($maKM, $tenKM, $phantramKM) {
         $this->db_config->connect();
-        $sql = "UPDATE khuyenmai SET TenKM = '$tenKM' AND PhanTramKM = '$phantramKM' WHERE MaKM = '$maKM' ";
-        return  $this->db_config->execute($sql);
-    }
+        $sql = "UPDATE khuyenmai SET TenKM = '$tenKM', PhanTramKM = '$phantramKM' WHERE MaKM = '$maKM'";
+        return $this->db_config->execute($sql);
+    }    
 
     // xoa du lieu 
     function DeletediscountData ($maKM) {

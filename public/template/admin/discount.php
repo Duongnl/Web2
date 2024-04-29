@@ -42,7 +42,7 @@
         <tr class="tr-body" style="height: 55px;">
           <th scope="row"><?php echo $row['MaKM'] ?></th>
           <td><?php echo $row['TenKM'] ?></td>
-          <td><?php echo $row['PhanTramKM'] ?></td>
+          <td><?php echo $row['PhanTramKM'] ?>%</td>
           <td><?php echo $row['TrangThai'] ?></td>
           <td>
             <!-- <form action="../controller/discount-controller.php" method="GET">  -->

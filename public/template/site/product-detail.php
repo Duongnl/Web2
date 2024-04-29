@@ -20,14 +20,13 @@
 
         </div>
         <div class="chiTietMonHang_AnhChinh  col-md-5 col-sm-12 chiTietMonHang_SanPham_right">
-          <img src="../../public/images/img.png" class="img-fluid img_anhChinh" alt="...">
+          <img src="../../public/images/img.png" class="img-fluid img_anhChinh" id="anhchinh" alt="...">
         </div>
       </div>
       <!-- thông tin -->
       <div class="chiTietMonHang_thongTin col-sm-12  col-md-4">
-
-        <h1 class="chiTietMonHang_title pb">Havic HV G-92 Gamepad</h1>
-        <div class="chiTietMonHang_AnhChinh_price">$192.00</div>
+        <h1 class="chiTietMonHang_title pb" id="productName">Havic HV G-92 Gamepad</h1>
+        <div class="chiTietMonHang_AnhChinh_price">$<span id="productPrice">192.00</span></div>
         <p class="product-description">
           ubble free install &amp; mess free removal Pressure sensitive.
         </p>
@@ -45,10 +44,7 @@
             <input type="radio" id="sizeS" name="size" value="sizeS" class="size">
             <label for="sizeS" class="label_Size sizeS">S</label>
           </form>
-
         </div>
-
-
         <div class="chiTietMonHang_soLuong row mt-3 justify-content-center">
           <div class="size-label col-xxl-3 col-3">Số lượng:</div>
 
@@ -59,7 +55,7 @@
             <button id="increase" class="btn_tangSoLuong">+</button>
           </div>
           <div class=" col-12 chiTietMonHang_themVaoGioHang mt-4">
-            <button class="btn_ThemVaoGioHang">Thêm vào giỏ hàng</button>
+            <button class="btn_ThemVaoGioHang" id="addToCartBtn">Thêm vào giỏ hàng</button>
           </div>
         </div>
         <div class="delivery-info">
@@ -87,7 +83,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
     <!-- sản phẩm liên quan -->

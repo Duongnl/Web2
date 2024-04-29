@@ -187,7 +187,7 @@
                   <div class="old-price">$260</div>
                 </div>
               </div>
-              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
+              <button type="submit" name="addcart" class="btn btn-outline-primary btn-add-to-cart" value="">
                 <i class="fa-solid fa-cart-plus"></i>
               </button>
             </div>

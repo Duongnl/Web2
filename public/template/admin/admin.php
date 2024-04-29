@@ -13,7 +13,7 @@
         <div class="user">
             <img src="../../public/images/logo.png" class="user-img">
             <div>
-                <p class="bold"> Dinh Chien</p>
+                <p class="bold"> Shop Áo Quần</p>
                 <p>Admin</p>
             </div>
         </div>

@@ -51,12 +51,12 @@
             <input id="discount_id" name="discount_id" type="text" class="form-control" placeholder="discount ID" aria-label="Username" aria-describedby="addon-wrapping" readonly>
         </div>
         <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-percent"></i></span>
             <input id="discount_name" name="discount_name" type="text" class="form-control" placeholder="discount name" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
         <b id="memo"> Discount name is empty !</b>
         <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-percent"></i></span>
             <input id="discount_percent" name="discount_percent" type="number" min="0" max="100" class="form-control" placeholder="discount percent" aria-label="Username" aria-describedby="addon-wrapping" >
         </div>
         <b id="memo_percent"> Discount percent is empty !</b>

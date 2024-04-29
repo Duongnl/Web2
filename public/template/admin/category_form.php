@@ -46,10 +46,10 @@
             <input id="category_id" name="category_id" type="text" class="form-control" placeholder="category ID" aria-label="Username" aria-describedby="addon-wrapping" readonly>
         </div>
         <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
-            <input id="category_name" name="category_name" type="text" class="form-control" placeholder="category name" aria-label="Username" aria-describedby="addon-wrapping">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-list"></i></span>
+            <input id="category_name" name="category_name" type="text" class="form-control" placeholder="Category name" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
-        <b id="memo"> category name is empty !</b>
+        <b id="memo"> Category name is empty !</b>
 
         <input id="btn-category-form" type="submit" class="btn btn-success" style=" margin:0 auto;display:block; margin-top: 20px; " onclick="return inspect()" value="" ></input>
     </div>
