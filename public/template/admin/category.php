@@ -56,7 +56,7 @@
   </table>
 
   <?php
-  require_once('../../public/template/admin/category_form.php');
+  require_once('./public/template/admin/category_form.php');
   ?>
 
 </div>

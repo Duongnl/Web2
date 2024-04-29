@@ -58,7 +58,7 @@
   </table>
 
   <?php
-  require_once('../../public/template/admin/discount_form.php');
+  require_once('./public/template/admin/discount_form.php');
   ?>
 
 </div>

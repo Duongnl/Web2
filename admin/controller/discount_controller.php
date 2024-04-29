@@ -1,6 +1,9 @@
 <?php session_start();
 require_once('../model/discount_model.php');
 require_once('../model/db_config.php');
+require_once('../../site/controller/handle_url.php');
+$request = $_SERVER['REQUEST_URI'];
+$url = handle_url::getURLAdmin($request);
 if ( isset($_POST['action'])  && isset($_POST['discount_id']) && isset($_POST['discount_name']) && isset($_POST['discount_percent']))
 {
     $discount_id = $_POST['discount_id'];
@@ -21,7 +24,7 @@ if ( isset($_POST['action'])  && isset($_POST['discount_id']) && isset($_POST['d
     
 
     $_SESSION['back_from_discount_controller'] = true;
-    header("Location: ../view/discount_page.php");
+    header("Location: $url/discount");
     exit; // Dừng thực thi PHP sau khi chuyển hướng
 }
 

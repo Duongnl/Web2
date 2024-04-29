@@ -35,7 +35,7 @@
 
 </style>
 
-<form action="../controller/category_controller.php" method="POST" id="category_form">
+<form action="../admin/controller/category_controller.php" method="POST" id="category_form">
     <input type="hidden" id="action" name="action" value="">
     <button name="exit-category" type="button" class="btn btn-outline-danger" style="border: 0px; border-radius:20px;float:right" onclick="exit_category()"> <b>X</b> </button>
     <div style=" padding: 20px;">
@@ -62,7 +62,7 @@
 
 
 <!-- Thông báo -->
-<?php require_once('../../public/template/admin/toast.php');
+<?php require_once('./public/template/admin/toast.php');
 toast::memo("Success", "back_from_category_controller", "limegreen");
 ?>
 

@@ -38,14 +38,22 @@ $url =  handle_url::getURLAdmin($request);
                 </a>
                 <span class="tooltip">Product</span>
             </li>
-
             <li>
-                <a href="<?php echo $url.'/promotion';?>">
-                <i class="fa-solid fa-percent icon"></i>
-                    <span class="nav-item">Promotion</span>
+                <a href="<?php echo $url.'/category';?>">
+                    <i class="fa-solid fa-list"></i>
+                    <span class="nav-item">Category</span>
 
                 </a>
-                <span class="tooltip">Promotion</span>
+                <span class="tooltip">Category</span>
+            </li>
+
+            <li>
+                <a href="<?php echo $url.'/discount';?>">
+                <i class="fa-solid fa-percent icon"></i>
+                    <span class="nav-item">Discount</span>
+
+                </a>
+                <span class="tooltip">Discount</span>
             </li>
 
             <li>

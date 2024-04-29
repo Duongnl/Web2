@@ -11,8 +11,11 @@ switch ($baseName) {
     case 'product':
         require __DIR__ . $adminView . 'product_page.php';
         break;
-    case 'promotion':
-        require __DIR__ . $adminView . 'promotion_page.php';
+    case 'category':
+        require __DIR__ . $adminView . 'category_page.php';
+        break;
+    case 'discount':
+        require __DIR__ . $adminView . 'discount_page.php';
         break;
     case 'supplier':
         require __DIR__ . $adminView . 'supplier_page.php';

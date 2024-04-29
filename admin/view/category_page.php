@@ -17,10 +17,10 @@
 
 <body>
     <?php
-    require_once('../model/db_config.php');
-    require_once('../model/category_model.php');
-    require('../../public/template/admin/admin.php');
-    require('../../public/template/admin/category.php');
+    require_once('./admin/model/db_config.php');
+    require_once('./admin/model/category_model.php');
+    require('./public/template/admin/admin.php');
+    require('./public/template/admin/category.php');
     ?>
 </body>
 

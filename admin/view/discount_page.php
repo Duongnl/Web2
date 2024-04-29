@@ -17,10 +17,10 @@
 
 <body>
     <?php
-    require_once('../model/db_config.php');
-    require_once('../model/discount_model.php');
-    require('../../public/template/admin/admin.php');
-    require('../../public/template/admin/discount.php');
+    require_once('./admin/model/db_config.php');
+    require_once('./admin/model/discount_model.php');
+    require('./public/template/admin/admin.php');
+    require('./public/template/admin/discount.php');
     ?>
 </body>
 
