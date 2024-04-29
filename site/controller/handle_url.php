@@ -30,4 +30,11 @@ class handle_url
         return $folder_name;
     }
 
+    public static  function getURLAdmin($request)   {
+        $parts = explode("/", $request);  // Tách chuỗi thành các phần tử dựa trên dấu "/"
+        $url = implode("/", array_slice($parts, 0, 4));  // Lấy 4 phần tử đầu tiên và kết hợp lại thành chuỗi
+        return $url;
+    }
+
+
 }

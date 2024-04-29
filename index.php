@@ -5,7 +5,6 @@ $folder_name = handle_url::getParent_Index();
 $request = $_SERVER['REQUEST_URI'];
 $userView = '/site/view/';
 $baseName = basename($request);
-echo $baseName;
 switch ($baseName) {
   case $folder_name:
     require __DIR__ . $userView . 'home.php';
