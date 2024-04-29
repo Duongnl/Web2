@@ -1,1 +1,0 @@
- <?php require('./site/view/indx.php')?>

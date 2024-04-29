@@ -26,7 +26,7 @@
 
 <body>
   <?php require('./public/template/site/head.php')?>
-  <?php include('./public/template/site/indx.php')?>
+  <?php include('./public/template/site/home.php')?>
   <?php require('./public/template/site/footer.php')?>
 </body>
 

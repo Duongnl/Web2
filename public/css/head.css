@@ -147,6 +147,10 @@
   align-items: center;
 }
 
+.fav-shop>a {
+  color: #000;
+}
+
 .fs20 {
   font-size: 20px;
 }

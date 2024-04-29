@@ -21,7 +21,7 @@
             <div class="product-item-row">
               <div class="product-info-column">
                 <div class="product-info">
-                  <img src="../../public/images/arsenal1.jpg" alt="LCD Monitor" class="product-image" />
+                  <img src="./public/images/arsenal1.jpg" alt="LCD Monitor" class="product-image" />
                   <h6 class="product-name">LCD Monitor</h6>
                 </div>
               </div>
@@ -40,7 +40,7 @@
             <div class="product-item-row">
               <div class="product-info-column">
                 <div class="product-info">
-                  <img src="../../public/images/arsenal1.jpg" alt="LCD Monitor" class="product-image" />
+                  <img src="./public/images/arsenal1.jpg" alt="LCD Monitor" class="product-image" />
                   <h6 class="product-name">LCD Monitor</h6>
                 </div>
               </div>
