@@ -8,9 +8,8 @@ class category_model {
     }
 
      function getcategoryData () {
-       
         $this->db_config->connect();
-        $sql = "SELECT * FROM danhmuc";
+        $sql = "SELECT * FROM danhmuc WHERE TrangThai = 1";
         return $this->db_config->execute($sql);
     }
     
@@ -31,7 +30,7 @@ class category_model {
     // xoa du lieu 
     function DeletecategoryData ($maDM) {
         $this->db_config->connect();
-        $sql = "DELETE FROM danhmuc WHERE MaDM = '$maDM'";
+        $sql = "UPDATE danhmuc SET TrangThai = 0 WHERE MaDM = '$maDM'";
         return  $this->db_config->execute($sql);
     }
 

@@ -23,6 +23,12 @@ switch ($baseName) {
   case 'card':
     require __DIR__ . $userView . 'card-page.php';
     break;
+  case 'account':
+    require __DIR__ . $userView . 'account-page.php';
+    break;
+  case 'cart-detail':
+    require __DIR__ . $userView . 'cart-detail-page.php';
+    break;
   default:
     # code... page 404
     break;

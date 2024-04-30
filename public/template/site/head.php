@@ -49,6 +49,9 @@
        <a href="<?php  echo  $url.'/login' ?>">
          <i href="" class="fa-solid fa-user fs20 p-2"></i>
        </a>
+       <a href="<?php  echo  $url.'/account' ?>">
+          <i href="" class="fa-solid fa-gear"></i>
+       </a>
      </div>
    </div>
    </div>

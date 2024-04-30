@@ -1,31 +1,14 @@
+<?php 
+ $url = handle_url::getUrl();
+?>
 <div class="account">
   <div class="container ctn-account">
     <div class="nav">
-      <a href="#" class="nav-item">Home/</a>
-      <a href="#" class="nav-item">My Account</a>
-    </div>
-    <div class="welcome-message">
-      Welcome! <span class="highlight">Md Rimel</span>
+      <h4><a style="color: #db4444 ;" href="<?php echo  $url; ?>" class="nav-item">Home </a>/My Account</h4>
     </div>
   </div>
   <div class="account-management">
     <div class="account-management-container">
-      <aside class="account-sidebar">
-        <nav class="account-sidebar-menu">
-          <h3 class="account-sidebar-title">Manage My Account</h3>
-          <div class="manage-account">
-            <a href="#" class="account-sidebar-active">My Profile</a>
-            <a href="#" class="account-sidebar-item">Address Book</a>
-            <a href="#" class="account-sidebar-item-nowrap">My Payment Options</a>
-          </div>
-          <h3 class="account-sidebar-subtitle">My Orders</h3>
-          <div class="myorder">
-            <a href="#" class="account-sidebar-item">My Returns</a>
-            <a href="#" class="account-sidebar-item-nowrap">My Cancellations</a>
-          </div>
-          <h3 class="account-sidebar-subtitle">My WishList</h3>
-        </nav>
-      </aside>
       <section class="account-main-content">
         <div class="account-profile-section">
           <h1 class="account-profile-title">Edit Your Profile</h1>
@@ -61,6 +44,7 @@
           <div class="account-profile-actions">
             <button class="account-profile-cancel">Cancel</button>
             <button class="account-profile-save">Save Changes</button>
+            <a href="<?php  echo  $url.'/cart-detail' ?>" style="text-decoration: none;" class="account-profile-save">See Details Order</a href="">
           </div>
         </div>
       </section>
