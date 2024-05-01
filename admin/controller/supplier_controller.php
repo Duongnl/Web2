@@ -1,7 +1,4 @@
 <?php session_start();
-// require_once('../model/supplier_model.php');
-// require_once('../model/db_config.php');
-// require_once('../../site/controller/handle_url.php');
 
 require_once('./admin/model/supplier_model.php');
 require_once('./admin/model/db_config.php');
