@@ -1,3 +1,8 @@
+<?php 
+$request = $_SERVER['REQUEST_URI'];
+$url =  handle_url::getURLAdmin($request);
+?>
+
 <style>
     #discount_form {
         background-color: whitesmoke;
@@ -40,7 +45,7 @@
 
 </style>
 
-<form action="../admin/controller/discount_controller.php" method="POST" id="discount_form">
+<form action="<?php echo $url.'/discount_controller' ?>" method="POST" id="discount_form">
     <input type="hidden" id="action" name="action" value="">
     <button name="exit-discount" type="button" class="btn btn-outline-danger" style="border: 0px; border-radius:20px;float:right" onclick="exit_discount()"> <b>X</b> </button>
     <div style=" padding: 20px;">

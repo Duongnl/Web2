@@ -3,6 +3,7 @@
 require './site/controller/handle_url.php';
 $request = $_SERVER['REQUEST_URI'];
 $adminView = '/admin/view/';
+$adminController = '/admin/controller/';
 $baseName = basename($request);
 switch ($baseName) {
     case 'statistic':
@@ -37,12 +38,18 @@ switch ($baseName) {
     case 'import_form':
         require __DIR__ . $adminView . 'import_form_page.php';
         break;
-
-    default:
-      
+    case 'supplier_controller':
+        require __DIR__ . $adminController . 'supplier_controller.php';
         break;
+    case 'discount_controller':
+        require __DIR__ . $adminController . 'discount_controller.php';
+        break;
+    case 'category_controller':
+        require __DIR__ . $adminController . 'category_controller.php';
+        break;
+    default:
 
-
+        break;
 }
 
 
