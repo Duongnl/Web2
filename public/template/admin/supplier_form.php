@@ -14,25 +14,26 @@
         z-index: 2;
 
     }
-
     #memo {
-        display: none;
         color: #DB4444;
         font-size: 13px;
         margin-left: 46px;
+        border: 0;
+        width: 300px;
     }
 
     #overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Màu đen với độ mờ 50% */
-    z-index: 1; /* Đảm bảo lớp phủ nằm trên nội dung */
-    display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Màu đen với độ mờ 50% */
+        z-index: 1;
+        /* Đảm bảo lớp phủ nằm trên nội dung */
+        display: none;
     }
-
 </style>
 
 <form action="../admin/controller/supplier_controller.php" method="POST" id="supplier_form">
@@ -49,13 +50,13 @@
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
             <input id="supplier_name" name="supplier_name" type="text" class="form-control" placeholder="Supplier name" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
-        <b id="memo"> Supplier name is empty !</b>
+        <input type="text" value="" id="memo" disabled  >
 
-        <input id="btn-supplier-form" type="submit" class="btn btn-success" style=" margin:0 auto;display:block; margin-top: 20px; " onclick="return inspect()" value="" ></input>
+        <input id="btn-supplier-form" type="submit" class="btn btn-success" style=" margin:0 auto;display:block; margin-top: 20px; " onclick="return inspect()" value=""></input>
     </div>
 </form>
 
-<div id="overlay" onclick="click_overlay()" ></div>
+<div id="overlay" onclick="click_overlay()"></div>
 
 
 
@@ -77,7 +78,7 @@ toast::memo("Success", "back_from_controller", "limegreen");
         document.getElementById("supplier_name").value = tenNCC;
         document.getElementById("action").value = action;
         document.getElementById("btn-supplier-form").value = buttonName;
-        if  (action == 'delete')  {
+        if (action == 'delete') {
             document.getElementById("supplier_name").readOnly = true;
         } else {
             document.getElementById("supplier_name").readOnly = false;
@@ -87,7 +88,7 @@ toast::memo("Success", "back_from_controller", "limegreen");
 
     function exit_supplier() {
         document.getElementById("supplier_form").style.display = "none";
-        document.getElementById("memo").style.display = "none";
+        document.getElementById("memo").value = "";
         document.getElementById("overlay").style.display = "none";
     }
 
@@ -100,9 +101,13 @@ toast::memo("Success", "back_from_controller", "limegreen");
 
 
     function inspect() {
+        var pattern = /^[a-zA-Z0-9\s]*$/;
         var supplier_name = document.getElementById("supplier_name").value.trim();
         if (supplier_name == "") {
-            document.getElementById("memo").style.display = "block";
+            document.getElementById("memo").value = "Supplier name is empty !";
+            return false;
+        } else if (pattern.test(supplier_name) != true) {
+            document.getElementById("memo").value = "Doesn't contain special characters !";
             return false;
         } else {
             return true;

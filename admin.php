@@ -34,6 +34,9 @@ switch ($baseName) {
     case 'import':
         require __DIR__ . $adminView . 'import_page.php';
         break;
+    case 'import_form':
+        require __DIR__ . $adminView . 'import_form_page.php';
+        break;
 
     default:
       
