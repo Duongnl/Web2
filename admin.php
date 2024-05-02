@@ -1,4 +1,3 @@
-
 <?php
 require './site/controller/handle_url.php';
 $request = $_SERVER['REQUEST_URI'];
