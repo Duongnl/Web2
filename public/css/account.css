@@ -8,7 +8,6 @@
 
 .account-management {
   align-self: center;
-  margin-top: 10%;
   width: 100%;
 }
 
@@ -108,13 +107,13 @@
 
 .account-profile-section {
   border-radius: 4px;
+  margin-top: 20px;
   box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.05);
   background-color: #fff;
   display: flex;
-  flex-grow: 1;
+
   flex-direction: column;
   font-size: 16px;
-  line-height: 150%;
   width: 100%;
   padding: 43px 80px;
 }
@@ -167,6 +166,7 @@
 }
 
 .account-profile-name-label {
+  margin-top: 20px;
   font-family: Poppins, sans-serif;
 }
 
@@ -226,7 +226,7 @@
 }
 .show-password{
   margin-top: 20px;
-  margin-left: 15px;
+  
 }
 .account-profile-contact-value {
   font-family: Poppins, sans-serif;
@@ -341,7 +341,7 @@
   align-items: center;
   max-width: 1168px;
   width: 100%;
-  margin: 79px 0;
+  margin-top: 20px;
   gap: 20px;
   font-size: 14px;
   font-weight: 400;

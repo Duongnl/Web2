@@ -1,7 +1,4 @@
-<?php session_start();
-
-require_once('../model/db_config.php');
-
+<?php 
 class account_model
 {
 
@@ -24,15 +21,42 @@ class account_model
         $sql = "SELECT * FROM khachhang";
         return $this->db_config->execute($sql);
     }
-    public function getTaiKhoan($MaTK)
+    // public function getTaiKhoan($MaTK)
+    // {
+    //     $this->db_config->connect();
+    //     $sql = "SELECT tk.*, q.TenQuyen 
+    //         FROM taikhoan tk
+    //         LEFT JOIN quyen q ON tk.MaQuyen = q.MaQuyen
+    //         WHERE tk.MaTaiKhoan = '$MaTK'";
+    //     return $this->db_config->execute($sql);
+    // }
+
+    public function checkTaiKhoan($MaTK)
     {
         $this->db_config->connect();
-        $sql = "SELECT tk.*, q.TenQuyen 
-            FROM taikhoan tk
-            LEFT JOIN quyen q ON tk.MaQuyen = q.MaQuyen
-            WHERE tk.MaTaiKhoan = '$MaTK'";
+        $sql = "SELECT * FROM khachhang WHERE  khachhang.MaTK = ".$MaTK;
+        $query = $this->db_config->execute($sql);
+        if ( mysqli_num_rows($query) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getTaiKhoanKhachHang($MaTK)
+    {
+        $this->db_config->connect();
+        $sql = "SELECT *, khachhang.TenKH as HoTen FROM taikhoan,khachhang, quyen WHERE taikhoan.MaTK = khachhang.MaTK AND taikhoan.MaQuyen = quyen.MaQuyen AND taikhoan.MaTK = ".$MaTK;
         return $this->db_config->execute($sql);
     }
+
+    public function getTaiKhoanNhanVien($MaTK)
+    {
+        $this->db_config->connect();
+        $sql = "SELECT *, nhanvien.TenNV as HoTen FROM taikhoan,nhanvien, quyen  WHERE taikhoan.MaTK = nhanvien.MaTK AND taikhoan.MaQuyen = quyen.MaQuyen AND taikhoan.MaTK = ".$MaTK;
+        return $this->db_config->execute($sql);
+    }
+
     public function updateCustomerInfo($MaTK, $TenKH, $SDT, $ThoiGian, $TenQuyen, $DiaChi) {
         $this->db_config->connect();
         $sql = "UPDATE khachhang kh
@@ -72,3 +96,6 @@ class account_model
     //     return $this->db_config->execute($sql);
     // }
 }
+
+
+
