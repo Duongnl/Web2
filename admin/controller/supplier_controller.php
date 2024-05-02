@@ -22,8 +22,6 @@ if ( isset($_POST['action'])  && isset($_POST['supplier_id']) && isset($_POST['s
     } else if ($action == 'delete') {
         $supplier_model->DeleteSupplierData($supplier_id);
     }
-    
-
     $_SESSION['back_from_controller'] = true;
     header("Location: $url/supplier");
     exit; // Dừng thực thi PHP sau khi chuyển hướng
