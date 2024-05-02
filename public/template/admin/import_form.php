@@ -1,6 +1,12 @@
 <?php
 $request = $_SERVER['REQUEST_URI'];
 $url =  handle_url::getURLAdmin($request);
+
+if (isset($_POST['supplier']) ) {
+  $supplier_data = json_decode($_POST['supplier'], true);
+  $maNCC = $supplier_data['MaNCC'];
+  $tenNCC = $supplier_data['TenNCC'];
+}
 ?>
 
 <style>
@@ -15,18 +21,49 @@ $url =  handle_url::getURLAdmin($request);
 
 
 <div class="main-content">
-  <a type="button" href="<?php echo  $url . '/import'; ?>" class="btn btn-light"><i class="fa-solid fa-arrow-left" style="display: inline-block; font-size: 40px;"></i></a>
+  <a type="button" href="<?php echo  $url . '/import'; ?>" class="btn btn-light"><i class="fa-solid fa-arrow-left" style="display: inline-block; font-size: 30px;"></i></a>
   <h3 style="display: inline-block;padding-left: 15px;" class="h1-head-name">Import product</h3>
-
-  <div style="display:flex; margin-bottom: 20px; "  >
-    <select class="form-select select-filter-type" aria-label="Default select example" style=" margin-top: 20px;" >
-      <option value="" disabled selected hidden>Supplier name</option>
-      <option value="0" select>Supplier DV</option>
-      <option value="1">Supplier HT</option>
-      <option value="2">Supplier New</option>
-      <option value="3">Supplier DU</option>
+  
+  <div style="display: flex; margin-top:10px;margin-bottom: 10px;" >
+    <p style="font-size: 18px; margin-bottom: 0px;" > Supplier ID : <?php  echo $maNCC ?> </p>
+    <p style="font-size: 18px;margin-left: 100px;margin-bottom: 0px;"> Supplier name : <?php  echo $tenNCC ?> </p>
+  </div>
+  
+  <div style="display:flex;align-items: baseline; margin-bottom: 10px; "  >
+    <p style="font-size: 18px;margin-right: 20px;">Product: </p>
+    <select class="form-select select-filter-type" aria-label="Default select example"  >
+      <option value="0" select>Áo thun kaki</option>
+      <option value="1">Quần đen thun co giãn</option>
+      <option value="2">Áo vest</option>
+      <option value="3">Áo sơ mi tay dài</option>
     </select>
-    <button type="button" class="btn btn-success" style="height: 40px;margin-top: 20px;margin-left: 20px;" >Select</button>
+  </div>
+
+  <div style="display:flex; align-items: baseline;margin-bottom: 10px;"  >
+  <p style="font-size: 18px;margin-right: 55px;">Size: </p>  
+  <select class="form-select select-filter-type" aria-label="Default select example"  >
+      <option value="0" select>S</option>
+      <option value="1">M</option>
+      <option value="2">X</option>
+      <option value="3">XL</option>
+    </select>
+  </div>
+
+  <div style="display:flex;align-items: baseline; margin-bottom: 10px; "  >
+    <p style="font-size: 18px;margin-right: 13px;">Quantity: </p>
+    <div class="input-group flex-nowrap" >
+        <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-plus"></i></span>
+        <input id="quantity" name="quantity" type="number" class="form-control" placeholder="Quantity product" aria-label="Username" aria-describedby="addon-wrapping">
+    </div>
+  </div>
+
+  <div style="display:flex;align-items: baseline; margin-bottom: 10px; "  >
+    <p style="font-size: 18px;margin-right: 47px;">Cost: </p>
+    <div class="input-group flex-nowrap" >
+        <span class="input-group-text" id="addon-wrapping" style=" padding-right: 13px; padding-left: 16px;"><i class="fa-solid fa-dollar-sign"></i></span>
+        <input id="cost" name="cost" type="number" class="form-control" placeholder="Dollar" aria-label="Username" aria-describedby="addon-wrapping">
+    </div>
+    <button type="button" class="btn btn-success" style=" margin-left : 10px; width:150px;" >Add</button>
   </div>
 
 
