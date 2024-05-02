@@ -9,7 +9,7 @@ class discount_model {
 
      function getdiscountData () {
         $this->db_config->connect();
-        $sql = "SELECT * FROM khuyenmai";
+        $sql = "SELECT * FROM khuyenmai WHERE TrangThai = 1";
         return $this->db_config->execute($sql);
     }
     
@@ -30,7 +30,7 @@ class discount_model {
     // xoa du lieu 
     function DeletediscountData ($maKM) {
         $this->db_config->connect();
-        $sql = "DELETE FROM khuyenmai WHERE MaKM = '$maKM'";    
+        $sql = "UPDATE khuyenmai SET TrangThai = 0 WHERE MaKM ='$maKM'";    
         return  $this->db_config->execute($sql);
     }
 
