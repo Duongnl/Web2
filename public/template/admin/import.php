@@ -35,8 +35,9 @@ $url =  handle_url::getURLAdmin($request);
 
 <div class="main-content">
 <h3 class="h1-head-name">Import management</h3>
-<a type="button" href="<?php echo  $url.'/import_form';?>"  class="btn btn-success" style="float:right; margin-top: 10px; margin-bottom: 10px; ">
-<i class="fa-solid fa-circle-plus"></i> Import product</a>
+
+<button type="button" class="btn btn-success" style="float:right; margin-top: 10px; margin-bottom: 10px; " onclick="select_supplier_form('Select supplier','Select')">
+<i class="fa-solid fa-circle-plus"></i> Add new supplier</button>
 
     <table class="table table-striped table-hover ">
     <thead>
@@ -75,12 +76,12 @@ $url =  handle_url::getURLAdmin($request);
           <td>
            <?php if ($row['TrangThaiPN'] == 0) { ?> 
            
-            <form action="../admin/controller/import_controller.php" method="POST" style="display: inline-block;"> 
+            <form action="<?php echo $url.'/import_controller' ?>" method="POST" style="display: inline-block;"> 
               <input type="hidden" name="maPN" value="<?php echo $row['MaPN'] ?>" > 
               <button type="submit" class="btn btn-success btn-accept" name="action" value="accept"> Accept </button>
             </form> 
             
-            <form action="../admin/controller/import_controller.php" method="POST" style="display: inline-block;"> 
+            <form action="<?php echo $url.'/import_controller' ?>" method="POST" style="display: inline-block;"> 
               <input type="hidden" name="maPN" value="<?php echo $row['MaPN'] ?>">  
               <button type="submit" class="btn btn-danger btn-decline" name="action" value="decline">Decline</button>
             </form>  
@@ -94,6 +95,9 @@ $url =  handle_url::getURLAdmin($request);
     </tbody>
   </table>
 
+  <?php
+  require_once('./public/template/admin/select_supplier_form.php');
+  ?>
 
 
 </div>

@@ -46,6 +46,9 @@ switch ($baseName) {
     case 'category_controller':
         require __DIR__ . $adminController . 'category_controller.php';
         break;
+    case 'import_controller':
+        require __DIR__ . $adminController . 'import_controller.php';
+        break;
     default:
 
         break;

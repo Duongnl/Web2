@@ -1,7 +1,7 @@
 <?php session_start();
-require_once('../model/import_model.php');
-require_once('../model/db_config.php');
-require_once('../../site/controller/handle_url.php');
+
+require_once('./admin/model/import_model.php');
+require_once('./admin/model/db_config.php');
 
 $request = $_SERVER['REQUEST_URI'];
 $url = handle_url::getURLAdmin($request);
