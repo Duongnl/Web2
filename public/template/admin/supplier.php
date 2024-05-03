@@ -1,16 +1,16 @@
 <style>
-  .btn-edit {
-    display: none;
-  }
+.btn-edit {
+  display: none;
+}
 
-  .btn-delete {
-    display: none;
-  }
+.btn-delete {
+  display: none;
+}
 
-  .tr-body:hover .btn-edit,
-  .tr-body:hover .btn-delete {
-    display: inline;
-  }
+.tr-body:hover .btn-edit,
+.tr-body:hover .btn-delete {
+  display: inline;
+}
 </style>
 
 
@@ -18,7 +18,8 @@
 
   <h3 class="h1-head-name">Supplier management</h3>
 
-  <button type="button" class="btn btn-success" style="float:right; margin-top: 10px; margin-bottom: 10px; " onclick="supplier_form('','','Add new supplier','add','Add')">
+  <button type="button" class="btn btn-success" style="float:right; margin-top: 10px; margin-bottom: 10px; "
+    onclick="supplier_form('','','Add new supplier','add','Add')">
 
     <i class="fa-solid fa-circle-plus"></i> Add new supplier</button>
 
@@ -38,17 +39,21 @@
       $query = $supplier_model->getSupplierData();
       while ($row = mysqli_fetch_array($query)) {
       ?>
-        <tr class="tr-body" style="height: 55px;">
-          <th scope="row"><?php echo $row['MaNCC'] ?></th>
-          <td><?php echo $row['TenNCC'] ?></td>
-          <td><?php echo $row['TrangThai'] ?></td>
-          <td>
-            <!-- <form action="../controller/supplier-controller.php" method="GET">  -->
-            <button type="button" class="btn btn-warning btn-edit" onclick="supplier_form('<?php echo $row['MaNCC'] ?>' ,'<?php echo $row['TenNCC'] ?>','Edit supplier','edit','Save')"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button type="button" class="btn btn-danger btn-delete"  onclick="supplier_form('<?php echo $row['MaNCC'] ?>' ,'<?php echo $row['TenNCC'] ?>','Delete supplier','delete', 'Delete')"><i class="fa-solid fa-trash"></i></button>
-            <!-- </form>  -->
-          </td>
-        </tr>
+      <tr class="tr-body" style="height: 55px;">
+        <th scope="row"><?php echo $row['MaNCC'] ?></th>
+        <td><?php echo $row['TenNCC'] ?></td>
+        <td><?php echo $row['TrangThai'] ?></td>
+        <td>
+          <!-- <form action="../controller/supplier-controller.php" method="GET">  -->
+          <button type="button" class="btn btn-warning btn-edit"
+            onclick="supplier_form('<?php echo $row['MaNCC'] ?>' ,'<?php echo $row['TenNCC'] ?>','Edit supplier','edit','Save')"><i
+              class="fa-solid fa-pen-to-square"></i></button>
+          <button type="button" class="btn btn-danger btn-delete"
+            onclick="supplier_form('<?php echo $row['MaNCC'] ?>' ,'<?php echo $row['TenNCC'] ?>','Delete supplier','delete', 'Delete')"><i
+              class="fa-solid fa-trash"></i></button>
+          <!-- </form>  -->
+        </td>
+      </tr>
       <?php
       }
       ?>
