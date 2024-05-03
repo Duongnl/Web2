@@ -34,7 +34,7 @@ class handle_url
         $parts = explode("/", $request);  // Tách chuỗi thành các phần tử dựa trên dấu "/"
         $index = array_search("admin", $parts);  // Tìm vị trí của từ khóa "admin"
         $url = implode("/", array_slice($parts, 0, $index + 1));  // Lấy phần từ đầu đến từ khóa "admin" và kết hợp lại thành chuỗi
-        return $url;
+        return $url.'/';
     }
 
 

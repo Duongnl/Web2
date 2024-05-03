@@ -1,6 +1,4 @@
 <?php 
-$request = $_SERVER['REQUEST_URI'];
-$url =  handle_url::getURLAdmin($request);
 ?>
 <div class="sidebar">
   <div class="top">
@@ -14,7 +12,7 @@ $url =  handle_url::getURLAdmin($request);
 
   </div>
   <div class="user">
-    <img src="../public/images/logo.png" class="user-img">
+    <img src=<?php echo $rootDirectory."/public/images/logo.png"?> class="user-img">
     <div>
       <p class="bold"> Nguyễn Văn A</p>
       <p>Admin</p>
@@ -23,7 +21,7 @@ $url =  handle_url::getURLAdmin($request);
   <ul style="padding-left: 0px;">
 
     <li>
-      <a href="<?php echo $url.'/statistic';?>">
+      <a href="<?php echo $toAdmin.'statistic';?>">
         <i class="fa-solid fa-chart-simple icon"></i>
         <span class="nav-item">Statistic</span>
 
@@ -31,7 +29,7 @@ $url =  handle_url::getURLAdmin($request);
       <span class="tooltip">Statistic</span>
     </li>
     <li>
-      <a href="<?php echo $url.'/product';?>">
+      <a href="<?php echo $toAdmin.'product';?>">
         <i class='bx bxl-product-hunt icon'></i>
         <span class="nav-item">Product</span>
 
@@ -39,7 +37,7 @@ $url =  handle_url::getURLAdmin($request);
       <span class="tooltip">Product</span>
     </li>
     <li>
-      <a href="<?php echo $url.'/category';?>">
+      <a href="<?php echo $toAdmin.'category';?>">
         <i class="fa-solid fa-list"></i>
         <span class="nav-item">Category</span>
 
@@ -48,7 +46,7 @@ $url =  handle_url::getURLAdmin($request);
     </li>
 
     <li>
-      <a href="<?php echo $url.'/discount';?>">
+      <a href="<?php echo $toAdmin.'discount';?>">
         <i class="fa-solid fa-percent icon"></i>
         <span class="nav-item">Discount</span>
 
@@ -57,7 +55,7 @@ $url =  handle_url::getURLAdmin($request);
     </li>
 
     <li>
-      <a href="<?php echo $url.'/supplier'?>">
+      <a href="<?php echo $toAdmin.'supplier'?>">
         <i class="fa-solid fa-boxes-packing icon"></i>
         <span class="nav-item">Supplier</span>
 
@@ -66,7 +64,7 @@ $url =  handle_url::getURLAdmin($request);
     </li>
 
     <li>
-      <a href="<?php echo $url.'/staff'?>">
+      <a href="<?php echo $toAdmin.'staff'?>">
         <i class="fa-solid fa-user icon"></i>
         <span class="nav-item">Staff</span>
 
@@ -75,7 +73,7 @@ $url =  handle_url::getURLAdmin($request);
     </li>
 
     <li>
-      <a href="<?php echo $url.'/client'?>">
+      <a href="<?php echo $toAdmin.'client'?>">
         <i class="fa-solid fa-circle-user icon"></i>
         <span class="nav-item">Client</span>
 
@@ -83,7 +81,7 @@ $url =  handle_url::getURLAdmin($request);
       <span class="tooltip">Client</span>
     </li>
     <li>
-      <a href="<?php echo $url.'/permission'?>">
+      <a href="<?php echo $toAdmin.'permission'?>">
         <i class="fa-solid fa-users icon"></i>
         <span class="nav-item">Permission</span>
 
@@ -91,7 +89,7 @@ $url =  handle_url::getURLAdmin($request);
       <span class="tooltip">Permission</span>
     </li>
     <li>
-      <a href="<?php echo $url.'/order'?>">
+      <a href="<?php echo $toAdmin.'order'?>">
         <i class="fa-solid fa-receipt icon"></i>
         <span class="nav-item">Order</span>
 
@@ -99,7 +97,7 @@ $url =  handle_url::getURLAdmin($request);
       <span class="tooltip">Order</span>
     </li>
     <li>
-      <a href="<?php echo $url.'/import'?>">
+      <a href="<?php echo $toAdmin.'import'?>">
         <i class="fa-solid fa-file-import icon"></i>
         <span class="nav-item">Import</span>
 
@@ -107,7 +105,7 @@ $url =  handle_url::getURLAdmin($request);
       <span class="tooltip">Import</span>
     </li>
     <li>
-      <a href="<?php $trimmed_url = str_replace("/admin", "",$url); echo $trimmed_url;?>">
+      <a href="<?php $trimmed_url = str_replace("/admin", "",$toAdmin); echo $trimmed_toAdmin;?>">
         <i class="fa-solid fa-arrow-right-from-bracket icon"></i>
         <span class="nav-item">Exit</span>
 

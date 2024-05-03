@@ -51,10 +51,11 @@
         Search
       </button>
     </form>
-
-    <button type="button" class="btn btn-success" style="margin-top: 10px; margin-bottom: 10px; ">
-      <i class="fa-solid fa-circle-plus"></i> Add new product
-    </button>
+    <a href=<?php echo $request."/add"?>>
+      <button type="button" class="btn btn-success" style="margin-top: 10px; margin-bottom: 10px; ">
+        <i class="fa-solid fa-circle-plus"></i> Add new product
+      </button>
+    </a>
   </div>
   <div class="wrap-table table-responsive-lg">
     <table class="table table-striped table-hover" style="text-align: center;">
@@ -242,7 +243,4 @@
     </li>
   </ul>
 
-  <?php
-  require_once('./public/template/admin/product_form.php');
-  ?>
 </div>

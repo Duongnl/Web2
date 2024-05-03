@@ -1,18 +1,5 @@
 <style>
-#product_form {
-  background-color: whitesmoke;
-  border: 1px solid gray;
-  border-radius: 20px;
-
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  position: fixed;
-  /* display: none; */
-
-  z-index: 2;
-
-}
+#product_form {}
 
 #memo {
   display: none;
@@ -20,48 +7,96 @@
   font-size: 13px;
   margin-left: 46px;
 }
-
-#overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Màu đen với độ mờ 50% */
-  z-index: 1;
-  /* Đảm bảo lớp phủ nằm trên nội dung */
-  /* display: none; */
-}
 </style>
-
-<form action="../admin/controller/product_controller.php" method="POST" id="product_form">
-  <input type="hidden" id="action" name="action" value="">
-  <button name="exit-supplier" type="button" class="btn btn-outline-danger"
-    style="border: 0px; border-radius:20px;float:right" onclick="exit_product()"> <b>X</b> </button>
-  <div style=" padding: 20px;">
+<?php 
+  
+?>
+<div class="main-content">
+  <form action="../admin/controller/product_controller.php" method="POST" id="product_form">
+    <input type="hidden" id="action" name="action" value="">
     <h3 style="text-align: center;">Add Product</h3>
-    <input type="text" id="input-text-head" value=""
-      style="text-align: center;margin:0 auto;display:block; border:none; font-size :25px;" disabled>
     <div class="input-group flex-nowrap" style="margin-top: 20px;">
-      <span class="input-group-text" id="addon-wrapping" style=" padding-right: 14px; padding-left: 14px;"><b>ID
-        </b></span>
-      <input id="supplier_id" name="supplier_id" type="text" class="form-control" placeholder="Supplier ID"
-        aria-label="Username" aria-describedby="addon-wrapping" readonly>
+      <label for="product-name" class="input-group-text" id="addon-wrapping">
+        <i class="bx bxl-product-hunt"></i></label>
+      <input id="product-name" name="product-name" type="text" class="form-control" placeholder="Name product">
     </div>
     <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-      <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
-      <input id="supplier_name" name="supplier_name" type="text" class="form-control" placeholder="Supplier name"
-        aria-label="Username" aria-describedby="addon-wrapping">
+      <label for="product-desc" class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-message"></i></label>
+      <textarea id="product-desc" name="product-desc" rows="4" cols="50" class="form-floating"
+        placeholder="Description"></textarea>
     </div>
-    <b id="memo"> Supplier name is empty !</b>
+    <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
+      <label for="product-category" class="input-group-text" id="addon-wrapping"><i
+          class="fa-solid fa-list"></i></label>
+      <select id="product-category" name="product-category" class="form-select">
+        <option value="">--Choose category--</option>
+        <option value="">b</option>
+      </select>
+    </div>
+    <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
+      <label for="product-sale" class="input-group-text" id="addon-wrapping"><i
+          class="fa-solid fa-percent icon"></i></label>
+      <select id="product-sale" name="product-sale" class="form-select">
+        <option value="">--Choose sale--</option>
+        <option value="">b</option>
+      </select>
+    </div>
+    <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
+      <label for="product-sex" class="input-group-text" id="addon-wrapping"><i
+          class="fa-solid fa-mars-and-venus"></i></label>
+      <select id="product-sex" name="product-sex" class="form-select">
+        <option value="">--Choose sex--</option>
+        <option value="">All</option>
+        <option value="">Men</option>
+        <option value="">Women</option>
+      </select>
+    </div>
+    <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
+      <label for="product-size" class="input-group-text" id="addon-wrapping"><i class='bx bx-font-size'></i></label>
+      <select id="product-size" name="product-size" class="form-select">
+        <option value="">--Choose size--</option>
+        <option value="">S</option>
+        <option value="">M</option>
+        <option value="">L</option>
+      </select>
+      <button class="btn btn-primary">Add size</button>
+    </div>
+    <table class="table table-striped" style="text-align:center">
+      <thead>
+        <tr>
+          <th scope="col">Size</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr>
+          <th scope="row">S</th>
+          <td>10</td>
+          <td><button class="btn btn-danger">Delete</button></td>
+        </tr>
+        <tr>
+          <th scope="row">M</th>
+          <td>100</td>
+          <td><button class="btn btn-danger">Delete</button></td>
+        </tr>
+        <tr>
+          <th scope="row">L</th>
+          <td>50</td>
+          <td><button class="btn btn-danger">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <b id="memo"> Supplier name is empty !</b> -->
 
     <input id="btn-supplier-form" type="submit" class="btn btn-success"
       style=" margin:0 auto;display:block; margin-top: 20px; " onclick="return inspect()" value="Add"></input>
-  </div>
+</div>
 </form>
+</div>
 
-<div id="overlay" onclick="click_overlay()"></div>
+
+
 
 
 
