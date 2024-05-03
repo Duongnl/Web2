@@ -30,7 +30,7 @@ class category_model {
     // xoa du lieu 
     function DeletecategoryData ($maDM) {
         $this->db_config->connect();
-        $sql = "UPDATE danhmuc SET TrangThai = 0 WHERE MaDM = '$maDM'";
+        $sql = "DELETE FROM danhmuc WHERE MaDM = '$maDM'";
         return  $this->db_config->execute($sql);
     }
 
