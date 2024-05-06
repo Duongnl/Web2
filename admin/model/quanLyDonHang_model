@@ -10,7 +10,7 @@ class quanLyDonHang_model {
      function getDonHangData () {
        
         $this->db_config->connect();
-        $sql = "SELECT * FROM hoadon";
+        $sql = "SELECT *, hoadon.TrangThai as TrangThaiHD,hoadon.ThoiGian as ThoiGianHD FROM hoadon,khachhang,taikhoan WHERE hoadon.MaTK = taikhoan.MaTK  AND hoadon.MaTK = khachhang.MaTK";
         return $this->db_config->execute($sql);
     }
     
