@@ -27,23 +27,29 @@
   .td_form{
     padding-top:9px!important;
   }
+  .h1-head-name{
+    margin-bottom:40px;
+    text-align:center;
+  }
 </style>
 
 
 <div class="main-content">
 
-  <h3 class="h1-head-name">Quản lý đơn hàng</h3>
+  <h3 class="h1-head-name ">Quản lý đơn hàng</h3>
 
-  <button type="button" class="btn btn-success" style="float:right; margin-top: 10px; margin-bottom: 10px; " onclick="supplier_form('','','Add new supplier','add','Add')">
-
-    <i class="fa-solid fa-circle-plus"></i> Add new supplier</button>
+  <?php 
+     $chiTietDonHang_model= new chiTietDonHang_model();
+     
+     
+  ?>
 
 
   <table class="table table-striped table-hover ">
     <thead>
       <tr>
         <th scope="col">Mã Đơn hàng</th>
-        <th scope="col">Mã Tài Khoản</th>
+        <th scope="col">Tên Khách Hàng</th>
         <th scope="col">Ngày đặt</th>
         <th scope="col">Trạng thái</th>
         <th scope="col">Tổng tiền</th>
@@ -59,24 +65,27 @@
       ?>
         <tr class="tr-body" style="height: 57px;">
           <th scope="row"><?php echo $row['MaHD'] ?></th>
-          <td><?php echo $row['MaTK'] ?></td>
-          <td><?php echo $row['ThoiGian'] ?></td>
-          <?php if($row['TrangThai']==0){
+          <td><?php echo $row['TenTK'] ?></td>
+          <td><?php echo $row['ThoiGianHD'] ?></td>
+          <?php if($row['TrangThaiHD']==0){
 
               echo '<td style="background-color:yellow" >Chờ xử lý</td>';
               
-          }else if($row['TrangThai']==1){
+          }else if($row['TrangThaiHD']==1){
             echo '<td style="background-color:green">Đã xử lý</td>';
             
           }
-          else if($row['TrangThai']==2){
+          else if($row['TrangThaiHD']==2){
             echo '<td style="background-color:red">Đã hủy</td>';
           
            };
+
+      
+           
            ?>
           <td><?php echo $row['ThanhToan'] ?></td>
           <td class="td_form">
-            <?php if($row['TrangThai']==0){?>
+            <?php if($row['TrangThaiHD']==0){?>
             <form action="../controller/quanLyDonHang_controller.php" method="POST" class="form_container"> 
               <button type="submit" class="btn btn-warning btn-edit" >Xử lý</button>
               <input type="hidden" name="MaHD" value="<?php echo $row['MaHD']?> ">
@@ -90,7 +99,10 @@
               <?php };?>
           </td>
           <td class="td_form " style="width:200px">
-            <button type="button" class="btn btn-warning btn-edit" onclick="quanLyDonHang('<?php echo $row['MaHD'] ?>' ,'<?php echo $row['MaTK'] ?>','<?php echo $row['ThoiGian'] ?>' ,'<?php echo $row['ThanhToan'] ?>' ,'<?php echo $row['MoTa'] ?>' ,'Xem ChiTietDonHang','','Xuất Hóa Đơn')">Chi tiết đơn hàng</button>
+            <form action="../view/chiTietDonHang_page.php" method="POST" class="form_container"> 
+              <input type="hidden" name="MaHD" value="<?php echo $row['MaHD']?> ">
+              <button type="submit" class="btn btn-warning btn-edit">Chi tiết đơn hàng</button>
+            </form> 
           </td>
         </tr>
       <?php
@@ -99,8 +111,13 @@
     </tbody>
   </table>
 
-  <?php
-  require_once('../../public/template/admin/supplier_form.php');
-  ?>
 
 </div>
+<?php require_once('../../public/template/admin/toast.php');
+if (isset($_SESSION['Duyet_ThanhCong']) && $_SESSION['Duyet_ThanhCong'] == true) {
+  toast::memo("Success", "Duyet_ThanhCong", "limegreen");
+} else if (isset($_SESSION['Duyet_ThatBai']) && $_SESSION['Duyet_ThatBai'] == true) {
+  toast::memo("Thất bại , không đủ hàng trong kho", "Duyet_ThatBai", "red");
+}
+
+?>
