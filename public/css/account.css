@@ -7,7 +7,9 @@
 }
 
 .account-management {
-  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
@@ -18,13 +20,11 @@
   }
 }
 
-.account-management-container {
-  display: flex;
-  gap: 20px;
-}
+
 
 @media (max-width: 991px) {
   .account-management-container {
+    display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
@@ -93,15 +93,17 @@
 
 .account-main-content {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   line-height: normal;
-  width: 81%;
+  width: 100%;
   margin-left: 20px;
 }
 
 @media (max-width: 991px) {
   .account-main-content {
     width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -111,7 +113,6 @@
   box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.05);
   background-color: #fff;
   display: flex;
-
   flex-direction: column;
   font-size: 16px;
   width: 100%;
@@ -143,6 +144,7 @@
 
 .account-profile-name {
   display: flex;
+  flex-direction: column;
   margin-top: 23px;
   justify-content: space-between;
   gap: 20px;
@@ -177,6 +179,8 @@
   margin-top: 8px;
   justify-content: center;
   align-items: start;
+  color: #000;
+  font-weight: 400;
   white-space: nowrap;
   padding: 19px 60px 19px 16px;
   border: none;
@@ -259,7 +263,7 @@
   }
 }
 
-.account-profile-password-input {
+.account-profile-input {
   font-family: Poppins, sans-serif;
   border-radius: 4px;
   background-color: #f5f5f5;
@@ -274,7 +278,7 @@
 }
 
 @media (max-width: 991px) {
-  .account-profile-password-input {
+  .account-profile-input {
     white-space: initial;
     max-width: 100%;
     padding-right: 20px;
@@ -314,7 +318,17 @@
   padding: 16px 48px;
   border: none;
 }
-
+.view-details-order{
+  margin: 30px 0 0 20px;
+  width: 250px;
+  font-family: Poppins, sans-serif;
+  border-radius: 4px;
+  color: #db4444;
+  font-weight: 500;
+  flex-grow: 1;
+  padding: 16px 48px;
+  border: 2px solid #db4444;
+}
 .account-profile-cancel {
   font-family: Poppins, sans-serif;
   justify-content: center;
