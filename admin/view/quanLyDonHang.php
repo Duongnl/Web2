@@ -18,6 +18,7 @@
     <?php 
           require_once('../model/db_config.php');
           require_once('../model/quanLyDonHang_model.php');
+          require_once('../model/chiTietDonHang_model.php');
           require('../../public/template/admin/admin.php'); 
           require('../../public/template/admin/quanLyDonHang.php'); 
     ?>
