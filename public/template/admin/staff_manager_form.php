@@ -141,6 +141,12 @@ toast::memo("Success", "back_from_controller", "limegreen");
         document.getElementById("btn-staff-form").value = buttonName ;
         if  (action == 'delete')  {
             document.getElementById("staff_name").readOnly = true;
+            document.getElementById("staff_tenTK").readOnly = true;
+            document.getElementById("staff_email").readOnly = true;
+            document.getElementById("staff_sdt").readOnly = true;
+            document.getElementById("staff_matkhau").readOnly = true;
+            document.getElementById("staff_diaChiNV").readOnly = true;
+
         } else {
             document.getElementById("staff_name").readOnly = false;
         }

@@ -118,7 +118,7 @@ toast::memo("Success", "back_from_controller", "limegreen");
 
         document.getElementById("guest_id").value = maKH;
         document.getElementById("guest_name").value = tenKH;
-        document.getElementById("guest_QuyenKH").value = quyen;
+        document.getElementById("guest_QuyenKH").value = "";
         document.getElementById("guest_QuyenKH").readOnly = true;
         document.getElementById("guest_tenTK").value = tenTK;
 
