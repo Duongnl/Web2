@@ -16,13 +16,13 @@
 </head>
 <body>
     <?php 
-          require_once('../model/db_config.php');
-          require_once('../model/staff_manager_model.php');
-          require_once('../model/quyen_model.php');
-          require_once('../model/account_manager_model.php');
+           require_once('./admin/model/db_config.php');
+          require_once('./admin/model/staff_manager_model.php');
+          require_once('./admin/model/quyen_model.php');
+          require_once('./admin/model/account_manager_model.php');
 
-          require('../../public/template/admin/admin.php'); 
-          require('../../public/template/admin/staff_manager.php'); 
+          require('./public/template/admin/admin.php'); 
+          require('./public/template/admin/staff_manager.php'); 
     ?>
 </body>
 </html>

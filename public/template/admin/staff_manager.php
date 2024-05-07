@@ -67,7 +67,7 @@
   </table>
 
   <?php
-  require_once('../../public/template/admin/staff_manager_form.php');
+  require_once('./public/template/admin/staff_manager_form.php');
   ?>
 
 </div>

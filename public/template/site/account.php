@@ -1,68 +1,64 @@
+<?php
+$url = handle_url::getUrl();
+?>
+
+
 <div class="account">
   <div class="container ctn-account">
     <div class="nav">
-      <a href="#" class="nav-item">Home/</a>
-      <a href="#" class="nav-item">My Account</a>
-    </div>
-    <div class="welcome-message">
-      Welcome! <span class="highlight">Md Rimel</span>
+      <h4><a style="color: #db4444 ;" href="<?php echo  $url; ?>" class="nav-item">Home </a>/My Account</h4>
     </div>
   </div>
   <div class="account-management">
     <div class="account-management-container">
-      <aside class="account-sidebar">
-        <nav class="account-sidebar-menu">
-          <h3 class="account-sidebar-title">Manage My Account</h3>
-          <div class="manage-account">
-            <a href="#" class="account-sidebar-active">My Profile</a>
-            <a href="#" class="account-sidebar-item">Address Book</a>
-            <a href="#" class="account-sidebar-item-nowrap">My Payment Options</a>
-          </div>
-          <h3 class="account-sidebar-subtitle">My Orders</h3>
-          <div class="myorder">
-            <a href="#" class="account-sidebar-item">My Returns</a>
-            <a href="#" class="account-sidebar-item-nowrap">My Cancellations</a>
-          </div>
-          <h3 class="account-sidebar-subtitle">My WishList</h3>
-        </nav>
-      </aside>
       <section class="account-main-content">
-        <div class="account-profile-section">
-          <h1 class="account-profile-title">Edit Your Profile</h1>
+        <form action="../site/controller/account_controller.php" method="POST" id="account_form" class="account-profile-section">
+          <input type="hidden" id="action" name="action" value="">
+          <h1 class="account-profile-title">User information</h1>
+          <input type="hidden" id="user_id" name="user_id" value="">
           <div class="account-profile-name">
             <div class="account-profile-name-item">
-              <label class="account-profile-name-label">First Name</label>
-              <input type="text" class="account-profile-name-value" placeholder="Md" aria-label="Md"></input>
+              <label class="account-profile-name-label">User Name</label>
+              <input type="text" class="account-profile-name-value" id="user_name" name="user_name"></input>
             </div>
             <div class="account-profile-name-item">
-              <label class="account-profile-name-label">Last Name</label>
-              <input type="text" class="account-profile-name-value" placeholder="Rimel" aria-label="Rimel"></input>
+              <label class="account-profile-name-label">Phone Number</label>
+              <input type="text" class="account-profile-name-value" id="user_phone" name="user_phone"></input>
             </div>
           </div>
           <div class="account-profile-contact">
             <div class="account-profile-contact-item">
-              <label class="account-profile-contact-label">Email</label>
-              <input type="text" class="account-profile-contact-value" placeholder="rimel1111@gmail.com"
-                aria-label="rimel1111@gmail.com"></input>
+              <label class="account-profile-contact-label">Date</label>
+              <input type="date" class="account-profile-contact-value" id="user_date" name="user_date"></input>
+            </div>
+            <div class="account-profile-contact-item">
+              <label class="account-profile-contact-label">Permission</label>
+              <input type="text" class="account-profile-contact-value" id="user_permission" name="user_permission"></input>
             </div>
             <div class="account-profile-contact-item">
               <label class="account-profile-contact-label">Address</label>
-              <input type="text" class="account-profile-contact-value" placeholder="Kingston, 5236, US"
-                aria-label="Kingston, 5236, US"></input>
+              <input type="text" class="account-profile-contact-value" id="user_address" name="user_address"></input>
             </div>
           </div>
-          <h4 class="account-profile-password-title">Password Changes</h4>
-          <input type="text" class="account-profile-password-input" placeholder="Current Passwod"
-            aria-label="Current Passwod"></input>
-          <input type="text" class="account-profile-password-input" placeholder="New Passwod"
-            aria-label="New Passwod"></input>
-          <input type="text" class="account-profile-password-input" placeholder="Confirm New Passwod"
-            aria-label="Confirm New Passwod"></input>
           <div class="account-profile-actions">
             <button class="account-profile-cancel">Cancel</button>
-            <button class="account-profile-save">Save Changes</button>
+            <input id="btn-user-info-form" type="submit" class="account-profile-save user-infor"></input>
           </div>
-        </div>
+          <form action="" method="POST" id="account_form_2" class="account-information">
+            <h1 class="account-profile-title">Account information</h1>
+            <input type="text" class="account-profile-password-input" placeholder="User name" id="username" name="username"></input>
+            <input type="text" class="account-profile-password-input" placeholder="Email" id="email" name="email"></input>
+            <input type="text" class="account-profile-password-input" placeholder="Password" id="password" name="password"></input>
+            <input type="text" class="account-profile-password-input" placeholder="New Password" id="newpassword" name="newpassword"></input>
+            <input type="text" class="account-profile-password-input" placeholder="Confirm New Password" id="cf_password" name="cf_password"></input>
+            <label for=""><input type="checkbox" class="show-password"> Show password</input></label>
+            <div class="account-profile-actions">
+              <button class="account-profile-cancel">Cancel</button>
+              <input id="btn-account-form" type="submit" class="account-profile-save user-infor"></input>
+              <a href="<?php echo  $url . '/cart-detail' ?>" style="text-decoration: none;" class="account-profile-save">See Details Order</a href="">
+            </div>
+          </form>
+        </form>
       </section>
     </div>
   </div>

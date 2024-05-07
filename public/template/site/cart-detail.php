@@ -1,3 +1,6 @@
+<?php 
+ $url = handle_url::getUrl();
+?>
 <div class="cart_detail">
   <div class="cart_detail-group">
     <h2 class="cart_detail-title">Cart Detail</h2>
@@ -43,7 +46,7 @@
 
     </div>
     <div class="btn_submit">
-      <a href="card-page.php" class="btn_submit-a">Confirm</a>
+      <a href="<?php  echo  $url.'/account' ?>" class="btn_submit-a">Confirm</a>
     </div>
   </div>
 </div>

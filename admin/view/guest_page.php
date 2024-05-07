@@ -16,12 +16,12 @@
 </head>
 <body>
     <?php 
-          require_once('../model/db_config.php');
-          require_once('../model/guest_model.php');
-          require_once('../model/account_manager_model.php');
+          require_once('./admin/model/db_config.php');
+          require_once('./admin/model/guest_model.php');
+          require_once('./admin/model/account_manager_model.php');
 
-          require('../../public/template/admin/admin.php'); 
-          require('../../public/template/admin/guest.php'); 
+          require('./public/template/admin/admin.php'); 
+          require('./public/template/admin/guest.php'); 
     ?>
 </body>
 </html>

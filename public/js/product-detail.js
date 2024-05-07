@@ -13,3 +13,6 @@
           document.getElementById('chiTietMonHang_thongTin_BUY_SoLuong').value = value;
         }  
     });
+
+
+  

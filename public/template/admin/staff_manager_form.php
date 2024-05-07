@@ -47,7 +47,12 @@
 
 </style>
 
-<form action="../controller/staff_manager_controller.php" method="POST" id="staff_manager_form">
+<?php
+$request = $_SERVER['REQUEST_URI'];
+$url =  handle_url::getURLAdmin($request);
+?>
+
+<form action="<?php echo $url.'/staff_controller'  ?>   " method="POST" id="staff_manager_form">
     <input type="hidden" id="action" name="action" value="">
     <button name="exit-staff_manager" type="button" class="btn btn-outline-danger" style="border: 0px; border-radius:20px;float:right" onclick="exit_staff()"> <b>X</b> </button>
     <div style=" padding: 20px;">
@@ -67,7 +72,7 @@
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
             <select id="Position" name="Position"  class="form-control"  aria-label="Position" aria-describedby="addon-wrapping">
                 <?php 
-                    require_once('../model/quyen_model.php');
+                    require_once('./admin/model/quyen_model.php');
                     // Tạo một đối tượng quyen_model
                     $quyen_model = new quyen_model();
                     // Gọi hàm để lấy dữ liệu quyền từ cơ sở dữ liệu
@@ -116,7 +121,7 @@
 
 
 <!-- Thông báo -->
-<?php require_once('../../public/template/admin/toast.php');
+<?php require_once('./public/template/admin/toast.php');
 toast::memo("Success", "back_from_controller", "limegreen");
 ?>
 

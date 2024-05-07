@@ -5,7 +5,8 @@
         <h5 style="margin-top: 20px;" class="h5-filter"> <i class="fa-solid fa-filter"></i> Filter</h5>
         <!-- <button type="button" class="btn btn-outline-danger btn-filter-hidden" ><i class="fa-solid fa-filter"></i> Filter</button> -->
         <div class="dropdown dropdown-hidden">
-          <button class="btn btn-secondary dropdown-toggle btn-filter-hidden" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle btn-filter-hidden" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             <i class="fa-solid fa-filter"></i> Filter
           </button>
           <ul class="dropdown-menu dropdown-menu-hidden" onclick="event.stopPropagation();" style="width: 220px;">
@@ -20,14 +21,16 @@
             </li>
             <li>
               <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle btn-filter-price filter-hidden" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle btn-filter-price filter-hidden" type="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
                   Price
                 </button>
                 <ul class="dropdown-menu">
                   <li>
                     <p>
                       <label for="amount" style="padding-left: 10px;">Price range:</label>
-                      <input type="text" class="amount" readonly style="border:0; color:#000000; font-weight:bold;padding-left: 10px;">
+                      <input type="text" class="amount" readonly
+                        style="border:0; color:#000000; font-weight:bold;padding-left: 10px;">
                     </p>
                     <div class="slider-range"></div>
 
@@ -56,8 +59,10 @@
             </li>
             <li>
               <div class="filter-sale filter-hidden">
-                <input type="checkbox" class="btn-check" id="btn-check-2-outlined" autocomplete="off" style=" border: 1px solid black; color:black">
-                <label class="btn btn-outline-secondary" for="btn-check-2-outlined" style="width:100%;border: 1px solid black; "> <i class="fa-solid fa-percent"></i> Sale</label>
+                <input type="checkbox" class="btn-check" id="btn-check-2-outlined" autocomplete="off"
+                  style=" border: 1px solid black; color:black">
+                <label class="btn btn-outline-secondary" for="btn-check-2-outlined"
+                  style="width:100%;border: 1px solid black; "> <i class="fa-solid fa-percent"></i> Sale</label>
               </div>
             </li>
             <li>
@@ -87,14 +92,16 @@
         <!-- Giá -->
         <div class="col-6 col-sm-4 col-md-2 col-Filter">
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle btn-filter-price" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle btn-filter-price" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
               Price
             </button>
             <ul class="dropdown-menu">
               <li>
                 <p>
                   <label for="amount" style="padding-left: 10px;">Price range:</label>
-                  <input type="text" class="amount" readonly style="border:0; color:#000000; font-weight:bold;padding-left: 10px;">
+                  <input type="text" class="amount" readonly
+                    style="border:0; color:#000000; font-weight:bold;padding-left: 10px;">
                 </p>
                 <div class="slider-range">
 
@@ -129,8 +136,10 @@
         <!-- Sale -->
         <div class="col-6 col-sm-4 col-md-2 col-Filter">
           <div class="filter-sale">
-            <input type="checkbox" class="btn-check" id="btn-check-3-outlined" autocomplete="off" style=" border: 1px solid black; color:black">
-            <label class="btn btn-outline-secondary" for="btn-check-3-outlined" style="width:100%;border: 1px solid black; "> <i class="fa-solid fa-percent"></i> Sale</label>
+            <input type="checkbox" class="btn-check" id="btn-check-3-outlined" autocomplete="off"
+              style=" border: 1px solid black; color:black">
+            <label class="btn btn-outline-secondary" for="btn-check-3-outlined"
+              style="width:100%;border: 1px solid black; "> <i class="fa-solid fa-percent"></i> Sale</label>
           </div>
         </div>
         <!-- button lọc -->
@@ -176,7 +185,27 @@
         <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
           <div class="product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/arsenal1.jpg">
+              <img class="img-product" src="./public/images/arsenal1.jpg">
+              <div class="deal">-50%</div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="" class="product-title">The north coat</a>
+                <div class="prices">
+                  <div class="new-price">$260</div>
+                  <div class="old-price">$260</div>
+                </div>
+              </div>
+              <button type="submit" name="addcart" class="btn btn-outline-primary btn-add-to-cart" value="">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="" class="wrap-img">
+              <img class="img-product" src="./public/images/img.png">
               <div class="deal">-50%</div>
             </a>
             <div class="product-info">
@@ -196,7 +225,7 @@
         <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
           <div class="product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/img.png">
+              <img class="img-product" src="./public/images/arsenal1.jpg">
               <div class="deal">-50%</div>
             </a>
             <div class="product-info">
@@ -216,7 +245,7 @@
         <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
           <div class="product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/arsenal1.jpg">
+              <img class="img-product" src="./public/images/arsenal1.jpg">
               <div class="deal">-50%</div>
             </a>
             <div class="product-info">
@@ -236,7 +265,7 @@
         <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
           <div class="product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/arsenal1.jpg">
+              <img class="img-product" src="./public/images/arsenal1.jpg">
               <div class="deal">-50%</div>
             </a>
             <div class="product-info">
@@ -256,7 +285,7 @@
         <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
           <div class="product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/arsenal1.jpg">
+              <img class="img-product" src="./public/images/arsenal1.jpg">
               <div class="deal">-50%</div>
             </a>
             <div class="product-info">
@@ -276,7 +305,7 @@
         <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
           <div class="product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/arsenal1.jpg">
+              <img class="img-product" src="./public/images/arsenal1.jpg">
               <div class="deal">-50%</div>
             </a>
             <div class="product-info">
@@ -296,7 +325,7 @@
         <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
           <div class="product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/arsenal1.jpg">
+              <img class="img-product" src="./public/images/arsenal1.jpg">
               <div class="deal">-50%</div>
             </a>
             <div class="product-info">
@@ -316,7 +345,7 @@
         <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
           <div class="product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/arsenal1.jpg">
+              <img class="img-product" src="./public/images/arsenal1.jpg">
               <div class="deal">-50%</div>
             </a>
             <div class="product-info">
@@ -336,7 +365,7 @@
         <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
           <div class="product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/arsenal1.jpg">
+              <img class="img-product" src="./public/images/arsenal1.jpg">
               <div class="deal">-50%</div>
             </a>
             <div class="product-info">
@@ -356,7 +385,7 @@
         <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
           <div class="product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/arsenal1.jpg">
+              <img class="img-product" src="./public/images/arsenal1.jpg">
               <div class="deal">-50%</div>
             </a>
             <div class="product-info">
@@ -376,27 +405,7 @@
         <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
           <div class="product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/arsenal1.jpg">
-              <div class="deal">-50%</div>
-            </a>
-            <div class="product-info">
-              <div class="product-body">
-                <a href="" class="product-title">The north coat</a>
-                <div class="prices">
-                  <div class="new-price">$260</div>
-                  <div class="old-price">$260</div>
-                </div>
-              </div>
-              <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-                <i class="fa-solid fa-cart-plus"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-          <div class="product">
-            <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/arsenal1.jpg">
+              <img class="img-product" src="./public/images/arsenal1.jpg">
               <div class="deal">-50%</div>
             </a>
             <div class="product-info">
@@ -420,22 +429,22 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
-      $(function() {
-        $(".slider-range").slider({
-          range: true,
-          min: 0,
-          max: 500,
-          values: [0, 500],
-          slide: function(event, ui) {
-            $(".amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-          }
-        });
-        $(".amount").val("$" + $(".slider-range").slider("values", 0) +
-          " - $" + $(".slider-range").slider("values", 1));
+$(function() {
+  $(".slider-range").slider({
+    range: true,
+    min: 0,
+    max: 500,
+    values: [0, 500],
+    slide: function(event, ui) {
+      $(".amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+    }
+  });
+  $(".amount").val("$" + $(".slider-range").slider("values", 0) +
+    " - $" + $(".slider-range").slider("values", 1));
 
-        $(".slider-range").on("slidestop", function(event, ui) {
-          $(".btn-filter-price").text("$" + ui.values[0] + "-$" + ui.values[1]);
-        });
+  $(".slider-range").on("slidestop", function(event, ui) {
+    $(".btn-filter-price").text("$" + ui.values[0] + "-$" + ui.values[1]);
+  });
 
-      });
+});
     </script>

@@ -1,8 +1,11 @@
 <?php 
 session_start();
-require_once('../model/staff_manager_model.php');
-require_once('../model/account_manager_model.php');
-require_once('../model/db_config.php');
+require_once('./admin/model/staff_manager_model.php');
+require_once('./admin/model/account_manager_model.php');
+require_once('./admin/model/db_config.php');
+$request = $_SERVER['REQUEST_URI'];
+$url = handle_url::getURLAdmin($request);
+
 if ( isset($_POST['action']) )
 {
     $staff_id = $_POST['staff_id'];
@@ -49,7 +52,7 @@ if ( isset($_POST['action']) )
     }
     
     $_SESSION['back_from_controller'] = true;
-    header("Location: ../view/staff_manager_page.php");
+    header("Location: $url/staff");
     exit; 
 }
 

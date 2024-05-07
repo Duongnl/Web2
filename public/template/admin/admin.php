@@ -1,4 +1,7 @@
-
+<?php 
+$request = $_SERVER['REQUEST_URI'];
+$url =  handle_url::getURLAdmin($request);
+?>
     <div class="sidebar">
         <div class="top">
             <div class="logo">
@@ -11,59 +14,109 @@
 
         </div>
         <div class="user">
-            <img src="../../public/images/logo.png" class="user-img">
+            <img src="../public/images/logo.png" class="user-img">
             <div>
-                <p class="bold"> Dinh Chien</p>
+                <p class="bold"> Nguyễn Văn A</p>
                 <p>Admin</p>
             </div>
         </div>
         <ul style="padding-left: 0px;">
-            <li>
-                <a href="#">
-                    <i class="bx bxs-grid-alt"></i>
-                    <span class="nav-item">Dasboard</span>
+        
+        <li>
+                <a href="<?php echo $url.'/statistic';?>">
+                <i class="fa-solid fa-chart-simple icon"  ></i>
+                    <span class="nav-item">Statistic</span>
 
                 </a>
-                <span class="tooltip">Dashboard</span>
+                <span class="tooltip">Statistic</span>
             </li>
-
             <li>
-                <a href="#">
-                    <i class='bx bxl-product-hunt'></i>
+                <a href="<?php echo $url.'/product';?>">
+                    <i class='bx bxl-product-hunt icon'></i>
                     <span class="nav-item">Product</span>
 
                 </a>
                 <span class="tooltip">Product</span>
             </li>
-
             <li>
-                <a href="#">
-                    <i class="bx bxs-grid-alt"></i>
-                    <span class="nav-item">Customer</span>
+                <a href="<?php echo $url.'/category';?>">
+                    <i class="fa-solid fa-list"></i>
+                    <span class="nav-item">Category</span>
 
                 </a>
-                <span class="tooltip">Customer</span>
+                <span class="tooltip">Category</span>
             </li>
 
             <li>
-                <a href="#">
-                    <i class="bx bx-log-out"></i>
-                    <span class="nav-item">Account</span>
+                <a href="<?php echo $url.'/discount';?>">
+                <i class="fa-solid fa-percent icon"></i>
+                    <span class="nav-item">Discount</span>
 
                 </a>
-                <span class="tooltip">Account</span>
+                <span class="tooltip">Discount</span>
+            </li>
+
+            <li>
+                <a href="<?php echo $url.'/supplier'?>">
+                <i class="fa-solid fa-boxes-packing icon"></i>
+                    <span class="nav-item">Supplier</span>
+
+                </a>
+                <span class="tooltip">Supplier</span>
+            </li>
+
+            <li>
+                <a href="<?php echo $url.'/staff'?>">
+                <i class="fa-solid fa-user icon"></i>
+                    <span class="nav-item">Staff</span>
+
+                </a>
+                <span class="tooltip">Staff</span>
+            </li>
+
+            <li>
+                <a href="<?php echo $url.'/guest'?>">
+                <i class="fa-solid fa-circle-user icon"></i>
+                    <span class="nav-item">Guest</span>
+
+                </a>
+                <span class="tooltip">Guest</span>
+            </li>
+            <li>
+                <a href="<?php echo $url.'/permission'?>">
+                <i class="fa-solid fa-users icon"></i>
+                    <span class="nav-item">Permission</span>
+
+                </a>
+                <span class="tooltip">Permission</span>
+            </li>
+            <li>
+                <a href="<?php echo $url.'/order'?>">
+                <i class="fa-solid fa-receipt icon"></i>
+                    <span class="nav-item">Order</span>
+
+                </a>
+                <span class="tooltip">Order</span>
+            </li>
+            <li>
+                <a href="<?php echo $url.'/import'?>">
+                <i class="fa-solid fa-file-import icon"></i>
+                    <span class="nav-item">Import</span>
+
+                </a>
+                <span class="tooltip">Import</span>
+            </li>
+            <li>
+                <a href="<?php $trimmed_url = str_replace("/admin", "",$url); echo $trimmed_url;?>">
+                <i class="fa-solid fa-arrow-right-from-bracket icon"></i>
+                    <span class="nav-item">Exit</span>
+
+                </a>
+                <span class="tooltip">Exit</span>
             </li>
         </ul>
     </div>
 
-
-    <!-- <div class="main-content">
-        <div class="container">
-            <h1>Day la header</h1>
-            <h1> Testtt </h1>
-        </div>
-        
-    </div> -->
 
 <script>
     let btn = document.querySelector('#btn')
@@ -84,6 +137,11 @@
     font-family: 'poppins',sans-serif;
 
 }
+
+.icon {
+    padding-right: 7px;
+}
+
 .user-img{
     width:50px;
     border-radius:100%;
@@ -94,22 +152,36 @@
     position:absolute;
     top:0;
     left:0;
-    height: 100vh;
-    width:80px;
+    width:86px;
     background:#12171e;
     padding: 0.4rem 0.8rem;
     transition: all 0.5s ease;
+    height: 100vh;
+    overflow: hidden;
+
+   
 
 }
+
+.sidebar:hover {
+ 
+    overflow-y:scroll; 
+    overflow-x: hidden; 
+   
+    scrollbar-width: thin ; 
+    scrollbar-color: #808080 #f0f0f0; 
+}
+
+
+
 .sidebar.active ~ .main-content {
     left:250px;
     width: calc(100% - 250px);
-
+    
 }
 
 .sidebar.active {
     width:250px;
-
 }
 
 .sidebar #btn {
@@ -137,6 +209,7 @@
     align-items: center;
     pointer-events: none;
     opacity:0;
+   
 }
 .sidebar.active .top .logo {
     opacity:1;
@@ -194,6 +267,7 @@
 .sidebar ul li a:hover{
     background-color:#fff;
     color:#12171e;
+    
 }
 .sidebar ul li a i {
     min-width: 50px;
@@ -221,10 +295,12 @@
     padding: 0.4rem 1.2rem;
     line-height: 1.8rem;
     z-index: 20;
-    opacity:0;
+    opacity:1;
+    display: none;
 }
 .sidebar ul li:hover .tooltip{
-    opacity:1;
+    opacity:2;
+    display: block;
 }
 .sidebar.active ul li .tooltip {
     display:none;
@@ -239,8 +315,9 @@
     transition: all 0.5s ease;
     width: calc(100% - 80px);
     padding: 1rem;
+
+    height: 100vh; 
     overflow-y:scroll; 
-    height: 500px;
 }
 
 
