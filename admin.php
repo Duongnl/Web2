@@ -30,8 +30,11 @@ switch ($baseName) {
         require __DIR__ . $adminView . 'permission_page.php';
         break;
     case 'order':
-        require __DIR__ . $adminView . 'order_page.php';
+        require __DIR__ . $adminView . 'quanLyDonHang_page.php';
         break;
+    case 'order_form':
+        require __DIR__ . $adminView . 'chiTietDonHang_page.php';
+        break;  
     case 'import':
         require __DIR__ . $adminView . 'import_page.php';
         break;
@@ -50,6 +53,10 @@ switch ($baseName) {
     case 'import_controller':
         require __DIR__ . $adminController . 'import_controller.php';
         break;
+    case 'order_controller':
+        require __DIR__ . $adminController . 'quanLyDonHang_controller.php';
+        break;
+
     default:
 
         break;

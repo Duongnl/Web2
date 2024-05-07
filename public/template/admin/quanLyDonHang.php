@@ -39,6 +39,8 @@
   <h3 class="h1-head-name ">Quản lý đơn hàng</h3>
 
   <?php 
+    $request = $_SERVER['REQUEST_URI'];
+    $url =  handle_url::getURLAdmin($request);
      $chiTietDonHang_model= new chiTietDonHang_model();
      
      
@@ -86,12 +88,13 @@
           <td><?php echo $row['ThanhToan'] ?></td>
           <td class="td_form">
             <?php if($row['TrangThaiHD']==0){?>
-            <form action="../controller/quanLyDonHang_controller.php" method="POST" class="form_container"> 
+            <form action=" <?php echo $url.'/order_controller'  ?>" method="POST" class="form_container"> 
               <button type="submit" class="btn btn-warning btn-edit" >Xử lý</button>
               <input type="hidden" name="MaHD" value="<?php echo $row['MaHD']?> ">
               <input type="hidden" name="action" value="XuLy">
             </form> 
-            <form action="../controller/quanLyDonHang_controller.php" method="POST" class="form_container"> 
+
+            <form action=" <?php echo $url.'/order_controller'  ?>" method="POST" class="form_container"> 
               <button type="submit" class="btn btn-danger btn-edit" >Hủy</button>
               <input type="hidden" name="MaHD" value="<?php echo $row['MaHD']?> ">
               <input type="hidden" name="action" value="Huy">
@@ -99,7 +102,7 @@
               <?php };?>
           </td>
           <td class="td_form " style="width:200px">
-            <form action="../view/chiTietDonHang_page.php" method="POST" class="form_container"> 
+            <form action=" <?php echo $url.'/order_form'  ?> " method="POST" class="form_container"> 
               <input type="hidden" name="MaHD" value="<?php echo $row['MaHD']?> ">
               <button type="submit" class="btn btn-warning btn-edit">Chi tiết đơn hàng</button>
             </form> 
@@ -113,7 +116,7 @@
 
 
 </div>
-<?php require_once('../../public/template/admin/toast.php');
+<?php require_once('./public/template/admin/toast.php');
 if (isset($_SESSION['Duyet_ThanhCong']) && $_SESSION['Duyet_ThanhCong'] == true) {
   toast::memo("Success", "Duyet_ThanhCong", "limegreen");
 } else if (isset($_SESSION['Duyet_ThatBai']) && $_SESSION['Duyet_ThatBai'] == true) {

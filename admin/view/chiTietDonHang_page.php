@@ -16,10 +16,12 @@
 </head>
 <body>
     <?php 
-          require_once('../model/db_config.php');
-          require_once('../model/chiTietDonHang_model.php');
-          require('../../public/template/admin/admin.php'); 
-          require('../../public/template/admin/quanLyChiTietDonHang_form.php'); 
+          require_once('./admin/model/db_config.php');
+          require_once('./admin/model/chiTietDonHang_model.php');
+          require('./public/template/admin/admin.php'); 
+          require('./public/template/admin/quanLyChiTietDonHang_form.php'); 
+
+         
     ?>
 </body>
 </html>

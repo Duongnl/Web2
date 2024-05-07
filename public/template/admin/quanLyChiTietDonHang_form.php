@@ -32,8 +32,9 @@
 
 <div class="main-content" >
     <?php 
-    require('../controller/export_pdf.php');
-
+    require('./admin/controller/export_pdf.php');
+    $request = $_SERVER['REQUEST_URI'];
+    $url =  handle_url::getURLAdmin($request);
         if(isset($_POST['MaHD'])){
             $maHD=$_POST['MaHD'];
            
@@ -45,7 +46,7 @@
     ?>
     <div class="box">
         <div class="">
-          <a type="button" href="./quanLyDonHang_page.php"class="btn btn-light"><i class="fa-solid fa-arrow-left" style="display: inline-block; font-size: 30px;"></i></a>
+          <a type="button" href="<?php echo $url.'/order'?> "class="btn btn-light"><i class="fa-solid fa-arrow-left" style="display: inline-block; font-size: 30px;"></i></a>
         </div>
         <div class="">
           <p class="chiTietDonHang ">Chi Tiết Đơn Hàng</p>

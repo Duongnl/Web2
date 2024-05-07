@@ -1,7 +1,7 @@
 <?php
-require('../../system/library/tcpdf/tcpdf.php');
-require_once('../model/chiTietDonHang_model.php');
-require_once('../model/db_config.php');
+require('./system/library/tcpdf/tcpdf.php');
+// require_once('../model/chiTietDonHang_model.php');
+// require_once('../model/db_config.php');
 
 class export_pdf {
     public static function export($maHD)  {

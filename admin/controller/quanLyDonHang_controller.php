@@ -1,7 +1,12 @@
 <?php session_start();
-require_once('../model/quanLyDonHang_model.php');
-require_once('../model/chiTietDonHang_model.php');
-require_once('../model/db_config.php');
+require_once('./admin/model/quanLyDonHang_model.php');
+require_once('./admin/model/chiTietDonHang_model.php');
+require_once('./admin/model/db_config.php');
+
+
+$request = $_SERVER['REQUEST_URI'];
+$url = handle_url::getURLAdmin($request);
+
 if ( isset($_POST['action'])  && isset($_POST['MaHD']) )
 {
    $action =  $_POST['action'];
@@ -24,7 +29,7 @@ if ( isset($_POST['action'])  && isset($_POST['MaHD']) )
         $quanLyDonHang_Model->UpdateTrangThaiDonHang( trim($MaHD),2);
     }
 
-    header("Location: ../view/quanLyDonHang_page.php");
+    header("Location: $url/order");
     exit; // Dừng thực thi PHP sau khi chuyển hướng
 
 }   
