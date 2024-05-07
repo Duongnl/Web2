@@ -13,6 +13,20 @@ class import_model {
         $sql = "SELECT *, phieunhap.TrangThai as TrangThaiPN FROM phieunhap, nhanvien, nhacungcap WHERE phieunhap.MaTK = nhanvien.MaTK AND nhacungcap.MaNCC = phieunhap.MaNCC";
         return $this->db_config->execute($sql);
     }
+
+    function getProductData () {
+        $this->db_config->connect();
+        $sql = "SELECT * FROM sanpham ";
+        return $this->db_config->execute($sql);
+    }
+
+    function getSizeProduct ($maSP) {
+        $this->db_config->connect();
+        $sql = "SELECT * FROM sanpham, size WHERE sanpham.MaSP = size.MaSP AND sanpham.MaSP = ".$maSP;
+        return $this->db_config->execute($sql);
+    }
+
+    
     
     // function insertImportData ( $tenNCC, $trangThai) {
 
