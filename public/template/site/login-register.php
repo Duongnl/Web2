@@ -11,22 +11,23 @@
             </div>
             <div class="input_login">
               <ion-icon name="lock-closed-outline"></ion-icon>
-              <input type="password" name="input_pass" value="" placeholder="Password" required ">
+              <input type="password"  name="input_pass" value="" placeholder="Password" required ">
                 <!-- <label for="">Password</label> -->
-
             </div>
+            <input id="memo" value =""></input>
+
             <div class=" forget">
               <label for="">
                 <input type="checkbox"> Remember
               </label>
               <a href="#">Forget Password</a>
             </div>
-            <button class="btn-login"><a href="#">Login</a></button>
+            <button class="btn-login" onclick ="" ><a href="#" >Login</a></button>
             <button class="register">
               Register
             </button>
           </form>
-
+        
         </section>
 
 
@@ -49,34 +50,35 @@
         </div>
         <div class="form sign-up">
           <section>
-            <form>
+            <form method="post" action="login_register.php " class="xulylogin">
               <h1>Register</h1>
               <div class="input_Register">
                 <ion-icon name="mail-outline"></ion-icon>
-                <input type="text" placeholder="User" required>
+                <input name ="input_user" type="text" placeholder="User" required>
                 <!-- <label for ="">User Name</label> -->
               </div>
               <div class="input_Register">
                 <ion-icon name="mail-outline"></ion-icon>
-                <input type="email" placeholder="Email" required>
+                <input name = "input_email" type="email" placeholder="Email" required>
                 <!-- <label for ="">Email</label> -->
               </div>
               <div class="input_Register">
                 <ion-icon name="mail-outline"></ion-icon>
-                <input type="text" placeholder="Phone Number" required>
+                <input name ="input_phonenumber" type="text" placeholder="Phone Number" required>
                 <!-- <label for ="">Phone Number</label> -->
               </div>
               <div class="input_Register">
                 <ion-icon name="lock-closed-outline"></ion-icon>
-                <input type="password" placeholder="Password" required>
+                <input name="input_pass" type="password" placeholder="Password" required>
                 <!-- <label for ="">Password</label> -->
               </div>
               <div class="login">
                 <label for="">Already have an account? <a href="#" class="buttonlogin">Login</a> </label>
               </div>
-              <label> </label>
+              <!-- <label> </label> -->
+              <input id="memo" value =""></input>
               <button class="btn-register">
-                <p>Register</p>
+                Register
               </button>
 
             </form>
@@ -97,3 +99,14 @@ document.querySelector('.buttonlogin').addEventListener('click', function() {
   document.querySelector('.cont').classList.toggle('s-signup')
 });
   </script>
+
+<style>
+    #memo {
+        display: none;
+        color: #DB4444;
+        font-size: 13px;
+        background: none;
+        border: none;
+        width:100%;
+    }
+</style>

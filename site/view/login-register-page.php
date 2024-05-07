@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,9 +25,14 @@
 </head>
 
 <body>
-  <?php require('../../public/template/site/head.php'); ?>
-  <?php require('../../public/template/site/login-register.php'); ?>
-  <?php require('../../public/template/site/footer.php'); ?>
+  <?php require('../../public/template/site/head.php'); 
+  if ( isset($_POST("page")) && isset($_POST("page") = "login-register")  )  
+   {require('../../public/template/site/login-register.php'); 
+   require_once('../model/account_manager_model.php'); 
+   require_once('../model/db_config.php');
+   require_once('C:\xampp\htdocs\Store\Web2\site\controller\login_register_controller.php'); 
+   }
+   require('../../public/template/site/footer.php'); ?>
 </body>
 
 </html>
