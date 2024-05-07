@@ -26,7 +26,7 @@
 
 <body>
   <?php require('../../public/template/site/head.php'); 
-  if ( isset($_POST("page")) && isset($_POST("page") = "login-register")  )  
+  // if ( isset($_POST("page")) && isset($_POST("page") = "login-register")  )  
    {require('../../public/template/site/login-register.php'); 
    require_once('../model/account_manager_model.php'); 
    require_once('../model/db_config.php');

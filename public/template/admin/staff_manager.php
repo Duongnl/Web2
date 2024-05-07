@@ -55,8 +55,8 @@
            echo 'Active';}?></td>
           <td>
             <!-- <form action="../controller/supplier-controller.php" method="GET">  -->
-            <button type="button" class="btn btn-warning btn-edit" onclick="staff_manager_form('<?php echo $row['MaNV'] ?>' ,'<?php echo $row['TenNV'] ?>','<?php echo $row['TenTK']?> ','<?php echo $row ['Email']?>','<?php echo $row ['SDT']?>','<?php echo $row ['MatKhau']?>', '<?php echo $row ['ThoiGian']?>','<?php echo $row ['DiaChi']?>','Edit Staff','edit','Save')"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button type="button" class="btn btn-danger btn-delete"  onclick="staff_manager_form('<?php echo $row['MaNV'] ?>' ,'<?php echo $row['TenNV'] ?>','<?php echo $row ['TenTK']?>' ,'<?php echo $row ['Email']?>','<?php echo $row ['SDT']?>','<?php echo $row ['MatKhau']?>','<?php echo $row ['ThoiGian']?>','<?php echo $row ['DiaChi']?>','Delete Staff','delete','Delete')"><i class="fa-solid fa-trash"></i></button>
+            <button type="button" class="btn btn-warning btn-edit" onclick="staff_manager_form('<?php echo $row['MaNV'] ?>' ,'<?php echo $row['TenNV'] ?>','<?php echo $row['TenTK']?> ','<?php echo $row ['Email']?>','<?php echo '0'.$row ['SDT']?>','<?php echo $row ['MatKhau']?>', '<?php echo $row ['ThoiGian']?>','<?php echo $row ['DiaChi']?>','Edit Staff','edit','Save')"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button type="button" class="btn btn-danger btn-delete"  onclick="staff_manager_form('<?php echo $row['MaNV'] ?>' ,'<?php echo $row['TenNV'] ?>','<?php echo $row ['TenTK']?>' ,'<?php echo $row ['Email']?>','<?php echo '0'.$row ['SDT']?>','<?php echo $row ['MatKhau']?>','<?php echo $row ['ThoiGian']?>','<?php echo $row ['DiaChi']?>','Delete Staff','delete','Delete')"><i class="fa-solid fa-trash"></i></button>
             <!-- </form>  -->
           </td>
         </tr>
