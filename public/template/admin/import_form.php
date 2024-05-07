@@ -217,7 +217,26 @@ if (isset($_POST['supplier'])) {
 
       
     });
-  
+
+    function addProductToTable () {
+            var table = document.getElementById("tableCTPN");
+            var row = table.insertRow();
+            var cellMaSP = row.insertCell(0);
+            var cellTenSP = row.insertCell(1);
+            var cellSize = row.insertCell(2);
+            var cellSoLuong = row.insertCell(3);
+            var cellGiaNhap = row.insertCell(4);
+            var cellTongTien = row.insertCell(5);
+            var cellHanhDong = row.insertCell(6);
+
+            cellMaSP.innerHTML =  maSP;
+            cellTenSP.innerHTML =  tenSP;
+            cellSize.innerHTML =  size;
+            cellSoLuong.innerHTML =  soLuong;
+            cellGiaNhap.innerHTML =  giaNhap;
+            cellTongTien.innerHTML =  tongTien;
+            cellHanhDong.innerHTML =  '<button class = "btn" id="buttonDelete" type= "button" style="background-color:red; height:auto; border: 1px solid black;" onclick="deleteRow(this)">Xóa </button>'; 
+    }
   
   
   });
