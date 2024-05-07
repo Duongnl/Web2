@@ -61,7 +61,7 @@
   </table>
 
   <?php
-  require_once('../../public/template/admin/guest_form.php');
+  require_once('./public/template/admin/guest_form.php');
   ?>
 
 </div>

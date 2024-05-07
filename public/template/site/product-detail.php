@@ -5,35 +5,34 @@
         <div class="chiTietMonHang_chiTietCacAnh  col-md-2 col-sm-12 ">
           <div class="row chiTietMonHang_chiTietCacAnh_Phu">
             <div class="col-3 col-md-12 chiTietMonHang_chiTietCacAnh_Anh p-0 ">
-              <img src="../../public/images/img.png" class="img-fluid img_cacAnh" alt="...">
+              <img src="./public/images/img.png" class="img-fluid img_cacAnh" alt="...">
             </div>
             <div class="col-3 col-md-12 chiTietMonHang_chiTietCacAnh_Anh p-0">
-              <img src="../../public/images/img.png" class="img-fluid img_cacAnh" alt="...">
+              <img src="./public/images/img.png" class="img-fluid img_cacAnh" alt="...">
             </div>
             <div class="col-3 col-md-12 chiTietMonHang_chiTietCacAnh_Anh p-0">
-              <img src="../../public/images/img.png" class="img-fluid img_cacAnh" alt="...">
+              <img src="./public/images/img.png" class="img-fluid img_cacAnh" alt="...">
             </div>
             <div class="col-3 col-md-12 chiTietMonHang_chiTietCacAnh_Anh p-0">
-              <img src="../../public/images/img.png" class="img-fluid img_cacAnh" alt="...">
+              <img src="./public/images/img.png" class="img-fluid img_cacAnh" alt="...">
             </div>
           </div>
 
         </div>
         <div class="chiTietMonHang_AnhChinh  col-md-5 col-sm-12 chiTietMonHang_SanPham_right">
-          <img src="../../public/images/img.png" class="img-fluid img_anhChinh" alt="...">
+          <img src="./public/images/img.png" class="img-fluid img_anhChinh" alt="...">
         </div>
       </div>
       <!-- thông tin -->
       <div class="chiTietMonHang_thongTin col-sm-12  col-md-4">
-
-        <h1 class="chiTietMonHang_title pb">Havic HV G-92 Gamepad</h1>
-        <div class="chiTietMonHang_AnhChinh_price">$192.00</div>
+        <h1 class="chiTietMonHang_title pb" id="productName">Havic HV G-92 Gamepad</h1>
+        <div class="chiTietMonHang_AnhChinh_price">$<span id="productPrice">192.00</span></div>
         <p class="product-description">
           ubble free install &amp; mess free removal Pressure sensitive.
         </p>
         <hr class="separator" />
         <div class="huongDanChonSize">
-          <a href="../../public/images/img.png">*Xem hướng dẫn chọn size</a>
+          <a href="./public/images/img.png">*Xem hướng dẫn chọn size</a>
         </div>
         <div class="chiTietMonHang_Size chonSize row">
           <div class="col-3 tag_size">Size:</div>
@@ -45,10 +44,7 @@
             <input type="radio" id="sizeS" name="size" value="sizeS" class="size">
             <label for="sizeS" class="label_Size sizeS">S</label>
           </form>
-
         </div>
-
-
         <div class="chiTietMonHang_soLuong row mt-3 justify-content-center">
           <div class="size-label col-xxl-3 col-3">Số lượng:</div>
 
@@ -59,7 +55,7 @@
             <button id="increase" class="btn_tangSoLuong">+</button>
           </div>
           <div class=" col-12 chiTietMonHang_themVaoGioHang mt-4">
-            <button class="btn_ThemVaoGioHang">Thêm vào giỏ hàng</button>
+            <button class="btn_ThemVaoGioHang" id="addToCartBtn">Thêm vào giỏ hàng</button>
           </div>
         </div>
         <div class="delivery-info">
@@ -87,7 +83,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
     <!-- sản phẩm liên quan -->
@@ -102,12 +97,12 @@
         <div class="row sanPhamLienQuan_bottom">
           <div class="col-6  col-md-3 col-xxl-3 product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/img.png">
+              <img class="img-product" src="./public/images/img.png">
               <div class="deal"><span>-50%</span></div>
             </a>
             <div class="d-flex justify-content-between align-items-center mx-1 my-2">
               <div class="product-body">
-                <a href="../../public/images/img.png" class="product-title">The north coat</a>
+                <a href="./public/images/img.png" class="product-title">The north coat</a>
                 <div class="prices">
                   <div class="new-price">$260</div>
                   <div class="old-price">$260</div>
@@ -120,12 +115,12 @@
           </div>
           <div class="col-6  col-md-3 col-xxl-3 product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/img.png">
+              <img class="img-product" src="./public/images/img.png">
               <div class="deal"><span>-50%</span></div>
             </a>
             <div class="d-flex justify-content-between align-items-center mx-1 my-2">
               <div class="product-body">
-                <a href="../../public/images/img.png" class="product-title">The north coat</a>
+                <a href="./public/images/img.png" class="product-title">The north coat</a>
                 <div class="prices">
                   <div class="new-price">$260</div>
                   <div class="old-price">$260</div>
@@ -138,12 +133,12 @@
           </div>
           <div class="col-6  col-md-3 col-xxl-3 product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/img.png">
+              <img class="img-product" src="./public/images/img.png">
               <div class="deal"><span>-50%</span></div>
             </a>
             <div class="d-flex justify-content-between align-items-center mx-1 my-2">
               <div class="product-body">
-                <a href="../../public/images/img.png" class="product-title">The north coat</a>
+                <a href="./public/images/img.png" class="product-title">The north coat</a>
                 <div class="prices">
                   <div class="new-price">$260</div>
                   <div class="old-price">$260</div>
@@ -156,12 +151,12 @@
           </div>
           <div class="col-6  col-md-3 col-xxl-3 product">
             <a href="" class="wrap-img">
-              <img class="img-product" src="../../public/images/img.png">
+              <img class="img-product" src="./public/images/img.png">
               <div class="deal"><span>-50%</span></div>
             </a>
             <div class="d-flex justify-content-between align-items-center mx-1 my-2">
               <div class="product-body">
-                <a href="../../public/images/img.png" class="product-title">The north coat</a>
+                <a href="./public/images/img.png" class="product-title">The north coat</a>
                 <div class="prices">
                   <div class="new-price">$260</div>
                   <div class="old-price">$260</div>
@@ -183,4 +178,4 @@
 </div>
 
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
-<script src="../../public/js/product-detail.js"></script>
+<script src="./public/js/product-detail.js"></script>

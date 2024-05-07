@@ -56,7 +56,7 @@
   </table>
 
   <?php
-  require_once('../../public/template/admin/supplier_form.php');
+  require_once('./public/template/admin/supplier_form.php');
   ?>
 
 </div>
