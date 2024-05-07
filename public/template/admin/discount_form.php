@@ -98,7 +98,6 @@ toast::memo("Success", "back_from_discount_controller", "limegreen");
         document.getElementById("discount_percent").value = phamtramKM;
         document.getElementById("action").value = action;
         document.getElementById("btn-discount-form").value = buttonName;
-        console.log(buttonName);
         if (action == 'delete') {
             document.getElementById("discount_name").readOnly = true;
         } else {
