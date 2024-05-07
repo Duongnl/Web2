@@ -1,6 +1,6 @@
-<?php 
+<?php
 $request = $_SERVER['REQUEST_URI'];
-$url =  handle_url::getURLAdmin($request);
+$url = handle_url::getURLAdmin($request);
 ?>
 
 <style>
@@ -55,7 +55,7 @@ $url =  handle_url::getURLAdmin($request);
 }
 </style>
 <!-- ../admin/controller/supplier_controller.php -->
-<form action="<?php echo $url.'/supplier_controller' ?>" method="POST" id="supplier_form">
+<form action="<?php echo $toAdmin . '/supplier_controller' ?>" method="POST" id="supplier_form">
   <input type="hidden" id="action" name="action" value="">
   <button name="exit-supplier" type="button" class="btn btn-outline-danger"
     style="border: 0px; border-radius:20px;float:right" onclick="exit_supplier()"> <b>X</b> </button>
@@ -82,14 +82,13 @@ $url =  handle_url::getURLAdmin($request);
 </form>
 
 <div id="overlay" onclick="click_overlay()"></div>
-<div id="overlay" onclick="click_overlay()"></div>
 
 
 
 
 
 <!-- Thông báo -->
-<?php require_once('./public/template/admin/toast.php');
+<?php require_once ('./public/template/admin/toast.php');
 toast::memo("Success", "back_from_controller", "limegreen");
 ?>
 

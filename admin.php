@@ -3,9 +3,9 @@ require './site/controller/handle_url.php';
 $request = $_SERVER['REQUEST_URI'];
 $adminView = '/admin/view/';
 $adminController = '/admin/controller/';
-$url=parse_url($request)["path"];
-$toAdmin=handle_url::getURLAdmin($request);
-$baseName = explode($toAdmin,$url)[1];
+$url = parse_url($request)["path"];
+$toAdmin = handle_url::getURLAdmin($request);
+$baseName = explode($toAdmin . '/', $url)[1];
 $rootDirectory = handle_url::getUrl();
 switch ($baseName) {
     case 'statistic':
@@ -15,6 +15,12 @@ switch ($baseName) {
         require __DIR__ . $adminView . 'product_page.php';
         break;
     case 'product/add':
+        require __DIR__ . $adminView . 'add_product_page.php';
+        break;
+    case 'product/edit':
+        require __DIR__ . $adminView . 'add_product_page.php';
+        break;
+    case 'product/view':
         require __DIR__ . $adminView . 'add_product_page.php';
         break;
     case 'category':

@@ -18,11 +18,13 @@
 
 <body>
   <?php
-    require_once('./admin/model/db_config.php');
-    require_once('./admin/model/product_model.php');
-    require('./public/template/admin/admin.php');
-    require('./public/template/admin/product_form.php');
-    ?>
+  require_once ('./admin/model/db_config.php');
+  require_once ('./admin/model/product_model.php');
+  require_once ('./admin/model/category_model.php');
+  require_once ('./admin/model/discount_model.php');
+  require ('./public/template/admin/admin.php');
+  require ('./public/template/admin/product_form.php');
+  ?>
 </body>
 
 </html>
