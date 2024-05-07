@@ -5,7 +5,7 @@
 
   .btn-delete {
     display: none;
-    back
+    
   }
 
   .tr-body:hover .btn-edit,
