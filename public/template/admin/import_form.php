@@ -46,7 +46,8 @@ if (isset($_POST['supplier'])) {
       $query = $import_model->getProductData();
       while ($row = mysqli_fetch_array($query)) {
       ?>
-        <option value="<?php echo $row['MaSP'] ?>"> <?php echo $row['MaSP'] . ' - ' . $row['TenSP'] ?> </option>
+        <option value="<?php echo $row['MaSP'] ?>"> 
+        <?php echo $row['MaSP'] . ' - ' . $row['TenSP'] ?> </option>
       <?php } ?>
     </select>
   </div>
@@ -87,7 +88,7 @@ if (isset($_POST['supplier'])) {
 
 
 
-  <table class="table table-striped table-hover ">
+  <table id="detailTable" class="table table-striped table-hover ">
     <thead>
       <tr>
         <th scope="col">Product ID</th>
@@ -218,8 +219,9 @@ if (isset($_POST['supplier'])) {
       
     });
 
-    function addProductToTable () {
-            var table = document.getElementById("tableCTPN");
+    function addProductToTable (product,size,quantity,cost) {
+            var table = document.getElementById("detailTable");
+
             var row = table.insertRow();
             var cellMaSP = row.insertCell(0);
             var cellTenSP = row.insertCell(1);
