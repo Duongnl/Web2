@@ -118,6 +118,10 @@
   width: 100%;
   padding: 43px 80px;
 }
+.account-information{
+  display: flex;
+  flex-direction: column;
+}
 
 @media (max-width: 991px) {
   .account-profile-section {
@@ -220,7 +224,10 @@
 .account-profile-contact-label {
   font-family: Poppins, sans-serif;
 }
-
+.show-password{
+  margin-top: 20px;
+  margin-left: 15px;
+}
 .account-profile-contact-value {
   font-family: Poppins, sans-serif;
   border-radius: 4px;
