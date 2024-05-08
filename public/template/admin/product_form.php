@@ -1,54 +1,54 @@
 <style>
-  #product_form {}
+#product_form {}
 
-  .memo {
-    display: none;
-    color: #DB4444;
-    font-size: 13px;
-    margin-left: 46px;
-  }
+.memo {
+  display: none;
+  color: #DB4444;
+  font-size: 13px;
+  margin-left: 46px;
+}
 
-  .img-container {
-    margin-top: 10px;
-    position: relative;
-    background-color: #fff;
-    /* width: fit-content; */
+.img-container {
+  margin-top: 10px;
+  position: relative;
+  background-color: #fff;
+  /* width: fit-content; */
 
-    width: 200px;
-    /* Chiều rộng của hình chữ nhật */
-    height: 150px;
-    /* Chiều cao của hình chữ nhật */
-    border: 2px solid #000;
-    /* Đường viền của hình chữ nhật */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    background-color: #f0f0f0;
-  }
+  width: 200px;
+  /* Chiều rộng của hình chữ nhật */
+  height: 150px;
+  /* Chiều cao của hình chữ nhật */
+  border: 2px solid #000;
+  /* Đường viền của hình chữ nhật */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
 
-  .img-container img {
-    max-height: 140px;
-    width: 140px;
-    object-fit: cover;
-  }
+.img-container img {
+  max-height: 140px;
+  width: 140px;
+  object-fit: cover;
+}
 
-  .img-container label {
-    font-size: 14px;
-    cursor: pointer;
-  }
+.img-container label {
+  font-size: 14px;
+  cursor: pointer;
+}
 
-  .btn-delete-img {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.btn-delete-img {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-  .selected:hover .btn-delete-img {
-    display: block;
-  }
+.selected:hover .btn-delete-img {
+  display: block;
+}
 </style>
 
 <?php
@@ -68,15 +68,15 @@ switch ($action) {
 
 $uploadPath = $rootDirectory . "/public/images/products/" . date('d-m-Y', time());
 
-echo $uploadPath;
-
 
 // if (isset($_GET['id'])) {
 //   $id = $_GET['id'];
 // }
 ?>
 <div class="main-content">
-  <form action="../admin/controller/product_controller.php" method="POST" id="product_form">
+  <form action=<?php echo $toAdmin . "/controller/product_controller" ?> method="POST" id="product_form"
+    enctype="multipart/form-data">
+    <input type="hidden" id="action" name="action" value=<?php echo $action ?>>
     <h3 style="text-align: center;"><?php echo $title ?></h3>
     <div class="input-group flex-nowrap" style="margin-top: 20px;">
       <label for="product-name" class="input-group-text" id="addon-wrapping">
@@ -99,7 +99,7 @@ echo $uploadPath;
         $query = $category_model->getcategoryData();
         while ($row = mysqli_fetch_array($query)) {
           ?>
-          <option value="<?php echo $row['MaDM'] ?>"> <?php echo $row['MaDM'] . ' - ' . $row['TenDM'] ?> </option>
+        <option value="<?php echo $row['MaDM'] ?>"> <?php echo $row['MaDM'] . ' - ' . $row['TenDM'] ?> </option>
         <?php } ?>
       </select>
     </div>
@@ -123,9 +123,9 @@ echo $uploadPath;
         $query = $discount_model->getdiscountData();
         while ($row = mysqli_fetch_array($query)) {
           ?>
-          <option value="<?php echo $row['MaKM'] ?>">
-            <?php echo $row['TenKM'] . ' - ' . $row['PhanTramKM'] . '%' ?>
-          </option>
+        <option value="<?php echo $row['MaKM'] ?>">
+          <?php echo $row['TenKM'] . ' - ' . $row['PhanTramKM'] . '%' ?>
+        </option>
         <?php } ?>
       </select>
     </div>
@@ -229,171 +229,178 @@ echo $uploadPath;
 </form>
 </div>
 
+<?php require_once ('./public/template/admin/toast.php');
+toast::memo("Add Fail", "add-fail", "#db4444");
+?>
+
+
 <script>
-  document.getElementById('img-main').addEventListener('click', () => {
-    var input = document.getElementById('image-upload');
-    input.click();
-  });
+document.getElementById('img-main').addEventListener('click', () => {
+  var input = document.getElementById('image-upload');
+  input.click();
+});
 
-  document.getElementById('img-1').addEventListener('click', () => {
-    var input = document.getElementById('sub-image-upload-1');
-    input.click();
-  });
+document.getElementById('img-1').addEventListener('click', () => {
+  var input = document.getElementById('sub-image-upload-1');
+  input.click();
+});
 
-  document.getElementById('img-2').addEventListener('click', () => {
-    var input = document.getElementById('sub-image-upload-2');
-    input.click();
-  });
+document.getElementById('img-2').addEventListener('click', () => {
+  var input = document.getElementById('sub-image-upload-2');
+  input.click();
+});
 
-  document.getElementById('img-3').addEventListener('click', () => {
-    var input = document.getElementById('sub-image-upload-3');
-    input.click();
-  });
+document.getElementById('img-3').addEventListener('click', () => {
+  var input = document.getElementById('sub-image-upload-3');
+  input.click();
+});
 
-  document.getElementById('image-upload').addEventListener('change', function (event) {
-    loadImg('img-main', event)
-  });
+document.getElementById('image-upload').addEventListener('change', function(event) {
+  loadImg('img-main', event)
+});
 
 
-  document.getElementById('sub-image-upload-1').addEventListener('change', function (event) {
-    loadImg('img-1', event)
-  });
+document.getElementById('sub-image-upload-1').addEventListener('change', function(event) {
+  loadImg('img-1', event)
+});
 
-  document.getElementById('sub-image-upload-2').addEventListener('change', function (event) {
-    loadImg('img-2', event)
-  });
+document.getElementById('sub-image-upload-2').addEventListener('change', function(event) {
+  loadImg('img-2', event)
+});
 
-  document.getElementById('sub-image-upload-3').addEventListener('change', function (event) {
-    loadImg('img-3', event)
-  });
+document.getElementById('sub-image-upload-3').addEventListener('change', function(event) {
+  loadImg('img-3', event)
+});
 
-  function loadImg(element, event) {
-    var file = event.target.files[0];
-    var reader = new FileReader();
-    if (file) {
-      reader.addEventListener("load", function (event) {
-        document.querySelector(`#${element} img`).src = event.target.result;
-        document.querySelector(`#${element} img`).style = 'display:block';
-      });
-
-      document.getElementById(element).classList.add('selected');
-      document.querySelector(`#${element} label`).style = 'display:none';
-      reader.readAsDataURL(file);
-    }
-
-    document.querySelector(`#${element} button`).addEventListener('click', (event) => {
-      event.stopPropagation();
-      document.getElementById(element).classList.remove('selected');
-      document.querySelector(`#${element} label`).style = 'display:block';
-      document.querySelector(`#${element} img`).style = 'display:none';
+function loadImg(element, eventInput) {
+  var file = eventInput.target.files[0];
+  var reader = new FileReader();
+  if (file) {
+    reader.addEventListener("load", function(event) {
+      document.querySelector(`#${element} img`).src = event.target.result;
+      document.querySelector(`#${element} img`).style = 'display:block';
     });
+
+    document.getElementById(element).classList.add('selected');
+    document.querySelector(`#${element} label`).style = 'display:none';
+    reader.readAsDataURL(file);
   }
 
-  function addSize() {
-    var size = document.getElementById('product-size')
-    if (size.value) {
-      document.querySelector("#tblSize tbody").innerHTML += `
+  document.querySelector(`#${element} button`).addEventListener('click', (event) => {
+    event.stopPropagation();
+    document.getElementById(element).classList.remove('selected');
+    document.querySelector(`#${element} label`).style = 'display:block';
+    document.querySelector(`#${element} img`).style = 'display:none';
+    document.querySelector(`#${element} img`).src = '';
+    eventInput.target.value = "";
+  });
+}
+
+function addSize() {
+  var size = document.getElementById('product-size')
+  if (size.value) {
+    document.querySelector("#tblSize tbody").innerHTML += `
         <tr>
-          <th scope="row">${size.value}</th>
-          <td>0</td>
+          <th scope="row"><input type="hidden" value="${size.value}" name="ArraySize[]"> ${size.value}</th>
+          <td><input type="hidden" value="0" name="ArrayQuantity[]">0</td>
           <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">Delete</button></td>
         </tr>
         `;
-      size.remove(size.selectedIndex)
-      size.selectedIndex = 0;
-    }
+    size.remove(size.selectedIndex)
+    size.selectedIndex = 0;
+  }
+}
+
+function deleteRow(event) {
+  var sizeCombo = document.getElementById('product-size')
+  var index = event.parentNode.parentNode.rowIndex
+  var tblSize = document.getElementById("tblSize")
+  var quantity = tblSize.rows[index].cells[1].innerHTML;
+  var size = tblSize.rows[index].cells[0].innerHTML;
+  if (quantity != 0) {
+    alert("Cannot delete size has quantity > 0")
+  } else {
+    sizeCombo.innerHTML += `<option value=${size}>${size}</option>`
+    tblSize.deleteRow(index);
+  }
+}
+
+
+// function product_form(maNCC, tenNCC, formName, action, buttonName) {
+//   document.getElementById("product_form").style.display = "block";
+//   document.getElementById("overlay").style.display = "block";
+//   document.getElementById("input-text-head").value = formName;
+//   document.getElementById("supplier_id").value = maNCC;
+//   document.getElementById("supplier_name").value = tenNCC;
+//   document.getElementById("action").value = action;
+//   document.getElementById("btn-supplier-form").value = buttonName;
+//   if (action == 'delete') {
+//     document.getElementById("supplier_name").readOnly = true;
+//   } else {
+//     document.getElementById("supplier_name").readOnly = false;
+
+
+function exit_product() {
+
+}
+
+function validate() {
+  var flag = 1;
+  var productName = document.getElementById('product-name')
+  var productPrice = document.getElementById('product-price')
+  var selectCategory = document.getElementById('product-category')
+  var selectSex = document.getElementById('product-sex')
+  var tblSize = document.getElementById('tblSize')
+  var imgMain = document.getElementById('img-main')
+  if (!productName.value.trim()) {
+    flag = 0;
+    document.getElementById('msg-name').style = 'display:block';
+    document.getElementById('msg-name').innerText = 'Please input name product';
+  } else {
+    document.getElementById('msg-name').style = 'display:none';
   }
 
-  function deleteRow(event) {
-    var sizeCombo = document.getElementById('product-size')
-    var index = event.parentNode.parentNode.rowIndex
-    var tblSize = document.getElementById("tblSize")
-    var quantity = tblSize.rows[index].cells[1].innerHTML;
-    var size = tblSize.rows[index].cells[0].innerHTML;
-    if (quantity != 0) {
-      alert("Cannot delete size has quantity > 0")
-    } else {
-      sizeCombo.innerHTML += `<option value=${size}>${size}</option>`
-      tblSize.deleteRow(index);
-    }
+  if (!productPrice.value) {
+    flag = 0;
+    document.getElementById('msg-price').style = 'display:block';
+    document.getElementById('msg-price').innerText = 'Please input price product';
+  } else {
+    document.getElementById('msg-price').style = 'display:none';
   }
 
-
-  // function product_form(maNCC, tenNCC, formName, action, buttonName) {
-  //   document.getElementById("product_form").style.display = "block";
-  //   document.getElementById("overlay").style.display = "block";
-  //   document.getElementById("input-text-head").value = formName;
-  //   document.getElementById("supplier_id").value = maNCC;
-  //   document.getElementById("supplier_name").value = tenNCC;
-  //   document.getElementById("action").value = action;
-  //   document.getElementById("btn-supplier-form").value = buttonName;
-  //   if (action == 'delete') {
-  //     document.getElementById("supplier_name").readOnly = true;
-  //   } else {
-  //     document.getElementById("supplier_name").readOnly = false;
-
-
-  function exit_product() {
-
+  if (!selectCategory.value) {
+    flag = 0;
+    document.getElementById('msg-category').style = 'display:block';
+    document.getElementById('msg-category').innerText = 'Please choose category';
+  } else {
+    document.getElementById('msg-category').style = 'display:none';
+  }
+  if (!selectSex.value) {
+    flag = 0;
+    document.getElementById('msg-sex').style = 'display:block';
+    document.getElementById('msg-sex').innerText = 'Please choose sex';
+  } else {
+    document.getElementById('msg-sex').style = 'display:none';
   }
 
-  function validate() {
-    var flag = 1;
-    var productName = document.getElementById('product-name')
-    var productPrice = document.getElementById('product-price')
-    var selectCategory = document.getElementById('product-category')
-    var selectSex = document.getElementById('product-sex')
-    var tblSize = document.getElementById('tblSize')
-    var imgMain = document.getElementById('img-main')
-    if (!productName.value.trim()) {
-      flag = 0;
-      document.getElementById('msg-name').style = 'display:block';
-      document.getElementById('msg-name').innerText = 'Please input name product';
-    } else {
-      document.getElementById('msg-name').style = 'display:none';
-    }
-
-    if (!productPrice.value) {
-      flag = 0;
-      document.getElementById('msg-price').style = 'display:block';
-      document.getElementById('msg-price').innerText = 'Please input price product';
-    } else {
-      document.getElementById('msg-price').style = 'display:none';
-    }
-
-    if (!selectCategory.value) {
-      flag = 0;
-      document.getElementById('msg-category').style = 'display:block';
-      document.getElementById('msg-category').innerText = 'Please choose category';
-    } else {
-      document.getElementById('msg-category').style = 'display:none';
-    }
-    if (!selectSex.value) {
-      flag = 0;
-      document.getElementById('msg-sex').style = 'display:block';
-      document.getElementById('msg-sex').innerText = 'Please choose sex';
-    } else {
-      document.getElementById('msg-sex').style = 'display:none';
-    }
-
-    if (tblSize.rows.length == 1) {
-      flag = 0;
-      document.getElementById('msg-size').style = 'display:block';
-      document.getElementById('msg-size').innerText = 'Please add at least one size in table';
-    } else {
-      document.getElementById('msg-size').style = 'display:none';
-    }
-
-    if (!imgMain.classList.contains('selected')) {
-      flag = 0;
-      document.getElementById('msg-img').style = 'display:block';
-      document.getElementById('msg-img').innerText = 'Please choose main image';
-    } else {
-      document.getElementById('msg-img').style = 'display:none';
-    }
-    if (flag == 0)
-      return false;
-    else
-      return true;
+  if (tblSize.rows.length == 1) {
+    flag = 0;
+    document.getElementById('msg-size').style = 'display:block';
+    document.getElementById('msg-size').innerText = 'Please add at least one size in table';
+  } else {
+    document.getElementById('msg-size').style = 'display:none';
   }
+
+  if (!imgMain.classList.contains('selected')) {
+    flag = 0;
+    document.getElementById('msg-img').style = 'display:block';
+    document.getElementById('msg-img').innerText = 'Please choose main image';
+  } else {
+    document.getElementById('msg-img').style = 'display:none';
+  }
+  if (flag == 0)
+    return false;
+  else
+    return true;
+}
 </script>

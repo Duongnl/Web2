@@ -1,45 +1,45 @@
 <style>
-#search-product {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background-color: #fff;
-  display: flex;
-  position: relative;
-}
-
-#search-product #search-txt {
-  width: 65%;
-  border: none;
-  outline: none;
-  padding: 6px 12px;
-}
-
-.wrap-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.btn-search {
-  width: 35%;
-}
-
-.wrap-table {
-  clear: both;
-  min-height: 560px;
-  height: 560px;
-  white-space: nowrap;
-}
-
-.pagination {
-  justify-content: center;
-}
-
-@media screen and (max-width:768px) {
-  .wrap-button {
-    flex-direction: column;
+  #search-product {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    display: flex;
+    position: relative;
   }
-}
+
+  #search-product #search-txt {
+    width: 65%;
+    border: none;
+    outline: none;
+    padding: 6px 12px;
+  }
+
+  .wrap-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .btn-search {
+    width: 35%;
+  }
+
+  .wrap-table {
+    clear: both;
+    min-height: 560px;
+    height: 560px;
+    white-space: nowrap;
+  }
+
+  .pagination {
+    justify-content: center;
+  }
+
+  @media screen and (max-width:768px) {
+    .wrap-button {
+      flex-direction: column;
+    }
+  }
 </style>
 <div class="main-content">
   <h3 class="h1-head-name">Product</h3>
@@ -51,7 +51,7 @@
         Search
       </button>
     </form>
-    <a href=<?php echo $request."/add"?>>
+    <a href=<?php echo $request . "/add" ?>>
       <button type="button" class="btn btn-success" style="margin-top: 10px; margin-bottom: 10px; ">
         <i class="fa-solid fa-circle-plus"></i> Add new product
       </button>
@@ -244,3 +244,7 @@
   </ul>
 
 </div>
+
+<?php require_once ('./public/template/admin/toast.php');
+toast::memo("Add Success", "add-success", "limegreen");
+?>

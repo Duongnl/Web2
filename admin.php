@@ -7,6 +7,7 @@ $url = parse_url($request)["path"];
 $toAdmin = handle_url::getURLAdmin($request);
 $baseName = explode($toAdmin . '/', $url)[1];
 $rootDirectory = handle_url::getUrl();
+$rootPath = __DIR__;
 switch ($baseName) {
     case 'statistic':
         require __DIR__ . $adminView . 'statistic_page.php';
@@ -49,7 +50,10 @@ switch ($baseName) {
     case 'import_form':
         require __DIR__ . $adminView . 'import_form_page.php';
         break;
-    case 'supplier_controller':
+    case 'controller/product_controller':
+        require __DIR__ . $adminController . 'product_controller.php';
+        break;
+    case 'controller/supplier_controller':
         require __DIR__ . $adminController . 'supplier_controller.php';
         break;
     case 'discount_controller':
