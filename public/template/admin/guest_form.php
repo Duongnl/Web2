@@ -58,39 +58,60 @@ $url =  handle_url::getURLAdmin($request);
         <input type="text" id="input-text-head" value="" style="text-align: center;margin:0 auto;display:block; border:none; font-size :25px;" disabled>
         <div class="main_content">
         <div class="left_colum">
-        <div class="input-group flex-nowrap" style="margin-top: 20px;">
+        <label style="margin-top: 10px;border:0px">ID Guest  </label>
+        
+        <div class="input-group flex-nowrap" style="margin-top: 10px;">
+
             <span class="input-group-text" id="addon-wrapping" style=" padding-right: 14px; padding-left: 14px;"><b> ID </b></span>
             <input id="guest_id" name="guest_id" type="text" class="form-control" placeholder="Guest ID" aria-label="Username" aria-describedby="addon-wrapping" readonly>
         </div>
-        <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
+        <label style="margin-top: 10px;border:0px"> Guest Name </label>
+
+
+        <div class="input-group flex-nowrap" style="margin-top: 10px;border:0px">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
             <input id="guest_name" name="guest_name" type="text" class="form-control" placeholder="Guest name" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
-        <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
+        <label style="margin-top: 10px;border:0px">UserName </label>
+
+        <div class="input-group flex-nowrap" style="margin-top: 10px;border:0px">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
             <input id="guest_tenTK" name="guest_tenTK" type="text" class="form-control" placeholder="TenTaiKhoan" aria-label="tenTK" aria-describedby="addon-wrapping">
         </div>
-        <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
+
+        <label style="margin-top: 10px;border:0px">Position </label>
+
+        <div class="input-group flex-nowrap" style="margin-top: 10px;border:0px">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-people-roof"></i></span>
             <input id="guest_QuyenKH" name="guest_QuyenKH" type="text" class="form-control" placeholder="Quyền " aria-label="Quyen" aria-describedby="addon-wrapping">
         </div>
+
+
         </div>
         <div class="right_colum">
-        <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
+        <label style="margin-top: 10px;border:0px">Guest Email </label>
+
+
+        <div class="input-group flex-nowrap" style="margin-top: 10px;border:0px">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-envelope"></i></span>
             <input id="guest_email" name="guest_email" type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="addon-wrapping">
         </div>
-        <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
+
+        <label style="margin-top: 10px;border:0px">Guest PhoneNumber </label>
+
+        <div class="input-group flex-nowrap" style="margin-top: 10px;border:0px">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-phone"></i></span>
             <input id="guest_sdt" name="guest_sdt" type="text" class="form-control" placeholder="SDT" aria-label="SDT" aria-describedby="addon-wrapping">
         </div>
+        <label style="margin-top: 10px;border:0px">Guest Password </label>
 
-        <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
+        <div class="input-group flex-nowrap" style="margin-top: 10px;border:0px">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-key"></i></span>
             <input id="guest_matkhau" name="guest_matkhau" type="text" class="form-control" placeholder="MatKhau" aria-label="MatKhau" aria-describedby="addon-wrapping">
         </div>
-        <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
+        <label style="margin-top: 10px;border:0px">Guest Address </label>
+        <div class="input-group flex-nowrap" style="margin-top: 10px;border:0px">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-location-dot"></i></span>
             <input id="guest_diaChi" name="guest_diaChi" type="text" class="form-control" placeholder="DiaChi" aria-label="DiaChi" aria-describedby="addon-wrapping">
         </div>
         </div>
@@ -132,11 +153,38 @@ toast::memo("Success", "back_from_controller", "limegreen");
         document.getElementById("action").value = action;
 
 
+
+
+
+
+
+
+
+
+
+
+
         document.getElementById("btn-guest-form").value = buttonName ;
         if  (action == 'delete')  {
             document.getElementById("guest_name").readOnly = true;
+            document.getElementById("guest_tenTK").readOnly=true;
+            document.getElementById("guest_email").readOnly=true;
+            document.getElementById("guest_sdt").readOnly=true;
+            document.getElementById("guest_matkhau").readOnly=true;
+            document.getElementById("guest_diaChi").readOnly=true;
+            document.getElementById("guest_QuyenKH").disabled = true;
+
+            
+
+
         } else {
             document.getElementById("guest_name").readOnly = false;
+            document.getElementById("guest_tenTK").readOnly=false;
+            document.getElementById("guest_email").readOnly=false;
+            document.getElementById("guest_sdt").readOnly=false;
+            document.getElementById("guest_matkhau").readOnly=false;
+            document.getElementById("guest_diaChi").readOnly=false;
+            document.getElementById("guest_QuyenKH").disabled = false;
         }
 
     }
@@ -185,6 +233,22 @@ toast::memo("Success", "back_from_controller", "limegreen");
             return ArrayEmails.includes(email); 
 
         }
+        function checkValidPhone(PhoneNumber)
+        {
+            <?php 
+                $account_manager_model = new account_manager_model();
+                $querySDT =$account_manager_model->FilterSDT();
+                $ArraySDT = [];
+                while($row = mysqli_fetch_array($querySDT))
+            {
+                $ArraySDT = $row['SDT'];
+            }
+            
+            ?>
+            var ArraySDTs = <?php echo json_encode($ArraySDT) ; ?> ;
+            return ArraySDTs.includes(PhoneNumber); 
+
+        }
         function checkPhoneNumber(PhoneNumber)
         {
             var pattern = /^(0[1-9])+([0-9]{8})\b/;
@@ -228,18 +292,25 @@ toast::memo("Success", "back_from_controller", "limegreen");
             notification.value = "Sai định dạng về Số điện thoại ! ";
             return false;
         }
-        else if(checkUserName(staff_tenTK))
+        else if(checkUserName(guest_tenTK))
          {
             notification = document.getElementById("memo");
              notification.style.display = "block";
             notification.value = "Ten tài khoản đã tồn tại ";
              return false;
          }
-         else if (checkValidEmail(staff_email))
+         else if (checkValidEmail(guest_email))
          {
             notification = document.getElementById("memo");
              notification.style.display = "block";
             notification.value = "Email đã tồn tại ";
+             return false;
+         }
+         else if (checkValidPhone(guest_sdt))
+         {
+            notification = document.getElementById("memo");
+            notification.style.display = "block";
+            notification.value = "Số điện thoại đã tồn tại ";
              return false;
          }
         else

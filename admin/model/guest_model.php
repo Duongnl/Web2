@@ -14,10 +14,9 @@ class guest_model {
     }
     
     function insertGuestData ($maTK,$tenKH,$diaChi,$trangThai) {
-
         $this->db_config->connect();
 
-        $sql = "INSERT INTO khachhang ( MaKH, MaTK ,TenKH, DiaChi,TrangThai) VALUES (null,'$maTK','$tenKH','$diaChi','$trangThai') ";
+        $sql = "INSERT INTO khachhang ( MaKH, MaTK ,TenKH, DiaChi,TrangThai) VALUES (NULL,'$maTK','$tenKH','$diaChi','$trangThai') ";
         return  $this->db_config->execute($sql);
     }
 

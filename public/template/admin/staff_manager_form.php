@@ -60,16 +60,21 @@ $url =  handle_url::getURLAdmin($request);
         <input type="text" id="input-text-head" value="" style="text-align: center;margin:0 auto;display:block; border:none; font-size :25px;" disabled>
         <div class="main_content">
         <div class="left_colum">
-        <div class="input-group flex-nowrap" style="margin-top: 20px;">
+        <label style="margin-top: 10px;border:0px">ID Staff  </label>
+        <div class="input-group flex-nowrap" style="margin-top: 10px;">
             <span class="input-group-text" id="addon-wrapping" style=" padding-right: 14px; padding-left: 14px;"><b> ID </b></span>
             <input id="staff_id" name="staff_id" type="text" class="form-control" placeholder="Staff ID" aria-label="Username" aria-describedby="addon-wrapping" readonly>
         </div>
-        <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
+        <label style="margin-top: 10px;border:0px"> Staff Name </label>
+        <div class="input-group flex-nowrap" style="margin-top: 10px ;border:0px">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
             <input id="staff_name" name="staff_name" type="text" class="form-control" placeholder="Staff name" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
-        <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
+
+        <label style="margin-top: 10px;border:0px">Position </label>
+        <div class="input-group flex-nowrap" style="margin-top: 10px ; border:0px">
+            
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-people-roof"></i></span>
             <select id="Position" name="Position"  class="form-control"  aria-label="Position" aria-describedby="addon-wrapping">
                 <?php 
                     require_once('./admin/model/quyen_model.php');
@@ -84,27 +89,36 @@ $url =  handle_url::getURLAdmin($request);
                 ?>    
             </select>
         </div>
-        <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
+        <label style="margin-top: 10px;border:0px">UserName </label>
+
+        <div class="input-group flex-nowrap" style="margin-top: 10px ;border:0px">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
             <input id="staff_tenTK" name="staff_tenTK" type="text" class="form-control" placeholder="Tên tài khoản" aria-label="tenTK" aria-describedby="addon-wrapping">
         </div>
         </div>
         <div class="right_colum">
-        <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
+        <label style="margin-top: 10px;border:0px">Staff Email </label>
+
+        <div class="input-group flex-nowrap" style="margin-top: 10px;border:0px">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-envelope"></i></span>
             <input id="staff_email" name="staff_email" type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="addon-wrapping">
         </div>
-        <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
+        <label style="margin-top: 10px;border:0px">Staff PhoneNumber </label>
+
+        <div class="input-group flex-nowrap" style="margin-top: 10px;border:0px">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-phone"></i></span>
             <input id="staff_sdt" name="staff_sdt" type="text" class="form-control" placeholder="SDT" aria-label="SDT" aria-describedby="addon-wrapping">
         </div>
+        <label style="margin-top: 10px;border:0px">Staff Password </label>
 
-        <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
+        <div class="input-group flex-nowrap" style="margin-top: 10px;border:0px">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-key"></i></span>
             <input id="staff_matkhau" name="staff_matkhau" type="text" class="form-control" placeholder="MatKhau" aria-label="MatKhau" aria-describedby="addon-wrapping">
         </div>
-        <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
+        <label style="margin-top: 10px;border:0px">Staff Address </label>
+
+        <div class="input-group flex-nowrap" style="margin-top: 10px;border:0px">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-location-dot"></i></span>
             <input id="staff_diaChiNV" name="staff_diaChiNV" type="text" class="form-control" placeholder="DiaChi" aria-label="DiaChi" aria-describedby="addon-wrapping">
         </div>
         </div>
@@ -145,6 +159,7 @@ toast::memo("Success", "back_from_controller", "limegreen");
 
         document.getElementById("btn-staff-form").value = buttonName ;
         if  (action == 'delete')  {
+            document.getElementById("Position").disabled = true;
             document.getElementById("staff_name").readOnly = true;
             document.getElementById("staff_tenTK").readOnly = true;
             document.getElementById("staff_email").readOnly = true;
@@ -153,7 +168,13 @@ toast::memo("Success", "back_from_controller", "limegreen");
             document.getElementById("staff_diaChiNV").readOnly = true;
 
         } else {
+            document.getElementById("Position").disabled = false;
             document.getElementById("staff_name").readOnly = false;
+            document.getElementById("staff_tenTK").readOnly = false;
+            document.getElementById("staff_email").readOnly = false;
+            document.getElementById("staff_sdt").readOnly = false;
+            document.getElementById("staff_matkhau").readOnly = false;
+            document.getElementById("staff_diaChiNV").readOnly = false;
         }
 
     }
@@ -201,6 +222,23 @@ toast::memo("Success", "back_from_controller", "limegreen");
             ?>
             var ArrayEmails = <?php echo json_encode($ArrayEmail) ; ?> ;
             return ArrayEmails.includes(email); 
+
+        }
+
+        function checkValidPhone(PhoneNumber)
+        {
+            <?php 
+                $account_manager_model = new account_manager_model();
+                $querySDT =$account_manager_model->FilterSDT();
+                $ArraySDT = [];
+                while($row = mysqli_fetch_array($querySDT))
+            {
+                $ArraySDT = $row['SDT'];
+            }
+            
+            ?>
+            var ArraySDTs = <?php echo json_encode($ArraySDT) ; ?> ;
+            return ArraySDTs.includes(PhoneNumber); 
 
         }
         
@@ -259,6 +297,13 @@ toast::memo("Success", "back_from_controller", "limegreen");
             notification = document.getElementById("memo");
              notification.style.display = "block";
             notification.value = "Email đã tồn tại ";
+             return false;
+         }
+         else if (checkValidPhone(staff_sdt))
+         {
+            notification = document.getElementById("memo");
+            notification.style.display = "block";
+            notification.value = "Số điện thoại đã tồn tại ";
              return false;
          }
         else

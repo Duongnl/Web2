@@ -16,7 +16,7 @@ class account_manager_model
     function insertAccountData( $tenTK, $Email, $SDT, $matKhau, $maQuyen, $trangThai)
     {
         $this->db_config->connect();
-        $sql = "INSERT INTO taikhoan ( MaTK, TenTK, Email, SDT, MatKhau, TrangThai ,MaQuyen) VALUES (null,'$tenTK','$Email','$SDT','$matKhau', '$maQuyen','$trangThai') ";
+        $sql = "INSERT INTO taikhoan (  TenTK, Email, SDT, MatKhau, TrangThai ,MaQuyen) VALUES ( '$tenTK','$Email','$SDT','$matKhau', '$maQuyen','$trangThai') ";
         return  $this->db_config->execute($sql);
     }
     function updateAccountData ($maTK,$tenTK,$Email, $SDT, $matKhau, $maQuyen , $trangThai)
@@ -41,6 +41,13 @@ class account_manager_model
     {
         $this->db_config->connect();
         $sql = "SELECT Email FROM taikhoan ";
+        return $this->db_config->execute($sql);
+    }
+
+    function FilterSDT()
+    {
+        $this->db_config->connect();
+        $sql = "SELECT SDT FROM taikhoan ";
         return $this->db_config->execute($sql);
     }
 

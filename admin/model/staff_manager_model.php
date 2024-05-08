@@ -16,7 +16,7 @@ class staff_manager_model {
     function insertStaffData ($maTK,$tenNV,$diaChi,$trangThai) {
 
         $this->db_config->connect();
-        $sql = "INSERT INTO nhanvien ( MaNV, MaTK ,TenNV, DiaChi,TrangThai) VALUES (null,'$maTK','$tenNV','$diaChi','$trangThai') ";
+        $sql = "INSERT INTO nhanvien (  MaTK ,TenNV, DiaChi,TrangThai) VALUES ('$maTK','$tenNV','$diaChi','$trangThai') ";
         return  $this->db_config->execute($sql);
     }
 

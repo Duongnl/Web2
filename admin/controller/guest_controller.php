@@ -32,7 +32,6 @@ if ( isset($_POST['action']) )
     }
     else if ($action =='edit') {
     
-
         $result = $guest_model->SearchMaTK($guest_id);
         $row = $result->fetch_assoc();
         $MaTK = $row['MaTK'];
