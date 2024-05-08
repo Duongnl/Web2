@@ -28,6 +28,7 @@ if ( isset($_POST['action']) )
         
         $lastAccount = $queryAccount->fetch_all(MYSQLI_ASSOC);
         $lastMaTK = end($lastAccount)['MaTK']; 
+        
         $guest_model->insertGuestData( $lastMaTK , $guest_name, $guest_diachi, 1);
     }
     else if ($action =='edit') {
