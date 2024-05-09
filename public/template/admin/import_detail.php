@@ -8,6 +8,9 @@ if (isset($_POST['MaPN'])) {
     $rowImport = mysqli_fetch_array($queryImport);
 }
 
+require('./admin/controller/export_import_pdf.php');
+$pdfData= export_pdf::export($maPN) ;
+
 ?>
 
 <div class="main-content">
@@ -16,7 +19,7 @@ if (isset($_POST['MaPN'])) {
             <a type="button" href="<?php echo  $url . '/import'; ?>" class="btn btn-light"><i class="fa-solid fa-arrow-left" style=" font-size: 30px;"></i></a>
             <h3 style="padding-left: 15px;" class="h1-head-name">Import detail</h3>
     
-        <button type="button" class="btn btn-success">
+        <button  id="button-export" type="button" class="btn btn-success">
         <i class="fa-solid fa-circle-plus"></i> Export pdf</button>
     </div>
 
@@ -68,8 +71,15 @@ if (isset($_POST['MaPN'])) {
         </tbody>
     </table>
 
-
-
-
-
 </div>
+<script>
+    document.getElementById("button-export").addEventListener("click", function(e) {
+            // Dữ liệu PDF Base64 của bạn
+            var pdfData = "<?php echo base64_encode($pdfData); ?>";
+            // Tạo một URL cho dữ liệu Base64
+            var pdfUrl = "data:application/pdf;base64," + pdfData;
+            // Mở tab mới và tạo một iframe để hiển thị PDF
+            var newTab = window.open();
+            newTab.document.write('<iframe width="100%" height="100%" src="' + pdfUrl + '"></iframe>');
+        });
+</script>
