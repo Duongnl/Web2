@@ -17,6 +17,40 @@ if ( isset($_POST['maSP']) )
 
 }
 
+if (isset ($_POST["listCTPN"]) && isset ($_POST["total_import"]) && isset ($_POST["maNCC"])) {
+    
+    $import_model = new import_model();
+    
+    $maTK = 1;
+    $thoiGian = date("Y-m-d"); 
+    $thanhToan =  $_POST["total_import"];
+    $maNCC = $_POST["maNCC"];
+    
+    $import_model->insertImportData($maTK, $maNCC,$thanhToan,$thoiGian, 0 );
+    // session_start();
+    // Lấy giá trị của $_SESSION['MaTaiKhoan']
+    // $maTaiKhoan = $_SESSION['MaTaiKhoan'];
+    
+    $importData = $import_model->getImportDataEnd();
+    $row = mysqli_fetch_array($importData);
+    $maPN = $row['MaPN'];
+  
+    $listCTPN = $_POST["listCTPN"];
+    for ($i=0; $i<count($listCTPN); $i++) {
+        $maSP = $listCTPN[$i][0];
+        $size = $listCTPN[$i][1];
+        $donGia =  $listCTPN[$i][2];
+        $soLuong =  $listCTPN[$i][3];
+        $thanhTien =  $listCTPN[$i][4];
+        $trangThai = 0;
+        $import_model->insertImportDetailData($maPN,$maSP,$donGia,$soLuong, $thanhTien,$size);
+       
+    }
+    
+    echo $maPN;
+}
+
+
 
 
 
