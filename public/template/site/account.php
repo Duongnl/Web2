@@ -13,7 +13,7 @@ $url = handle_url::getUrl();
     <div class="account-management-container">
       <section class="account-main-content">
 
-        <?php $maTK = 2;
+        <?php $maTK = 3;
         $model = new account_model();
         $boolean = $model->checkTaiKhoan($maTK);
         if ($boolean == 1) {
@@ -38,7 +38,7 @@ $url = handle_url::getUrl();
           <!-- input phone -->
           <div class="account-profile-name-item">
             <label class="account-profile-name-label">Phone Number</label>
-            <input type="text" class="account-profile-name-value" id="user_phone" name="user_phone" value="<?php echo  $row['SDT'] ?>"></input>
+            <input type="text" class="account-profile-name-value" id="user_phone" name="user_phone" value="<?php echo '0' . $row['SDT'] ?>"></input>
           </div>
           <!-- date  -->
           <div class="account-profile-contact-item">
@@ -62,10 +62,17 @@ $url = handle_url::getUrl();
             <input id="btn-user-info-form" type="submit" class="account-profile-save user-infor" value="update"></input>
           </div>
         </form>
+        
         <form action="<?php echo $url . '/account_controller' ?>" method="POST" id="account_form_2" class="account-profile-section" onsubmit="return validateForm_account()">
           <h1 class="account-profile-title">Account information</h1>
           <input type="hidden" id="action" name="action" value="update_account_info">
           <input type="hidden" id="user_id" name="user_id" value="<?php echo  $row['MaTK'] ?>">
+          <?php
+          if (isset($_SESSION['error'])) {
+            echo '<label class="account-profile-name-label">' . $_SESSION['error'] . '</label>';
+            unset($_SESSION['error']); // Xóa thông báo lỗi sau khi đã hiển thị
+          }
+          ?>
           <label class="account-profile-name-label">User Name</label>
           <input type="text" class="account-profile-input" placeholder="User name" id="username" name="username" value="<?php echo  $row['TenTK'] ?>"></input>
           <label class="account-profile-name-label">Email</label>
@@ -86,7 +93,7 @@ $url = handle_url::getUrl();
 
       </section>
     </div>
-    <a href="<?php echo  $url . '/cart-detail' ?>" style="text-decoration: none;" class="view-details-order">View Details Order</a href="">
+    <a href="<?php echo  $url . '/cart-detail' ?>" style="text-decoration: none;" class="view-details-order">View Order</a href="">
   </div>
 </div>
 <script>
@@ -131,14 +138,14 @@ $url = handle_url::getUrl();
       alert("Địa chỉ không được chứa ký tự đặc biệt, chỉ cho phép / !");
       return false;
     }
-}
-function validateForm_account() {
+  }
+
+  function validateForm_account() {
     var username = document.getElementById("username").value;
     var email = document.getElementById("email").value;
 
     var usernameRegex = /^[a-zA-Z0-9]*$/; // Chỉ chấp nhận ký tự chữ và số
     var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // Định dạng email
-
     if (!usernameRegex.test(username)) {
       alert("Tên tài khoản không được chứa ký tự đặc biệt và khoảng trắng!");
       return false;
@@ -148,7 +155,6 @@ function validateForm_account() {
       alert("Email phải có định dạng đúng, ví dụ: example@gmail.com");
       return false;
     }
-
     return true;
   }
 </script>

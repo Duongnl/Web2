@@ -74,9 +74,26 @@ class account_model
             $update_password_sql = "UPDATE taikhoan SET MatKhau = '$newpassword' WHERE MaTK = '$user_id'";
             $this->db_config->execute($update_password_sql);
         }
+        
         // Cập nhật thông tin tài khoản
         $update_account_sql = "UPDATE taikhoan SET TenTK = '$username', Email = '$email' WHERE MaTK = '$user_id'";
         $this->db_config->execute($update_account_sql);
         return true;
+    }
+    public function checkTenTK($username, $user_id) {
+        // Kiểm tra xem TenTK mới có trùng với các TenTK có trong cơ sở dữ liệu hay không
+        $this->db_config->connect();
+    
+        $check_username_sql = "SELECT COUNT(*) AS count FROM taikhoan WHERE TenTK = '$username' AND MaTK != '$user_id'";
+        $result = $this->db_config->execute($check_username_sql);
+        $row = mysqli_fetch_assoc($result);
+        $username_count = $row['count'];
+    
+        // Nếu TenTK mới trùng với các TenTK có trong cơ sở dữ liệu
+        if ($username_count > 0) {
+            return true;
+        }
+    
+        return false; // Trả về true nếu TenTK hợp lệ
     }
 }

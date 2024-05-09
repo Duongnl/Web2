@@ -30,9 +30,15 @@ switch ($baseName) {
   case 'cart-detail':
     require __DIR__ . $userView . 'cart-detail-page.php';
     break;
-    case 'account_controller':
-      require __DIR__ . $userController . 'account_controller.php';
-      break;
+  case 'account_controller':
+    require __DIR__ . $userController . 'account_controller.php';
+    break;
+  case 'cart_controller':
+    require __DIR__ . $userController . 'cart_controller.php';
+    break;
+  case 'account_model':
+    require __DIR__ . $userModel . 'account_model.php';
+    break;
   default:
     # code... page 404
     break;

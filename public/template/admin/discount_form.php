@@ -100,8 +100,10 @@ toast::memo("Success", "back_from_discount_controller", "limegreen");
         document.getElementById("btn-discount-form").value = buttonName;
         if (action == 'delete') {
             document.getElementById("discount_name").readOnly = true;
+            document.getElementById("discount_percent").readOnly = true;
         } else {
             document.getElementById("discount_name").readOnly = false;
+            document.getElementById("discount_percent").readOnly = false;
         }
 
     }
