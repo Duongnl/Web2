@@ -4,7 +4,11 @@ require './site/controller/handle_url.php';
 $folder_name = handle_url::getParent_Index();
 $request = $_SERVER['REQUEST_URI'];
 $userView = '/site/view/';
+<<<<<<< HEAD
 $userController='/site/controller/';
+=======
+$userController = '/site/controller/';
+>>>>>>> 934b9e8191110317512539df5d219f720c6ddfe2
 $baseName = basename($request);
 switch ($baseName) {
   case $folder_name:
@@ -30,6 +34,7 @@ switch ($baseName) {
   case 'cart-detail':
     require __DIR__ . $userView . 'cart-detail-page.php';
     break;
+<<<<<<< HEAD
   case 'order':
     require __DIR__ . $userView . 'donHangUser-page.php';
     break;
@@ -39,6 +44,17 @@ switch ($baseName) {
   case 'orderUser_controller':
       require __DIR__ . $userController . 'donHangUser_controller.php';
       break;
+=======
+  case 'account_controller':
+    require __DIR__ . $userController . 'account_controller.php';
+    break;
+  case 'cart_controller':
+    require __DIR__ . $userController . 'cart_controller.php';
+    break;
+  case 'account_model':
+    require __DIR__ . $userModel . 'account_model.php';
+    break;
+>>>>>>> 934b9e8191110317512539df5d219f720c6ddfe2
   default:
     # code... page 404
   break;

@@ -110,7 +110,7 @@ toast::memo("Success", "back_from_controller", "limegreen");
         var pattern = /^[a-zA-Z0-9\s]*$/;
         var supplier_name = document.getElementById("supplier_name").value.trim();
         if (supplier_name == "") {
-            document.getElementById("memo").value = "Supplier name is empty !";
+            document.getElementById("memo").value = "supplier name is empty !";
             return false;
         } else if (pattern.test(supplier_name) != true) {
             document.getElementById("memo").value = "Doesn't contain special characters !";
