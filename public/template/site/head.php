@@ -3,17 +3,17 @@ session_start();
  $url = handle_url::getUrl();
 ?>
 <div class="announcement-container">
-   <!-- <div class="announcement-inner"> -->
-   <div class="sale-message">
-     <p class="sale-text">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
-     <div tabindex="0" role="button" class="shop-now">Shop Now</div>
-   </div>
-   <!-- <div class="language-selector">
+  <!-- <div class="announcement-inner"> -->
+  <div class="sale-message">
+    <p class="sale-text">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
+    <div tabindex="0" role="button" class="shop-now">Shop Now</div>
+  </div>
+  <!-- <div class="language-selector">
         <div class="language-text">English</div>
         <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c458026ddcb4daaaca9291897ab1b8ab8e65bd1233e48db8bbc95eb90ee3e16?apiKey=de754edacf6d4fbeaf990b709fcfe0b5&" alt="Country flag" class="country-flag" loading="lazy"/>
       </div> -->
-   <!-- </div> -->
- </div>
+  <!-- </div> -->
+</div>
 
  <header class="header">
    <!-- <nav class="navigation-container"> -->
@@ -59,8 +59,8 @@ session_start();
    </div>
    <!-- </nav> -->
 
-   <!-- nav hidden -->
-   <!-- <div class="container ctn-hidden">
+  <!-- nav hidden -->
+  <!-- <div class="container ctn-hidden">
       <div class="row">
         <nav class="navbar navbar-light bg-dark" style="background-color:white !important;">
           <div class="container-fluid ctn-header-fluid">
@@ -86,5 +86,5 @@ session_start();
 
 
 
- </header>
- <script src="./public/js/header.js"></script>
+</header>
+<script src="./public/js/header.js"></script>
