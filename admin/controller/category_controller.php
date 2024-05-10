@@ -2,8 +2,10 @@
 
 require_once('./admin/model/category_model.php');
 require_once('./admin/model/db_config.php');
+
 $request = $_SERVER['REQUEST_URI'];
 $url = handle_url::getURLAdmin($request);
+
 if ( isset($_POST['action'])  && isset($_POST['category_id']) && isset($_POST['category_name']))
 {
     $category_id = $_POST['category_id'];

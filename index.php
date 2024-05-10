@@ -1,14 +1,19 @@
 
 <?php
 require './site/controller/handle_url.php';
-$folder_name = handle_url::getParent_Index();
+// $folder_name = handle_url::getParent_Index();
 $request = $_SERVER['REQUEST_URI'];
+$url = parse_url($request)["path"];
 $userView = '/site/view/';
-$baseName = basename($request);
+$userController = '/site/controller/';
+$rootDirectory = handle_url::getUrl();
+$baseName = explode($rootDirectory . '/', $url)[1];
+
 switch ($baseName) {
-  case $folder_name:
-    require __DIR__ . $userView . 'home.php';
-    break;
+  case '/':
+  case '':
+      require __DIR__ . $userView . 'home.php';
+      break;
   case 'product':
     require __DIR__ . $userView . 'product-page.php';
     break;
@@ -29,9 +34,27 @@ switch ($baseName) {
   case 'cart-detail':
     require __DIR__ . $userView . 'cart-detail-page.php';
     break;
+  case 'order':
+    require __DIR__ . $userView . 'donHangUser-page.php';
+    break;
+  case 'order_more':
+      require __DIR__ . $userView . 'chiTietDonHangUser-page.php';
+      break;
+  case 'orderUser_controller':
+      require __DIR__ . $userController . 'donHangUser_controller.php';
+      break;
+  case 'account_controller':
+    require __DIR__ . $userController . 'account_controller.php';
+    break;
+  case 'cart_controller':
+    require __DIR__ . $userController . 'cart_controller.php';
+    break;
+  case 'account_model':
+    require __DIR__ . $userModel . 'account_model.php';
+    break;
   default:
     # code... page 404
-    break;
+  break;
 }
 
 

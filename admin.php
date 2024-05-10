@@ -4,7 +4,12 @@ require './site/controller/handle_url.php';
 $request = $_SERVER['REQUEST_URI'];
 $adminView = '/admin/view/';
 $adminController = '/admin/controller/';
-$baseName = basename($request);
+// $baseName = basename($request);
+
+$url = parse_url($request)["path"];
+$toAdmin = handle_url::getURLAdmin($request);
+$baseName = explode($toAdmin . '/', $url)[1];
+
 switch ($baseName) {
     case 'statistic':
         require __DIR__ . $adminView . 'statistic_page.php';
@@ -22,9 +27,10 @@ switch ($baseName) {
         require __DIR__ . $adminView . 'supplier_page.php';
         break;
     case 'staff':
-        require __DIR__ . $adminView . 'staff_page.php';
-    case 'client':
-        require __DIR__ . $adminView . 'client_page.php';
+        require __DIR__ . $adminView . 'staff_manager_page.php';
+        break;
+    case 'guest':
+        require __DIR__ . $adminView . 'guest_page.php';
         break;
     case 'permisson':
         require __DIR__ . $adminView . 'permission_page.php';
@@ -41,6 +47,9 @@ switch ($baseName) {
     case 'import_form':
         require __DIR__ . $adminView . 'import_form_page.php';
         break;
+    case 'import_detail':
+        require __DIR__ . $adminView . 'import_detail_page.php';
+        break;
     case 'supplier_controller':
         require __DIR__ . $adminController . 'supplier_controller.php';
         break;
@@ -55,6 +64,12 @@ switch ($baseName) {
         break;
     case 'order_controller':
         require __DIR__ . $adminController . 'quanLyDonHang_controller.php';
+        break;
+    case 'staff_controller':
+        require __DIR__ . $adminController . 'staff_manager_controller.php';
+        break;
+    case 'guest_controller':
+        require __DIR__ . $adminController . 'guest_controller.php';
         break;
 
     default:

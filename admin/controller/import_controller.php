@@ -8,27 +8,19 @@ $url = handle_url::getURLAdmin($request);
 
 if ( isset($_POST['action'])  && isset($_POST['maPN']))
 {
+    $import_model = new import_model();
     $action = $_POST['action'];
     $maPN = $_POST['maPN'];
+    if ($action == 'accept') {
+        $import_model->updateStatusImport($maPN,1);
+        $import_model->addProductFromImport($maPN);
+    } else if ($action == 'decline') {
+        $import_model->updateStatusImport($maPN,2);
+    }    
 
-    echo $action;
-    echo $maPN;
-
-    // $supplier_model = new supplier_model();
-    
-    // if ($action == 'add') {
-    //     $supplier_model->insertSupplierData( trim($supplier_name),1);
-    // }
-    // else if ($action =='edit') {
-    //     $supplier_model->UpdateSupplierData( $supplier_id, trim($supplier_name));
-    // } else if ($action == 'delete') {
-    //     $supplier_model->DeleteSupplierData($supplier_id);
-    // }
-    
-
-    // $_SESSION['back_from_controller'] = true;
-    // header("Location: $url/supplier");
-    // exit; // Dừng thực thi PHP sau khi chuyển hướng
+    $_SESSION['back_import_controller'] = true;
+    header("Location: $url/import");
+    exit; // Dừng thực thi PHP sau khi chuyển hướng
 }
 
 

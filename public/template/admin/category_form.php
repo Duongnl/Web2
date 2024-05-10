@@ -21,10 +21,11 @@ $url =  handle_url::getURLAdmin($request);
     }
 
     #memo {
-        display: none;
         color: #DB4444;
         font-size: 13px;
         margin-left: 46px;
+        border: 0;
+        width: 300px;
     }
 
     #overlay {
@@ -54,7 +55,7 @@ $url =  handle_url::getURLAdmin($request);
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-list"></i></span>
             <input id="category_name" name="category_name" type="text" class="form-control" placeholder="Category name" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
-        <b id="memo"> Category name is empty !</b>
+        <input type="text" value="" id="memo" disabled  >
 
         <input id="btn-category-form" type="submit" class="btn btn-success" style=" margin:0 auto;display:block; margin-top: 20px; " onclick="return inspect()" value="" ></input>
     </div>
@@ -92,7 +93,7 @@ toast::memo("Success", "back_from_category_controller", "limegreen");
 
     function exit_category() {
         document.getElementById("category_form").style.display = "none";
-        document.getElementById("memo").style.display = "none";
+        document.getElementById("memo").value = "";
         document.getElementById("overlay").style.display = "none";
     }
 
@@ -103,11 +104,14 @@ toast::memo("Success", "back_from_category_controller", "limegreen");
     }
 
 
-
     function inspect() {
+        var pattern = /^[a-zA-Z0-9\s]*$/;
         var category_name = document.getElementById("category_name").value.trim();
         if (category_name == "") {
-            document.getElementById("memo").style.display = "block";
+            document.getElementById("memo").value = "Category name is empty !";
+            return false;
+        } else if (pattern.test(category_name) != true) {
+            document.getElementById("memo").value = "Doesn't contain special characters !";
             return false;
         } else {
             return true;

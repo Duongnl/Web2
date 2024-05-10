@@ -75,12 +75,12 @@ $url =  handle_url::getURLAdmin($request);
             </li>
 
             <li>
-                <a href="<?php echo $url.'/client'?>">
+                <a href="<?php echo $url.'/guest'?>">
                 <i class="fa-solid fa-circle-user icon"></i>
-                    <span class="nav-item">Client</span>
+                    <span class="nav-item">Guest</span>
 
                 </a>
-                <span class="tooltip">Client</span>
+                <span class="tooltip">Guest</span>
             </li>
             <li>
                 <a href="<?php echo $url.'/permission'?>">
