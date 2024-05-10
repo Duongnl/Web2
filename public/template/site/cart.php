@@ -63,18 +63,18 @@ $url = handle_url::getUrl();
         </section>
       </div>
       <div class="group_btn">
-        <button class="group_btn-item"><a style="color: #000000 ; text-decoration: none;" href="<?php echo  $url; ?>">Return To Shop</a></button>
+        <a class="group_btn-item" style="color: #000000 ; text-decoration: none;" href="<?php echo  $url; ?>">Return To Shop</a>
         <input type="submit" class="group_btn-item" id="update-cart-btn" value="Update Cart"></input>
       </div>
     </form>
     <div class="total_form">
-      <div class="cart_coupon">
-        <input type="text" placeholder="Coupon Code" style="height: 45px">
+      <!-- <div class="cart_coupon">
+        <input type="hidden" placeholder="Coupon Code" style="height: 45px">
         <button class="btn-coupon">Apply Coupon</button>
-      </div>
+      </div> -->
       <div class="cart_total">
         <div class="cart_form-product-order_info">
-          <div class="product_cost">Subtotal: <span>
+          <div class="product_cost">Total: <span>
               <?php
               $TongTien = 0;
               if ($query != null) {
@@ -85,10 +85,21 @@ $url = handle_url::getUrl();
               echo number_format($TongTien, 0, ",", ".");
               ?>
               <span>$</span></span></div>
-          <div class="product_cost product_cost-ship">Shipping: <span>20<span>$</span></span></div>
-          <div class="product_cost total">Total: <span>35<span>$</span></span></div>
         </div>
-        <button class="btn_pay">Procees to checkout</button>
+        <?php
+            if ($query != null) {
+            ?>
+                <a class="btn_pay" onclick="return confirm('Bạn có muốn thanh toán đơn hàng này?')" href="./template/XuLyThanhToan.php">Procees to checkout</a>
+            <?php
+            } else {
+
+            ?>
+                <a class="btn_pay" href="<?php echo  $url; ?>">Return to Shop</a>
+            <?php
+            }
+            ?>
+        <!-- <button class="btn_pay">Procees to checkout</button> -->
+
       </div>
     </div>
   </div>
