@@ -2,15 +2,13 @@
 <?php
 require './site/controller/handle_url.php';
 // $folder_name = handle_url::getParent_Index();
-// $request = $_SERVER['REQUEST_URI'];
-// $userView = '/site/view/';
-$userController = '/site/controller/';
-// $baseName = basename($request);
 $request = $_SERVER['REQUEST_URI'];
 $url = parse_url($request)["path"];
 $userView = '/site/view/';
+$userController = '/site/controller/';
 $rootDirectory = handle_url::getUrl();
 $baseName = explode($rootDirectory . '/', $url)[1];
+
 switch ($baseName) {
   case '/':
   case '':
@@ -36,6 +34,15 @@ switch ($baseName) {
   case 'cart-detail':
     require __DIR__ . $userView . 'cart-detail-page.php';
     break;
+  case 'order':
+    require __DIR__ . $userView . 'donHangUser-page.php';
+    break;
+  case 'order_more':
+      require __DIR__ . $userView . 'chiTietDonHangUser-page.php';
+      break;
+  case 'orderUser_controller':
+      require __DIR__ . $userController . 'donHangUser_controller.php';
+      break;
   case 'account_controller':
     require __DIR__ . $userController . 'account_controller.php';
     break;
@@ -47,7 +54,7 @@ switch ($baseName) {
     break;
   default:
     # code... page 404
-    break;
+  break;
 }
 
 

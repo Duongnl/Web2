@@ -100,7 +100,7 @@ $url = handle_url::getUrl();
       </section>
     </div>
     <div style="display: flex;" >
-    <a href="<?php echo  $url . '/cart-detail' ?>" style="text-decoration: none; text-align: center;" class="view-details-order">View Order</a>
+    <a href="<?php echo  $url . '/order' ?>" style="text-decoration: none; text-align: center;" class="view-details-order">View Order</a>
     <form action="<?php echo $url . '/account_controller' ?>" method="POST" >
           <input type="hidden" value="logout" name="logout" >
       <button type="submit" style="text-decoration: none; text-align: center;" class="view-details-order" >Logout</button>

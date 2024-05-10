@@ -43,8 +43,7 @@
   <?php 
     $request = $_SERVER['REQUEST_URI'];
     $url =  handle_url::getURLAdmin($request);
-    $chiTietDonHang_model= new chiTietDonHang_model();
-     
+    $chiTietDonHangUser_model= new chiTietDonHangUser_model();
      
   ?>
 
@@ -55,17 +54,17 @@
         <input type="radio" name="options" value="fromto" id="radioFromTo" style="margin-left: 10px;"> <label style=" font-size:18px;" for="radioFromTo">Khoảng thời gian</label>
         <input type="radio" name="options" value="date" id="radioDate" style="margin-left: 10px;"> <label style=" font-size:18px;" for="radioDate">Ngày</label>
       </div>
-      <form action="<?php echo $url . '/order' ?>" method="GET">
+      <form action="<?php echo $url . './order' ?>" method="GET">
         <div id="dateDiv" style=" display:inline-block; margin-top: 10px; margin-bottom:10px;">
           <label>Ngày:</label>
           <input type="date" id="date" name="date" value="<?php if (isset($_GET['date'])) {
                                                             echo $_GET['date'];
                                                           } ?>">
           <button type="submit" id="buttonLocNgay" class="btn btn-success" style="width: 100px;  display:inline-block;margin-left:10px"><i class="fa-solid fa-circle-plus"></i> Filter</button>
-          <a href="<?php echo $url.'/order' ?>" type="button" id="buttonReset" class="btn btn-success" style="width: 150px; margin-left:10px;display:inline-block;"><i class="fa-solid fa-circle-plus"></i> Refresh</a>
+          <a href="<?php echo $url.'./order' ?>" type="button" id="buttonReset" class="btn btn-success" style="width: 150px; margin-left:10px;display:inline-block;"><i class="fa-solid fa-circle-plus"></i> Refresh</a>
         </div>
       </form>
-      <form action="<?php echo $url . '/order' ?>" method="GET">
+      <form action="<?php echo $url . './order' ?>" method="GET">
         <div id="fromToDiv" style=" display:inline-block;margin-top: 10px; margin-bottom:10px;">
           <label style="font-size: 18px;">Từ:</label>
           <input type="date" id="from" name="date-start"  value="<?php if (isset($_GET['date-start'])) {
@@ -76,7 +75,7 @@
                                                             echo $_GET['date-end'];
                                                           } ?>"  >
           <button type="submit" id="buttonLocKhoangTG" class="btn btn-success" style="width: 100px; display:inline-block; margin-left:10px"><i class="fa-solid fa-circle-plus"></i> Filter</button>
-          <a href="<?php echo $url.'/order' ?>" type="button" id="buttonReset" class="btn btn-success" style="width: 150px;  margin-left:10px;display:inline-block;"><i class="fa-solid fa-circle-plus"></i> Refresh</a>
+          <a href="<?php echo $url.'./order' ?>" type="button" id="buttonReset" class="btn btn-success" style="width: 150px;  margin-left:10px;display:inline-block;"><i class="fa-solid fa-circle-plus"></i> Refresh</a>
         </div>
       </form>
     </div>
@@ -96,13 +95,13 @@
     <tbody class="table-group-divider ">
       <?php
       
-      $quanLyDonHang_model = new quanLyDonHang_model();
+      $donHangUser_model = new donHangUser_model();
       if (isset($_GET['date'])) {
-        $query = $quanLyDonHang_model->filterDonHangFollowDate($_GET['date'],$_GET['date']);
+        $query = $donHangUser_model->filterDonHangFollowDate($_GET['date'],$_GET['date'],"3");
       } else if (isset($_GET['date-start']) && isset($_GET['date-end']) ) {
-        $query = $quanLyDonHang_model->filterDonHangFollowDate($_GET['date-start'],$_GET['date-end']);
+        $query = $donHangUser_model->filterDonHangFollowDate($_GET['date-start'],$_GET['date-end'],"3");
       } else {
-        $query = $quanLyDonHang_model->getDonHangData();
+        $query = $donHangUser_model->getDonHangByMaTK("3");
       }
 
       while ($row = mysqli_fetch_array($query)) {
@@ -110,39 +109,39 @@
         <tr class="tr-body" style="height: 57px;">
           <th scope="row"><?php echo $row['MaHD'] ?></th>
           <td><?php echo $row['TenTK'] ?></td>
+
           <td><?php echo $row['ThoiGianHD'] ?></td>
+
           <?php if($row['TrangThaiHD']==0){
 
             echo '<td style="background-color:yellow" >Chờ xử lý</td>';
               
                 }else if($row['TrangThaiHD']==1){
                   echo '<td style="background-color:green">Đã xử lý</td>';
-                  
+
                 }
                 else if($row['TrangThaiHD']==2){
                   echo '<td style="background-color:red">Đã hủy</td>';
-                
+
                 };       
           ?>
+
           <td><?php echo $row['ThanhToan'] ?></td>
+
           <td class="td_form">
             <?php if($row['TrangThaiHD']==0){?>
-              
-            <form action=" <?php echo $url.'/order_controller'  ?>" method="POST" class="form_container"> 
-              <button type="submit" class="btn btn-warning btn-edit" >Xử lý</button>
-              <input type="hidden" name="MaHD" value="<?php echo $row['MaHD']?> ">
-              <input type="hidden" name="action" value="XuLy">
-            </form> 
 
-            <form action=" <?php echo $url.'/order_controller'  ?>" method="POST" class="form_container"> 
-              <button type="submit" class="btn btn-danger btn-edit" >Hủy</button>
+            <form action=" <?php echo $url.'./orderUser_controller'  ?>" method="POST" class="form_container"> 
+              <button type="submit" class="btn btn-danger btn-edit"> Hủy </button>
               <input type="hidden" name="MaHD" value="<?php echo $row['MaHD']?> ">
               <input type="hidden" name="action" value="Huy">
-            </form>
+            </form> 
+
             <?php };?>
           </td>
+
           <td class="td_form " style="width:200px">
-            <form action=" <?php echo $url.'/order_form'  ?> " method="POST" class="form_container"> 
+            <form action=" <?php echo $url.'./order_more'  ?> " method="POST" class="form_container"> 
               <input type="hidden" name="MaHD" value="<?php echo $row['MaHD']?> ">
               <button type="submit" class="btn btn-warning btn-edit">Chi tiết đơn hàng</button>
             </form> 
@@ -156,12 +155,6 @@
 
 
 </div>
-<?php require_once('./public/template/admin/toast.php');
-if (isset($_SESSION['Duyet_ThanhCong']) && $_SESSION['Duyet_ThanhCong'] == true) {
-  toast::memo("Success", "Duyet_ThanhCong", "limegreen");
-} else if (isset($_SESSION['Duyet_ThatBai']) && $_SESSION['Duyet_ThatBai'] == true) {
-  toast::memo("Thất bại , không đủ hàng trong kho", "Duyet_ThatBai", "red");
-}
 
 ?>
 <script>
@@ -201,6 +194,4 @@ if (isset($_SESSION['Duyet_ThanhCong']) && $_SESSION['Duyet_ThanhCong'] == true)
       fromToDiv.style.display = "block";
     }
   });
-
-
 </script>
