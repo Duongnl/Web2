@@ -33,6 +33,15 @@ class quanLyDonHang_model {
         $sql = "DELETE FROM hoadon WHERE MaHD = '$maHD'";
         return  $this->db_config->execute($sql);
     }
+     function filterDonHangFollowDate ($dateStart, $dateEnd) {
+        $this->db_config->connect();
+        $sql = "SELECT *, hoadon.TrangThai as TrangThaiHD,hoadon.ThoiGian as ThoiGianHD
+        FROM hoadon,khachhang,taikhoan
+        WHERE hoadon.MaTK = taikhoan.MaTK  AND hoadon.MaTK = khachhang.MaTK
+            AND hoadon.ThoiGian >= '$dateStart' AND hoadon.ThoiGian <= '$dateEnd'
+        ORDER BY hoadon.MaHD ASC";
+        return  $this->db_config->execute($sql);
+    }
 
 }
 
