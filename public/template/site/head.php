@@ -1,4 +1,5 @@
 <?php 
+session_start();
  $url = handle_url::getUrl();
 ?>
 <div class="announcement-container">
@@ -25,7 +26,8 @@
      <li><a href="<?php echo  $url.'/product'; ?>">Product</a></li>
      <li><a href="<?php echo  $url.'/admin/suppler'; ?>">About</a></li>
    </ul>
-   <div class="logo">Exclusive</div>
+   <!-- <div class="logo">Exclusive</div> -->
+   <div class="logo"><?php if (isset( $_SESSION['MaTK'])) {echo $_SESSION['MaTK']; }   ?></div>
    <div class="menu">
      <a href="<?php echo  $url; ?>" class="home">Home</a>
      <a href="<?php  echo  $url.'/product'; ?>" class="about">Product</a>
