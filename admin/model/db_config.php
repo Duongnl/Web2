@@ -3,7 +3,7 @@
         private $hostname = 'localhost';
         private $username = 'root';
         private $pass ='';
-        private $dbname = 'shop';
+        private $dbname = 'shopaoquan';
 
         private $conn = NULL;
 
