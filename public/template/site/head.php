@@ -1,6 +1,9 @@
 <?php 
 session_start();
  $url = handle_url::getUrl();
+ require_once('./site/model/login_register_model.php');
+require_once('./admin/model/db_config.php');
+ $login_register_model = new login_register_model();
 ?>
 <div class="announcement-container">
   <!-- <div class="announcement-inner"> -->
@@ -24,10 +27,10 @@ session_start();
    <ul class="menu-mobile">
      <li><a href="<?php echo  $url; ?>">Home</a></li>
      <li><a href="<?php echo  $url.'/product'; ?>">Product</a></li>
-     <li><a href="<?php echo  $url.'/admin/suppler'; ?>">About</a></li>
+     <li><a href="<?php echo  $url.'/admin/supplier'; ?>">About</a></li>
    </ul>
-   <!-- <div class="logo">Exclusive</div> -->
-   <div class="logo"><?php if (isset( $_SESSION['MaTK'])) {echo $_SESSION['MaTK']; }   ?></div>
+   <div class="logo">Exclusive</div>
+   <!-- <div class="logo"><?php // if (isset( $_SESSION['MaTK'])) {echo $_SESSION['MaTK']; }   ?></div> -->
    <div class="menu">
      <a href="<?php echo  $url; ?>" class="home">Home</a>
      <a href="<?php  echo  $url.'/product'; ?>" class="about">Product</a>
@@ -48,13 +51,18 @@ session_start();
        <a href="<?php echo  $url.'/card' ?>">
          <i class="fa-solid fa-cart-plus fs20 p-2"></i>
        </a>
-       <a href="<?php  echo  $url.'/login' ?>">
+      
+       <a href="<?php if (isset($_SESSION['MaTK'])) {echo  $url.'/account';} else {echo  $url.'/login';}  ?>">
          <i href="" class="fa-solid fa-user fs20 p-2"></i>
        </a>
-       <a href="<?php  echo  $url.'/account' ?>">
-          <i href="" class="fa-solid fa-gear"></i>
+       
+      <?php  if (isset($_SESSION['MaTK']) && $login_register_model->checkPositionUserAdmin($_SESSION['MaTK'])== 'admin' ) { ?> 
+       <a href="<?php echo  $url.'/admin/supplier';?>">
+          <i href="" class="fa-solid fa-gear fs20 p-2"></i>
        </a>
-     </div>
+       <?php } ?> 
+
+      </div>
    </div>
    </div>
    <!-- </nav> -->
@@ -88,3 +96,8 @@ session_start();
 
 </header>
 <script src="./public/js/header.js"></script>
+
+<!-- Thông báo -->
+<?php require_once('./public/template/admin/toast.php');
+toast::memo("Success", "back_account_controller", "limegreen");
+?>

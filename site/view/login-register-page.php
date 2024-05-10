@@ -27,7 +27,7 @@
 </head>
 
 <body>
-  
+ 
   <?php require('./public/template/site/head.php'); ?>
   <?php require('./public/template/site/login-register.php'); ?>
   <?php require('./public/template/site/footer.php'); ?>

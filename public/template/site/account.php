@@ -1,4 +1,4 @@
-<?php
+<button?php
 $url = handle_url::getUrl();
 ?>
 
@@ -13,7 +13,13 @@ $url = handle_url::getUrl();
     <div class="account-management-container">
       <section class="account-main-content">
 
-        <?php $maTK = 3;
+        <?php
+        if (isset($_SESSION['MaTK'])) {
+          $maTK = $_SESSION['MaTK'];
+        } else {
+          $maTK = NULL;
+        }
+       
         $model = new account_model();
         $boolean = $model->checkTaiKhoan($maTK);
         if ($boolean == 1) {
@@ -93,7 +99,14 @@ $url = handle_url::getUrl();
 
       </section>
     </div>
-    <a href="<?php echo  $url . '/cart-detail' ?>" style="text-decoration: none;" class="view-details-order">View Order</a href="">
+    <div style="display: flex;" >
+    <a href="<?php echo  $url . '/cart-detail' ?>" style="text-decoration: none; text-align: center;" class="view-details-order">View Order</a>
+    <form action="<?php echo $url . '/account_controller' ?>" method="POST" >
+          <input type="hidden" value="logout" name="logout" >
+      <button type="submit" style="text-decoration: none; text-align: center;" class="view-details-order" >Logout</button>
+    </form>      
+    
+  </div>
   </div>
 </div>
 <script>

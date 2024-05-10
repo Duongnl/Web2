@@ -2,7 +2,7 @@
 $url = handle_url::getUrl();
 ?>
 <div class="cart_form">
-  <h4><a href="<?php echo  $url; ?>" class="return_home">Home</a> / Cart</h4>
+  <!-- <h4><a href="<?php //echo  $url; ?>" class="return_home">Home</a> / Cart</h4> -->
   <div class="cart_form-product">
     <!-- form -->
     <form action="<?php echo $url . '/cart_controller' ?>" method="POST" id="cart_form" class="cart_items">
@@ -22,7 +22,12 @@ $url = handle_url::getUrl();
           </header>
 
           <?php
-          $maTK = 3;
+          if (isset($_SESSION['MaTK'])) {
+            $maTK = $_SESSION['MaTK'];
+          } else {
+            $maTK = NULL;   
+          }
+          
           $model = new cart_model();
           $query = $model->getCartDetails($maTK);
           while ($row = mysqli_fetch_array($query)) {

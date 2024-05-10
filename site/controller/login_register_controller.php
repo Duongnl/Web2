@@ -9,8 +9,11 @@ if ( isset($_POST['taikhoan']) && isset($_POST['matkhau'])  )
    $login_register_model = new login_register_model();
    $boolean = $login_register_model->checkUsernamePassword($taikhoan,$matkhau);
    if ($boolean == true) {
+    $query = $login_register_model->getTaiKhoan($taikhoan);
+    $row = $row = mysqli_fetch_array($query);
+    $_SESSION['TenTK'] = $row['TenTK'];
+    $_SESSION['MaTK'] = $row['MaTK'];
     echo "correct";
-    $_SESSION['MaTK'] = $taikhoan;
    } else {
     $booleanUsername =  $login_register_model->checkUsername($taikhoan);
     if ($booleanUsername == true) {
@@ -19,6 +22,7 @@ if ( isset($_POST['taikhoan']) && isset($_POST['matkhau'])  )
         echo "Account does not exist";
     }
    }
+   $_SESSION['back_account_controller'] = true;
 }
 
 

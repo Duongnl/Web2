@@ -53,6 +53,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     //       exit();
     //     }
     //   }
+
+    if(isset($_POST['logout'])) {
+        session_start();
+        session_unset();
+        session_destroy();
+        session_start();
+        $_SESSION['back_account_controller'] = true;
+        header("Location: $url/");
+        exit;
+    }
     
     $_SESSION['back_from_controller'] = true;
     header("Location: $url/account");
