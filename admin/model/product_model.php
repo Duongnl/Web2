@@ -19,14 +19,63 @@ class product_model
   {
     $conn = $this->db_config->connect();
     $sql = "INSERT INTO sanpham (MaAnhChinh, MaKM, MaDM, TenSP, MoTa, GiaBan, TrangThai,NgayTao,SoLuong,GioiTinh) 
-        VALUES ('$maAnh', '$maKM','$maDM','$tenSP','$moTa','$giaBan',1,CURRENT_DATE,0,'$gioiTinh') ";
-    if ($this->db_config->execute($sql) == 1) {
+        VALUES (?, ?, ?, ?, ?, ?, 1, CURRENT_DATE, 0, ?) ";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("iiissdi", $maAnh, $maKM, $maDM, $tenSP, $moTa, $giaBan, $gioiTinh);
+
+    $rs = $stmt->execute();
+
+    if ($rs != null) {
       return $conn->insert_id;
     } else {
       return -1;
     }
   }
 
+  function getListSP()
+  {
+    $this->db_config->connect();
+    $sql = "SELECT * from sanpham join anhchinh on sanpham.MaAnhChinh = anhchinh.MaAnhChinh 
+    join danhmuc on sanpham.MaDM = danhmuc.MaDM 
+    left join khuyenmai on sanpham.MaKM = khuyenmai.MaKM
+     WHERE sanpham.TrangThai = 1";
+    return $this->db_config->execute($sql);
+  }
+
+  function getSoLuongSP($maSP)
+  {
+    $this->db_config->connect();
+    $sql = "select SUM(SoLuong) as SL from size where MaSP = '$maSP'";
+    return $this->db_config->execute($sql);
+  }
+
+  function getSP($maSP)
+  {
+    $this->db_config->connect();
+    $sql = "select * from sanpham where MaSP = '$maSP'";
+    return $this->db_config->execute($sql);
+  }
+
+  function getSizeSP($maSP)
+  {
+    $this->db_config->connect();
+    $sql = "select * from size where MaSP = '$maSP'";
+    return $this->db_config->execute($sql);
+  }
+
+  function getMainImg($maAnhChinh)
+  {
+    $this->db_config->connect();
+    $sql = "select * from anhchinh where MaAnhChinh = '$maAnhChinh'";
+    return $this->db_config->execute($sql);
+  }
+
+  function getSubImgs($maAnhChinh)
+  {
+    $this->db_config->connect();
+    $sql = "select * from anhphu where MaAnhChinh = '$maAnhChinh'";
+    return $this->db_config->execute($sql);
+  }
   function updateProduct($maSP, $maAnh, $maKM, $maDM, $tenSP, $moTa, $giaBan, $gioiTinh)
   {
     $this->db_config->connect();

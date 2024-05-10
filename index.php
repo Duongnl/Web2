@@ -1,11 +1,14 @@
 <?php
 require './site/controller/handle_url.php';
-$folder_name = handle_url::getParent_Index();
+// $folder_name = handle_url::getParent_Index();
 $request = $_SERVER['REQUEST_URI'];
+$url = parse_url($request)["path"];
 $userView = '/site/view/';
-$baseName = basename($request);
+$rootDirectory = handle_url::getUrl();
+$baseName = explode($rootDirectory . '/', $url)[1];
 switch ($baseName) {
-  case $folder_name:
+  case '/':
+  case '':
     require __DIR__ . $userView . 'home.php';
     break;
   case 'product':

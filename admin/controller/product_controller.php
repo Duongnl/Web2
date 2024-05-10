@@ -5,22 +5,40 @@ require_once ('./admin/model/db_config.php');
 $request = $_SERVER['REQUEST_URI'];
 $url = handle_url::getURLAdmin($request);
 
-if (isset($_POST['action'])) {
 
-  $product_model = new product_model();
-  $action = $_POST['action'];
-  switch ($action) {
-    case 'add':
-      addProduct($rootPath, $product_model, $url);
-      break;
-    case 'edit':
-      break;
-    case 'view':
-      break;
-    case 'delete':
-      break;
-  }
+// $limit = 8;
+// $pageSize = ceil(mysqli_num_rows($list) / $limit);
+// echo "<h1>" . $pageSize . "</h1>";
+$method = $_SERVER['REQUEST_METHOD'];
+$product_model = new product_model();
+echo $method;
+switch ($method) {
+  case 'GET':
+    echo '<tr>from controller<tr>';
+    break;
+  case 'POST':
+    addProduct($rootPath, $product_model, $url);
+    break;
+  case 'PUT':
+    break;
+  case 'DELETE':
+    break;
 }
+// if (isset($_POST['action'])) {
+
+//   $action = $_POST['action'];
+//   switch ($action) {
+//     case 'add':
+//       
+//       break;
+//     case 'edit':
+//       break;
+//     case 'view':
+//       break;
+//     case 'delete':
+//       break;
+//   }
+// }
 
 
 function addProduct($rootPath, $product_model, $url)
@@ -48,7 +66,6 @@ function addProduct($rootPath, $product_model, $url)
       }
       $productSex = $_POST['product-sex'];
       $productID = $product_model->insertProduct($idImg, $productSale, $productCategory, $productName, $productDesc, $productPrice, $productSex);
-
       // add size
       if ($productID != -1 && isset($_POST['ArraySize']) && isset($_POST['ArrayQuantity'])) {
         $sizeArray = $_POST['ArraySize'];
