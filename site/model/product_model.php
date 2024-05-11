@@ -16,6 +16,26 @@ class product_model {
         return $this->db_config->execute($sql);
     }
 
+    function getAllProductFollowName ($tenSP) {
+        $this->db_config->connect();
+        $sql = "SELECT sanpham.*, khuyenmai.*, anhchinh.* 
+        FROM sanpham 
+        LEFT JOIN khuyenmai ON sanpham.MaKM = khuyenmai.MaKM 
+        LEFT JOIN anhchinh ON sanpham.MaAnhChinh = anhchinh.MaAnhchinh 
+        WHERE sanpham.TenSP LIKE '%".$tenSP."%'";
+        return $this->db_config->execute($sql);
+    }
+    function getProductFollowPageName ($fromIndex,$tenSP) {
+        $this->db_config->connect();
+        $sql = "SELECT sanpham.*, khuyenmai.*, anhchinh.* 
+        FROM sanpham 
+        LEFT  JOIN khuyenmai ON sanpham.MaKM = khuyenmai.MaKM 
+        LEFT JOIN anhchinh ON sanpham.MaAnhChinh = anhchinh.MaAnhchinh
+        WHERE sanpham.TenSP LIKE '%".$tenSP."%'
+        LIMIT 12 OFFSET ".$fromIndex;
+        return $this->db_config->execute($sql);
+    }
+
     function getProductFollowPage ($fromIndex) {
         $this->db_config->connect();
         $sql = "SELECT sanpham.*, khuyenmai.*, anhchinh.* 
@@ -26,7 +46,7 @@ class product_model {
         return $this->db_config->execute($sql);
     }
 
-    function filterProduct ($maDM, $startPrice, $endPrice, $gioiTinh, $maSize, $sale,$fromIndex) {
+    function filterProduct ($maDM, $startPrice, $endPrice, $gioiTinh, $maSize, $sale,$fromIndex,$tenSP) {
         $this->db_config->connect();
         $sql = "SELECT * FROM sanpham
         JOIN danhmuc ON sanpham.MaDM = danhmuc.MaDM
@@ -48,12 +68,14 @@ class product_model {
         } 
         if ($sale == 'true') {
             $sql.= "AND sanpham.MaKM is not NULL";
+        }if ($tenSP != '') {
+            $sql.= " AND sanpham.TenSP LIKE '%".$tenSP."%'";
         }
         $sql.= " GROUP BY sanpham.MaSP  LIMIT 12 OFFSET ".$fromIndex;
         return $this->db_config->execute($sql);
     }
 
-    function filterAllProduct ($maDM, $startPrice, $endPrice, $gioiTinh, $maSize, $sale,) {
+    function filterAllProduct ($maDM, $startPrice, $endPrice, $gioiTinh, $maSize, $sale,$tenSP) {
         $this->db_config->connect();
         $sql = "SELECT * FROM sanpham
         JOIN danhmuc ON sanpham.MaDM = danhmuc.MaDM
@@ -75,6 +97,8 @@ class product_model {
         } 
         if ($sale == 'true') {
             $sql.= "AND sanpham.MaKM is not NULL";
+        }if ($tenSP != '') {
+            $sql.= " AND sanpham.TenSP LIKE '%".$tenSP."%'";
         }
         $sql.= " GROUP BY sanpham.MaSP  ";
         return $this->db_config->execute($sql);
