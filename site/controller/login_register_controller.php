@@ -10,7 +10,7 @@ if ( isset($_POST['taikhoan']) && isset($_POST['matkhau'])  )
    $boolean = $login_register_model->checkUsernamePassword($taikhoan,$matkhau);
    if ($boolean == true) {
     $query = $login_register_model->getTaiKhoan($taikhoan);
-    $row = $row = mysqli_fetch_array($query);
+    $row = mysqli_fetch_array($query);
     $_SESSION['TenTK'] = $row['TenTK'];
     $_SESSION['MaTK'] = $row['MaTK'];
     echo "correct";
