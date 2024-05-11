@@ -61,7 +61,7 @@
           <a type="button" href="<?php echo $url.'./order'?> "class="btn btn-light"><i class="fa-solid fa-arrow-left" style="display: inline-block; font-size: 30px;"></i></a>
         </div>
         <div class="">
-          <p class="chiTietDonHang ">Chi Tiết Đơn Hàng</p>
+          <p class="chiTietDonHang ">Order More</p>
         </div>
         <div class="">
         <button type="button" class="btn btn-success" id="buttonXuatPhieu" style="float:right; margin-top: 10px; margin-bottom: 10px; " onclick="select_supplier_form('Select supplier','Select')">
