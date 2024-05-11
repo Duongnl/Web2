@@ -26,11 +26,23 @@
         display:flex;
         justify-content: space-between;	
         margin-bottom:30px;
+        margin-top:30px;
+    }
+    .main-content{
+    margin-top: 2.5rem;
+    border: 3px solid;
+    border-radius: 15px;
+    }
+    .chiTietDonHang{
+        text-align: center;
+        font-weight: 500;
+        line-height: 1.2;
+        font-size: 30px;
     }
    
 </style>
 
-<div class="main-content" >
+<div class="main-content container" >
     <?php 
     require('./site/controller/export_pdf.php');
     $request = $_SERVER['REQUEST_URI'];
@@ -61,6 +73,7 @@ Xuất Phiếu</button>
                 <div class="col-6 main_left">
                     <p>Mã Đơn Hàng:  <?php echo  $maHD ?></p>
                     <p>Thời Gian: <?php echo  $row['ThoiGianHD'] ?>  </p>
+                    <p>Tổng Thanh Toán: <?php echo  $row['ThanhToan'] ?></p>
                 </div>
                 <div class="col-6">
                     <p>Tên Tài Khoản: <?php echo  $row['TenTK'] ?></p>
