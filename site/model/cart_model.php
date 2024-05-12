@@ -24,13 +24,23 @@ class cart_model
                 JOIN anhchinh ON sanpham.MaAnhChinh = anhchinh.MaAnhChinh
                 JOIN size ON giohang.MaSize = size.MaSize AND giohang.MaSP = size.MaSP
                 WHERE giohang.MaTK = '$MaTK'";
-        return $this->db_config->execute($sql);
+
+        $data = null;
+        if ($result = $this->db_config->execute($sql)) {
+            while ($row = mysqli_fetch_array($result)) {
+                $data[] = $row;
+            }
+            mysqli_free_result($result);
+        }
+        return $data;
+        // return $this->db_config->execute($sql);
     }
 
-    public function updateQuantity($productId, $newQuantity)
+    public function updateQuantity($userId, $productId, $newQuantity, $size)
     {
         $this->db_config->connect();
-        $update_quantity_sql = "UPDATE giohang SET SoLuong = '$newQuantity' WHERE MaTK = '$productId'";
+        // Sử dụng điều kiện MaSize trong truy vấn SQL
+        $update_quantity_sql = "UPDATE giohang SET SoLuong = '$newQuantity' WHERE MaTK = '$userId' AND MaSP = '$productId' AND MaSize = '$size'";
         $result = $this->db_config->execute($update_quantity_sql);
         // Kiểm tra kết quả và trả về true nếu cập nhật thành công, ngược lại trả về false
         if ($result) {
@@ -38,6 +48,15 @@ class cart_model
         } else {
             return false;
         }
+    }
+
+    public function deleteProduct($MaTK, $MaSP, $MaSize) {
+        $sql = "DELETE FROM giohang WHERE MaTK = '$MaTK' AND MaSP = '$MaSP' AND MaSize = '$MaSize'";
+        $result = $this->db_config->execute($sql);
+        if($result) {
+            return true;
+        }
+        return false;
     }
 
     public function checkQuantityAvailable($productId, $sizeId, $quantity)

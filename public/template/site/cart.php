@@ -2,7 +2,8 @@
 $url = handle_url::getUrl();
 ?>
 <div class="cart_form">
-  <!-- <h4><a href="<?php //echo  $url; ?>" class="return_home">Home</a> / Cart</h4> -->
+  <!-- <h4><a href="<?php //echo  $url; 
+                    ?>" class="return_home">Home</a> / Cart</h4> -->
   <div class="cart_form-product">
     <!-- form -->
     <form action="<?php echo $url . '/cart_controller' ?>" method="POST" id="cart_form" class="cart_items">
@@ -22,47 +23,58 @@ $url = handle_url::getUrl();
           </header>
 
           <?php
+          $list = null;
+          $model = new cart_model();
+
           if (isset($_SESSION['MaTK'])) {
             $maTK = $_SESSION['MaTK'];
+
+            $list = $model->getCartDetails($maTK);
           } else {
-            $maTK = NULL;   
+            $maTK = NULL;
           }
-          
-          $model = new cart_model();
-          $query = $model->getCartDetails($maTK);
-          while ($row = mysqli_fetch_array($query)) {
           ?>
-            <div class="product-item">
-              <input type="hidden" id="action" name="action" value="update_quantity">
-              <input type="hidden" id="user_id" name="user_id" value="<?php echo  $row['MaTK'] ?>">
-              <input type="hidden" id="product_id" name="product_id" value="<?php echo  $row['MaSP'] ?>">
-              <div class="product-item-row">
-                <div class="product-info-column">
-                  <div class="product-info">
-                    <img src="<?php echo $row['Url'] ?>" id="img_product" alt="LCD Monitor" class="product-image" />
-                    <h6 class="product-name" id="name_product"><?php echo $row['TenSP'] ?></h6>
-                  </div>
-                </div>
-                <div class="product-details-column">
-                  <div class="product-details">
-                    <p class="product-price size" id="size_product"><span class="size_product">Size: </span><?php echo $row['MaSize'] ?></p>
-                    <p class="product-price" id="cost_product">$<?php echo $row['GiaBan'] ?></p>
-                    <div class="change_quantity">
+          <!-- while ($row = mysqli_fetch_array($query)) { -->
+          <?php
+          if ($list != null) {
+            foreach ($list as $key => $value) {
+          ?>
+              <div class="product-item">
+                <input type="hidden" id="action" name="action" value="update_quantity">
+                <input type="hidden" id="user_id" name="user_id" value="<?php echo  $value['MaTK'] ?>">
+                <input type="hidden" id="product_id" name="product_id" value="<?php echo  $value['MaSP'] ?>">
 
-                      <input type="number" min="0" value="<?php echo $row['SoLuong'] ?>" id="quantity_product" name="quantity_product" class="input_quantity">
-
+                <div class="product-item-row">
+                  <div class="product-info-column">
+                    <div class="product-info">
+                      <img src="<?php echo $value['Url'] ?>" id="img_product" alt="LCD Monitor" class="product-image" />
+                      <h6 class="product-name" id="name_product"><?php echo $value['TenSP'] ?></h6>
                     </div>
-                    <p class="product-subtotal" id="product-total">
-                      <span class="total_product">Total: </span>
-                      <span>$</span>
-                      <?php echo $row['GiaBan'] * $row['SoLuong'] ?>
-                    </p>
-                    <button class="trash"><i class="fa-solid fa-trash-can"></i></button>
+                  </div>
+                  <div class="product-details-column">
+                    <div class="product-details">
+                    <input type="hidden" id="product_id" name="size_delete" value="<?php echo  $value['MaSize'] ?>">
+                      <p class="product-price size" id="size_product" name="size[<?= $value['MaSP'] ?>]"><?php echo $value['MaSize'] ?></p>
+                      <p class="product-price" id="cost_product">$<?php echo $value['GiaBan'] ?></p>
+                      <div class="change_quantity">
+
+                        <input type="number" min="0" max="<?php echo $value['SoLuongSize'] ?>" value="<?php echo $value['SoLuong'] ?>" id="quantity_product" name="quantity[<?= $value['MaSP'] ?>][<?= $value['MaSize'] ?>]" class="input_quantity">
+
+                      </div>
+                      <p class="product-subtotal" id="product-total">
+                        <span class="total_product">Total: </span>
+                        <span>$</span>
+                        <?php echo $value['GiaBan'] * $value['SoLuong'] ?>
+                      </p>
+                      <button type="submit"  class="trash" onclick="return confirm('Bạn có muốn xóa sản phẩm này khỏi giỏ hàng?\n\nMaTK: <?php echo $value['MaTK'] ?>\nMaSP: <?php echo $value['MaSP'] ?>\nMaSize: <?php echo $value['MaSize'] ?>');">
+                      <input type="hidden" id="action" name="action_deleted" value="delete_product">  
+                      <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          <?php
+          <?php }
           }
           ?>
         </section>
@@ -82,9 +94,9 @@ $url = handle_url::getUrl();
           <div class="product_cost">Total: <span>
               <?php
               $TongTien = 0;
-              if ($query != null) {
-                foreach ($query as $row) {
-                  $TongTien += $row['SoLuong'] * $row['GiaBan'];
+              if ($list != null) {
+                foreach ($list as $value) {
+                  $TongTien += $value['SoLuong'] * $value['GiaBan'];
                 }
               }
               echo number_format($TongTien, 0, ",", ".");
@@ -92,17 +104,17 @@ $url = handle_url::getUrl();
               <span>$</span></span></div>
         </div>
         <?php
-            if ($query != null) {
-            ?>
-                <a class="btn_pay" onclick="return confirm('Bạn có muốn thanh toán đơn hàng này?')" href="./template/XuLyThanhToan.php">Procees to checkout</a>
-            <?php
-            } else {
+        if ($list != null) {
+        ?>
+          <a class="btn_pay" onclick="return confirm('Bạn có muốn thanh toán đơn hàng này?')" href="./template/XuLyThanhToan.php">Procees to checkout</a>
+        <?php
+        } else {
 
-            ?>
-                <a class="btn_pay" href="<?php echo  $url; ?>">Return to Shop</a>
-            <?php
-            }
-            ?>
+        ?>
+          <a class="btn_pay" href="<?php echo  $url; ?>">Return to Shop</a>
+        <?php
+        }
+        ?>
         <!-- <button class="btn_pay">Procees to checkout</button> -->
 
       </div>
