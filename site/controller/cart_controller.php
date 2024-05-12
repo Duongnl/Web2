@@ -17,10 +17,15 @@ if (isset($_POST['action']) && $_POST['action'] == 'update_quantity') {
         $cart_model = new cart_model();
        
         if (isset($_POST['quantity'])) {
+            $data = $_POST['quantity'];
+            var_dump($data);
             foreach ($_POST['quantity'] as $productId => $sizes) {
                 foreach ($sizes as $size => $newQuantity) {
                    // echo $_POST['quantity'];
-                    
+                    echo $userId . '---';
+                    echo $productId . '---';
+                    echo $size . '---';
+                    echo $newQuantity . '//////';
                     // Gọi phương thức updateQuantityWithSize từ cart_model để cập nhật số lượng sản phẩm
                     $result = $cart_model->updateQuantity($userId, $productId, $newQuantity, $size);
                 }
@@ -59,5 +64,5 @@ if (isset($_POST['action_deleted']) && $_POST['action_deleted'] == 'delete_produ
 }
 
 $_SESSION['back_from_controller'] = true;
-header("Location: $url/card");
+//header("Location: $url/card");
 exit;
