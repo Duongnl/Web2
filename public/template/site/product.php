@@ -51,7 +51,7 @@ if (isset($_POST['input-search'])) {
               <label for="amount" style="padding-left: 10px;">Price range:</label>
               <input type="text" class="amount" readonly style="border:0; color:#000000; font-weight:bold;padding-left: 10px;">
             </p>
-            <div class="slider-range">
+            <div class="slider-range" >
 
             </div>
           </li>
@@ -75,18 +75,12 @@ if (isset($_POST['input-search'])) {
         <option value="M">M</option>
         <option value="L">L</option>
         <option value="XL">XL</option>
-        <option value="XXL">S</option>
+        <option value="XXL">XXL</option>
       </select>
     </div>
 
     <!-- Sale -->
     <div class="col-6 col-sm-4 col-md-2 col-Filter">
-      <!-- <div class="filter-sale">
-            <input type="checkbox" class="btn-check" id="btn-check-3-outlined" autocomplete="off"
-              style=" border: 1px solid black; color:black">
-            <label class="btn btn-outline-secondary" for="btn-check-3-outlined"
-              style="width:100%;border: 1px solid black; "> <i class="fa-solid fa-percent"></i> Sale</label>
-          </div> -->
       <div class="form-check" style="margin-top:3px;">
         <input class="form-check-input" type="checkbox" value="" id="sale" style="background-color:#DB4444; width:25px; height:25px; ">
         <label style=" margin-top: 4px; margin-left: 10px;" class="form-check-label" for="flexCheckChecked">
@@ -98,7 +92,6 @@ if (isset($_POST['input-search'])) {
     <div class="col-6 col-sm-4 col-md-1 col-Filter">
       <div class="filter-label">
         <button type="button" id="button-Filter" class="btn btn-danger btn-filter-label">
-          <!-- <i class="fa-solid fa-filter"></i>  -->
           Lọc
         </button>
       </div>
@@ -185,8 +178,6 @@ if (isset($_POST['input-search'])) {
               <li class="page-item"><a class="page-link"> <?php echo $i ?> </a></li>
           <?php }
           } ?>
-          <!-- <li class="page-item "><a class="page-link" href="#">2</a></li> -->
-          <!-- <li class="page-item active" aria-current="page"><a class="page-link" href="#">3</a></li> -->
         </ul>
       </nav>
     </div>
@@ -216,24 +207,37 @@ if (isset($_POST['input-search'])) {
 
   });
 
+  // khai báo
+  var category = document.getElementById("category");
+  var sex = document.getElementById("sex");
+  var size = document.getElementById("size");
+  var sale = document.getElementById("sale");
+  var input_search_hidden = document.getElementById("input-search-hidden");
+
+
+  // biến chứa dữ liệu
+  var category_data = 0;
+  var sex_data = 0;
+  var size_data = 0;
+  var sale_data = false;
+  var input_search_hidden_data = '';
+  var startPrice_data = 0;
+  var endPrice_data= 500;
+  
+  // click vào chuyển trang
   $(document).ready(function() {
     $('#page').on("click", "a", function() {
-      var page_data = $(this).text();
-      // Lấy giá trị bắt đầu và kết thúc của thanh trượt
-      var category_data = document.getElementById("category").value;
-      var startPrice_data = $(".slider-range").slider("values", 0);
-      var endPrice_data = $(".slider-range").slider("values", 1);
-      var sex_data = document.getElementById("sex").value;
-      var size_data = document.getElementById("size").value;
-      var sale_data = document.getElementById("sale").checked;
-      var input_search_hiddenID = document.getElementById("input-search-hidden");
-      var input_search_hidden_data = input_search_hiddenID.value;
+      var page_data = $(this).text(); // lấy số của trang khi click vào
+  
+      input_search_hidden_data =input_search_hidden.value;
+
 
       // Bỏ lớp active khỏi tất cả các thẻ li có class="page-item"
       $('.page-item').removeClass('active');
       // Thêm lớp active vào thẻ li của nút được click
       $(this).parent('li').addClass('active');
 
+      // dùng post gửi thông tin.
       $.post("./site/controller/product_controller.php", {
           page: page_data,
           category: category_data,
@@ -255,46 +259,27 @@ if (isset($_POST['input-search'])) {
     });
 
     $('#button-search').click(function() {
-      // var categoryID = document.getElementById("category");
-      // var sexID = document.getElementById("sex");
-      // var sizeID = document.getElementById("size");
 
-      
-
-      // var category_data = categoryID.value;
-      // var startPrice_data = $(".slider-range").slider("values", 0);
-      // var endPrice_data = $(".slider-range").slider("values", 1);
-      // var sex_data = sexID.value;
-      // var size_data = sizeID.value;
-      // var sale_data = document.getElementById("sale").checked;
-      // var page_data = 1;
-
-      var categoryID = document.getElementById("category");
-      var sexID = document.getElementById("sex");
-      var sizeID = document.getElementById("size");
-      var saleID = document.getElementById("sale");
-
-      categoryID.value = 0;
-      sexID.value = 0;
-      sizeID.value = 0;
-      saleID.checked = false;
+      category.value = 0;
+      sex.value = 0;
+      size.value = 0;
+      sale.checked = false;
       // Lấy thẻ slider-range và thiết lập giá trị mặc định từ 0 đến 500
       $(".slider-range").slider("values", [0, 500]);
       // Cập nhật giá trị trong input amount và button btn-filter-price
       $(".amount").val("$0 - $500");
       $(".btn-filter-price").text("Price");
 
-      var category_data = categoryID.value;
-      var startPrice_data = $(".slider-range").slider("values", 0);
-      var endPrice_data = $(".slider-range").slider("values", 1);
-      var sex_data = sexID.value;
-      var size_data = sizeID.value;
-      var sale_data = saleID.checked;
-      var page_data = 1;
+       category_data = category.value;
+       startPrice_data = $(".slider-range").slider("values", 0);
+       endPrice_data = $(".slider-range").slider("values", 1);
+       sex_data = sex.value;
+       size_data = size.value;
+       sale_data = sale.checked;
+       page_data = 1;
 
       var input_search = document.getElementById('input-search').value;
 
-      var input_search_hidden = document.getElementById('input-search-hidden');
       input_search_hidden.value = input_search;
       var tag_filtter = document.querySelector('.tag-filtter');
       tag_filtter.innerHTML = '';
@@ -329,8 +314,17 @@ if (isset($_POST['input-search'])) {
           // xóa hết phân trang
           var paginationList = document.querySelector('.pagination');
           paginationList.innerHTML = '';
+         setPage();
+       
+       
+        });
 
-          var page_number = row_count / 12;
+
+
+    });
+
+    function setPage (){
+      var page_number = row_count / 12;
           var page = Math.ceil(page_number);
           for (var i = 1; i <= page; i++) {
             if (i == 1) {
@@ -371,11 +365,7 @@ if (isset($_POST['input-search'])) {
               paginationList.appendChild(newListItem);
             }
           }
-        });
-
-
-
-    });
+    }
 
     function clearTagFiltter() {
       // Lấy phần tử có class là "tag-filtter"
@@ -392,29 +382,25 @@ if (isset($_POST['input-search'])) {
 
     $('#button-Filter').click(function() {
 
-      // Lấy giá trị bắt đầu và kết thúc của thanh trượt
-      var categoryID = document.getElementById("category");
-      var sexID = document.getElementById("sex");
-      var sizeID = document.getElementById("size");
-      var input_search_hiddenID = document.getElementById("input-search-hidden");
+      category_data = category.value;
+      startPrice_data = $(".slider-range").slider("values", 0);
+      endPrice_data = $(".slider-range").slider("values", 1);
+      sex_data = sex.value;
+      size_data = size.value;
+      sale_data = sale.checked;
+      input_search_hidden_data = input_search_hidden.value;
 
-
-      var category_data = categoryID.value;
-      var startPrice_data = $(".slider-range").slider("values", 0);
-      var endPrice_data = $(".slider-range").slider("values", 1);
-      var sex_data = sexID.value;
-      var size_data = sizeID.value;
-      var sale_data = document.getElementById("sale").checked;
+      
+      
       var page_data = 1;
-      var input_search_hidden_data = input_search_hiddenID.value;
-      console.log('Tên sản phẩm :'+input_search_hidden_data);
       // In ra console để kiểm tra
-      // console.log("Category: " + category_data);
-      // console.log("Giá bắt đầu: " + startPrice_data);
-      // console.log("Giá kết thúc: " + endPrice_data);
-      // console.log("Sex : " + sex_data);
-      // console.log("Size : " + size_data);
-      // console.log("Sale : " + sale_data);
+      console.log("Category: " + category_data);
+      console.log("Giá bắt đầu: " + startPrice_data);
+      console.log("Giá kết thúc: " + endPrice_data);
+      console.log("Sex : " + sex_data);
+      console.log("Size : " + size_data);
+      console.log("Sale : " + sale_data);
+      console.log('Tên sản phẩm :'+input_search_hidden_data);
 
       $.post("./site/controller/product_controller.php", {
           page: page_data,
@@ -430,13 +416,13 @@ if (isset($_POST['input-search'])) {
         function(data, status) {
           $('.row-product').html(data);
           //  lấy text
-          var selectedOptionCategory = categoryID.options[categoryID.selectedIndex];
+          var selectedOptionCategory = category.options[category.selectedIndex];
           var selectedNameCategory = selectedOptionCategory.text;
           console.log(selectedNameCategory);
-          var selectedOptionSex = sexID.options[sexID.selectedIndex];
+          var selectedOptionSex = sex.options[sex.selectedIndex];
           var selectedNameSex = selectedOptionSex.text;
           console.log(selectedNameSex);
-          var selectedOptionSize = sizeID.options[sizeID.selectedIndex];
+          var selectedOptionSize = size.options[size.selectedIndex];
           var selectedNameSize = selectedOptionSize.text;
           console.log(selectedNameSize);
           // thêm span
@@ -497,78 +483,34 @@ if (isset($_POST['input-search'])) {
           var paginationList = document.querySelector('.pagination');
           paginationList.innerHTML = '';
 
-          var page_number = row_count / 12;
-          var page = Math.ceil(page_number);
-          for (var i = 1; i <= page; i++) {
-            if (i == 1) {
-              // Tạo một đối tượng li mới
-              var newListItem = document.createElement('li');
-              newListItem.classList.add('page-item');
-              newListItem.classList.add('active');
-              // Tạo một đối tượng a mới
-              var newLink = document.createElement('a');
-              newLink.classList.add('page-link');
-              newLink.textContent = i; // Nội dung của thẻ a
-
-              // Đặt thẻ a vào thẻ li
-              newListItem.appendChild(newLink);
-
-              // Lấy đối tượng ul có class là "pagination"
-              var paginationList = document.querySelector('.pagination');
-
-              // Thêm đối tượng li mới vào ul
-              paginationList.appendChild(newListItem);
-            } else if (i != 1) {
-              // Tạo một đối tượng li mới
-              var newListItem = document.createElement('li');
-              newListItem.classList.add('page-item');
-
-              // Tạo một đối tượng a mới
-              var newLink = document.createElement('a');
-              newLink.classList.add('page-link');
-              newLink.textContent = i; // Nội dung của thẻ a
-
-              // Đặt thẻ a vào thẻ li
-              newListItem.appendChild(newLink);
-
-              // Lấy đối tượng ul có class là "pagination"
-              var paginationList = document.querySelector('.pagination');
-
-              // Thêm đối tượng li mới vào ul
-              paginationList.appendChild(newListItem);
-            }
-          }
-
+        
+              setPage();
 
 
         });
     });
 
     $(document).on('click', '#delete-tag', function() {
-      var categoryID = document.getElementById("category");
-      var sexID = document.getElementById("sex");
-      var sizeID = document.getElementById("size");
-      var saleID = document.getElementById("sale");
-      var input_search_hiddenID = document.getElementById("input-search-hidden");
-      input_search_hiddenID.value = '';
-      var input_search_hidden_data = input_search_hiddenID.value;
 
-      categoryID.value = 0;
-      sexID.value = 0;
-      sizeID.value = 0;
-      saleID.checked = false;
+      input_search_hidden.value = '';
+      input_search_hidden_data = input_search_hidden.value;
+
+      category.value = 0;
+      sex.value = 0;
+      size.value = 0;
+      sale.checked = false;
       // Lấy thẻ slider-range và thiết lập giá trị mặc định từ 0 đến 500
       $(".slider-range").slider("values", [0, 500]);
       // Cập nhật giá trị trong input amount và button btn-filter-price
       $(".amount").val("$0 - $500");
       $(".btn-filter-price").text("Price");
 
-      var category_data = categoryID.value;
-      var startPrice_data = $(".slider-range").slider("values", 0);
-      var endPrice_data = $(".slider-range").slider("values", 1);
-      var sex_data = sexID.value;
-      var size_data = sizeID.value;
-      var sale_data = saleID.checked;
+      category_data = category.value;
+      startPrice_data = $(".slider-range").slider("values", 0);
+      endPrice_data = $(".slider-range").slider("values", 1);
+      sex_data = sex.value;
+      size_data = size.value;
+      sale_data = sale.checked;
       var page_data = 1;
 
       var tag_filtter = document.querySelector('.tag-filtter');
@@ -590,48 +532,7 @@ if (isset($_POST['input-search'])) {
           // xóa hết phân trang
           var paginationList = document.querySelector('.pagination');
           paginationList.innerHTML = '';
-
-          var page_number = row_count / 12;
-          var page = Math.ceil(page_number);
-          for (var i = 1; i <= page; i++) {
-            if (i == 1) {
-              // Tạo một đối tượng li mới
-              var newListItem = document.createElement('li');
-              newListItem.classList.add('page-item');
-              newListItem.classList.add('active');
-              // Tạo một đối tượng a mới
-              var newLink = document.createElement('a');
-              newLink.classList.add('page-link');
-              newLink.textContent = i; // Nội dung của thẻ a
-
-              // Đặt thẻ a vào thẻ li
-              newListItem.appendChild(newLink);
-
-              // Lấy đối tượng ul có class là "pagination"
-              var paginationList = document.querySelector('.pagination');
-
-              // Thêm đối tượng li mới vào ul
-              paginationList.appendChild(newListItem);
-            } else if (i != 1) {
-              // Tạo một đối tượng li mới
-              var newListItem = document.createElement('li');
-              newListItem.classList.add('page-item');
-
-              // Tạo một đối tượng a mới
-              var newLink = document.createElement('a');
-              newLink.classList.add('page-link');
-              newLink.textContent = i; // Nội dung của thẻ a
-
-              // Đặt thẻ a vào thẻ li
-              newListItem.appendChild(newLink);
-
-              // Lấy đối tượng ul có class là "pagination"
-              var paginationList = document.querySelector('.pagination');
-
-              // Thêm đối tượng li mới vào ul
-              paginationList.appendChild(newListItem);
-            }
-          }
+            setPage();
 
         });
 
