@@ -188,24 +188,30 @@ if (isset($_POST['input-search'])) {
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script>
+
   $(function() {
     $(".slider-range").slider({
       range: true,
       min: 0,
-      max: 500,
-      values: [0, 500],
+      max: 10000000, // Thay đổi giá trị max thành 50 triệu VND (hoặc số phù hợp với nhu cầu của bạn)
+      step: 50000, // Thay đổi bước thay đổi giá trị thành 500,000 VND (hoặc số phù hợp với nhu cầu của bạn)
+      values: [0, 10000000], // Đặt giá trị ban đầu từ 0 đến 50 triệu VND
       slide: function(event, ui) {
-        $(".amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+        $(".amount").val(formatCurrency(ui.values[0]) + " - " + formatCurrency(ui.values[1])); // Gọi hàm formatCurrency để định dạng hiển thị giá tiền
       }
     });
-    $(".amount").val("$" + $(".slider-range").slider("values", 0) +
-      " - $" + $(".slider-range").slider("values", 1));
+    $(".amount").val(formatCurrency($(".slider-range").slider("values", 0)) + " - " + formatCurrency($(".slider-range").slider("values", 1))); // Định dạng giá trị ban đầu
 
     $(".slider-range").on("slidestop", function(event, ui) {
-      $(".btn-filter-price").text("$" + ui.values[0] + "-$" + ui.values[1]);
+      $(".btn-filter-price").text(formatCurrency(ui.values[0]) + " - " + formatCurrency(ui.values[1])); // Định dạng giá trị khi slider được dừng lại
     });
 
-  });
+    // Hàm định dạng số thành chuỗi có dấu phẩy ngăn cách hàng nghìn
+    
+});
+function formatCurrency(number) {
+      return number.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+    }
 
   // khai báo
   var category = document.getElementById("category");
@@ -265,9 +271,9 @@ if (isset($_POST['input-search'])) {
       size.value = 0;
       sale.checked = false;
       // Lấy thẻ slider-range và thiết lập giá trị mặc định từ 0 đến 500
-      $(".slider-range").slider("values", [0, 500]);
+      $(".slider-range").slider("values", [0, 10000000]);
       // Cập nhật giá trị trong input amount và button btn-filter-price
-      $(".amount").val("$0 - $500");
+      $(".amount").val(formatCurrency(0)+" - "+formatCurrency(10000000));
       $(".btn-filter-price").text("Price");
 
        category_data = category.value;
@@ -500,9 +506,9 @@ if (isset($_POST['input-search'])) {
       size.value = 0;
       sale.checked = false;
       // Lấy thẻ slider-range và thiết lập giá trị mặc định từ 0 đến 500
-      $(".slider-range").slider("values", [0, 500]);
+      $(".slider-range").slider("values", [0, 10000000]);
       // Cập nhật giá trị trong input amount và button btn-filter-price
-      $(".amount").val("$0 - $500");
+      $(".amount").val(formatCurrency(0)+" - "+formatCurrency(10000000));
       $(".btn-filter-price").text("Price");
 
       category_data = category.value;
