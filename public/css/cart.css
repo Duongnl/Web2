@@ -28,7 +28,7 @@ h4 {
 .group_btn {
     margin-top: 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .group_btn-item {

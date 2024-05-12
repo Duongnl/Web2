@@ -50,35 +50,29 @@ class cart_model
         }
     }
 
-    public function deleteProduct($MaTK, $MaSP, $MaSize) {
+    public function deleteProduct($MaTK, $MaSP, $MaSize)
+    {
+        $this->db_config->connect();
         $sql = "DELETE FROM giohang WHERE MaTK = '$MaTK' AND MaSP = '$MaSP' AND MaSize = '$MaSize'";
         $result = $this->db_config->execute($sql);
-        if($result) {
+        if ($result) {
             return true;
         }
         return false;
     }
 
-    public function checkQuantityAvailable($productId, $sizeId, $quantity)
+    public function getDiscountedPrice($MaSP)
     {
+        // Chuẩn bị câu lệnh SQL
+
         $this->db_config->connect();
-        // Chuẩn bị câu lệnh SQL để kiểm tra số lượng có sẵn trong bảng size
-        $check_quantity_sql = "SELECT SoLuong FROM size WHERE MaSP = '$productId' AND MaSize = '$sizeId'";
-        // Thực thi câu lệnh SQL
-        $result = $this->db_config->execute($check_quantity_sql);
-        // Kiểm tra kết quả
-        if ($result) {
-            // Lấy số lượng từ kết quả truy vấn
-            $row = mysqli_fetch_assoc($result);
-            $availableQuantity = $row['SoLuong'];
-            // So sánh số lượng có sẵn với số lượng nhập
-            if ($quantity <= $availableQuantity) {
-                return true; // Số lượng có sẵn đủ để thêm vào giỏ hàng
-            } else {
-                return false; // Số lượng không đủ
-            }
-        } else {
-            return false; // Lỗi khi truy vấn cơ sở dữ liệu
-        }
+        $sql = "SELECT sp.GiaBan * (1 - km.PhanTramKM/100) AS GiaBanSauKM
+            FROM sanpham sp
+            LEFT JOIN khuyenmai km ON sp.MaKM = km.MaKM
+            WHERE sp.MaSP = '$MaSP'";
+
+        // Thực hiện truy vấn
+       return $this->db_config->execute($sql);
+    
     }
 }
