@@ -72,18 +72,18 @@
       <span class="tooltip">Staff</span>
     </li>
 
-    <li>
-      <a href="<?php echo $toAdmin.'/client'?>">
-        <i class="fa-solid fa-circle-user icon"></i>
-        <span class="nav-item">Client</span>
+            <li>
+                <a href="<?php echo $url.'/guest'?>">
+                <i class="fa-solid fa-circle-user icon"></i>
+                    <span class="nav-item">Guest</span>
 
-      </a>
-      <span class="tooltip">Client</span>
-    </li>
-    <li>
-      <a href="<?php echo $toAdmin.'/permission'?>">
-        <i class="fa-solid fa-users icon"></i>
-        <span class="nav-item">Permission</span>
+                </a>
+                <span class="tooltip">Guest</span>
+            </li>
+            <li>
+                <a href="<?php echo $url.'/permission'?>">
+                <i class="fa-solid fa-users icon"></i>
+                    <span class="nav-item">Permission</span>
 
       </a>
       <span class="tooltip">Permission</span>

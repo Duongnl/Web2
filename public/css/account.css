@@ -7,8 +7,9 @@
 }
 
 .account-management {
-  align-self: center;
-  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
@@ -19,13 +20,11 @@
   }
 }
 
-.account-management-container {
-  display: flex;
-  gap: 20px;
-}
+
 
 @media (max-width: 991px) {
   .account-management-container {
+    display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
@@ -94,27 +93,28 @@
 
 .account-main-content {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   line-height: normal;
-  width: 81%;
+  width: 100%;
   margin-left: 20px;
 }
 
 @media (max-width: 991px) {
   .account-main-content {
     width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 }
 
 .account-profile-section {
   border-radius: 4px;
+  margin-top: 20px;
   box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.05);
   background-color: #fff;
   display: flex;
-  flex-grow: 1;
   flex-direction: column;
   font-size: 16px;
-  line-height: 150%;
   width: 100%;
   padding: 43px 80px;
 }
@@ -144,6 +144,7 @@
 
 .account-profile-name {
   display: flex;
+  flex-direction: column;
   margin-top: 23px;
   justify-content: space-between;
   gap: 20px;
@@ -167,6 +168,7 @@
 }
 
 .account-profile-name-label {
+  margin-top: 20px;
   font-family: Poppins, sans-serif;
 }
 
@@ -177,6 +179,8 @@
   margin-top: 8px;
   justify-content: center;
   align-items: start;
+  color: #000;
+  font-weight: 400;
   white-space: nowrap;
   padding: 19px 60px 19px 16px;
   border: none;
@@ -226,7 +230,7 @@
 }
 .show-password{
   margin-top: 20px;
-  margin-left: 15px;
+  
 }
 .account-profile-contact-value {
   font-family: Poppins, sans-serif;
@@ -259,7 +263,7 @@
   }
 }
 
-.account-profile-password-input {
+.account-profile-input {
   font-family: Poppins, sans-serif;
   border-radius: 4px;
   background-color: #f5f5f5;
@@ -274,7 +278,7 @@
 }
 
 @media (max-width: 991px) {
-  .account-profile-password-input {
+  .account-profile-input {
     white-space: initial;
     max-width: 100%;
     padding-right: 20px;
@@ -314,7 +318,17 @@
   padding: 16px 48px;
   border: none;
 }
-
+.view-details-order{
+  margin: 30px 0 0 20px;
+  width: 250px;
+  font-family: Poppins, sans-serif;
+  border-radius: 4px;
+  color: #db4444;
+  font-weight: 500;
+  flex-grow: 1;
+  padding: 16px 48px;
+  border: 2px solid #db4444;
+}
 .account-profile-cancel {
   font-family: Poppins, sans-serif;
   justify-content: center;
@@ -341,7 +355,7 @@
   align-items: center;
   max-width: 1168px;
   width: 100%;
-  margin: 79px 0;
+  margin-top: 20px;
   gap: 20px;
   font-size: 14px;
   font-weight: 400;
