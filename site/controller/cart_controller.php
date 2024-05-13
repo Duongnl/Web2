@@ -13,56 +13,67 @@ if (isset($_POST['action']) && $_POST['action'] == 'update_quantity') {
         $userId = $_POST["user_id"];
         $productId = $_POST['product_id'];
         $size = $_POST['size_delete'];
-        
+
         $cart_model = new cart_model();
-       
+
         if (isset($_POST['quantity'])) {
-            $data = $_POST['quantity'];
-            var_dump($data);
             foreach ($_POST['quantity'] as $productId => $sizes) {
                 foreach ($sizes as $size => $newQuantity) {
-                   // echo $_POST['quantity'];
-                    echo $userId . '---';
-                    echo $productId . '---';
-                    echo $size . '---';
-                    echo $newQuantity . '//////';
                     // Gọi phương thức updateQuantityWithSize từ cart_model để cập nhật số lượng sản phẩm
                     $result = $cart_model->updateQuantity($userId, $productId, $newQuantity, $size);
                 }
             }
         }
-        
     }
-    
 }
 
-if (isset($_POST['action_deleted']) && $_POST['action_deleted'] == 'delete_product') {
-    // Kiểm tra xem dữ liệu gửi đi có chứa product_id không
-    $userId = $_POST["user_id"];
+$list = null;
+$maTK = null;
+$model = new cart_model();
 
-    
-    if ( isset($_POST['product_id']) && isset($_POST['size_delete']) ) {
-    
-        $productId = $_POST['product_id'];
-        $size = $_POST['size_delete'];
+if (isset($_SESSION['MaTK'])) {
+    $maTK = $_SESSION['MaTK'];
+    $list = $model->getCartDetails($maTK);
+} else {
+    $maTK = NULL;
+}
+if (isset($_GET['action'])) {
 
-        echo $userId;
-        echo $productId;
-        echo $size;
 
-        $cart_model = new cart_model();
-        // Gọi phương thức deleteProduct từ cart_model để xóa sản phẩm khỏi giỏ hàng
-        $result = $cart_model->deleteProduct($userId, $productId, $size);
-
-        // Xử lý kết quả và trả về phản hồi cho client
-        if ($result) {
-            echo "Product removed successfully!";
-        } else {
-            echo "Failed to remove product.";
+    $action = $_GET['action'];
+    if ($action == 'deleted') {
+        foreach ($list as $key => $value) {
+            if ($value['MaSP'] == $_GET['MaSP'] && $value['MaSize'] == $_GET['MaSize']) {
+                $model->deleteProduct($maTK, $value['MaSP'], $value['MaSize']);
+                unset($list[$key]);
+                echo $url . '/cart';
+            }
         }
     }
 }
+if (isset($_POST['thanhtoan']) && $_POST['thanhtoan'] == 'thanhtoan_tongtien') {
+    // Lấy giá trị MaTK từ form
+   
+    $maTK = $_POST['userid'];
+    $maSP = $_POST['productid'];
+    $Giabankm = $_POST['GiaBanKM'];
+    $query = $model->getDiscountedPrice($maSP);
+    $row =  mysqli_fetch_array($query);
+    // Tính tổng tiền từ form
+    $thanhTien = 0;
+    if ($list != null) {
+        foreach ($list as $value) {
+            $thanhTien += $value['SoLuong'] * $Giabankm;
+        }
+    }
+    $cart_model = new cart_model();
+    // Gọi hàm insertToHoadon từ cart_model
+    $cart_model->insertToHoadon($maTK, $thanhTien);
+
+    $cart_model->addToCTHoaDon($maTK,$Giabankm);
+}
+
 
 $_SESSION['back_from_controller'] = true;
-//header("Location: $url/card");
+header("Location: $url/card");
 exit;

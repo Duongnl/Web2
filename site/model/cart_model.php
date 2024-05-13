@@ -63,16 +63,55 @@ class cart_model
 
     public function getDiscountedPrice($MaSP)
     {
-        // Chuẩn bị câu lệnh SQL
-
         $this->db_config->connect();
         $sql = "SELECT sp.GiaBan * (1 - km.PhanTramKM/100) AS GiaBanSauKM
             FROM sanpham sp
             LEFT JOIN khuyenmai km ON sp.MaKM = km.MaKM
             WHERE sp.MaSP = '$MaSP'";
 
-        // Thực hiện truy vấn
        return $this->db_config->execute($sql);
     
     }
+    public function insertToHoadon($maTK, $thanhTien)
+    { 
+        $this->db_config->connect();
+        $sql = "INSERT INTO hoadon (MaTK, ThanhToan, ThoiGian, TrangThai) VALUES ('$maTK', '$thanhTien', NOW(), 1)";
+       return $this->db_config->execute($sql);
+    
+    }
+
+    public function addToCTHoaDon($maTK, $GiaBanSauKM) {
+        // Kết nối đến cơ sở dữ liệu
+        $this->db_config->connect();
+    
+        // Lấy thông tin từ bảng hoadon
+        $queryHoaDon = "SELECT MaHD FROM hoadon WHERE MaTK = '$maTK'";
+        $resultHoaDon = $this->db_config->execute($queryHoaDon);
+        $rowHoaDon = $resultHoaDon->fetch_assoc();
+        $maHD = $rowHoaDon['MaHD'];
+    
+        // Lấy thông tin từ bảng giohang
+        $queryGioHang = "SELECT * FROM giohang WHERE MaTK = '$maTK'";
+        $resultGioHang = $this->db_config->execute($queryGioHang);
+    
+        // Thêm dữ liệu vào bảng cthoadon
+        while ($rowGioHang = $resultGioHang->fetch_assoc()) {
+            $maSP = $rowGioHang['MaSP'];
+            $soLuong = $rowGioHang['SoLuong'];
+            $maSize = $rowGioHang['MaSize'];
+            
+            // Tính ThanhTien
+            $thanhTien = $soLuong * $GiaBanSauKM;
+    
+            // Thêm dữ liệu vào bảng cthoadon
+            $queryInsert = "INSERT INTO cthoadon (MaHD, MaSP, SoLuong, DonGia, ThanhTien, MaSize)
+                            VALUES ('$maHD', '$maSP', '$soLuong', '$GiaBanSauKM', '$thanhTien', '$maSize')";
+            return $this->db_config->execute($queryInsert);
+        }
+    
+    }
+    
+    
+    
+    
 }
