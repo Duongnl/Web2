@@ -27,7 +27,7 @@ switch ($baseName) {
     case 'guest':
         require __DIR__ . $adminView . 'guest_page.php';
         break;
-    case 'permisson':
+    case 'permission':
         require __DIR__ . $adminView . 'permission_page.php';
         break;
     case 'order':
