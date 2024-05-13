@@ -36,6 +36,8 @@ class cart_model
         // return $this->db_config->execute($sql);
     }
 
+
+
     public function updateQuantity($userId, $productId, $newQuantity, $size)
     {
         $this->db_config->connect();
@@ -75,15 +77,15 @@ class cart_model
     public function insertToHoadon($maTK, $thanhTien)
     { 
         $this->db_config->connect();
-        $sql = "INSERT INTO hoadon (MaTK, ThanhToan, ThoiGian, TrangThai) VALUES ('$maTK', '$thanhTien', NOW(), 1)";
+        $sql = "INSERT INTO hoadon (MaTK, ThanhToan, ThoiGian, TrangThai) VALUES ('$maTK', '$thanhTien', NOW(), 0)";
        return $this->db_config->execute($sql);
     
     }
 
-    public function addToCTHoaDon($maTK, $GiaBanSauKM) {
+    public function addToCTHoaDon($maTK) {
         // Kết nối đến cơ sở dữ liệu
         $this->db_config->connect();
-    
+
         // Lấy thông tin từ bảng hoadon
         $queryHoaDon = "SELECT MaHD FROM hoadon WHERE MaTK = '$maTK'";
         $resultHoaDon = $this->db_config->execute($queryHoaDon);
@@ -99,19 +101,47 @@ class cart_model
             $maSP = $rowGioHang['MaSP'];
             $soLuong = $rowGioHang['SoLuong'];
             $maSize = $rowGioHang['MaSize'];
-            
-            // Tính ThanhTien
-            $thanhTien = $soLuong * $GiaBanSauKM;
     
+            // Truy vấn MaKM từ bảng sản phẩm
+            $queryMaKM = "SELECT MaKM FROM sanpham WHERE MaSP = '$maSP'";
+            $resultMaKM = $this->db_config->execute($queryMaKM);
+            $rowMaKM = $resultMaKM->fetch_assoc();
+    
+            // Kiểm tra nếu sản phẩm có MaKM
+            if ($rowMaKM['MaKM'] != null) {
+                // Truy vấn giá sau khi đã áp dụng khuyến mãi
+                $queryGiaKM = "SELECT GiaBan * (1 - km.PhanTramKM/100) AS GiaBanSauKM FROM sanpham sp
+                                LEFT JOIN khuyenmai km ON sp.MaKM = km.MaKM
+                                WHERE sp.MaSP = '$maSP'";
+                $resultGiaKM = $this->db_config->execute($queryGiaKM);
+                $rowGiaKM = $resultGiaKM->fetch_assoc();
+                $donGia = $rowGiaKM['GiaBanSauKM'];
+            } else {
+                // Truy vấn giá gốc từ bảng sản phẩm
+                $queryDonGia = "SELECT GiaBan FROM sanpham WHERE MaSP = '$maSP'";
+                $resultDonGia = $this->db_config->execute($queryDonGia);
+                $rowDonGia = $resultDonGia->fetch_assoc();
+                $donGia = $rowDonGia['GiaBan'];
+            }
+    
+            // Tính ThanhTien
+            $thanhTien = $soLuong * $donGia;
+
             // Thêm dữ liệu vào bảng cthoadon
             $queryInsert = "INSERT INTO cthoadon (MaHD, MaSP, SoLuong, DonGia, ThanhTien, MaSize)
-                            VALUES ('$maHD', '$maSP', '$soLuong', '$GiaBanSauKM', '$thanhTien', '$maSize')";
-            return $this->db_config->execute($queryInsert);
+                            VALUES ('$maHD', '$maSP', '$soLuong', '$donGia', '$thanhTien', '$maSize')";
+             $this->db_config->execute($queryInsert);
         }
-    
     }
+
+    //hàm xóa tất cả sản phẩm trong giỏ hàng
     
-    
-    
-    
+    public function deleteAll($MaTK) {
+        $sql = "DELETE FROM giohang WHERE MaTK = '$MaTK'";
+        $result = $this->db_config->execute($sql);
+        if ($result) {
+            return true;
+        }
+        return false;
+    }
 }

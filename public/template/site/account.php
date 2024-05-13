@@ -4,7 +4,7 @@
   <div class="account">
     <div class="container ctn-account">
       <div class="nav">
-        <h4><a style="color: #db4444 ;" href="<?php echo  $url; ?>" class="nav-item">Home </a>/My Account</h4>
+        <h4 style="font-family: Arial, Helvetica, sans-serif; color: #db4444 ;"><a style="color: #000000 ;" href="<?php echo  $url; ?>" class="nav-item">Trang chủ </a>/Quản lý thông tin</h4>
       </div>
     </div>
     
@@ -13,13 +13,13 @@
     <div class="button_switch">
       <a class="user_infor active" id="user_information" onclick="showForm('account_form')"  >Thông tin người dùng</a>
       <a class="account_infor" id="account_information" onclick="showForm('account_form_2')">Thông tin tài khoản</a>
-      <a href="<?php echo  $url . '/cart-detail' ?>" style="text-decoration: none;" class="account_infor">View Order</a>
+      <a href="<?php echo  $url . '/cart-detail' ?>" style="text-decoration: none;" class="account_infor">Xem đơn hàng</a>
 
     </div>
     <div style="display: flex; flex-direction: column;">
         <form action="<?php echo $url . '/account_controller' ?>" method="POST">
           <input type="hidden" value="logout" name="logout">
-          <button type="submit" style="text-decoration: none; text-align: center; background-color:#db4444; color:aliceblue" class="view-details-order">Logout</button>
+          <button type="submit" style="text-decoration: none; text-align: center; background-color:#db4444; color:aliceblue" class="view-details-order">Đăng xuất</button>
         </form>
     </div>
     </div>
@@ -46,37 +46,37 @@
 
           <form action="<?php echo $url . '/account_controller' ?>" method="POST" id="account_form" class="account-profile-section" onsubmit="return validateForm_user()">
             <input type="hidden" id="action" name="action" value="update_user_info">
-            <h1 class="account-profile-title">User information</h1>
+            <h1 class="account-profile-title">Thông tin người dùng</h1>
             <input type="hidden" id="user_id" name="user_id" value="<?php echo  $row['MaTK'] ?>">
 
             <div class="info">
               <div class="infor_1">
                 <!-- input user name -->
                 <div class="account-profile-contact-item">
-                  <label class="account-profile-name-label">Name</label>
+                  <label class="account-profile-name-label">Họ và tên</label>
                   <input type="text" class="account-profile-contact-value" id="user_name" name="user_name" value="<?php echo  $row['HoTen'] ?>"></input>
                 </div>
 
                 <!-- input phone -->
                 <div class="account-profile-contact-item">
-                  <label class="account-profile-name-label">Phone Number</label>
+                  <label class="account-profile-name-label">Số điện thoại</label>
                   <input type="text" class="account-profile-contact-value" id="user_phone" name="user_phone" value="<?php echo '0' . $row['SDT'] ?>"></input>
                 </div>
                 <!-- date  -->
                 <div class="account-profile-contact-item">
-                  <label class="account-profile-contact-label">Date</label>
+                  <label class="account-profile-contact-label">Ngày tạo</label>
                   <input type="date" class="account-profile-contact-value" id="user_date" name="user_date" value="<?php echo  $row['ThoiGian'] ?>" disabled></input>
                 </div>
               </div>
               <div class="info_2">
                 <!-- quyen -->
                 <div class="account-profile-contact-item">
-                  <label class="account-profile-contact-label">Permission</label>
+                  <label class="account-profile-contact-label">Quyền</label>
                   <input type="text" class="account-profile-contact-value" id="user_permission" name="user_permission" value="<?php echo  $row['TenQuyen'] ?>" disabled></input>
                 </div>
                 <!-- dia chi -->
                 <div class="account-profile-contact-item">
-                  <label class="account-profile-contact-label">Address</label>
+                  <label class="account-profile-contact-label">Địa chỉ</label>
                   <input type="text" class="account-profile-contact-value" id="user_address" name="user_address" value="<?php echo  $row['DiaChi'] ?>"></input>
                 </div>
               </div>
@@ -84,13 +84,13 @@
 
             <!-- button -->
             <div class="account-profile-actions">
-              <button class="account-profile-cancel"><a style="color: #db4444 ; text-decoration: none;" href="<?php echo  $url; ?>" class="nav-item">Cancel</a></button>
-              <input id="btn-user-info-form" type="submit" class="account-profile-save user-infor" value="update"></input>
+              <button class="account-profile-cancel"><a style="color: #db4444 ; text-decoration: none;" href="<?php echo  $url; ?>" class="nav-item">Thoát</a></button>
+              <input id="btn-user-info-form" type="submit" class="account-profile-save user-infor" value="Cập nhật"></input>
             </div>
           </form>
 
           <form action="<?php echo $url . '/account_controller' ?>" method="POST" id="account_form_2" class="account-profile-section" onsubmit="return validateForm_account()">
-            <h1 class="account-profile-title">Account information</h1>
+            <h1 class="account-profile-title">Thông tin tài khoản</h1>
             <input type="hidden" id="action" name="action" value="update_account_info">
             <input type="hidden" id="user_id" name="user_id" value="<?php echo  $row['MaTK'] ?>">
             <?php
@@ -102,7 +102,7 @@
             <div class="info_account">
             <div class="info_account_1">
               <div class="account-profile-contact-item">
-              <label class="account-profile-name-label">User Name</label>
+              <label class="account-profile-name-label">Tên đăng nhập</label>
               <input type="text" class="account-profile-input" placeholder="User name" id="username" name="username" value="<?php echo  $row['TenTK'] ?>"></input>
               </div>
               <div class="account-profile-contact-item">
@@ -113,25 +113,25 @@
             </div>
             <div class="info_account_2">
               <div class="account-profile-contact-item">
-              <label class="account-profile-name-label">Password</label>
+              <label class="account-profile-name-label">Mật khẩu</label>
               <input type="password" class="account-profile-input" placeholder="Password" id="password" name="password" value="<?php echo  $row['MatKhau'] ?>"></input>
               </div>
               <div class="account-profile-contact-item">
-              <label class="account-profile-name-label">New Password</label>
+              <label class="account-profile-name-label">Nhập mật khẩu mới</label>
               <input type="password" class="account-profile-input" placeholder="New Password" id="newpassword" name="newpassword"></input>
               </div>
               <div class="account-profile-contact-item">
-              <label class="account-profile-name-label">Confirm New Password</label>
+              <label class="account-profile-name-label">Xác nhận mật khẩu mới</label>
               <input type="password" class="account-profile-input" placeholder="Confirm New Password" id="cf_password" name="cf_password"></input>
-              <label for=""><input type="checkbox" class="show-password"> Show password</input></label>
+              <label for=""><input type="checkbox" class="show-password"> Hiển thị mật khẩu</input></label>
 
             </div>
               
             </div>
             </div>
             <div class="account-profile-actions">
-              <button class="account-profile-cancel"><a style="color: #db4444 ; text-decoration: none;" href="<?php echo  $url; ?>" class="nav-item">Cancel</a></button>
-              <input id="btn-account-form" type="submit" class="account-profile-save user-infor" value="update"></input>
+              <button class="account-profile-cancel"><a style="color: #db4444 ; text-decoration: none;" href="<?php echo  $url; ?>" class="nav-item">Thoát</a></button>
+              <input id="btn-account-form" type="submit" class="account-profile-save user-infor" value="Cập nhật"></input>
               </div>
           </form>
 

@@ -53,24 +53,20 @@ if (isset($_GET['action'])) {
 }
 if (isset($_POST['thanhtoan']) && $_POST['thanhtoan'] == 'thanhtoan_tongtien') {
     // Lấy giá trị MaTK từ form
-   
+
     $maTK = $_POST['userid'];
     $maSP = $_POST['productid'];
-    $Giabankm = $_POST['GiaBanKM'];
+    //$Giabankm = $_POST['GiaBanKM'];
     $query = $model->getDiscountedPrice($maSP);
     $row =  mysqli_fetch_array($query);
     // Tính tổng tiền từ form
-    $thanhTien = 0;
-    if ($list != null) {
-        foreach ($list as $value) {
-            $thanhTien += $value['SoLuong'] * $Giabankm;
-        }
-    }
+    $thanhTien = $_POST['GiaBanKM'];
+
     $cart_model = new cart_model();
     // Gọi hàm insertToHoadon từ cart_model
     $cart_model->insertToHoadon($maTK, $thanhTien);
-
-    $cart_model->addToCTHoaDon($maTK,$Giabankm);
+    $cart_model->addToCTHoaDon($maTK);
+    $cart_model->deleteAll($maTK);
 }
 
 

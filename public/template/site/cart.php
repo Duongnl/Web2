@@ -95,11 +95,7 @@ $url = handle_url::getUrl();
           <input type="hidden" id="thanhtoan" name="thanhtoan" value="thanhtoan_tongtien">
           <input type="hidden" id="user_id" name="userid" value="<?php echo  $value['MaTK'] ?>">
           <input type="hidden" id="product_id" name="productid" value="<?php echo  $value['MaSP'] ?>">
-          <input type="hidden" id="giaban" name="GiaBanKM" value="<?php if ($row['GiaBanSauKM'] != "") {
-                            echo $row['GiaBanSauKM'];
-                          } else {
-                            echo $value['GiaBan'] ;
-                          }  ?>">
+          
           
           <div class="product_cost">Tổng tiền: <span>
             <?php
@@ -115,8 +111,12 @@ $url = handle_url::getUrl();
                     $TongTien += $value['SoLuong'] * $value['GiaBan'];
                   } 
                 }
+                
               }
               echo number_format($TongTien, 0, ",", ".");
+                ?>
+                <input type="hidden" id="giaban" name="GiaBanKM" value="<?php echo $TongTien; ?>">
+                <?php
               ?>
               <span>đ</span></span>
           </div>
@@ -127,7 +127,7 @@ $url = handle_url::getUrl();
           <?php
           } else {
           ?>
-            <a class="btn_pay" href="<?php echo  $url; ?>">Trở lại</a>
+            <a id="return_shop" class="btn_pay" href="<?php echo  $url; ?>">Trở lại</a>
           <?php
           }
           ?>

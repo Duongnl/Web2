@@ -60,21 +60,21 @@
 }
 
 .account-sidebar-title {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
 
 .account-sidebar-active {
   color: #db4444;
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 .account-sidebar-item {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 .account-sidebar-item-nowrap {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   white-space: nowrap;
 }
 
@@ -85,7 +85,7 @@
 }
 
 .account-sidebar-subtitle {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
 
@@ -207,11 +207,11 @@
 
 .account-profile-name-label {
 
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 .account-profile-name-value {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   border-radius: 4px;
   background-color: #f5f5f5;
   margin-top: 8px;
@@ -275,14 +275,14 @@
 }
 
 .account-profile-contact-label {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
 .show-password{
   margin-top: 20px;
   
 }
 .account-profile-contact-value {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   border-radius: 4px;
   background-color: #f5f5f5;
   margin-top: 8px;
@@ -301,7 +301,7 @@
 
 .account-profile-password-title {
   color: #000;
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   font-weight: 400;
   margin-top: 24px;
 }
@@ -313,7 +313,7 @@
 }
 
 .account-profile-input {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   border-radius: 4px;
   background-color: #f5f5f5;
   margin-top: 8px;
@@ -351,13 +351,13 @@
 
 .account-profile-cancel {
   color: #000;
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   font-weight: 400;
   margin: auto 0;
 }
 
 .account-profile-save {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   justify-content: center;
   border-radius: 4px;
   background-color: #db4444;
@@ -370,7 +370,7 @@
 .view-details-order{
   margin: 20px 0px 10px 12px;
   width: 250px;
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   border-radius: 4px;
   color: #db4444;
   font-weight: 500;
@@ -379,7 +379,7 @@
   border: 0px solid #db4444;
 }
 .account-profile-cancel {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   justify-content: center;
   border-radius: 4px;
   background-color: #fff;
@@ -425,12 +425,13 @@
 }
 
 .nav-item {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: 400;
 }
 
 .welcome-message {
   color: #db4444;
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   line-height: 21px;
   margin: auto 0;
 }
