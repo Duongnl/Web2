@@ -1,49 +1,49 @@
 <style>
-#search-product {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background-color: #fff;
-  display: flex;
-  position: relative;
-}
-
-#search-product #search-txt {
-  width: 65%;
-  border: none;
-  outline: none;
-  padding: 6px 12px;
-}
-
-.wrap-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.btn-search {
-  width: 35%;
-}
-
-.wrap-table {
-  clear: both;
-  min-height: 560px;
-  height: 560px;
-  white-space: nowrap;
-}
-
-a {
-  text-decoration: none;
-}
-
-.pagination {
-  justify-content: center;
-}
-
-@media screen and (max-width:768px) {
-  .wrap-button {
-    flex-direction: column;
+  #search-product {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    display: flex;
+    position: relative;
   }
-}
+
+  #search-product #search-txt {
+    width: 65%;
+    border: none;
+    outline: none;
+    padding: 6px 12px;
+  }
+
+  .wrap-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .btn-search {
+    width: 35%;
+  }
+
+  .wrap-table {
+    clear: both;
+    min-height: 560px;
+    height: 560px;
+    white-space: nowrap;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .pagination {
+    justify-content: center;
+  }
+
+  @media screen and (max-width:768px) {
+    .wrap-button {
+      flex-direction: column;
+    }
+  }
 </style>
 <?php
 $product_model = new product_model();
@@ -52,74 +52,32 @@ $url = handle_url::getURLAdmin($request);
 
 
 $list = $product_model->getListSP();
-
 ?>
 <div class="main-content">
-  <h3 class="h1-head-name">Product</h3>
+  <h3 class="h1-head-name">Sản phẩm</h3>
   <div class="wrap-button">
-    <form action="" id="search-product">
-      <input type="text" id="search-txt" placeholder="Search product">
-      <button type="button" class="btn btn-primary btn-search">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        Search
-      </button>
-    </form>
     <a href=<?php echo $request . "/add" ?>>
       <button type="button" class="btn btn-success" style="margin-top: 10px; margin-bottom: 10px; ">
-        <i class="fa-solid fa-circle-plus"></i> Add new product
+        <i class="fa-solid fa-circle-plus"></i> Thêm sản phẩm
       </button>
     </a>
   </div>
   <div class="wrap-table table-responsive-lg">
-    <table class="table table-striped table-hover" style="text-align: center;">
+    <table class="table table-striped table-hover"  id="datatablesSimple">
       <thead>
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Image</th>
-          <th scope="col">Name product</th>
-          <th scope="col">Category</th>
-          <th scope="col">Quantity</th>
-          <th scope="col">Price</th>
-          <th scope="col">Sale</th>
-          <th scope="col">Action</th>
+          <th>ID</th>
+          <th>Ảnh</th>
+          <th>Tên sản phẩm</th>
+          <th>Danh mục</th>
+          <th>Số lượng</th>
+          <th>Giá bán</th>
+          <th>Khuyến mãi</th>
+          <th>Hành động</th>
         </tr>
       </thead>
-      <tbody class="table-group-divider ">
+      <tbody class="table-group-divider">
 
-        <?php
-        while ($row = mysqli_fetch_array($list)) {
-          ?>
-        <tr class="tr-body" style="height: 55px; line-height: 55px">
-          <th scope="row"><?php echo $row['MaSP'] ?></th>
-          <td>
-            <img src="<?php echo $rootDirectory . $row['Url'] ?>" width="55px" height="55px">
-          </td>
-          <td><?php echo $row['TenSP'] ?></td>
-          <td><?php echo $row['TenDM'] ?></td>
-          <td><?php echo $product_model->getSoLuongSP($row['MaSP'])->fetch_assoc()['SL'] ?></td>
-          <td><?php echo $row['GiaBan'] . '$' ?></td>
-          <td><?php echo $row['TenKM'] ?></td>
-          <td>
-            <a href="<?php echo $url . "/product/view?id=" . $row["MaSP"] ?>">
-              <button type="button" class="btn btn-info btn-view">
-                <i class="fa-solid fa-eye"></i>
-              </button>
-            </a>
-            <a href="<?php echo $url . "/product/edit?id=" . $row["MaSP"] ?>">
-              <button type="button" class="btn btn-warning btn-edit">
-                <i class="fa-solid fa-pen-to-square"></i>
-              </button>
-            </a>
-            <a href="<?php echo $url . "/product?idDelete=" . $row["MaSP"] ?>">
-              <button type="button" class="btn btn-danger btn-delete">
-                <i class="fa-solid fa-trash"></i>
-              </button>
-            </a>
-          </td>
-        </tr>
-        <?php
-        }
-        ?>
 
         <!-- <tr class="tr-body" style="height: 55px; line-height: 55px">
           <th scope="row">1</th>
@@ -147,7 +105,7 @@ $list = $product_model->getListSP();
     </table>
   </div>
   <ul class="pagination">
-    <li class="page-item disabled">
+    <!-- <li class="page-item disabled">
       <span class="page-link">Previous</span>
     </li>
     <li class="page-item active"><span class="page-link">1</span></li>
@@ -157,41 +115,177 @@ $list = $product_model->getListSP();
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
       <a class="page-link" href="#">Next</a>
-    </li>
+    </li> -->
   </ul>
 
 </div>
 
 <?php require_once ('./public/template/admin/toast.php');
-toast::memo("Add Success", "add-success", "limegreen");
+if (isset($_SESSION["back-from-controller"])) {
+  switch ($_SESSION["back-from-controller"]) {
+    case "add":
+      toast::memo("Thêm thành công", "add-success", "limegreen");
+      break;
+    case "update":
+      toast::memo("Sửa thành công", "update-success", "limegreen");
+      break;
+  }
+  unset($_SESSION["back-from-controller"]);
+}
+
 ?>
 
 <script>
-function fetch_product_data() {
-  $.ajax({
-    url: "../controller/product_controller.php",
-    method: "POST",
-  }).done(function(data) {
-    console.log(data)
-    $(".table-group-divider").append(data);
-    // $('#product_data').append(html_data);
+  var url = window.location.href.split("admin")[0];
+  console.log(`${url}admin/controller/product_controller`)
+
+  function deleteSP(id, sl) {
+    if (confirm("Bạn có muốn xóa sản phẩm này")) {
+      $.ajax({
+        url: `${url}admin/controller/product_controller`,
+        method: "POST",
+        data: {
+          method: "DELETE",
+          id,
+          sl
+        },
+        success: function (data) {
+          alert(data);
+          fetch_product_data();
+        }
+      })
+    }
+  }
+
+  function fetch_product_data() {
+    $.ajax({
+      type: "POST",
+      url: `${url}admin/controller/product_controller`,
+      data: {
+        method: "GET"
+      },
+      dataType: "json"
+    }).done(function (result) {
+
+
+
+      console.log(result)
+
+     
+      loadProduct(0, result)
+      // renderPagination(0, result);
+
+    })
+  }
+
+  fetch_product_data();
+
+  function loadProduct(page, result) {
+    var html = "";
+    var rootDirectory = "<?php echo $rootDirectory ?>"
+    var url = "<?php echo $url ?>"
+    for (var i = 0; i < result.data.length; i++) {
+      html += ` <tr class="tr-body" style="height: 55px; line-height: 55px">
+          <th scope="row">${result.data[i]["MaSP"]}</th>
+          <td>
+            <img src="${rootDirectory + result.data[i]["AnhChinh"]}" width="55px" height="55px">
+          </td>
+          <td>${result.data[i]["TenSP"]}</td>
+          <td>${result.data[i]["DanhMuc"]}</td>
+          <td>${result.data[i]["SoLuong"]}</td>
+          <td data-order=${result.data[i]["GiaBan"]}>${formatCurrency(result.data[i]["GiaBan"])}</td>
+          <td>${result.data[i]["KhuyenMai"]}</td>
+          <td>
+            <a href="${url + "/product/view?id=" + result.data[i]["MaSP"]}">
+              <button type="button" class="btn btn-info btn-view">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </a>
+            <a href="${url + "/product/edit?id=" + result.data[i]["MaSP"]}">
+              <button type="button" class="btn btn-warning btn-edit">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+            </a>
+              <button type="button" class="btn btn-danger btn-delete" onclick="deleteSP(${result.data[i]["MaSP"]}, ${result.data[i]["SoLuong"]} )">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>`;
+    }
+    $('#datatablesSimple tbody').html(html)
+
+    const datatablesSimple = document.getElementById('datatablesSimple');
+        if (datatablesSimple) {
+         console.log( new simpleDatatables.DataTable(datatablesSimple, {
+                searchable: true,
+                labels: {
+                    perPage: 'mục mỗi trang', // Label cho dropdown chọn số lượng item trên mỗi trang
+                    noRows: 'Không có dữ liệu', // Label hiển thị khi không có dữ liệu
+                    info: 'Hiển thị {start} đến {end} của {rows} mục', // Label hiển thị thông tin pagination
+                    placeholder: "Tìm kiếm sản phẩm...",
+                    noResults: "Không tìm thấy sản phẩm"
+                }
+                
+            }));  
+
+        }
+
+        console.log(datatablesSimple)
+
+        
+
+  }
+  function formatCurrency(amount) {
+    // Chèn dấu phẩy vào hàng nghìn và thêm đơn vị tiền tệ
+    return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "đ";
+  }
+
+  function renderPagination(pageSelect, data) {
+    var pageCount = data.pageCount;
+    var pagination = "";
+    pagination += `<li class="page-item ${pageSelect == 0 ? "disabled" : ""}">
+      <span class="page-link">Previous</span>
+   `
+    for (var i = 0; i < pageCount; i++) {
+      if (i == pageSelect) {
+        pagination += `</li><li class="page-item active"><span class="page-link">${i + 1}</span></li>`
+      } else {
+        pagination += `<li class="page-item">
+      <a class="page-link" href="#">${i + 1}</a>
+    </li>`
+      }
+    }
+    pagination += ` <li class="page-item ${pageSelect == (pageCount - 1) ? "disabled" : ""}">
+      <a class="page-link" href="#">Next</a>
+    </li>`
+
+    $('.pagination').html(pagination);
+  }
+
+
+  $("#search-txt").keyup(function (event) {
+    if(event.keyCode == 13) {
+      $(".btn-search").click();
+    }
   })
-}
+  
+  $(".btn-search").click(function() {
+    var key =  $("#search-txt").val();
+    searchProduct(key);
+    $("#search-txt").val("");
+  })
 
-fetch_product_data();
-
-// $('.btn-delete').on("click", function() {
-//   if (confirm("Are you sure you want to remove this product?")) {
-//     $.ajax({
-//       url: "../controller/product_controller.php",
-//       method: "POST",
-//       data: ,
-//       success: function(data) {
-//         $('#alert_message').html('<div class="alert alert-success">' + data + '</div>');
-//         $('#product_data').destroy();
-//         fetch_data();
-//       }
-//     })
-//   }
-// });
+  function searchProduct(key) {
+  $.ajax({
+      type: "POST",
+      url: `${url}/admin/controller/product_controller`,
+      data: {
+        method: "GET",
+        search: key
+      }
+    }).done(function (result) {
+      console.log(result)
+    })
+  }
+    
 </script>

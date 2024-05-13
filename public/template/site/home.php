@@ -25,9 +25,9 @@
     <div class="top">
       <div class="left">
         <div class="title">
-          Categories
+          Danh mục
         </div>
-        <div class="desc">Browse By Category</div>
+        <div class="desc">Tìm kiếm theo danh mục</div>
       </div>
       <div class="right">
         <i class="fa-solid fa-arrow-left scrollToLeft"></i>
@@ -35,68 +35,46 @@
       </div>
     </div>
     <div class="bottom row">
+      <?php 
+      ?>
       <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
         <a href="" class="category-group">
-          <i class="fa-solid fa-volleyball"></i>
-          <div class="category-name">
-            Sport
-          </div>
+          Sport
         </a>
       </div>
       <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
         <a href="" class="category-group">
-          <i class="fa-solid fa-person"></i>
-          <div class="category-name">
-            Men
-          </div>
+          Sport
         </a>
       </div>
       <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
         <a href="" class="category-group">
-          <i class="fa-solid fa-person-dress"></i>
-          <div class="category-name">
-            Women
-          </div>
+          Sport
         </a>
       </div>
       <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
         <a href="" class="category-group">
-          <i class="fa-solid fa-shirt"></i>
-          <div class="category-name">
-            T-shirt
-          </div>
+          Sport
         </a>
       </div>
       <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
         <a href="" class="category-group">
-          <i class="fa-solid fa-shirt"></i>
-          <div class="category-name">
-            T-shirt
-          </div>
+          Sport
         </a>
       </div>
       <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
         <a href="" class="category-group">
-          <i class="fa-solid fa-shirt"></i>
-          <div class="category-name">
-            T-shirt
-          </div>
+          Sport
         </a>
       </div>
       <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
         <a href="" class="category-group">
-          <i class="fa-solid fa-shirt"></i>
-          <div class="category-name">
-            T-shirt
-          </div>
+          Sport
         </a>
       </div>
       <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
         <a href="" class="category-group">
-          <i class="fa-solid fa-shirt"></i>
-          <div class="category-name">
-            T-shirt
-          </div>
+          Sport
         </a>
       </div>
     </div>
