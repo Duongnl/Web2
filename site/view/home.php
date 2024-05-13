@@ -26,9 +26,15 @@
 </head>
 
 <body>
-  <?php require('./public/template/site/head.php')?>
-  <?php include('./public/template/site/home.php')?>
-  <?php require('./public/template/site/footer.php')?>
+  <?php 
+  require_once('./admin/model/db_config.php');
+  require_once('./admin/model/category_model.php');
+  require_once('./admin/model/product_model.php');
+  require('./public/template/site/head.php');
+  include('./public/template/site/home.php');
+  require('./public/template/site/footer.php');
+  ?>
+
 </body>
 
 </html>

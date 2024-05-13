@@ -15,9 +15,15 @@ class product_model
     return $this->db_config->execute($sql);
   }
 
-  function getProductsWithKey($key, $mode = null) {
+  function getProductsBestSale() {
     $this->db_config->connect();
-    $sql = "SELECT * FROM sanpham WHERE TrangThai = 1 ";
+    $sql = "SELECT * FROM sanpham WHERE TrangThai = 1";
+
+  }
+
+  function getProductsHomePage(){
+    $this->db_config->connect();
+    $sql = "SELECT * FROM sanpham WHERE sanpham.TrangThai = 1 ORDER BY sanpham.NgayTao DESC LIMIT 0,12";
     return $this->db_config->execute($sql);
   }
   function insertProduct($maAnh, $maKM, $maDM, $tenSP, $moTa, $giaBan, $gioiTinh)
