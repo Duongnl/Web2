@@ -13,7 +13,7 @@
     <div class="button_switch">
       <a class="user_infor active" id="user_information" onclick="showForm('account_form')"  >Thông tin người dùng</a>
       <a class="account_infor" id="account_information" onclick="showForm('account_form_2')">Thông tin tài khoản</a>
-      <a href="<?php echo  $url . '/cart-detail' ?>" style="text-decoration: none;" class="account_infor">Xem đơn hàng</a>
+      <a href="<?php echo  $url . '/order' ?>" style="text-decoration: none;" class="account_infor">Xem đơn hàng</a>
 
     </div>
     <div style="display: flex; flex-direction: column;">

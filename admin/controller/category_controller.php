@@ -20,7 +20,7 @@ if ( isset($_POST['action'])  && isset($_POST['category_id']) && isset($_POST['c
     else if ($action =='edit') {
         $category_model->UpdatecategoryData( $category_id, trim($category_name));
     } else if ($action == 'delete') {
-        $category_model->DeletecategoryData($category_id);
+        $category_model->DeletecategoryData($category_id,0);
     }
     
 

@@ -12,7 +12,7 @@ $baseName = explode($toAdmin . '/', $url)[1];
 
 switch ($baseName) {
     case 'statistic':
-        require __DIR__ . $adminView . 'statistic_page.php';
+        require __DIR__ . $adminView . 'thong_ke_page.php';
         break;
     case 'product':
         require __DIR__ . $adminView . 'product_page.php';
@@ -32,7 +32,7 @@ switch ($baseName) {
     case 'guest':
         require __DIR__ . $adminView . 'guest_page.php';
         break;
-    case 'permisson':
+    case 'permission':
         require __DIR__ . $adminView . 'permission_page.php';
         break;
     case 'order':
@@ -71,7 +71,9 @@ switch ($baseName) {
     case 'guest_controller':
         require __DIR__ . $adminController . 'guest_controller.php';
         break;
-        
+        case 'permission_controller':
+            require __DIR__ . $adminController . 'permission_controller.php';
+            break;
 
     default:
 
