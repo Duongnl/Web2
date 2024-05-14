@@ -37,7 +37,7 @@ class cart_model
     }
 
 
-
+    
     public function updateQuantity($userId, $productId, $newQuantity, $size)
     {
         $this->db_config->connect();
