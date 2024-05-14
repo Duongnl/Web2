@@ -12,6 +12,18 @@
    {
     display: inline;
   }
+
+  #overlay_details {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
 </style>
 <?php 
 $request = $_SERVER['REQUEST_URI'];
@@ -48,9 +60,11 @@ $url = handle_url::getURLAdmin($request);
           <th scope="row"><?php echo $row['MaQuyen'] ?></th>
           <td><?php echo $row['TenQuyen'] ?></td>
           <td>
-            <a type="button" href="<?php echo  $url.'/permission_details'; ?>" class="btn btn-warning btn-permission" >Phân Quyền </a>
+            <!-- permission details -->
+            <button type="button" onclick="openPopup()" class="btn btn-warning btn-permission" >Phân Quyền </button>
+            
+            
             <!-- <form action="../controller/supplier-controller.php" method="GET">  -->
-            <!-- <button type="button" class="btn btn-warning btn-permission" onclick="">Phân Quyền</button> -->
             <button type="button" class="btn btn-warning btn-edit" onclick="permission_form('<?php echo $row['MaQuyen'] ?>' ,'<?php echo $row['TenQuyen'] ?>','Edit Staff','edit','Save')"><i class="fa-solid fa-pen-to-square"></i></button>
             <button type="button" class="btn btn-danger btn-delete"  onclick="permission_form('<?php echo $row['MaQuyen'] ?>' ,'<?php echo $row['TenQuyen'] ?>','Delete Staff','delete','Delete')"><i class="fa-solid fa-trash"></i></button>
 
@@ -64,7 +78,18 @@ $url = handle_url::getURLAdmin($request);
   </table>
 
   <?php
+  require_once('./public/template/admin/permission_details.php');
+
   require_once('./public/template/admin/permission_form.php');
   ?>
+  <script>
+    function openPopup() { // Click vào button thì gán style cho Popup là display:block để hiển thị lên
+    document.getElementById("overlay_details").style.display = "block";
+    }
+
+    function closePopup() { // Click vào close thì gán style cho Popup là display:none để ẩn đi
+    document.getElementById("overlay_details").style.display = "none";
+    }
+  </script>
 
 </div>

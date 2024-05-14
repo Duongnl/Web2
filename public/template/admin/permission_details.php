@@ -1,8 +1,9 @@
 
-
+<div id="overlay_details">
 <div class="main-content">
+	<div class="window">
     <div class="back">
-    <a type="button" href="<?php echo $url.'/permission'?>" class="btn btn-light" >
+    	<a type="button" href="javascript:void(0)" class="closebtn btn " onclick="closePopup()" >
     <i class="fa-solid fa-arrow-left" style="display: inline-block; font-size: 30px; "></i>
     </a>
     </div>
@@ -10,7 +11,7 @@
     <div class="right_colum">
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input type="checkbox" name="checkbox" class="checkbox_inp q1">
+			        <input id="QuyenThongKe" type="checkbox" name="checkbox" class="checkbox_inp q1">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản lý Thống kê </div>
@@ -18,7 +19,7 @@
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input type="checkbox" name="checkbox" class="checkbox_inp q2">
+			        <input type="checkbox" id = "QuyenSanPham" name="checkbox" class="checkbox_inp q2">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản Lý Sản Phẩm </div>
@@ -26,7 +27,7 @@
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input type="checkbox" name="checkbox" class="checkbox_inp q3">
+			        <input id="QuyenCategory" type="checkbox" name="checkbox" class="checkbox_inp q3">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản Lý Category  </div>
@@ -34,7 +35,7 @@
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input type="checkbox" name="checkbox" class="checkbox_inp q4">
+			        <input type="checkbox" id ="QuyenDiscount" name="checkbox" class="checkbox_inp q4">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản lý Discount </div>
@@ -42,12 +43,19 @@
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input type="checkbox" name="checkbox" class="checkbox_inp q5">
+			        <input id="QuyenSupplier" type="checkbox" name="checkbox" class="checkbox_inp q5">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản lý Supplier</div>
 	        </div>
 
+			<div class="checkbox_item citem_1">
+		        <label class="checkbox_wrap">
+			        <input id="QuyenUser" type="checkbox" name="checkbox" class="checkbox_inp q6">
+			        <span class="checkbox_mark"></span>
+		        </label>
+		    <div class="title">Quản lý User</div>
+	        </div>
 
         
     </div>
@@ -55,7 +63,7 @@
             
     <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input type="checkbox" name="checkbox" class="checkbox_inp q6 ">
+			        <input id="QuyenStaff" type="checkbox" name="checkbox" class="checkbox_inp q7 ">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản Lý Staff</div>
@@ -63,7 +71,7 @@
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input type="checkbox" name="checkbox" class="checkbox_inp q7">
+			        <input id="QuyenGuest" type="checkbox" name="checkbox" class="checkbox_inp q8">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản Lý Guest</div>
@@ -71,7 +79,7 @@
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input type="checkbox" name="checkbox" class="checkbox_inp q8">
+			        <input id="QuyenOrder" type="checkbox" name="checkbox" class="checkbox_inp q9">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản lý Order </div>
@@ -79,28 +87,43 @@
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input type="checkbox" name="checkbox" class="checkbox_inp q9">
+			        <input id="QuyenNhap" type="checkbox" name="checkbox" class="checkbox_inp q10">
 			        <span class="checkbox_mark"></span>
 		        </label>
-		    <div class="title">Quản Lý Import </div>
+		    <div class="title">Quản Lý Nhập </div>
 	        </div>
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input type="checkbox" name="checkbox" class="checkbox_inp q10">
+			        <input id="QuyenDuyetNhap" type="checkbox" name="checkbox" class="checkbox_inp q11">
+			        <span class="checkbox_mark"></span>
+		        </label>	
+		    <div class="title">Quản lý Duyệt Nhập </div>
+	        </div>
+
+			<div class="checkbox_item citem_1">
+		        <label class="checkbox_wrap">
+			        <input id="Quyen" type="checkbox" name="checkbox" class="checkbox_inp q12">
 			        <span class="checkbox_mark"></span>
 		        </label>
-		    <div class="title">Quản lý Duyệt Nhập </div>
+		    <div class="title">Quản lý Quyền </div>
 	        </div>
 
 
 
-	    
-	</div>
+			</div>
+		</div>
+	<div class="save">
+    	<a type="button"  class="closebtn btn-save " > Save
+    </a>
+</div>
 	
 </div>
+
+
 </div>
 
+</div>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
@@ -112,6 +135,20 @@
 	font-family: 'Open Sans', sans-serif;
 }
 
+.save {
+	display:flex;
+	justify-content:center;
+
+}
+.btn-save {
+	text-decoration: none;
+    background-color: red;
+    font-size: 30px;
+    color: black;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), -3px -3px 6px rgba(255, 255, 255, 0.8);
+    border-radius:40px;
+	padding: 10px 30px;
+}
 
 body{
 	/* background-image: radial-gradient(circle at 0 0, #a1cae9, #f7c6c6); */
@@ -124,12 +161,13 @@ body{
     display:flex ;
     flex-direction: column;
     width:40%;
+	
 }
 
 .citem_1 {
     display:flex;
-    border-radius:15px;
-    padding: 20px 50px;
+    border-radius:40px;
+    padding: 10px 20px;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), -3px -3px 6px rgba(255, 255, 255, 0.8);
     margin: 10px 0;
     justify-content: space-between;

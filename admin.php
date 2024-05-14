@@ -71,7 +71,9 @@ switch ($baseName) {
     case 'guest_controller':
         require __DIR__ . $adminController . 'guest_controller.php';
         break;
-        
+        case 'permission_controller':
+            require __DIR__ . $adminController . 'permission_controller.php';
+            break;
 
     default:
 
