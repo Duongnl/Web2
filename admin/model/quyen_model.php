@@ -10,7 +10,7 @@ class quyen_model {
      function getQuyenData() {
        
         $this->db_config->connect();
-        $sql = "SELECT * FROM quyen WHERE Trangthai = 1 AND TenQuyen !='User'" ;
+        $sql = "SELECT * FROM quyen WHERE TrangThai = 1 AND TenQuyen !='User'" ;
         return $this->db_config->execute($sql);
     }
 
