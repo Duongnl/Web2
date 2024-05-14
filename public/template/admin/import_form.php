@@ -38,20 +38,20 @@ if (isset($_POST['supplier'])) {
 
 <div class="main-content">
   <a type="button" href="<?php echo  $url . '/import'; ?>" class="btn btn-light"><i class="fa-solid fa-arrow-left" style="display: inline-block; font-size: 30px;"></i></a>
-  <h3 style="display: inline-block;padding-left: 15px;" class="h1-head-name">Import product</h3>
+  <h3 style="display: inline-block;padding-left: 15px;" class="h1-head-name">Nhập hàng</h3>
 
   <div style="display: flex; margin-top:10px;margin-bottom: 10px; justify-content: right; border-bottom: 2px solid #000;">
     <div style="display:flex;margin-bottom: 0px;" >
-      <p style="font-size: 18px;">Supplier ID :</p>
+      <p style="font-size: 18px;">Mã nhà cung cấp :</p>
       <input id="maNCC" style="border: 0;font-size: 18px;margin-bottom: 20px; width:100px;" disabled value=" <?php echo $maNCC ?>">
     </div>
-    <p style="font-size: 18px;margin-bottom: 5px;"> Supplier name : <?php echo $tenNCC ?> </p>
+    <p style="font-size: 18px;margin-bottom: 5px;"> Tên nhà cung cấp : <?php echo $tenNCC ?> </p>
   </div>
 
   <div style="display:flex;align-items: baseline; height: 35px;">
-    <p style="font-size: 18px;margin-right: 20px;">Product: </p>
+    <p style="font-size: 18px;margin-right: 20px;">Sản phẩm: </p>
     <select id="select_product" class="form-select select-filter-type" aria-label="Default select example">
-      <option value="0" disabled selected hidden>Select product</option>
+      <option value="0" disabled selected hidden>Chọn sản phẩm</option>
       <?php
       $import_model = new import_model();
       $query = $import_model->getProductData();
@@ -72,7 +72,7 @@ if (isset($_POST['supplier'])) {
   <div style="display:flex; align-items: baseline;height: 35px;">
     <p style="font-size: 18px;margin-right: 55px;">Size: </p>
     <select id="select_size" class="form-select select-filter-type" aria-label="Default select example">
-      <option value="0" disabled selected hidden>Select size</option>
+      <option value="0" disabled selected hidden>Chọn size</option>
     </select>
   </div>
   <input type="text" value="" id="memo_size" style="margin-left: 95px;margin-bottom: 10px;" disabled>
@@ -80,7 +80,7 @@ if (isset($_POST['supplier'])) {
 
 
   <div style="display:flex;align-items: baseline; height: 35px; ">
-    <p style="font-size: 18px;margin-right: 13px;">Quantity: </p>
+    <p style="font-size: 18px;margin-right: 13px;">Số lượng: </p>
     <div class="input-group flex-nowrap">
       <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-plus"></i></span>
       <input id="quantity" name="quantity" type="number" class="form-control" placeholder="Quantity product" aria-label="Username" aria-describedby="addon-wrapping">
@@ -91,12 +91,12 @@ if (isset($_POST['supplier'])) {
 
 
   <div style="display:flex;align-items: baseline; height: 35px; ">
-    <p style="font-size: 18px;margin-right: 47px;">Cost: </p>
+    <p style="font-size: 18px;margin-right: 47px;">Đơn giá: </p>
     <div class="input-group flex-nowrap">
       <span class="input-group-text" id="addon-wrapping" style=" padding-right: 13px; padding-left: 16px;"><i class="fa-solid fa-dollar-sign"></i></span>
       <input id="cost" name="cost" type="number" class="form-control" placeholder="Dollar" aria-label="Username" aria-describedby="addon-wrapping">
     </div>
-    <button id="button_add" type="button" class="btn btn-success" style=" margin-left : 10px; width:150px;">Add</button>
+    <button id="button_add" type="button" class="btn btn-success" style=" margin-left : 10px; width:150px;">Thêm</button>
   </div>
   <input type="text" value="" id="memo_cost" style="margin-left: 95px;margin-bottom: 10px;" disabled>
 
@@ -105,13 +105,13 @@ if (isset($_POST['supplier'])) {
   <table id="detailTable" class="table table-striped table-hover ">
     <thead>
       <tr>
-        <th scope="col">Product ID</th>
-        <th scope="col">Product name</th>
+        <th scope="col">Mã sản phẩm</th>
+        <th scope="col">Tên sản phẩm</th>
         <th scope="col">Size</th>
-        <th scope="col">Cost</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Total</th>
-        <th scope="col">Action</th>
+        <th scope="col">Đơn giá</th>
+        <th scope="col">Số lượng</th>
+        <th scope="col">Thành tiền</th>
+        <th scope="col">Hành động</th>
       </tr>
     </thead>
     <tbody class="table-group-divider ">
@@ -121,12 +121,12 @@ if (isset($_POST['supplier'])) {
 
   <div style="  display: flex;justify-content: space-between;margin-right: 20px;">
     <div style="margin-right: auto; display:flex; ">
-      <p style="font-size: 18px; margin-bottom: 0px;margin-top: 26px;">Total import: </p>
+      <p style="font-size: 18px; margin-bottom: 0px;margin-top: 26px;">Thanh toán: </p>
       <p id="total-import" style="font-size: 18px;margin-left: 10px;margin-bottom: 0px;margin-top: 26px;">0</p>
     </div>
 
     <button type="button" id="button-import" class="btn btn-success" style="margin-top: 10px; margin-bottom: 10px;width: 125px;height: 40px;  margin-left: auto; ">
-      <i class="fa-solid fa-circle-plus"></i> Import</button>
+      <i class="fa-solid fa-circle-plus"></i> Nhập </button>
   </div>
 
 
@@ -138,7 +138,7 @@ if (isset($_POST['supplier'])) {
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body">
-        Success
+        Thành công
       </div>   
     </div>
   </div>

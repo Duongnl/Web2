@@ -19,7 +19,7 @@ if ( isset($_POST['action'])  && isset($_POST['discount_id']) && isset($_POST['d
     else if ($action =='edit') {
         $discount_model->UpdatediscountData( $discount_id, trim($discount_name), trim($discount_percent));
     } else if ($action == 'delete') {
-        $discount_model->DeletediscountData($discount_id);
+        $discount_model->DeletediscountData($discount_id,0);
     }
     
 

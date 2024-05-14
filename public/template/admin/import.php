@@ -46,7 +46,7 @@ if (isset($_GET['date'])) {
 </style>
 
 <div class="main-content">
-  <h3 class="h1-head-name">Import management</h3>
+  <h3 class="h1-head-name">Quản lý phiếu nhập</h3>
   <div style="border: 2px solid #000; border-radius:10px;margin-top: 20px;width: 703.2px;">
     <div style="margin-left: 10px;">
       <div style=" margin-top: 10px;">
@@ -60,8 +60,8 @@ if (isset($_GET['date'])) {
           <input type="date" id="date" name="date" value="<?php if (isset($_GET['date'])) {
                                                             echo $_GET['date'];
                                                           } ?>">
-          <button type="submit" id="buttonLocNgay" class="btn btn-success" style="width: 100px;  display:inline-block;margin-left:10px"><i class="fa-solid fa-circle-plus"></i> Filter</button>
-          <a href="<?php echo $url.'/import' ?>" type="button" id="buttonReset" class="btn btn-success" style="width: 150px; margin-left:10px;display:inline-block;"><i class="fa-solid fa-circle-plus"></i> Refresh</a>
+          <button type="submit" id="buttonLocNgay" class="btn btn-success" style="width: 100px;  display:inline-block;margin-left:10px"><i class="fa-solid fa-circle-plus"></i> Lọc</button>
+          <a href="<?php echo $url.'/import' ?>" type="button" id="buttonReset" class="btn btn-success" style="width: 150px; margin-left:10px;display:inline-block;"><i class="fa-solid fa-circle-plus"></i> Làm mới</a>
         </div>
       </form>
       <form action="<?php echo $url . '/import' ?>" method="GET">
@@ -74,27 +74,27 @@ if (isset($_GET['date'])) {
           <input type="date" id="to" name="date-end" value="<?php if (isset($_GET['date-end'])) {
                                                             echo $_GET['date-end'];
                                                           } ?>"  >
-          <button type="submit" id="buttonLocKhoangTG" class="btn btn-success" style="width: 100px; display:inline-block; margin-left:10px"><i class="fa-solid fa-circle-plus"></i> Filter</button>
-          <a href="<?php echo $url.'/import' ?>" type="button" id="buttonReset" class="btn btn-success" style="width: 150px;  margin-left:10px;display:inline-block;"><i class="fa-solid fa-circle-plus"></i> Refresh</a>
+          <button type="submit" id="buttonLocKhoangTG" class="btn btn-success" style="width: 100px; display:inline-block; margin-left:10px"><i class="fa-solid fa-circle-plus"></i> Lọc</button>
+          <a href="<?php echo $url.'/import' ?>" type="button" id="buttonReset" class="btn btn-success" style="width: 150px;  margin-left:10px;display:inline-block;"><i class="fa-solid fa-circle-plus"></i> Làm mới</a>
         </div>
       </form>
     </div>
   </div>
 
-  <button type="button" class="btn btn-success" style="float:right; margin-top: 10px; margin-bottom: 20px; " onclick="select_supplier_form('Select supplier','Select')">
-    <i class="fa-solid fa-circle-plus"></i> Create import</button>
+  <button type="button" class="btn btn-success" style="float:right; margin-top: 10px; margin-bottom: 20px; " onclick="select_supplier_form('Chọn nhà cung cấp','Chọn')">
+    <i class="fa-solid fa-circle-plus"></i> Tạo phiếu nhập</button>
 
   <table class="table table-striped table-hover ">
     <thead>
       <tr>
-        <th scope="col">Import ID</th>
-        <th scope="col">Staff name</th>
-        <th scope="col">Supplier name</th>
-        <th scope="col">Total</th>
-        <th scope="col">Date</th>
-        <th scope="col">Status</th>
-        <th scope="col" style="width: 88px;">Detail</th>
-        <th scope="col" style="width:214.087px; ">Action</th>
+        <th scope="col">Mã phiếu nhập</th>
+        <th scope="col">Tên nhân viên</th>
+        <th scope="col">Tên nhà cung cấp</th>
+        <th scope="col">Thanh toán</th>
+        <th scope="col">Thời gian</th>
+        <th scope="col">Trạng thái</th>
+        <th scope="col" style="width: 88px;">Chi tiết</th>
+        <th scope="col" style="width:214.087px; ">Hành động</th>
       </tr>
     </thead>
     <tbody class="table-group-divider ">
@@ -118,11 +118,11 @@ if (isset($_GET['date'])) {
           <td><?php echo $row['ThanhToan'] ?></td>
           <td><?php echo $row['ThoiGian'] ?></td>
           <?php if ($row['TrangThaiPN'] == 0) {
-            echo '<td style="background-color: #ffc107; border-radius: 5px;">Pending</td>';
+            echo '<td style="background-color: #ffc107; border-radius: 5px;">Chờ</td>';
           } else  if ($row['TrangThaiPN'] == 1) {
-            echo '<td style="background-color: #198754;  border-radius: 5px;">Approved</td>';
+            echo '<td style="background-color: #198754;  border-radius: 5px;">Đã nhập</td>';
           } else {
-            echo '<td style="background-color: #dc3545;border-radius: 5px;">Rejected</td>';
+            echo '<td style="background-color: #dc3545;border-radius: 5px;">Từ chối</td>';
           }
           ?>
           <td>
@@ -136,12 +136,12 @@ if (isset($_GET['date'])) {
 
               <form action="<?php echo $url . '/import_controller' ?>" method="POST" style="display: inline-block;">
                 <input type="hidden" name="maPN" value="<?php echo $row['MaPN'] ?>">
-                <button type="submit" class="btn btn-success btn-accept" name="action" value="accept"> Accept </button>
+                <button type="submit" class="btn btn-success btn-accept" name="action" value="accept"> Đồng ý </button>
               </form>
 
               <form action="<?php echo $url . '/import_controller' ?>" method="POST" style="display: inline-block;">
                 <input type="hidden" name="maPN" value="<?php echo $row['MaPN'] ?>">
-                <button type="submit" class="btn btn-danger btn-decline" name="action" value="decline">Decline</button>
+                <button type="submit" class="btn btn-danger btn-decline" name="action" value="decline">Từ chối</button>
               </form>
 
             <?php } ?>
