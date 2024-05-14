@@ -1,13 +1,16 @@
 
 <div id="overlay_details">
 <div class="main-content">
+  
 	<div class="window">
     <div class="back">
     	<a type="button" href="javascript:void(0)" class="closebtn btn " onclick="closePopup()" >
     <i class="fa-solid fa-arrow-left" style="display: inline-block; font-size: 30px; "></i>
     </a>
     </div>
-<div class="wrapper">
+<!-- <div > -->
+	<form action="<?php echo $url.'/permission_controller' ?>" method="POST" id="permission_details_form" class="wrapper">
+	
     <div class="right_colum">
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
@@ -61,13 +64,13 @@
     </div>
     <div class="left_colum">
             
-    <div class="checkbox_item citem_1">
+    	<div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
 			        <input id="QuyenStaff" type="checkbox" name="checkbox" class="checkbox_inp q7 ">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản Lý Staff</div>
-	        </div>
+	    </div>
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
@@ -106,20 +109,24 @@
 			        <input id="Quyen" type="checkbox" name="checkbox" class="checkbox_inp q12">
 			        <span class="checkbox_mark"></span>
 		        </label>
-		    <div class="title">Quản lý Quyền </div>
-	        </div>
+		    	<div class="title">Quản lý Quyền </div>
+	    	</div>
 
 
 
 			</div>
-		</div>
-	<div class="save">
-    	<a type="button"  class="closebtn btn-save " > Save
-    </a>
-</div>
-	
-</div>
 
+		</div>
+		</form>
+
+	<!-- <div class="save">
+    	<a type="button"  class="closebtn btn-save " > Save
+    	</a>
+	</div> -->
+	<!-- <input id="" type="submit" class="btn btn-success" style=" margin:0 auto;display:block; margin-top: 20px; "  value="">SAVE</input> -->
+
+	
+<!-- </div> -->
 
 </div>
 
