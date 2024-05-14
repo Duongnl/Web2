@@ -22,7 +22,7 @@ $url =  handle_url::getURLAdmin($request);
         </div>
         <ul style="padding-left: 0px;">
         
-        <li>
+            <li id ='ThongKe'>
                 <a href="<?php echo $url.'/statistic';?>">
                 <i class="fa-solid fa-chart-simple icon"  ></i>
                     <span class="nav-item">Thống Kê</span>
@@ -30,7 +30,7 @@ $url =  handle_url::getURLAdmin($request);
                 </a>
                 <span class="tooltip">Thống Kê</span>
             </li>
-            <li>
+            <li id ="SanPham">
                 <a href="<?php echo $url.'/product';?>">
                     <i class='bx bxl-product-hunt icon'></i>
                     <span class="nav-item">Sản Phẩm</span>
@@ -38,7 +38,7 @@ $url =  handle_url::getURLAdmin($request);
                 </a>
                 <span class="tooltip">Sản Phẩm</span>
             </li>
-            <li>
+            <li id ="DanhMuc">
                 <a href="<?php echo $url.'/category';?>">
                     <i class="fa-solid fa-list"></i>
                     <span class="nav-item">Danh Mục</span>
@@ -47,7 +47,7 @@ $url =  handle_url::getURLAdmin($request);
                 <span class="tooltip">Danh Mục</span>
             </li>
 
-            <li>
+            <li id ="KhuyenMai">
                 <a href="<?php echo $url.'/discount';?>">
                 <i class="fa-solid fa-percent icon"></i>
                     <span class="nav-item">Khuyến Mãi</span>
@@ -56,7 +56,7 @@ $url =  handle_url::getURLAdmin($request);
                 <span class="tooltip">Khuyến Mãi</span>
             </li>
 
-            <li>
+            <li id ="NhaCungCap">
                 <a href="<?php echo $url.'/supplier'?>">
                 <i class="fa-solid fa-boxes-packing icon"></i>
                     <span class="nav-item">Nhà Cung Cấp</span>
@@ -65,7 +65,7 @@ $url =  handle_url::getURLAdmin($request);
                 <span class="tooltip">Nhà Cung Cấp</span>
             </li>
 
-            <li>
+            <li id ="NhanVien">
                 <a href="<?php echo $url.'/staff'?>">
                 <i class="fa-solid fa-user icon"></i>
                     <span class="nav-item">Nhân Viên</span>
@@ -74,7 +74,7 @@ $url =  handle_url::getURLAdmin($request);
                 <span class="tooltip">Nhân Viên</span>
             </li>
 
-            <li>
+            <li id ="KhachHang">
                 <a href="<?php echo $url.'/guest'?>">
                 <i class="fa-solid fa-circle-user icon"></i>
                     <span class="nav-item">Khách Hàng</span>
@@ -82,7 +82,7 @@ $url =  handle_url::getURLAdmin($request);
                 </a>
                 <span class="tooltip">Khách Hàng</span>
             </li>
-            <li>
+            <li id ="Quyen">
                 <a href="<?php echo $url.'/permission'?>">
                 <i class="fa-solid fa-users icon"></i>
                     <span class="nav-item">Quyền</span>
@@ -90,7 +90,7 @@ $url =  handle_url::getURLAdmin($request);
                 </a>
                 <span class="tooltip">Quyền</span>
             </li>
-            <li>
+            <li id ="DonHang">
                 <a href="<?php echo $url.'/order'?>">
                 <i class="fa-solid fa-receipt icon"></i>
                     <span class="nav-item">Đơn Hàng</span>
@@ -98,7 +98,7 @@ $url =  handle_url::getURLAdmin($request);
                 </a>
                 <span class="tooltip">Đơn Hàng</span>
             </li>
-            <li>
+            <li id ="NhapHang">
                 <a href="<?php echo $url.'/import'?>">
                 <i class="fa-solid fa-file-import icon"></i>
                     <span class="nav-item">Nhập Hàng</span>
@@ -106,7 +106,7 @@ $url =  handle_url::getURLAdmin($request);
                 </a>
                 <span class="tooltip">Nhập Hàng</span>
             </li>
-            <li>
+            <li id ="logout">
                 <a href="<?php $trimmed_url = str_replace("/admin", "",$url); echo $trimmed_url;?>">
                 <i class="fa-solid fa-arrow-right-from-bracket icon"></i>
                     <span class="nav-item">Thoát</span>
@@ -117,15 +117,121 @@ $url =  handle_url::getURLAdmin($request);
         </ul>
     </div>
 
-
 <script>
-    let btn = document.querySelector('#btn')
-    let sidebar = document.querySelector('.sidebar')
+    // let btn = document.querySelector('#btn')
+    // let sidebar = document.querySelector('.sidebar')
     
-    btn.onclick = function()
+    // btn.onclick = function()
+    // {
+    //     sidebar.classList.toggle('active');
+    // };
+
+function PhanQuyen()
+{
+
+    <?php
+
+        $maTK = $_SESSION['MaTK'];
+        require_once('./admin/model/phanquyen_model.php');
+        $phanquyen = new phanquyen_model();
+        $DSPhanQuyen = $phanquyen->getQuyenTheoMaTK($maTK);
+        $DSCTQuyen = $phanquyen->getCTQuyen();
+        $ArrCTquyen = array();
+        $ArrQuyenTK = array();
+
+        while ($row = mysqli_fetch_array($DSCTQuyen)) {
+            // echo $row['ChiTietQuyen']  ;
+            array_push($ArrCTquyen, $row['ChiTietQuyen']);
+
+        }
+        // echo print_r($ArrCTquyen);
+        
+        
+
+        while ($row = mysqli_fetch_array($DSPhanQuyen)) {
+            // echo $row['ChiTietQuyen'];
+            array_push($ArrQuyenTK, $row['ChiTietQuyen']);
+
+        } 
+        // echo print_r($ArrQuyenTK);
+
+
+    ?>
+
+    var ArrQuyen = <?php echo json_encode($ArrCTquyen); ?>;
+    var ArrQuyenTK =  <?php echo json_encode($ArrQuyenTK); ?>;
+    
+    for (i =0 ; i< ArrQuyenTK.length; i++)
     {
-        sidebar.classList.toggle('active');
-    };
+        console.log(ArrQuyen.includes(ArrQuyenTK[i])) ;
+        if (ArrQuyen.includes(ArrQuyenTK[i]))
+        {
+            console.log(ArrQuyenTK[i]);
+            switch (ArrQuyenTK[i]) {
+            case 'Quản lý Thống kê':
+                console.log("vao dc qltk")
+                document.getElementById("ThongKe").style.display = 'block';
+            break;
+            case 'Quản lý sản phẩm':
+                console.log("vao dc sp")
+
+                document.getElementById("SanPham").style.display = 'block';
+
+            break;
+            case 'Quản lý Category':
+                console.log("vao duoc cate");
+                document.getElementById("DanhMuc").style.display = 'block';
+
+            break;
+            case 'Quản lý Discount':
+                document.getElementById("KhuyenMai").style.display = 'block';
+
+            break;
+            case 'Quản Lý Supplier':
+                document.getElementById("NhaCungCap").style.display = 'block';
+
+            break;
+            case 'Quản Lý Staff':
+                document.getElementById("NhanVien").style.display = 'block';
+
+            break;
+            case 'Quản lý Guest':
+                document.getElementById("KhachHang").style.display = 'block';
+
+            break;
+            case 'Quản lý Order':
+                document.getElementById("DonHang").style.display = 'block';
+
+            break;
+            case 'Quản Lý Import':
+                document.getElementById("NhapHang").style.display = 'block';
+
+            break;
+            case 'Quản lý Duyệt Nhập':
+                // document.getElementById("DonHang").style.display = 'none';
+
+            break;
+            case 'QuyenUser':
+
+                // document.getElementById("Quyen").style.display = 'block';
+
+            break;
+            case 'Quyền Quản Lý':
+                document.getElementById("Quyen").style.display = 'block';
+
+            break;
+            default:
+                message = 'Hành động không xác định.';
+            break;
+        }
+
+        }
+    }
+    
+
+}
+
+PhanQuyen();
 
 </script>
 
@@ -147,6 +253,9 @@ $url =  handle_url::getURLAdmin($request);
     border-radius:100%;
     border:1px soild #eee;
 
+}
+#logout {
+    display:block;
 }
 .sidebar{
     position:absolute;
@@ -248,12 +357,13 @@ $url =  handle_url::getURLAdmin($request);
 
 }
 .sidebar ul li {
+    display:none;
     position:relative;
     list-style-type: none;
     height:50px;
     width:90%;
     margin: 0.8rem auto;
-    line-height: 50px;
+    line-height: 10px;
 }
 
 .sidebar ul li a {

@@ -44,7 +44,7 @@ $url =  handle_url::getURLAdmin($request);
 <!-- ../admin/controller/permission_controller.php -->
 <form action="<?php echo $url.'/permission_controller' ?>" method="POST" id="permission_form">
     <input type="hidden" id="action" name="action" value="">
-    <button name="exit-supplier" type="button" class="btn btn-outline-danger" style="border: 0px; border-radius:20px;float:right" onclick="permission_supplier()"> <b>X</b> </button>
+    <button name="exit-supplier" type="button" class="btn btn-outline-danger" style="border: 0px; border-radius:20px;float:right" onclick="permission_exit()"> <b>X</b> </button>
     <div style=" padding: 20px;">
         <!-- <h3 style="text-align: center;" >Edit supplier</h3> -->
         <input type="text" id="input-text-head" value="" style="text-align: center;margin:0 auto;display:block; border:none; font-size :25px;" disabled>
@@ -93,7 +93,7 @@ toast::memo("Success", "back_from_controller", "limegreen");
 
     }
 
-    function permission_supplier() {
+    function permission_exit() {
         document.getElementById("permission_form").style.display = "none";
         document.getElementById("memo").value = "";
         document.getElementById("overlay").style.display = "none";
@@ -111,7 +111,7 @@ toast::memo("Success", "back_from_controller", "limegreen");
         var pattern = /^[a-zA-Z0-9\s]*$/;
         var Permission_name = document.getElementById("Permission_name").value.trim();
         if (Permission_name == "") {
-            document.getElementById("memo").value = "Supplier name is empty !";
+            document.getElementById("memo").value = "Permission name is empty !";
             return false;
         } else if (pattern.test(Permission_name) != true) {
             document.getElementById("memo").value = "Doesn't contain special characters !";

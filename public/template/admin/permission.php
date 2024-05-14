@@ -1,4 +1,5 @@
-<style>
+  
+  <style>
   .btn-edit,
   .btn-permission,
   .btn-delete {
@@ -57,11 +58,15 @@ $url = handle_url::getURLAdmin($request);
       while ($row = mysqli_fetch_array($queryQuyen)) {
     ?>
         <tr class="tr-body" style="height: 55px;">
-          <th scope="row"><?php echo $row['MaQuyen'] ?></th>
+          <th scope="row" id="PermissionID"><?php echo $row['MaQuyen'] ?></th>
           <td><?php echo $row['TenQuyen'] ?></td>
           <td>
+          
+            <form action="<?php echo $url.'/permission_details' ?>" method ="POST" >
+              <input type="hidden" name = "permissionID" value ="<?php echo $row['MaQuyen'] ?>">
+              <button id="phanquyen" type="submit" >Phân Quyền </button>
+            </form>
             <!-- permission details -->
-            <button type="button" onclick="openPopup()" class="btn btn-warning btn-permission" >Phân Quyền </button>
             
             
             <!-- <form action="../controller/supplier-controller.php" method="GET">  -->
@@ -84,12 +89,12 @@ $url = handle_url::getURLAdmin($request);
   ?>
   <script>
     function openPopup() { // Click vào button thì gán style cho Popup là display:block để hiển thị lên
-    document.getElementById("overlay_details").style.display = "block";
+      document.getElementById("overlay_details").style.display = "block";
     }
 
     function closePopup() { // Click vào close thì gán style cho Popup là display:none để ẩn đi
-    document.getElementById("overlay_details").style.display = "none";
+      document.getElementById("overlay_details").style.display = "none";
     }
+    
   </script>
-
 </div>
