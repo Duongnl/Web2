@@ -7,8 +7,7 @@
 }
 
 .account-management {
-  align-self: center;
-  margin-top: 10%;
+  display: flex;
   width: 100%;
 }
 
@@ -19,13 +18,11 @@
   }
 }
 
-.account-management-container {
-  display: flex;
-  gap: 20px;
-}
+
 
 @media (max-width: 991px) {
   .account-management-container {
+    display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
@@ -63,21 +60,21 @@
 }
 
 .account-sidebar-title {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
 
 .account-sidebar-active {
   color: #db4444;
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 .account-sidebar-item {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 .account-sidebar-item-nowrap {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   white-space: nowrap;
 }
 
@@ -88,33 +85,33 @@
 }
 
 .account-sidebar-subtitle {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
 
 .account-main-content {
   display: flex;
+  justify-content: space-around;
   flex-direction: column;
   line-height: normal;
-  width: 81%;
+  width: 100%;
   margin-left: 20px;
 }
 
 @media (max-width: 991px) {
   .account-main-content {
     width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 }
 
 .account-profile-section {
   border-radius: 4px;
+  margin-top: 20px;
   box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.05);
   background-color: #fff;
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
   font-size: 16px;
-  line-height: 150%;
   width: 100%;
   padding: 43px 80px;
 }
@@ -122,7 +119,48 @@
   display: flex;
   flex-direction: column;
 }
+.button_switch{
+  margin: 20px 10px 10px 12px;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}
+#account_form_2{
+  display: none;
+}
+.tab_left{
+  display: flex;
+  flex-direction: column;
+}
+.user_infor{
+  margin-bottom: 5px;
+  text-decoration: none;
+  border: none;
+  padding: 10px;
+  color: #db4444;
+  border-radius: 4px;
+}
 
+.account_infor{
+  text-decoration: none;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  color: #db4444;
+  border-radius: 4px;
+}
+.user_infor.active,
+.account_infor.active {
+  border: 2px solid #db4444;
+}
+
+.user_infor:not(.active),
+.account_infor:not(.active) {
+  border: none;
+}
+.info{
+  display: flex;
+}
 @media (max-width: 991px) {
   .account-profile-section {
     max-width: 100%;
@@ -144,6 +182,7 @@
 
 .account-profile-name {
   display: flex;
+  flex-direction: column;
   margin-top: 23px;
   justify-content: space-between;
   gap: 20px;
@@ -167,16 +206,19 @@
 }
 
 .account-profile-name-label {
-  font-family: Poppins, sans-serif;
+
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 .account-profile-name-value {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   border-radius: 4px;
   background-color: #f5f5f5;
   margin-top: 8px;
   justify-content: center;
   align-items: start;
+  color: #000;
+  font-weight: 400;
   white-space: nowrap;
   padding: 19px 60px 19px 16px;
   border: none;
@@ -206,13 +248,24 @@
     white-space: initial;
   }
 }
-
-.account-profile-contact-item {
+.info_account{
+  display: flex;
+}
+.info_account_1{
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  flex-basis: 0;
-  width: fit-content;
+}
+.info_account_2{
+  display: flex;
+  flex-direction: column;
+}
+.account-profile-contact-item {
+
+  display: flex;
+  flex-direction: column;
+  padding-left:40px ;
+  margin-top: 10px;
+
 }
 
 @media (max-width: 991px) {
@@ -222,14 +275,14 @@
 }
 
 .account-profile-contact-label {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
 .show-password{
   margin-top: 20px;
-  margin-left: 15px;
+  
 }
 .account-profile-contact-value {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   border-radius: 4px;
   background-color: #f5f5f5;
   margin-top: 8px;
@@ -248,7 +301,7 @@
 
 .account-profile-password-title {
   color: #000;
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   font-weight: 400;
   margin-top: 24px;
 }
@@ -259,8 +312,8 @@
   }
 }
 
-.account-profile-password-input {
-  font-family: Poppins, sans-serif;
+.account-profile-input {
+  font-family:Arial, Helvetica, sans-serif;
   border-radius: 4px;
   background-color: #f5f5f5;
   margin-top: 8px;
@@ -274,7 +327,7 @@
 }
 
 @media (max-width: 991px) {
-  .account-profile-password-input {
+  .account-profile-input {
     white-space: initial;
     max-width: 100%;
     padding-right: 20px;
@@ -298,13 +351,13 @@
 
 .account-profile-cancel {
   color: #000;
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   font-weight: 400;
   margin: auto 0;
 }
 
 .account-profile-save {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   justify-content: center;
   border-radius: 4px;
   background-color: #db4444;
@@ -314,9 +367,19 @@
   padding: 16px 48px;
   border: none;
 }
-
+.view-details-order{
+  margin: 20px 0px 10px 12px;
+  width: 250px;
+  font-family:Arial, Helvetica, sans-serif;
+  border-radius: 4px;
+  color: #db4444;
+  font-weight: 500;
+  flex-grow: 1;
+  padding: 10px;
+  border: 0px solid #db4444;
+}
 .account-profile-cancel {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   justify-content: center;
   border-radius: 4px;
   background-color: #fff;
@@ -341,7 +404,7 @@
   align-items: center;
   max-width: 1168px;
   width: 100%;
-  margin: 79px 0;
+  margin-top: 20px;
   gap: 20px;
   font-size: 14px;
   font-weight: 400;
@@ -362,12 +425,13 @@
 }
 
 .nav-item {
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: 400;
 }
 
 .welcome-message {
   color: #db4444;
-  font-family: Poppins, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   line-height: 21px;
   margin: auto 0;
 }
