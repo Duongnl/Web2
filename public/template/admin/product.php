@@ -167,12 +167,7 @@ if (isset($_SESSION["back-from-controller"])) {
       dataType: "json"
     }).done(function (result) {
 
-
-
-      console.log(result)
-
-     
-      loadProduct(0, result)
+      loadProduct( result)
       // renderPagination(0, result);
 
     })
@@ -180,7 +175,7 @@ if (isset($_SESSION["back-from-controller"])) {
 
   fetch_product_data();
 
-  function loadProduct(page, result) {
+  function  loadProduct( result) {
     var html = "";
     var rootDirectory = "<?php echo $rootDirectory ?>"
     var url = "<?php echo $url ?>"
