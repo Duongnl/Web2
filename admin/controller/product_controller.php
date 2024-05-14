@@ -7,13 +7,15 @@ $url = handle_url::getURLAdmin($request);
 
 // $limit = 8;
 // $pageSize = ceil(mysqli_num_rows($list) / $limit);
+
+
 if (isset($_POST["method"])) {
   $method = $_POST['method'];
   $product_model = new product_model();
 
   switch ($method) {
     case 'GET':
-        getData($product_model);
+      getData($product_model);
       break;
     case 'POST':
       addProduct($rootPath, $product_model, $url);

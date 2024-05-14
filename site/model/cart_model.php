@@ -148,4 +148,17 @@ class cart_model
         }
         return false;
     }
+
+    // add to card
+    public function addToCart($MaTK,$MaSP,$MaSize,$soLuong){
+        $conn = $this->db_config->connect();
+        $sql = "INSERT INTO giohang (MaTK, MaSP, MaSize, SoLuong) 
+            VALUES (?, ?, ?, ?) ";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("iisi", $MaTK, $MaSP, $MaSize, $soLuong);
+    
+        return $stmt->execute();
+        
+    
+    }
 }

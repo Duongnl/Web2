@@ -15,11 +15,6 @@ class product_model
     return $this->db_config->execute($sql);
   }
 
-  function getProductsBestSale() {
-    $this->db_config->connect();
-    $sql = "SELECT * FROM sanpham WHERE TrangThai = 1";
-
-  }
 
   function getProductsHomePage(){
     $this->db_config->connect();
@@ -54,6 +49,32 @@ class product_model
     }
   }
 
+  function getPhanTramKhuyenMai($maKhuyenMai) {
+    $this->db_config->connect();
+    $sql = "SELECT * from khuyenmai WHERE MaKM = '$maKhuyenMai' AND TrangThai = 1";
+    $rs = $this->db_config->execute($sql);
+    if ($rs) {
+      $row = mysqli_fetch_array($rs);
+      return $row["PhanTramKM"];
+    }
+  }
+
+  function getSanPhamKhac($id) {
+    $this->db_config->connect();
+    $sql = "SELECT * FROM sanpham WHERE TrangThai = 1 AND MaSP != '$id' LIMIT 4";
+    return $this->db_config->execute($sql);
+  }
+
+  function getSLSP($maSP, $maSize) {
+    $this->db_config->connect();
+    $sql = "SELECT SoLuong FROM size WHERE MaSP = '$maSP' AND MaSize = '$maSize'";
+      $rs = $this->db_config->execute($sql);
+    if ($rs != null) {
+      $row = mysqli_fetch_array($rs);
+      return $row["SoLuong"];
+    }
+    return "";
+  }
   function getCategory($maDM)
   {
     $this->db_config->connect();

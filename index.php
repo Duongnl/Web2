@@ -45,7 +45,7 @@ switch ($baseName) {
   case 'account_controller':
     require __DIR__ . $userController . 'account_controller.php';
     break;
-  case 'site/controller/card_controller':
+  case 'cart_controller':
     require __DIR__ . $userController . 'cart_controller.php';
     break;
   case 'account_model':

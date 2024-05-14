@@ -1,6 +1,10 @@
 <?php
 $category_model = new category_model();
 $product_model = new product_model();
+
+function tinhGiaGiam($Giaban,$khuyenMai) {
+    return $Giaban*(1 - $khuyenMai/100);
+}
 ?>
 <div class="container">
   <div class="banner">
@@ -86,19 +90,23 @@ $product_model = new product_model();
       $listProduct = $product_model->getProductsHomePage();
       while ($row = mysqli_fetch_array($listProduct)) {
         ?>
+        <?php 
+          $ptKM = $row["MaKM"] != null ? $product_model->getPhanTramKhuyenMai($row["MaKM"]) : "";
+          $giaMoi = $row["MaKM"] != null ?  tinhGiaGiam($row["GiaBan"],$ptKM) : "";
+        ?>
           <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
         <div class="product">
           <a href="<?php echo $rootDirectory."/product-detail?id=".$row["MaSP"] ?>" class="wrap-img">
             <img class="img-product" src="<?php echo $rootDirectory.$product_model->getURLAnhChinh($row["MaAnhChinh"])?>">
-            <div class="deal" style="<?php echo $row["MaKM"]!=null ? "display:block" : "display:none" ?>"></div>
+            <div class="deal" style="<?php echo $row["MaKM"]!=null ? "display:block" : "display:none" ?>"><?php echo $ptKM."%" ?></div>
           </a>
           <div class="product-info">
             <div class="product-body">
               <a href="<?php echo $rootDirectory."/product-detail?id=".$row["MaSP"] ?>" class="product-title"><?php echo $row["TenSP"]?></a>
               <div class="prices">
-                <div class="new-price"><?php echo $row["MaKM"] ? "": number_format($row["GiaBan"])."đ" ?></div>
+                <div class="new-price"><?php echo $row["MaKM"] ? number_format($giaMoi)."đ": number_format($row["GiaBan"])."đ" ?></div>
                 <div class="old-price"><?php echo $row["MaKM"] ? number_format($row["GiaBan"])."đ": ""?></div>
-              </div>
+              </div>  
             </div>
           </div>
         </div>

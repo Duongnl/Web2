@@ -1,5 +1,4 @@
 <?php
-$product_model = new product_model();
 if (isset($_GET["id"])) {
   $id = $_GET["id"];
   $product = mysqli_fetch_array($product_model->getSP($id));
@@ -21,8 +20,14 @@ if (isset($_GET["id"])) {
   $anhPhu1 = mysqli_fetch_array($listAnhPhu);
   $anhPhu2 = mysqli_fetch_array($listAnhPhu);
   $anhPhu3 = mysqli_fetch_array($listAnhPhu);
+
+  function tinhGiaGiam($Giaban, $khuyenMai)
+  {
+    return $Giaban * (1 - $khuyenMai / 100);
+  }
 }
 ?>
+
 <div class="chiTietMonHang_main container">
   <div class="row chiTietMonHang_SanPham">
     <div class="row col-sm-12 col-md-8 chiTietMonHang_SanPham_left mb-sm-4">
@@ -56,8 +61,9 @@ if (isset($_GET["id"])) {
     <div class="chiTietMonHang_thongTin col-sm-12  col-md-4">
       <h1 class="chiTietMonHang_title pb" id="productName"><?php echo $product["TenSP"] ?></h1>
       <div class="chiTietMonHang_AnhChinh_price">
-        <span
-          class="new-price"><?php echo $product["MaKM"] != null ? "" : number_format($product["GiaBan"]) . "đ" ?></span>
+        <span class="new-price"><?php echo $product["MaKM"] != null ?
+          number_format(tinhGiaGiam($product["GiaBan"], $product_model->getPhanTramKhuyenMai($product["MaKM"]))) . "đ"
+          : number_format($product["GiaBan"]) . "đ" ?></span>
         <span
           class="old-price"><?php echo $product["MaKM"] != null ? number_format($product["GiaBan"]) . "đ" : "" ?></span>
       </div>
@@ -68,30 +74,40 @@ if (isset($_GET["id"])) {
       <div class="huongDanChonSize">
         <a href="">*Xem hướng dẫn chọn size</a>
       </div>
-      <form action="<?php echo $rootDirectory . "/site/controller/card_controller" ?>" method="POST">
+      <form action="<?php echo $rootDirectory . "/cart_controller" ?>" method="POST">
         <input type="text" hidden name="id" value="<?php echo $id ?>">
         <div class="chiTietMonHang_Size chonSize row">
           <div class="col-3 tag_size">Size:</div>
           <div class="col-9 d-flex gap-1 flex-wrap">
             <?php
             $flag = true;
+            $maSize = "";
             foreach ($listconvert as $key => $value) {
               ?>
-              <?php $check = $value["SoLuong"] == 0 ? "disabled" : ($flag ? "checked" . $flag = false : "") ?>
-              <label for="size"
-                class="label_Size <?php echo $check?> ">
-                <input type="radio" id="<?php echo $value["MaSize"] ?>"  <?php echo $check?> name="MaSize" value="<?php echo $value["MaSize"] ?>" hidden >
+              <?php
+              if($value["SoLuong"] != 0 && $flag) {
+                $maSize = $value["MaSize"];
+              }
+              $check = $value["SoLuong"] == 0 ? "disabled" : ($flag ? "checked" . $flag = false : "");
+              ?>
+              <label for="size" class="label_Size <?php echo $check ?> ">
+                <input type="radio" id="<?php echo $value["MaSize"] ?>" <?php echo $check ?> name="MaSize"
+                  value="<?php echo $value["MaSize"] ?>" hidden>
                 <?php echo $value["MaSize"] ?></label>
             <?php } ?>
           </div>
         </div>
+
         <div class="chiTietMonHang_soLuong row mt-3 justify-content-center">
           <div class="size-label col-xxl-3 col-3">Số lượng:</div>
 
           <div class="chiTietMonHang_thongTin_BUY_SoLuong col-xxl-9 col-9">
             <button type="button" id="decrease" class="btn_giamSoLuong">-</button>
-            <input type="number" id="chiTietMonHang_thongTin_BUY_SoLuong" class="chiTietMonHang_thongTin_BUY_SoLuong"
-              value="<?php echo $product["SoLuong"] == 0 ? "0" : "1" ?>" min="<?php echo $product["SoLuong"] == 0 ? "0" : "1" ?>" max=""  name="SoLuong">
+            <div class="change-size">
+              <input type="number" id="chiTietMonHang_thongTin_BUY_SoLuong" class="chiTietMonHang_thongTin_BUY_SoLuong"
+                value="<?php echo $product["SoLuong"] == 0 ? "0" : "1" ?>" min="<?php echo $product["SoLuong"] == 0 ? "0" : "1" ?>" max="<?php echo $product_model->getSLSP($product["MaSP"],$maSize)?>" readonly name="SoLuong">
+            </div>
+
             <button type="button" id="increase" class="btn_tangSoLuong">+</button>
           </div>
       </form>
@@ -136,80 +152,48 @@ if (isset($_GET["id"])) {
     </div>
   </div>
   <div class="bottom row">
-    <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-      <div class="product">
-        <a href="/Web2/product-detail?id=16" class="wrap-img">
-          <img class="img-product" src="/Web2/upload/products/MSO020S4-2-E03 -quan-short-1.jpeg">
-          <div class="deal" style="display:none"></div>
-        </a>
-        <div class="product-info">
-          <div class="product-body">
-            <a href="/Web2/product-detail?id=16" class="product-title">Quần short đũi nam MSO020S4</a>
-            <div class="prices">
-              <div class="new-price">550,000đ</div>
-              <div class="old-price"></div>
+    <?php
+    $listProduct = $product_model->getSanPhamKhac($product["MaSP"]);
+    while ($row = mysqli_fetch_array($listProduct)) {
+      ?>
+      <?php
+      $ptKM = $row["MaKM"] != null ? $product_model->getPhanTramKhuyenMai($row["MaKM"]) : "";
+      $giaMoi = $row["MaKM"] != null ? tinhGiaGiam($row["GiaBan"], $ptKM) : "";
+      ?>
+      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+        <div class="product">
+          <a href="<?php echo $rootDirectory . "/product-detail?id=" . $row["MaSP"] ?>" class="wrap-img">
+            <img class="img-product" src="<?php echo $rootDirectory . $product_model->getURLAnhChinh($row["MaAnhChinh"]) ?>">
+            <div class="deal" style="<?php echo $row["MaKM"] != null ? "display:block" : "display:none" ?>">
+              <?php echo $ptKM . "%" ?></div>
+          </a>
+          <div class="product-info">
+            <div class="product-body">
+              <a href="<?php echo $rootDirectory . "/product-detail?id=" . $row["MaSP"] ?>"
+                class="product-title"><?php echo $row["TenSP"] ?></a>
+              <div class="prices">
+                <div class="new-price">
+                  <?php echo $row["MaKM"] ? number_format($giaMoi) . "đ" : number_format($row["GiaBan"]) . "đ" ?></div>
+                <div class="old-price"><?php echo $row["MaKM"] ? number_format($row["GiaBan"]) . "đ" : "" ?></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-      <div class="product">
-        <a href="/Web2/product-detail?id=17" class="wrap-img">
-          <img class="img-product" src="/Web2/upload/products/mpu002s4-2-b03-ao-polo-1jpg_1715245223.jpg">
-          <div class="deal" style="display:none"></div>
-        </a>
-        <div class="product-info">
-          <div class="product-body">
-            <a href="/Web2/product-detail?id=17" class="product-title">Áo polo nam cao cấp MPU002S4</a>
-            <div class="prices">
-              <div class="new-price">399,000đ</div>
-              <div class="old-price"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-      <div class="product">
-        <a href="/Web2/product-detail?id=13" class="wrap-img">
-          <img class="img-product" src="/Web2/upload/products/img.png">
-          <div class="deal" style="display:none"></div>
-        </a>
-        <div class="product-info">
-          <div class="product-body">
-            <a href="/Web2/product-detail?id=13" class="product-title">The black T-shirt</a>
-            <div class="prices">
-              <div class="new-price">4,000,000đ</div>
-              <div class="old-price"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-      <div class="product">
-        <a href="/Web2/product-detail?id=14" class="wrap-img">
-          <img class="img-product" src="/Web2/upload/products/arsenal1.jpg">
-          <div class="deal" style="display:none"></div>
-        </a>
-        <div class="product-info">
-          <div class="product-body">
-            <a href="/Web2/product-detail?id=14" class="product-title">Arsenal premium</a>
-            <div class="prices">
-              <div class="new-price">99,000đ</div>
-              <div class="old-price"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php } ?>
+
   </div>
 
 </div>
 
 
 </div>
+
+<?php 
+if(isset($_SESSION['add'])) {
+  echo '<script>alert("Sản phẩm đã có trong giỏ hàng")</script>';
+}
+?>
 </div>
 
 <script>
@@ -218,16 +202,6 @@ if (isset($_GET["id"])) {
 
 
   document.querySelectorAll('.label_Size').forEach(function (element) {
-    // if (element.disabled) {
-    //   console.log(document.querySelector(`#${element.id}+label`))
-    //   var labelDisabled = document.querySelector(`#${element.id}+label`);
-    //   labelDisabled.classList.remove("checked")
-    //   labelDisabled.classList.add('disabled')
-    // } else {
-    //   var label = document.querySelector(`#${element.id}+label`);
-
-
-    // }
     element.addEventListener('click', function (event) {
       var element = event.target;
       console.log(element.classList.length)
@@ -235,15 +209,32 @@ if (isset($_GET["id"])) {
         document.querySelector('.label_Size.checked').classList.remove('checked')
         element.classList.add('checked')
         document.querySelector('.label_Size.checked input[type="radio"]').checked = true
+        var maSize = document.querySelector('.label_Size.checked input[type="radio"]').value
+        console.log(maSize)
+        $.ajax({
+          type: "POST",
+          url: '',
+          data: {
+             maSize
+          }
+        }).done(function (result) {
+          $('.change-size').html(result)
+        })
       }
     })
   })
 
   function validate() {
     var SoLuong = <?php echo $product["SoLuong"] ?>;
-    if(SoLuong==0) {
-      alert('Sản phẩm hết hàng!')
+    var dangnhap = "<?php echo isset($_SESSION['MaTK']) ? $_SESSION['MaTK'] : "" ?>";
+    if(dangnhap ==""){
+      alert("Bạn cần đăng nhập");
       return false;
+    }else{
+      if (SoLuong == 0) {
+        alert('Sản phẩm hết hàng!')
+        return false;
+      }
     }
     return true;
   }

@@ -1,3 +1,18 @@
+<?php require_once('./admin/model/db_config.php');
+  require_once('./site/model/product-detail_model.php');?>
+  <?php require_once('./admin/model/db_config.php');
+  require_once('./admin/model/category_model.php');
+  require_once('./admin/model/product_model.php');
+  ?>
+<?php 
+   $product_model = new product_model();
+   if(isset($_POST['maSize']) && isset($_GET["id"])){
+    $sl = $product_model->getSLSP($_GET["id"],$_POST['maSize']);
+    echo '
+    <input type="number" id="chiTietMonHang_thongTin_BUY_SoLuong" class="chiTietMonHang_thongTin_BUY_SoLuong"
+      value="1" min="1" max="'.$sl.'" name="SoLuong">';
+    exit;
+}?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,12 +44,7 @@
 </head>
 
 <body>
-  <?php require_once('./admin/model/db_config.php');
-  require_once('./site/model/product-detail_model.php');?>
-  <?php require_once('./admin/model/db_config.php');
-  require_once('./admin/model/category_model.php');
-  require_once('./admin/model/product_model.php');
-  ?>
+ 
   <?php require('./public/template/site/head.php'); ?>
   <?php require('./public/template/site/product-detail.php'); ?>
   <?php require('./public/template/site/footer.php'); ?>

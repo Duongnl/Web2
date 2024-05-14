@@ -21,7 +21,7 @@
         <ul style="padding-left: 0px;">
         
         <li>
-                <a href="<?php echo $url.'/statistic';?>">
+                <a href="<?php echo $toAdmin.'/statistic';?>">
                 <i class="fa-solid fa-chart-simple icon"  ></i>
                     <span class="nav-item">Thống Kê</span>
 
@@ -29,7 +29,7 @@
                 <span class="tooltip">Thống Kê</span>
             </li>
             <li>
-                <a href="<?php echo $url.'/product';?>">
+                <a href="<?php echo $toAdmin.'/product';?>">
                     <i class='bx bxl-product-hunt icon'></i>
                     <span class="nav-item">Sản Phẩm</span>
 
@@ -37,7 +37,7 @@
                 <span class="tooltip">Sản Phẩm</span>
             </li>
             <li>
-                <a href="<?php echo $url.'/category';?>">
+                <a href="<?php echo $toAdmin.'/category';?>">
                     <i class="fa-solid fa-list"></i>
                     <span class="nav-item">Danh Mục</span>
 
@@ -46,7 +46,7 @@
             </li>
 
             <li>
-                <a href="<?php echo $url.'/discount';?>">
+                <a href="<?php echo $toAdmin.'/discount';?>">
                 <i class="fa-solid fa-percent icon"></i>
                     <span class="nav-item">Khuyến Mãi</span>
 
@@ -55,7 +55,7 @@
             </li>
 
             <li>
-                <a href="<?php echo $url.'/supplier'?>">
+                <a href="<?php echo $toAdmin.'/supplier'?>">
                 <i class="fa-solid fa-boxes-packing icon"></i>
                     <span class="nav-item">Nhà Cung Cấp</span>
 
@@ -64,7 +64,7 @@
             </li>
 
             <li>
-                <a href="<?php echo $url.'/staff'?>">
+                <a href="<?php echo $toAdmin.'/staff'?>">
                 <i class="fa-solid fa-user icon"></i>
                     <span class="nav-item">Nhân Viên</span>
 
@@ -73,7 +73,7 @@
             </li>
 
             <li>
-                <a href="<?php echo $url.'/guest'?>">
+                <a href="<?php echo $toAdmin.'/guest'?>">
                 <i class="fa-solid fa-circle-user icon"></i>
                     <span class="nav-item">Khách Hàng</span>
 
@@ -81,7 +81,7 @@
                 <span class="tooltip">Khách Hàng</span>
             </li>
             <li>
-                <a href="<?php echo $url.'/permission'?>">
+                <a href="<?php echo $toAdmin.'/permission'?>">
                 <i class="fa-solid fa-users icon"></i>
                     <span class="nav-item">Quyền</span>
 
@@ -89,7 +89,7 @@
                 <span class="tooltip">Quyền</span>
             </li>
             <li>
-                <a href="<?php echo $url.'/order'?>">
+                <a href="<?php echo $toAdmin.'/order'?>">
                 <i class="fa-solid fa-receipt icon"></i>
                     <span class="nav-item">Đơn Hàng</span>
 
@@ -97,7 +97,7 @@
                 <span class="tooltip">Đơn Hàng</span>
             </li>
             <li>
-                <a href="<?php echo $url.'/import'?>">
+                <a href="<?php echo $toAdmin.'/import'?>">
                 <i class="fa-solid fa-file-import icon"></i>
                     <span class="nav-item">Nhập Hàng</span>
 

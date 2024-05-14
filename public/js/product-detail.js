@@ -1,4 +1,3 @@
-
 document.getElementById('increase').addEventListener('click', function () {
   var soLuong = parseInt(document.getElementById('chiTietMonHang_thongTin_BUY_SoLuong').value, 10);
   soLuong++;
@@ -16,7 +15,6 @@ document.getElementById('decrease').addEventListener('click', function () {
   }
 });
 
-
 document.querySelectorAll('.img_cacAnh').forEach(function (element) {
 
   if (element.src.value != "") {
@@ -26,9 +24,4 @@ document.querySelectorAll('.img_cacAnh').forEach(function (element) {
     })
   }
 })
-
-
-
-
-
 

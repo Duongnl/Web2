@@ -126,6 +126,9 @@
 }
 
 /* chiTietMonHang_thongTin_BUY_SoLuong */
+.chiTietMonHang_thongTin_BUY_SoLuong {
+  display: flex;
+}
 
 .chiTietMonHang_thongTin_BUY_SoLuong input {
   width: 40px;
