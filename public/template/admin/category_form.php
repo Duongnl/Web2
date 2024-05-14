@@ -21,10 +21,11 @@ $url =  handle_url::getURLAdmin($request);
     }
 
     #memo {
-        display: none;
         color: #DB4444;
         font-size: 13px;
         margin-left: 46px;
+        border: 0;
+        width: 300px;
     }
 
     #overlay {
@@ -48,13 +49,13 @@ $url =  handle_url::getURLAdmin($request);
         <input type="text" id="input-text-head" value="" style="text-align: center;margin:0 auto;display:block; border:none; font-size :25px;" disabled>
         <div class="input-group flex-nowrap" style="margin-top: 20px;">
             <span class="input-group-text" id="addon-wrapping" style=" padding-right: 14px; padding-left: 14px;"><b>ID </b></span>
-            <input id="category_id" name="category_id" type="text" class="form-control" placeholder="category ID" aria-label="Username" aria-describedby="addon-wrapping" readonly>
+            <input id="category_id" name="category_id" type="text" class="form-control" placeholder="Mã Danh Mục" aria-label="Username" aria-describedby="addon-wrapping" readonly>
         </div>
         <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-list"></i></span>
-            <input id="category_name" name="category_name" type="text" class="form-control" placeholder="Category name" aria-label="Username" aria-describedby="addon-wrapping">
+            <input id="category_name" name="category_name" type="text" class="form-control" placeholder="Tên Danh Mục" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
-        <b id="memo"> Category name is empty !</b>
+        <input type="text" value="" id="memo" disabled  >
 
         <input id="btn-category-form" type="submit" class="btn btn-success" style=" margin:0 auto;display:block; margin-top: 20px; " onclick="return inspect()" value="" ></input>
     </div>
@@ -92,7 +93,7 @@ toast::memo("Success", "back_from_category_controller", "limegreen");
 
     function exit_category() {
         document.getElementById("category_form").style.display = "none";
-        document.getElementById("memo").style.display = "none";
+        document.getElementById("memo").value = "";
         document.getElementById("overlay").style.display = "none";
     }
 
@@ -103,11 +104,14 @@ toast::memo("Success", "back_from_category_controller", "limegreen");
     }
 
 
-
     function inspect() {
+        var pattern =  /^[\p{L} ]*$/u;
         var category_name = document.getElementById("category_name").value.trim();
         if (category_name == "") {
-            document.getElementById("memo").style.display = "block";
+            document.getElementById("memo").value = "Không được để trống !";
+            return false;
+        } else if (pattern.test(category_name) != true) {
+            document.getElementById("memo").value = "Tên Danh Mục không chứa số và kí tự đặc biệt";
             return false;
         } else {
             return true;

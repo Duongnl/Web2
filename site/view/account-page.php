@@ -24,9 +24,12 @@
 </head>
 
 <body>
-  <?php require('./public/template/site/head.php'); ?>
-  <?php require('./public/template/site/account.php'); ?>
-  <?php require('./public/template/site/footer.php'); ?>
+<?php
+  require_once('./admin/model/db_config.php');
+  require_once('./site/model/account_model.php');
+  require('./public/template/site/head.php'); 
+  require('./public/template/site/account.php'); 
+  require('./public/template/site/footer.php'); ?>
 </body>
 
 </html>

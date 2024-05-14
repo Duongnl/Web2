@@ -24,9 +24,11 @@
         </div>
       </div>
       <!-- thông tin -->
+      
       <div class="chiTietMonHang_thongTin col-sm-12  col-md-4">
+        <form action="">
         <h1 class="chiTietMonHang_title pb" id="productName">Havic HV G-92 Gamepad</h1>
-        <div class="chiTietMonHang_AnhChinh_price">$<span id="productPrice">192.00</span></div>
+        <div class="chiTietMonHang_AnhChinh_price">$<span id="productPrice">192</span></div>
         <p class="product-description">
           ubble free install &amp; mess free removal Pressure sensitive.
         </p>
@@ -36,21 +38,21 @@
         </div>
         <div class="chiTietMonHang_Size chonSize row">
           <div class="col-3 tag_size">Size:</div>
-          <form class="col-9">
+          <div class="col-9">
             <input type="radio" id="sizeM" name="size" value="sizeM" class="size" checked>
             <label for="sizeM" class="label_Size sizeM">M</label>
             <input type="radio" id="sizeL" name="size" value="sizeL" class="size">
             <label for="sizeL" class="label_Size sizeL">L</label>
             <input type="radio" id="sizeS" name="size" value="sizeS" class="size">
             <label for="sizeS" class="label_Size sizeS">S</label>
-          </form>
+          </div>
         </div>
         <div class="chiTietMonHang_soLuong row mt-3 justify-content-center">
           <div class="size-label col-xxl-3 col-3">Số lượng:</div>
 
           <div class="chiTietMonHang_thongTin_BUY_SoLuong col-xxl-9 col-9">
             <button id="decrease" class="btn_giamSoLuong">-</button>
-            <input type="text" id="chiTietMonHang_thongTin_BUY_SoLuong" class="chiTietMonHang_thongTin_BUY_SoLuong"
+            <input type="text" id="Soluong" name = "Soluong" class="chiTietMonHang_thongTin_BUY_SoLuong"
               value="1" readonly>
             <button id="increase" class="btn_tangSoLuong">+</button>
           </div>
@@ -58,6 +60,8 @@
             <button class="btn_ThemVaoGioHang" id="addToCartBtn">Thêm vào giỏ hàng</button>
           </div>
         </div>
+        </form>
+        <!-- --- -->
         <div class="delivery-info">
           <div class="free-delivery">
             <img
@@ -83,6 +87,7 @@
             </div>
           </div>
         </div>
+       
       </div>
     </div>
     <!-- sản phẩm liên quan -->
@@ -93,7 +98,6 @@
           </p>
           <p class="col-10 sanPhamLienQuan_top_text">CAC SAN PHAM</p>
         </div>
-
         <div class="row sanPhamLienQuan_bottom">
           <div class="col-6  col-md-3 col-xxl-3 product">
             <a href="" class="wrap-img">

@@ -10,7 +10,7 @@ class supplier_model {
      function getSupplierData () {
        
         $this->db_config->connect();
-        $sql = "SELECT * FROM nhacungcap";
+        $sql = "SELECT * FROM nhacungcap WHERE TrangThai =1";
         return $this->db_config->execute($sql);
     }
     
@@ -29,9 +29,9 @@ class supplier_model {
     }
 
     // xoa du lieu 
-    function DeleteSupplierData ($maNCC) {
+    function DeleteSupplierData ($maNCC, $trangThai) {
         $this->db_config->connect();
-        $sql = "DELETE FROM nhacungcap WHERE MaNCC = '$maNCC'";
+        $sql = "UPDATE nhacungcap SET TrangThai = '$trangThai' WHERE MaNCC = '$maNCC' ";
         return  $this->db_config->execute($sql);
     }
 

@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,10 +22,12 @@
   <link rel="stylesheet" href="./public/css/login.css">
   <link rel="stylesheet" href="./public/css/footer.css">
   <link rel="stylesheet" type="text/css" href="./system/library/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="./system/library/bootstrap.bundle.min.js" ></script>
 </head>
 
 <body>
+ 
   <?php require('./public/template/site/head.php'); ?>
   <?php require('./public/template/site/login-register.php'); ?>
   <?php require('./public/template/site/footer.php'); ?>

@@ -50,11 +50,11 @@ $url =  handle_url::getURLAdmin($request);
         <input type="text" id="input-text-head" value="" style="text-align: center;margin:0 auto;display:block; border:none; font-size :25px;" disabled>
         <div class="input-group flex-nowrap" style="margin-top: 20px;">
             <span class="input-group-text" id="addon-wrapping" style=" padding-right: 14px; padding-left: 14px;"><b>ID </b></span>
-            <input id="supplier_id" name="supplier_id" type="text" class="form-control" placeholder="Supplier ID" aria-label="Username" aria-describedby="addon-wrapping" readonly>
+            <input id="supplier_id" name="supplier_id" type="text" class="form-control" placeholder="Mã Nhà Cung Cấp" aria-label="Username" aria-describedby="addon-wrapping" readonly>
         </div>
         <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-boxes-packing"></i></span>
-            <input id="supplier_name" name="supplier_name" type="text" class="form-control" placeholder="Supplier name" aria-label="Username" aria-describedby="addon-wrapping">
+            <input id="supplier_name" name="supplier_name" type="text" class="form-control" placeholder="Tên Nhà Cung Cấp" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
         <input type="text" value="" id="memo" disabled  >
 
@@ -110,10 +110,10 @@ toast::memo("Success", "back_from_controller", "limegreen");
         var pattern = /^[a-zA-Z0-9\s]*$/;
         var supplier_name = document.getElementById("supplier_name").value.trim();
         if (supplier_name == "") {
-            document.getElementById("memo").value = "Supplier name is empty !";
+            document.getElementById("memo").value = "Không được để trống !";
             return false;
         } else if (pattern.test(supplier_name) != true) {
-            document.getElementById("memo").value = "Doesn't contain special characters !";
+            document.getElementById("memo").value = "Yêu cầu nhập tên hợp lệ !";
             return false;
         } else {
             return true;
