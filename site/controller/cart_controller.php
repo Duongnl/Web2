@@ -63,13 +63,13 @@ if (isset($_POST['thanhtoan']) && $_POST['thanhtoan'] == 'thanhtoan_tongtien') {
     $thanhTien = $_POST['GiaBanKM'];
 
     $cart_model = new cart_model();
-    // Gọi hàm insertToHoadon từ cart_model
+// Gọi hàm insertToHoadon từ cart_model
     $cart_model->insertToHoadon($maTK, $thanhTien);
-    $cart_model->addToCTHoaDon($maTK);
-    $cart_model->deleteAll($maTK);
+     $cart_model->addToCTHoaDon($maTK);
+     $cart_model->deleteAll($maTK);
 }
 
 
 $_SESSION['back_from_controller'] = true;
-header("Location: $url/card");
+ header("Location: $url/card");
 exit;
