@@ -26,3 +26,7 @@ if (isset($_POST['action']) && isset($_POST['supplier_id']) && isset($_POST['sup
     header("Location: $url/supplier");
     exit; // Dừng thực thi PHP sau khi chuyển hướng
 }
+
+
+
+
