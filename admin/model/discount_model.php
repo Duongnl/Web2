@@ -28,9 +28,9 @@ class discount_model {
     }    
 
     // xoa du lieu 
-    function DeletediscountData ($maKM) {
+    function DeletediscountData ($maKM, $trangThai) {
         $this->db_config->connect();
-        $sql = "DELETE FROM khuyenmai WHERE MaKM = '$maKM'";
+        $sql = "UPDATE khuyenmai SET TrangThai = '$trangThai' WHERE MaKM = '$maKM'";
         return  $this->db_config->execute($sql);
     }
 

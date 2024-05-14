@@ -61,6 +61,7 @@ Xuất Phiếu</button>
                 <div class="col-6 main_left">
                     <p>Mã Đơn Hàng:  <?php echo  $maHD ?></p>
                     <p>Thời Gian: <?php echo  $row['ThoiGianHD'] ?>  </p>
+                    <p>Tổng Thanh Toán: <?php echo  $row['ThanhToan'] ?></p>
                 </div>
                 <div class="col-6">
                     <p>Tên Tài Khoản: <?php echo  $row['TenTK'] ?></p>

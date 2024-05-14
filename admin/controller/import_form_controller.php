@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require_once('../model/import_model.php');
 require_once('../model/db_config.php');
 
@@ -21,7 +21,7 @@ if (isset ($_POST["listCTPN"]) && isset ($_POST["total_import"]) && isset ($_POS
     
     $import_model = new import_model();
     
-    $maTK = 1;
+    $maTK = $_SESSION['MaTK'];
     $thoiGian = date("Y-m-d"); 
     $thanhToan =  $_POST["total_import"];
     $maNCC = $_POST["maNCC"];

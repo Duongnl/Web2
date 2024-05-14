@@ -30,6 +30,8 @@
 
 <body>
   <?php require_once('./admin/model/db_config.php');
+  require_once('./site/model/product-detail_model.php');?>
+  <?php require_once('./admin/model/db_config.php');
   require_once('./admin/model/category_model.php');
   require_once('./admin/model/product_model.php');
   ?>

@@ -18,7 +18,7 @@ if (isset($_POST['action']) && isset($_POST['supplier_id']) && isset($_POST['sup
     } else if ($action == 'edit') {
         $supplier_model->UpdateSupplierData($supplier_id, trim($supplier_name));
     } else if ($action == 'delete') {
-        $supplier_model->DeleteSupplierData($supplier_id);
+        $supplier_model->DeleteSupplierData($supplier_id,0);
     }
 
 

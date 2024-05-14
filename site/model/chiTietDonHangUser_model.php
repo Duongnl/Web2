@@ -14,7 +14,7 @@ class chiTietDonHangUser_model {
     }
     function getChiTietDonHang_TaiKhoan ($maHD) {
         $this->db_config->connect();
-        $sql = "SELECT *,hoadon.ThoiGian as ThoiGianHD FROM taikhoan, khachhang,hoadon WHERE hoadon.MaTK = taikhoan.MaTK AND hoadon.MaTK = khachhang.MaTK AND hoadon.MaHD =".$maHD;
+        $sql = "SELECT *,hoadon.ThoiGian as ThoiGianHD,hoadon.ThanhToan as ThanhToan FROM taikhoan, khachhang,hoadon WHERE hoadon.MaTK = taikhoan.MaTK AND hoadon.MaTK = khachhang.MaTK AND hoadon.MaHD =".$maHD;
         return $this->db_config->execute($sql);
     }
     

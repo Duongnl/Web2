@@ -1,4 +1,4 @@
-<style>
+<style> 
     #staff_manager_form {
         background-color: whitesmoke;
         border: 1px solid gray;

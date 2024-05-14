@@ -1,119 +1,119 @@
 <?php 
 ?>
-<div class="sidebar">
-  <div class="top">
-    <div class="logo">
-      <i class='bx bxs-bug'></i>
-      <span>Shop manager</span>
+    <div class="sidebar">
+        <div class="top">
+            <div class="logo">
+                <i class='bx bxs-bug'></i>
+                    <span>DIVINE</span>
 
       </i>
     </div>
     <i class="bx bx-menu" id="btn"></i>
 
-  </div>
-  <div class="user">
-    <img src=<?php echo $rootDirectory."/public/images/logo.png"?> class="user-img">
-    <div>
-      <p class="bold"> Nguyễn Văn A</p>
-      <p>Admin</p>
-    </div>
-  </div>
-  <ul style="padding-left: 0px;">
+        </div>
+        <div class="user">
+            <img src="../public/images/logo.png" class="user-img">
+            <div>
+                <p class="bold"> Nguyễn Văn A</p>
+                <p>Admin</p>
+            </div>
+        </div>
+        <ul style="padding-left: 0px;">
+        
+        <li>
+                <a href="<?php echo $url.'/statistic';?>">
+                <i class="fa-solid fa-chart-simple icon"  ></i>
+                    <span class="nav-item">Thống Kê</span>
 
-    <li>
-      <a href="<?php echo $toAdmin.'/statistic';?>">
-        <i class="fa-solid fa-chart-simple icon"></i>
-        <span class="nav-item">Statistic</span>
+                </a>
+                <span class="tooltip">Thống Kê</span>
+            </li>
+            <li>
+                <a href="<?php echo $url.'/product';?>">
+                    <i class='bx bxl-product-hunt icon'></i>
+                    <span class="nav-item">Sản Phẩm</span>
 
-      </a>
-      <span class="tooltip">Statistic</span>
-    </li>
-    <li>
-      <a href="<?php echo $toAdmin.'/product';?>">
-        <i class='bx bxl-product-hunt icon'></i>
-        <span class="nav-item">Product</span>
+                </a>
+                <span class="tooltip">Sản Phẩm</span>
+            </li>
+            <li>
+                <a href="<?php echo $url.'/category';?>">
+                    <i class="fa-solid fa-list"></i>
+                    <span class="nav-item">Danh Mục</span>
 
-      </a>
-      <span class="tooltip">Product</span>
-    </li>
-    <li>
-      <a href="<?php echo $toAdmin.'/category';?>">
-        <i class="fa-solid fa-list"></i>
-        <span class="nav-item">Category</span>
+                </a>
+                <span class="tooltip">Danh Mục</span>
+            </li>
 
-      </a>
-      <span class="tooltip">Category</span>
-    </li>
+            <li>
+                <a href="<?php echo $url.'/discount';?>">
+                <i class="fa-solid fa-percent icon"></i>
+                    <span class="nav-item">Khuyến Mãi</span>
 
-    <li>
-      <a href="<?php echo $toAdmin.'/discount';?>">
-        <i class="fa-solid fa-percent icon"></i>
-        <span class="nav-item">Discount</span>
+                </a>
+                <span class="tooltip">Khuyến Mãi</span>
+            </li>
 
-      </a>
-      <span class="tooltip">Discount</span>
-    </li>
+            <li>
+                <a href="<?php echo $url.'/supplier'?>">
+                <i class="fa-solid fa-boxes-packing icon"></i>
+                    <span class="nav-item">Nhà Cung Cấp</span>
 
-    <li>
-      <a href="<?php echo $toAdmin.'/supplier'?>">
-        <i class="fa-solid fa-boxes-packing icon"></i>
-        <span class="nav-item">Supplier</span>
+                </a>
+                <span class="tooltip">Nhà Cung Cấp</span>
+            </li>
 
-      </a>
-      <span class="tooltip">Supplier</span>
-    </li>
+            <li>
+                <a href="<?php echo $url.'/staff'?>">
+                <i class="fa-solid fa-user icon"></i>
+                    <span class="nav-item">Nhân Viên</span>
 
-    <li>
-      <a href="<?php echo $toAdmin.'/staff'?>">
-        <i class="fa-solid fa-user icon"></i>
-        <span class="nav-item">Staff</span>
-
-      </a>
-      <span class="tooltip">Staff</span>
-    </li>
+                </a>
+                <span class="tooltip">Nhân Viên</span>
+            </li>
 
             <li>
                 <a href="<?php echo $url.'/guest'?>">
                 <i class="fa-solid fa-circle-user icon"></i>
-                    <span class="nav-item">Guest</span>
+                    <span class="nav-item">Khách Hàng</span>
 
                 </a>
-                <span class="tooltip">Guest</span>
+                <span class="tooltip">Khách Hàng</span>
             </li>
             <li>
                 <a href="<?php echo $url.'/permission'?>">
                 <i class="fa-solid fa-users icon"></i>
-                    <span class="nav-item">Permission</span>
+                    <span class="nav-item">Quyền</span>
 
-      </a>
-      <span class="tooltip">Permission</span>
-    </li>
-    <li>
-      <a href="<?php echo $toAdmin.'/order'?>">
-        <i class="fa-solid fa-receipt icon"></i>
-        <span class="nav-item">Order</span>
+                </a>
+                <span class="tooltip">Quyền</span>
+            </li>
+            <li>
+                <a href="<?php echo $url.'/order'?>">
+                <i class="fa-solid fa-receipt icon"></i>
+                    <span class="nav-item">Đơn Hàng</span>
 
-      </a>
-      <span class="tooltip">Order</span>
-    </li>
-    <li>
-      <a href="<?php echo $toAdmin.'/import'?>">
-        <i class="fa-solid fa-file-import icon"></i>
-        <span class="nav-item">Import</span>
+                </a>
+                <span class="tooltip">Đơn Hàng</span>
+            </li>
+            <li>
+                <a href="<?php echo $url.'/import'?>">
+                <i class="fa-solid fa-file-import icon"></i>
+                    <span class="nav-item">Nhập Hàng</span>
 
-      </a>
-      <span class="tooltip">Import</span>
-    </li>
-    <li>
-      <a href="<?php $trimmed_url = str_replace("/admin", "",$toAdmin); echo $trimmed_toAdmin;?>">
-        <i class="fa-solid fa-arrow-right-from-bracket icon"></i>
-        <span class="nav-item">Exit</span>
+                </a>
+                <span class="tooltip">Nhập Hàng</span>
+            </li>
+            <li>
+                <a href="<?php $trimmed_url = str_replace("/admin", "",$url); echo $trimmed_url;?>">
+                <i class="fa-solid fa-arrow-right-from-bracket icon"></i>
+                    <span class="nav-item">Thoát</span>
 
-      </a>
-      <span class="tooltip">Exit</span>
-    </li>
-  </ul>
-</div>
+                </a>
+                <span class="tooltip">Thoát</span>
+            </li>
+        </ul>
+    </div>
 
 
 <script>

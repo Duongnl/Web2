@@ -58,16 +58,16 @@ $url =  handle_url::getURLAdmin($request);
         <input type="text" id="input-text-head" value="" style="text-align: center;margin:0 auto;display:block; border:none; font-size :25px;" disabled>
         <div class="input-group flex-nowrap" style="margin-top: 20px;">
             <span class="input-group-text" id="addon-wrapping" style=" padding-right: 14px; padding-left: 14px;"><b>ID </b></span>
-            <input id="discount_id" name="discount_id" type="text" class="form-control" placeholder="discount ID" aria-label="Username" aria-describedby="addon-wrapping" readonly>
+            <input id="discount_id" name="discount_id" type="text" class="form-control" placeholder="Mã Khuyến Mãi" aria-label="Username" aria-describedby="addon-wrapping" readonly>
         </div>
         <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-percent"></i></span>
-            <input id="discount_name" name="discount_name" type="text" class="form-control" placeholder="discount name" aria-label="Username" aria-describedby="addon-wrapping">
+            <input id="discount_name" name="discount_name" type="text" class="form-control" placeholder="Tên Khuyến Mãi" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
         <input type="text" value="" id="memo" disabled>
         <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-percent"></i></span>
-            <input id="discount_percent" name="discount_percent" type="number" min="0" max="100" class="form-control" placeholder="discount percent" aria-label="Username" aria-describedby="addon-wrapping">
+            <input id="discount_percent" name="discount_percent" type="number" min="0" max="100" class="form-control" placeholder="Phần Trăm Khuyến Mãi" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
         <input type="text" value="" id="memo_percent" disabled>
 
@@ -128,21 +128,21 @@ toast::memo("Success", "back_from_discount_controller", "limegreen");
         var discount_name = document.getElementById("discount_name").value.trim();
         var discount_percent = document.getElementById("discount_percent").value.trim();
 
-        var validName = /^[a-zA-Z0-9\s]+$/; // Mẫu cho tên chiết khấu
+        var validName = /^[\p{L} ]*$/u; // Mẫu cho tên chiết khấu
         var validPercent = /^(100|[1-9]?[0-9])$/; // Mẫu cho phần trăm chiết khấu
 
         // Kiểm tra và hiển thị thông báo nếu discount_name hoặc discount_percent không hợp lệ
         if (discount_name == "") {
-            document.getElementById("memo").value = "Discount name is empty!";
+            document.getElementById("memo").value = "Không được để trống !";
             return false;
         } else if (!validName.test(discount_name)) {
-            document.getElementById("memo").value = "Invalid discount name!";
+            document.getElementById("memo").value = "Tên Khuyến Mãi không chứa số và kí tự đặc biệt";
             return false;
         } else if (discount_percent === "") {
-            document.getElementById("memo_percent").value = "Discount percent is empty!";
+            document.getElementById("memo_percent").value = "Không được để trống !";
             return false;
         } else if (!validPercent.test(discount_percent)) {
-            document.getElementById("memo_percent").value = "Invalid discount percent!";
+            document.getElementById("memo_percent").value = "Yêu cầu nhập số hợp lệ !";
             return false;
         } else {
             document.getElementById("memo").value = "";
