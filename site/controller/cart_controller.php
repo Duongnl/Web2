@@ -17,9 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["user_id"]) && isset($
     $result = $cart_model->updateQuantity($productId, $newQuantity);
     } 
 
-$_SESSION['back_from_controller'] = true;
-header("Location: $url/card");
-exit; 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["id"])) {
+        echo print_r($_POST);
+    }
+
+    
+// $_SESSION['back_from_controller'] = true;
+// header("Location: $url/card");
+// exit; 
 
 
 

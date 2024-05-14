@@ -86,6 +86,11 @@
   display: none;
 }
 
+.disabled {
+  cursor: default !important  ;
+  color: #ccc !important;
+}
+
 .label_Size {
   padding: 7px 15px;
   border: 1px solid #ccc;
@@ -96,7 +101,7 @@
   font-size: 14px;
 }
 
-input[type="radio"]:checked~label {
+.checked {
   background-color: #db4444;
   color: #fafafa;
   transform: .3;
@@ -738,14 +743,6 @@ input[type="radio"]:checked~label {
 
 .img-product:hover {
   transform: scale(1.2);
-}
-
-.img-product {
-  height: 65%;
-  width: 65%;
-  transition: transform .5s;
-  object-fit: cover;
-  object-position: 50% 50%;
 }
 
 

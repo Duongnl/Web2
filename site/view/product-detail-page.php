@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <link rel="stylesheet" type="text/css" href="./system/library/bootstrap.min.css">
   <script src="./system/library/bootstrap.bundle.min.js" ></script>
+  <script src=<?php echo $rootDirectory . "/system/library/jquery-3.7.1.min.js" ?>></script>
 
 </head>
 
