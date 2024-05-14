@@ -20,8 +20,8 @@
 
   <link rel="stylesheet" href="./public/css/head.css">
   <link rel="stylesheet" href="./public/css/product.css">
-  <link rel="stylesheet" href="./public/css/home.css">
   <link rel="stylesheet" href="./public/css/footer.css">
+  <link rel="stylesheet" href="./public/css/home.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="./system/library/bootstrap.min.css">
   <script src="./system/library/bootstrap.bundle.min.js"></script>

@@ -2,7 +2,7 @@
 class handle_url
 {
 
-    public static  function getUrl()
+    public static function getUrl()
     {
         $request = $_SERVER['REQUEST_URI'];
         $folder_name = handle_url::getParent_Index();
@@ -19,7 +19,7 @@ class handle_url
         return $url;
     }
 
-    public static  function getParent_Index()
+    public static function getParent_Index()
     {
         // Lấy đường dẫn tuyệt đối của file đang thực thi
         $script_path = $_SERVER['SCRIPT_FILENAME'];
@@ -30,7 +30,8 @@ class handle_url
         return $folder_name;
     }
 
-    public static  function getURLAdmin($request)   {
+    public static function getURLAdmin($request)
+    {
         $parts = explode("/", $request);  // Tách chuỗi thành các phần tử dựa trên dấu "/"
         $index = array_search("admin", $parts);  // Tìm vị trí của từ khóa "admin"
         $url = implode("/", array_slice($parts, 0, $index + 1));  // Lấy phần từ đầu đến từ khóa "admin" và kết hợp lại thành chuỗi

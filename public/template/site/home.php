@@ -1,3 +1,12 @@
+<?php
+$category_model = new category_model();
+$product_model = new product_model();
+
+function tinhGiaGiam($Giaban, $khuyenMai)
+{
+  return $Giaban * (1 - $khuyenMai / 100);
+}
+?>
 <div class="container">
   <div class="banner">
     <img alt="" class="img-slide" src="./public/images/slide1.jpg">
@@ -25,9 +34,9 @@
     <div class="top">
       <div class="left">
         <div class="title">
-          Categories
+          Danh mục
         </div>
-        <div class="desc">Browse By Category</div>
+        <div class="desc">Danh mục sản phẩm</div>
       </div>
       <div class="right">
         <i class="fa-solid fa-arrow-left scrollToLeft"></i>
@@ -35,70 +44,17 @@
       </div>
     </div>
     <div class="bottom row">
-      <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
-        <a href="" class="category-group">
-          <i class="fa-solid fa-volleyball"></i>
-          <div class="category-name">
-            Sport
-          </div>
-        </a>
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
-        <a href="" class="category-group">
-          <i class="fa-solid fa-person"></i>
-          <div class="category-name">
-            Men
-          </div>
-        </a>
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
-        <a href="" class="category-group">
-          <i class="fa-solid fa-person-dress"></i>
-          <div class="category-name">
-            Women
-          </div>
-        </a>
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
-        <a href="" class="category-group">
-          <i class="fa-solid fa-shirt"></i>
-          <div class="category-name">
-            T-shirt
-          </div>
-        </a>
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
-        <a href="" class="category-group">
-          <i class="fa-solid fa-shirt"></i>
-          <div class="category-name">
-            T-shirt
-          </div>
-        </a>
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
-        <a href="" class="category-group">
-          <i class="fa-solid fa-shirt"></i>
-          <div class="category-name">
-            T-shirt
-          </div>
-        </a>
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
-        <a href="" class="category-group">
-          <i class="fa-solid fa-shirt"></i>
-          <div class="category-name">
-            T-shirt
-          </div>
-        </a>
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
-        <a href="" class="category-group">
-          <i class="fa-solid fa-shirt"></i>
-          <div class="category-name">
-            T-shirt
-          </div>
-        </a>
-      </div>
+      <?php
+      $listCategory = $category_model->getcategoryData();
+      while ($row = mysqli_fetch_array($listCategory)) {
+        ?>
+        <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
+          <a href="" class="category-group">
+            <!-- hỏi dương lọc danh mục điền href -->
+            <?php echo $row["TenDM"] ?>
+          </a>
+        </div>
+      <?php } ?>
     </div>
   </div>
   <hr>
@@ -106,95 +62,18 @@
     <div class="top">
       <div class="left">
         <div class="title">
-          This month
+          Bán chạy
         </div>
-        <div class="desc">Best Selling Products</div>
+        <div class="desc">Sản phẩm bán chạy</div>
       </div>
       <div class="right">
-        <button type="button" class="btn btn-view-all">View All</button>
+        <button type="button" class="btn btn-view-all">Xem tất cả</button>
       </div>
     </div>
     <div class="bottom row">
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/arsenal1.jpg">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
+      <?php
+
+      ?>
     </div>
   </div>
   <hr>
@@ -202,254 +81,46 @@
     <div class="top">
       <div class="left">
         <div class="title">
-          Our Products
+          Sản phẩm
         </div>
-        <div class="desc">Explore Our Products</div>
+        <div class="desc">Khám phá sản phẩm của chúng tôi</div>
       </div>
     </div>
     <div class="row">
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
+      <?php
+      $listProduct = $product_model->getProductsHomePage();
+      while ($row = mysqli_fetch_array($listProduct)) {
+        ?>
+        <?php
+        $ptKM = $row["MaKM"] != null ? $product_model->getPhanTramKhuyenMai($row["MaKM"]) : "";
+        $giaMoi = $row["MaKM"] != null ? tinhGiaGiam($row["GiaBan"], $ptKM) : "";
+        ?>
+        <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
+          <div class="product">
+            <a href="<?php echo $rootDirectory . "/product-detail?id=" . $row["MaSP"] ?>" class="wrap-img">
+              <img class="img-product"
+                src="<?php echo $rootDirectory . $product_model->getURLAnhChinh($row["MaAnhChinh"]) ?>">
+              <div class="deal" style="<?php echo $row["MaKM"] != null ? "display:block" : "display:none" ?>">
+                <?php echo $ptKM . "%" ?></div>
+            </a>
+            <div class="product-info">
+              <div class="product-body">
+                <a href="<?php echo $rootDirectory . "/product-detail?id=" . $row["MaSP"] ?>"
+                  class="product-title"><?php echo $row["TenSP"] ?></a>
+                <div class="prices">
+                  <div class="new-price">
+                    <?php echo $row["MaKM"] ? number_format($giaMoi) . "đ" : number_format($row["GiaBan"]) . "đ" ?></div>
+                  <div class="old-price"><?php echo $row["MaKM"] ? number_format($row["GiaBan"]) . "đ" : "" ?></div>
+                </div>
               </div>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
           </div>
         </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
-        <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="./public/images/img1.png">
-            <div class="deal">-50%</div>
-          </a>
-          <div class="product-info">
-            <div class="product-body">
-              <a href="" class="product-title">The north coat</a>
-              <div class="prices">
-                <div class="new-price">$260</div>
-                <div class="old-price">$260</div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-add-to-cart">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
+      <?php } ?>
     </div>
-    <button type="button" class="btn btn-view-all-products">View all products</button>
+    <a href="<?php echo $rootDirectory . "/product" ?>" style="text-align: center">
+      <button type="button" class="btn btn-view-all-products">Xem tất cả sản phẩm</button>
+    </a>
   </div>
 
   <div class="policy">
