@@ -12,7 +12,7 @@ $baseName = explode($toAdmin . '/', $url)[1];
 
 switch ($baseName) {
     case 'statistic':
-        require __DIR__ . $adminView . 'statistic_page.php';
+        require __DIR__ . $adminView . 'thong_ke_page.php';
         break;
     case 'product':
         require __DIR__ . $adminView . 'product_page.php';

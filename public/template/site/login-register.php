@@ -118,10 +118,24 @@ $url = handle_url::getUrl();
       var matkhau_data = document.getElementById('matkhau').value;
       var memo_taikhoan =document.getElementById('memo-taikhoan');
       var memo_matkhau =document.getElementById('memo-matkhau');
-      
+      var flag = true;
       var memo = {}; 
+      if (taikhoan_data == "") {
+        memo['memo_taikhoan'] = 'Tài khoản không được để trống';
+        flag =false;
+      } else {
+        memo['memo_taikhoan'] = '';
+      } 
 
-      $.post("./site/controller/login_register_controller.php", {
+      if (matkhau_data == "") {
+        memo['memo_matkhau'] = 'Mật khẩu không được để trống';
+        flag =false;
+      } else {
+        memo['memo_matkhau'] = '';
+      }
+
+      if (flag == true) {
+        $.post("./site/controller/login_register_controller.php", {
           taikhoan: taikhoan_data,
           matkhau: matkhau_data,
         },
@@ -134,10 +148,17 @@ $url = handle_url::getUrl();
               memo_taikhoan.value = "Account does not exist";
               memo_matkhau.value = "";
             } else if (data == "correct") {
-              console.log("Có vào");
+            
               window.location.href = '<?php echo $url; ?>'
             }
         });
+      } else {
+        memo_taikhoan.value = memo['memo_taikhoan'];
+        memo_matkhau.value = memo['memo_matkhau'];
+      }
+
+     
+
     });
 
   });
