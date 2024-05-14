@@ -2,6 +2,10 @@
 if (isset($_POST['input-search'])) {
   $input_search = $_POST['input-search'];
 }
+
+function tinhGiaGiam($Giaban,$khuyenMai) {
+  return $Giaban*(1 - $khuyenMai/100);
+}
 ?>
 <input type="hidden" value="<?php if(isset( $_POST['input-search'])) {echo $input_search;} ?>" id="input-search-hidden" name="input-search">
 
@@ -142,22 +146,21 @@ if (isset($_POST['input-search'])) {
 
 
     while ($row = mysqli_fetch_array($queryFollowPage)) {
+        $giaMoi = $row["PhanTramKM"] != null ?  tinhGiaGiam($row["GiaBan"],$row["PhanTramKM"]) : "";
     ?>
       <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
         <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="<?php echo $row['Url'] ?>  ">
-            <?php if ($row['PhanTramKM'] != '') { ?>
-              <div class="deal"> <?php echo '-' . $row['PhanTramKM'] . '%'  ?> </div>
-            <?php  } ?>
+          <a href="<?php echo $rootDirectory."/product-detail?id=".$row["MaSP"] ?>" class="wrap-img">
+            <img class="img-product" src="<?php echo $rootDirectory.$row["Url"]?>">
+            <div class="deal" style="<?php echo $row["MaKM"]!=null ? "display:block" : "display:none" ?>"><?php echo $row["PhanTramKM"]."%" ?></div>
           </a>
           <div class="product-info">
             <div class="product-body">
-              <a href="" class="product-title"> <?php echo $row['TenSP'] ?> </a>
+              <a href="<?php echo $rootDirectory."/product-detail?id=".$row["MaSP"] ?>" class="product-title"><?php echo $row["TenSP"]?></a>
               <div class="prices">
-                <div class="new-price"> <?php echo $row['GiaBan'] ?> </div>
-                <div class="old-price">$260</div>
-              </div>
+                <div class="new-price"><?php echo $row["MaKM"] ? number_format($giaMoi)."đ": number_format($row["GiaBan"])."đ" ?></div>
+                <div class="old-price"><?php echo $row["MaKM"] ? number_format($row["GiaBan"])."đ": ""?></div>
+              </div>  
             </div>
           </div>
         </div>
