@@ -23,6 +23,7 @@
   <?php 
    require_once('./admin/model/db_config.php');
    require_once('./site/model/cart_model.php');
+   require_once('./site/controller/handle_url.php');
   require('./public/template/site/head.php'); ?>
   <div id="content">
     <?php require('./public/template/site/cart.php'); ?>

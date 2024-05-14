@@ -70,34 +70,51 @@ $url = handle_url::getUrl();
       </div>
       <div class="form sign-up">
         <section>
-          <form method="post" action="login_register.php " class="xulylogin">
+          <form method="post" action="login_register.php " class="xulylogin" style="width:500px">
             <h1>Register</h1>
-            <div class="input_Register">
-              <ion-icon name="mail-outline"></ion-icon>
-              <input name="input_user" type="text" placeholder="User" required>
-              <!-- <label for ="">User Name</label> -->
-            </div>
-            <div class="input_Register">
-              <ion-icon name="mail-outline"></ion-icon>
-              <input name="input_email" type="email" placeholder="Email" required>
-              <!-- <label for ="">Email</label> -->
-            </div>
-            <div class="input_Register">
-              <ion-icon name="mail-outline"></ion-icon>
-              <input name="input_phonenumber" type="text" placeholder="Phone Number" required>
-              <!-- <label for ="">Phone Number</label> -->
-            </div>
-            <div class="input_Register">
-              <ion-icon name="lock-closed-outline"></ion-icon>
-              <input name="input_pass" type="password" placeholder="Password" required>
-              <!-- <label for ="">Password</label> -->
+            <div class="row">
+                  <div class="col-6">
+                    <div class="input_Register">
+                      <ion-icon name="person-outline"></ion-icon>
+                      <input type="text" id="input_user" name="taikhoan" placeholder='User' required>
+                    </div>
+
+                    <div class="input_Register">
+                      <ion-icon name="mail-outline"></ion-icon>
+                      <input type="email" id="input_email" name="Email" placeholder='Email' required>
+                    </div>
+
+
+                    <div class="input_Register">
+                      <ion-icon name="call-outline"></ion-icon>
+                      <input  type="text" id="input_phonenumber" name="phone" placeholder='Phone Number' required min="10" max="10">
+                    </div>
+
+                  </div>
+                  <div class="col-6">
+                    <div class="input_Register">
+                      <ion-icon name="key-outline"></ion-icon>
+                      <input id="input_pass" name="input_pass" type="password" placeholder="Password" required min="5">
+                    </div>  
+
+                    <div class="input_Register">
+                      <ion-icon name="pencil-outline"></ion-icon>
+                      <input id="input_nameuser" name="input_nameuser" type="text" placeholder="Name User" required>
+                    </div> 
+
+                    <div class="input_Register">
+                      <ion-icon name="home-outline"></ion-icon>
+                      <input id="input_address" name="input_address" type="text" placeholder="Address" required>
+                    </div>
+
+                  </div>
             </div>
             <div class="login">
               <label for="">Already have an account? <a href="#" class="buttonlogin">Login</a> </label>
             </div>
             <!-- <label> </label> -->
             <input id="memo" value=""></input>
-            <button class="btn-register">
+            <button class="btn-register" id="dangky" type="button">
               Register
             </button>
 
@@ -159,6 +176,81 @@ $url = handle_url::getUrl();
 
      
 
+    });
+    // đăng ký
+    $('#dangky').click(function() {
+
+      var taikhoan_dangky = document.getElementById('input_user').value;
+      var email_dangky = document.getElementById('input_email').value;
+      var phonenumber_dangky =document.getElementById('input_phonenumber').value;
+      var pass_dangky =document.getElementById('input_pass').value;
+      var address_dangky =document.getElementById('input_address').value;
+      var nameuser_dangky =document.getElementById('input_nameuser').value;
+      var boolean=1;
+      if(taikhoan_dangky.trim()==""){
+        alert("Không được để trống tài khoản");
+        boolean=0;
+      }
+      if(email_dangky.trim()==""){
+        alert("Không được để trống email");
+        boolean=0;
+      }
+      if (!email_dangky.includes("@")) {
+        alert("Địa chỉ email phải chứa ký tự '@'!");
+      }
+      if(phonenumber_dangky.trim()==""){
+        alert("Không được để trống SDT");
+        boolean=0;
+      }else if (phonenumber_dangky.length !== 10) {
+        alert("Số điện thoại phải có 10 ký tự!");
+        boolean=0;
+      }else if (phonenumber_dangky.charAt(0) !== "0") {
+        alert("Số điện thoại phải bắt đầu bằng số 0!");
+        boolean=0;
+      }else if (!(/^\d+$/.test(phonenumber_dangky))) {
+        alert("Số điện thoại chỉ được chứa các ký tự số!");
+        boolean=0;
+      }
+
+      
+
+    // Kiểm tra xem ký tự đầu tiên có phải là số 0 không
+    
+
+    // Kiểm tra xem giá trị có chứa ký tự không phải số không
+    
+
+      if(pass_dangky.trim()==""){
+        alert("Không được để trống mật khẩu");
+        boolean=0;
+      }
+      if(address_dangky.trim()==""){
+        alert("Không được để trống địa chỉ");
+        boolean=0;
+      }
+      if(nameuser_dangky.trim()==""){
+        alert("Không được để trống tên tài khoản");
+        boolean=0;
+      }
+      
+
+
+      if(boolean==1){
+        $.post("./site/controller/login_register_controller.php", {
+          taikhoanDK: taikhoan_dangky,
+          emailDK:email_dangky,
+          passDK: pass_dangky,
+          phonenumberDK:phonenumber_dangky,
+          addressDK:address_dangky,
+          nameuserDK:nameuser_dangky,
+        },
+
+        function(data, status) {
+          if(data!=""){
+            alert(data);
+          }
+        });
+      }
     });
 
   });

@@ -49,11 +49,11 @@ $url =  handle_url::getURLAdmin($request);
         <input type="text" id="input-text-head" value="" style="text-align: center;margin:0 auto;display:block; border:none; font-size :25px;" disabled>
         <div class="input-group flex-nowrap" style="margin-top: 20px;">
             <span class="input-group-text" id="addon-wrapping" style=" padding-right: 14px; padding-left: 14px;"><b>ID </b></span>
-            <input id="category_id" name="category_id" type="text" class="form-control" placeholder="category ID" aria-label="Username" aria-describedby="addon-wrapping" readonly>
+            <input id="category_id" name="category_id" type="text" class="form-control" placeholder="Mã Danh Mục" aria-label="Username" aria-describedby="addon-wrapping" readonly>
         </div>
         <div class="input-group flex-nowrap" style="margin-top: 20px;border:0px">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-list"></i></span>
-            <input id="category_name" name="category_name" type="text" class="form-control" placeholder="Category name" aria-label="Username" aria-describedby="addon-wrapping">
+            <input id="category_name" name="category_name" type="text" class="form-control" placeholder="Tên Danh Mục" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
         <input type="text" value="" id="memo" disabled  >
 
@@ -105,13 +105,13 @@ toast::memo("Success", "back_from_category_controller", "limegreen");
 
 
     function inspect() {
-        var pattern = /^[a-zA-Z0-9\s]*$/;
+        var pattern =  /^[\p{L} ]*$/u;
         var category_name = document.getElementById("category_name").value.trim();
         if (category_name == "") {
-            document.getElementById("memo").value = "Category name is empty !";
+            document.getElementById("memo").value = "Không được để trống !";
             return false;
         } else if (pattern.test(category_name) != true) {
-            document.getElementById("memo").value = "Doesn't contain special characters !";
+            document.getElementById("memo").value = "Tên Danh Mục không chứa số và kí tự đặc biệt";
             return false;
         } else {
             return true;

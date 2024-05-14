@@ -28,19 +28,28 @@
     padding-top:9px!important;
   }
   .h1-head-name{
-    margin-top: 0;
+    margin-top: 2.5rem;
+    text-align: center;
     margin-bottom: .5rem;
     font-weight: 500;
     line-height: 1.2;
+    font-size: 30px;
   }
+  .main-content{
+    margin-top: 2.5rem;
+    border: 3px solid;
+    border-radius: 15px;
+  }
+  
 </style>
 
 
-<div class="main-content">
+<div class="main-content container">
 
-  <h3 class="h1-head-name ">Quản lý đơn hàng</h3>
+  <h3 class="h1-head-name ">Your Order</h3>
 
   <?php 
+    $maTK = $_SESSION['MaTK'];
     $request = $_SERVER['REQUEST_URI'];
     $url =  handle_url::getURLAdmin($request);
     $chiTietDonHangUser_model= new chiTietDonHangUser_model();
@@ -97,11 +106,11 @@
       
       $donHangUser_model = new donHangUser_model();
       if (isset($_GET['date'])) {
-        $query = $donHangUser_model->filterDonHangFollowDate($_GET['date'],$_GET['date'],"3");
+        $query = $donHangUser_model->filterDonHangFollowDate($_GET['date'],$_GET['date'],$maTK);
       } else if (isset($_GET['date-start']) && isset($_GET['date-end']) ) {
-        $query = $donHangUser_model->filterDonHangFollowDate($_GET['date-start'],$_GET['date-end'],"3");
+        $query = $donHangUser_model->filterDonHangFollowDate($_GET['date-start'],$_GET['date-end'],$maTK);
       } else {
-        $query = $donHangUser_model->getDonHangByMaTK("3");
+        $query = $donHangUser_model->getDonHangByMaTK($maTK);
       }
 
       while ($row = mysqli_fetch_array($query)) {

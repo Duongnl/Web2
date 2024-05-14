@@ -27,7 +27,8 @@ class export_pdf {
         $pdf->Cell(0, 10, 'Thời gian: ' . $row['ThoiGianHD'] , 0, 1,'L');
         $pdf->Cell(0, 10, 'Tên tài khoản: ' . $row['TenTK'] , 0, 1,'L');
         $pdf->Cell(0, 10, 'Tên khách hàng: ' . $row['TenKH'] , 0, 1,'L');
-       
+        $pdf->Cell(0, 10, 'Tổng Thanh Toán: ' . $row['ThanhToan'] , 0, 1,'L');
+
         $pdf->SetFillColor(255, 255, 255); // Màu nền cho bảng
         // Định nghĩa số cột và chiều rộng của từng cột
         $columnCount = 6;

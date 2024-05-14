@@ -24,13 +24,25 @@ class cart_model
                 JOIN anhchinh ON sanpham.MaAnhChinh = anhchinh.MaAnhChinh
                 JOIN size ON giohang.MaSize = size.MaSize AND giohang.MaSP = size.MaSP
                 WHERE giohang.MaTK = '$MaTK'";
-        return $this->db_config->execute($sql);
+
+        $data = null;
+        if ($result = $this->db_config->execute($sql)) {
+            while ($row = mysqli_fetch_array($result)) {
+                $data[] = $row;
+            }
+            mysqli_free_result($result);
+        }
+        return $data;
+        // return $this->db_config->execute($sql);
     }
 
-    public function updateQuantity($productId, $newQuantity)
+
+
+    public function updateQuantity($userId, $productId, $newQuantity, $size)
     {
         $this->db_config->connect();
-        $update_quantity_sql = "UPDATE giohang SET SoLuong = '$newQuantity' WHERE MaTK = '$productId'";
+        // Sử dụng điều kiện MaSize trong truy vấn SQL
+        $update_quantity_sql = "UPDATE giohang SET SoLuong = '$newQuantity' WHERE MaTK = '$userId' AND MaSP = '$productId' AND MaSize = '$size'";
         $result = $this->db_config->execute($update_quantity_sql);
         // Kiểm tra kết quả và trả về true nếu cập nhật thành công, ngược lại trả về false
         if ($result) {
@@ -40,26 +52,96 @@ class cart_model
         }
     }
 
-    public function checkQuantityAvailable($productId, $sizeId, $quantity)
+    public function deleteProduct($MaTK, $MaSP, $MaSize)
     {
         $this->db_config->connect();
-        // Chuẩn bị câu lệnh SQL để kiểm tra số lượng có sẵn trong bảng size
-        $check_quantity_sql = "SELECT SoLuong FROM size WHERE MaSP = '$productId' AND MaSize = '$sizeId'";
-        // Thực thi câu lệnh SQL
-        $result = $this->db_config->execute($check_quantity_sql);
-        // Kiểm tra kết quả
+        $sql = "DELETE FROM giohang WHERE MaTK = '$MaTK' AND MaSP = '$MaSP' AND MaSize = '$MaSize'";
+        $result = $this->db_config->execute($sql);
         if ($result) {
-            // Lấy số lượng từ kết quả truy vấn
-            $row = mysqli_fetch_assoc($result);
-            $availableQuantity = $row['SoLuong'];
-            // So sánh số lượng có sẵn với số lượng nhập
-            if ($quantity <= $availableQuantity) {
-                return true; // Số lượng có sẵn đủ để thêm vào giỏ hàng
-            } else {
-                return false; // Số lượng không đủ
-            }
-        } else {
-            return false; // Lỗi khi truy vấn cơ sở dữ liệu
+            return true;
         }
+        return false;
+    }
+
+    public function getDiscountedPrice($MaSP)
+    {
+        $this->db_config->connect();
+        $sql = "SELECT sp.GiaBan * (1 - km.PhanTramKM/100) AS GiaBanSauKM
+            FROM sanpham sp
+            LEFT JOIN khuyenmai km ON sp.MaKM = km.MaKM
+            WHERE sp.MaSP = '$MaSP'";
+
+       return $this->db_config->execute($sql);
+    
+    }
+    public function insertToHoadon($maTK, $thanhTien)
+    { 
+        $this->db_config->connect();
+        $sql = "INSERT INTO hoadon (MaTK, ThanhToan, ThoiGian, TrangThai) VALUES ('$maTK', '$thanhTien', NOW(), 0)";
+       return $this->db_config->execute($sql);
+    
+    }
+
+    public function addToCTHoaDon($maTK) {
+        // Kết nối đến cơ sở dữ liệu
+        $this->db_config->connect();
+
+        // Lấy thông tin từ bảng hoadon
+        $queryHoaDon = "SELECT MaHD FROM hoadon WHERE MaTK = '$maTK'";
+        $resultHoaDon = $this->db_config->execute($queryHoaDon);
+        $rowHoaDon = $resultHoaDon->fetch_assoc();
+        $maHD = $rowHoaDon['MaHD'];
+    
+        // Lấy thông tin từ bảng giohang
+        $queryGioHang = "SELECT * FROM giohang WHERE MaTK = '$maTK'";
+        $resultGioHang = $this->db_config->execute($queryGioHang);
+    
+        // Thêm dữ liệu vào bảng cthoadon
+        while ($rowGioHang = $resultGioHang->fetch_assoc()) {
+            $maSP = $rowGioHang['MaSP'];
+            $soLuong = $rowGioHang['SoLuong'];
+            $maSize = $rowGioHang['MaSize'];
+    
+            // Truy vấn MaKM từ bảng sản phẩm
+            $queryMaKM = "SELECT MaKM FROM sanpham WHERE MaSP = '$maSP'";
+            $resultMaKM = $this->db_config->execute($queryMaKM);
+            $rowMaKM = $resultMaKM->fetch_assoc();
+    
+            // Kiểm tra nếu sản phẩm có MaKM
+            if ($rowMaKM['MaKM'] != null) {
+                // Truy vấn giá sau khi đã áp dụng khuyến mãi
+                $queryGiaKM = "SELECT GiaBan * (1 - km.PhanTramKM/100) AS GiaBanSauKM FROM sanpham sp
+                                LEFT JOIN khuyenmai km ON sp.MaKM = km.MaKM
+                                WHERE sp.MaSP = '$maSP'";
+                $resultGiaKM = $this->db_config->execute($queryGiaKM);
+                $rowGiaKM = $resultGiaKM->fetch_assoc();
+                $donGia = $rowGiaKM['GiaBanSauKM'];
+            } else {
+                // Truy vấn giá gốc từ bảng sản phẩm
+                $queryDonGia = "SELECT GiaBan FROM sanpham WHERE MaSP = '$maSP'";
+                $resultDonGia = $this->db_config->execute($queryDonGia);
+                $rowDonGia = $resultDonGia->fetch_assoc();
+                $donGia = $rowDonGia['GiaBan'];
+            }
+    
+            // Tính ThanhTien
+            $thanhTien = $soLuong * $donGia;
+
+            // Thêm dữ liệu vào bảng cthoadon
+            $queryInsert = "INSERT INTO cthoadon (MaHD, MaSP, SoLuong, DonGia, ThanhTien, MaSize)
+                            VALUES ('$maHD', '$maSP', '$soLuong', '$donGia', '$thanhTien', '$maSize')";
+             $this->db_config->execute($queryInsert);
+        }
+    }
+
+    //hàm xóa tất cả sản phẩm trong giỏ hàng
+    
+    public function deleteAll($MaTK) {
+        $sql = "DELETE FROM giohang WHERE MaTK = '$MaTK'";
+        $result = $this->db_config->execute($sql);
+        if ($result) {
+            return true;
+        }
+        return false;
     }
 }
