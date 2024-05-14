@@ -6,11 +6,11 @@ require_once('./admin/model/db_config.php');
 $request = $_SERVER['REQUEST_URI'];
 $url = handle_url::getURLAdmin($request);
 
-if ( isset($_POST['action'])   )
+if ( isset($_POST['action']) )
 {
     $permission_id = $_POST['permission_id'];
     $Permission_name = $_POST['Permission_name'];
-
+    $quyen_model = new quyen_model();
     $action = $_POST['action'];
     
     if ($action == 'add') {
@@ -20,6 +20,7 @@ if ( isset($_POST['action'])   )
 
         $quyen_model->UpdateQuyenData( $permission_id, $Permission_name,1);
     } else if ($action == 'delete') {
+        // echo $permission_id . $Permission_name ;
         $quyen_model->UpdateQuyenData( $permission_id, $Permission_name,0);
 
     }
