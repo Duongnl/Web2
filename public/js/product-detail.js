@@ -15,4 +15,14 @@
     });
 
 
+  document.querySelectorAll('.img_cacAnh').forEach(function(element) {
+   
+    if(element.src.value != ""){
+      element.addEventListener("click", function (event) {
+        var src = event.target.src
+        document.querySelector('.img_anhChinh').setAttribute("src",src);
+      })
+    }
+  })
+
   

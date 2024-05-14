@@ -28,6 +28,10 @@
 </head>
 
 <body>
+  <?php require_once('./admin/model/db_config.php');
+  require_once('./admin/model/category_model.php');
+  require_once('./admin/model/product_model.php');
+  ?>
   <?php require('./public/template/site/head.php'); ?>
   <?php require('./public/template/site/product-detail.php'); ?>
   <?php require('./public/template/site/footer.php'); ?>

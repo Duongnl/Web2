@@ -1,12 +1,6 @@
-/* GLOBAL */
-* {
-  font-family: 'poppins', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.03em;
+.chiTietMonHang_main{
+  margin-top: 30px;
 }
-
 .chiTietMonHang_SanPham {
   margin-top: 30px;
   height: fit-content;
@@ -29,6 +23,7 @@
 /* chiTietMonHang_chiTietCacAnh */
 
 .img_cacAnh {
+  cursor: pointer;
   padding: 5px;
   background-color: #ccc;
   height: 140px;
@@ -101,9 +96,7 @@
   font-size: 14px;
 }
 
-#sizeM:checked~.sizeM,
-#sizeS:checked~.sizeS,
-#sizeL:checked~.sizeL {
+input[type="radio"]:checked~label {
   background-color: #db4444;
   color: #fafafa;
   transform: .3;
@@ -275,15 +268,6 @@
   font: 600 23px/100% Inter, sans-serif;
 }
 
-.product-info {
-  display: flex;
-  margin-top: 14px;
-  gap: 16px;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 150%;
-}
-
 .rating-container {
   display: flex;
   gap: 8px;
@@ -313,7 +297,6 @@
 }
 
 .chiTietMonHang_AnhChinh_price {
-  color: var(--Text2, #db4444);
   letter-spacing: 0.72px;
   margin-top: 17px;
   font: 400 20px/100% Inter, sans-serif;
@@ -765,15 +748,6 @@
   object-position: 50% 50%;
 }
 
-.wrap-img {
-  position: relative;
-  display: block;
-  height: 70%;
-  width: 100%;
-  text-align: center;
-  padding: 40px;
-  background-color: #F5F5F5
-}
 
 .deal {
   position: absolute;
@@ -863,10 +837,6 @@
     margin: auto;
   }
 
-  .wrap-img {
-    padding: 20px;
-  }
-
   .deal {
     top: 8px;
     left: 8px;
@@ -876,10 +846,7 @@
 }
 
 @media screen and (min-width:577px) and (max-width:1200px) {
-  .wrap-img {
-    padding: 20px;
-  }
-
+ 
   .deal {
     top: 10px;
     left: 10px;
