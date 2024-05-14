@@ -191,12 +191,15 @@ $url = handle_url::getUrl();
         alert("Không được để trống tài khoản");
         boolean=0;
       }
+      var gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
       if(email_dangky.trim()==""){
         alert("Không được để trống email");
         boolean=0;
       }
-      if (!email_dangky.includes("@")) {
-        alert("Địa chỉ email phải chứa ký tự '@'!");
+      if(!gmailPattern.test(email_dangky)) {
+        alert("Địa chỉ email phải là định dạng '@gmail.com'!");
+        boolean=0;
       }
       if(phonenumber_dangky.trim()==""){
         alert("Không được để trống SDT");
@@ -248,6 +251,9 @@ $url = handle_url::getUrl();
         function(data, status) {
           if(data!=""){
             alert(data);
+          }else{
+            alert("Đăng ký thành công");
+            window.location.href = '<?php echo $url. '/login' ?>'
           }
         });
       }

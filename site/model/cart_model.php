@@ -85,13 +85,17 @@ class cart_model
     public function addToCTHoaDon($maTK) {
         // Kết nối đến cơ sở dữ liệu
         $this->db_config->connect();
-
-        // Lấy thông tin từ bảng hoadon
         $queryHoaDon = "SELECT MaHD FROM hoadon WHERE MaTK = '$maTK'";
         $resultHoaDon = $this->db_config->execute($queryHoaDon);
-        $rowHoaDon = $resultHoaDon->fetch_assoc();
-        $maHD = $rowHoaDon['MaHD'];
+    while ($rowhoadon = $resultHoaDon->fetch_assoc()){
+        $maHD = $rowhoadon['MaHD'];
+        echo $maHD;
+    }
+
+        // Lấy thông tin từ bảng hoadon
     
+       
+
         // Lấy thông tin từ bảng giohang
         $queryGioHang = "SELECT * FROM giohang WHERE MaTK = '$maTK'";
         $resultGioHang = $this->db_config->execute($queryGioHang);
@@ -127,7 +131,7 @@ class cart_model
             // Tính ThanhTien
             $thanhTien = $soLuong * $donGia;
 
-            // Thêm dữ liệu vào bảng cthoadon
+            //Thêm dữ liệu vào bảng cthoadon
             $queryInsert = "INSERT INTO cthoadon (MaHD, MaSP, SoLuong, DonGia, ThanhTien, MaSize)
                             VALUES ('$maHD', '$maSP', '$soLuong', '$donGia', '$thanhTien', '$maSize')";
              $this->db_config->execute($queryInsert);
