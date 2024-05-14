@@ -8,11 +8,12 @@ $userView = '/site/view/';
 $userController = '/site/controller/';
 $rootDirectory = handle_url::getUrl();
 $baseName = explode($rootDirectory . '/', $url)[1];
+
 switch ($baseName) {
   case '/':
   case '':
-        require __DIR__ . $userView . 'home.php';
-        break;
+      require __DIR__ . $userView . 'home.php';
+      break;
   case 'product':
     require __DIR__ . $userView . 'product-page.php';
     break;
@@ -33,6 +34,15 @@ switch ($baseName) {
   case 'cart-detail':
     require __DIR__ . $userView . 'cart-detail-page.php';
     break;
+  case 'order':
+    require __DIR__ . $userView . 'donHangUser-page.php';
+    break;
+  case 'order_more':
+      require __DIR__ . $userView . 'chiTietDonHangUser-page.php';
+      break;
+  case 'orderUser_controller':
+      require __DIR__ . $userController . 'donHangUser_controller.php';
+      break;
   case 'account_controller':
     require __DIR__ . $userController . 'account_controller.php';
     break;
