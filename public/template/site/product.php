@@ -8,7 +8,7 @@ function tinhGiaGiam($Giaban,$khuyenMai) {
 }
 ?>
 <input type="hidden" value="<?php if(isset( $_POST['input-search'])) {echo $input_search;} ?>" id="input-search-hidden" name="input-search">
-
+<input type="hidden" value="<?php echo $rootDirectory  ?>"  id="rootDirectory" >
 <style>
   .tag-filtter {
     display: flex;
@@ -222,6 +222,8 @@ function formatCurrency(number) {
   var size = document.getElementById("size");
   var sale = document.getElementById("sale");
   var input_search_hidden = document.getElementById("input-search-hidden");
+  var rootDirectory =document.getElementById("rootDirectory");
+  rootDirectory_data =rootDirectory.value;
 
 
   // biến chứa dữ liệu
@@ -256,6 +258,7 @@ function formatCurrency(number) {
           size: size_data,
           sale: sale_data,
           tenSP: input_search_hidden_data,
+          rootDirectory: rootDirectory_data,
         },
 
         function(data, status) {
@@ -317,6 +320,7 @@ function formatCurrency(number) {
           size: size_data,
           sale: sale_data,
           tenSP:  input_search_hidden.value,
+          rootDirectory: rootDirectory_data,
         },
         function(data, status) {
           $('.row-product').html(data);
@@ -420,6 +424,7 @@ function formatCurrency(number) {
           size: size_data,
           sale: sale_data,
           tenSP: input_search_hidden_data,
+          rootDirectory: rootDirectory_data,
         },
 
         function(data, status) {
@@ -534,6 +539,7 @@ function formatCurrency(number) {
           size: size_data,
           sale: sale_data,
           tenSP: input_search_hidden_data,
+          rootDirectory: rootDirectory_data,
         },
 
         function(data, status) {

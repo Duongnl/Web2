@@ -6,7 +6,7 @@ function tinhGiaGiam($Giaban, $khuyenMai)
 {
   return $Giaban * (1 - $khuyenMai / 100);
 }
-if (isset($_POST['category']) && isset($_POST['startPrice']) && isset($_POST['endPrice']) && isset($_POST['sex']) && isset($_POST['size']) && isset($_POST['sale']) && isset($_POST['page']) && isset($_POST['tenSP'])) {
+if (isset($_POST['category']) && isset($_POST['startPrice']) && isset($_POST['endPrice']) && isset($_POST['sex']) && isset($_POST['size']) && isset($_POST['sale']) && isset($_POST['page']) && isset($_POST['tenSP']) && isset($_POST['rootDirectory'])) {
   $category = $_POST['category'];
   $startPrice = $_POST['startPrice'];
   $endPrice = $_POST['endPrice'];
@@ -14,7 +14,7 @@ if (isset($_POST['category']) && isset($_POST['startPrice']) && isset($_POST['en
   $size = $_POST['size'];
   $sale = $_POST['sale'];
   $tenSP = $_POST['tenSP'];
-
+  $rootDirectory = $_POST['rootDirectory'];
   $page = $_POST['page'];
   $fromIndex = 0;
   for ($i = 2; $i <= $page; $i++) {
@@ -29,7 +29,7 @@ if (isset($_POST['category']) && isset($_POST['startPrice']) && isset($_POST['en
   echo '</script>';
 
   $query = $product_model->filterProduct($category, $startPrice, $endPrice, $sex, $size, $sale, $fromIndex, $tenSP);
-  $rootDirectory = '/Web2';
+  // $rootDirectory = '/Web2';
   while ($row = mysqli_fetch_array($query)) {
     $giaMoi = tinhGiaGiam($row["GiaBan"], $row["PhanTramKM"]);
     echo '
