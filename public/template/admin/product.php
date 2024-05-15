@@ -63,7 +63,7 @@ $list = $product_model->getListSP();
     </a>
   </div>
   <div class="wrap-table table-responsive-lg">
-    <table class="table table-striped table-hover"  id="datatablesSimple">
+    <table class="table table-striped table-hover" id="datatablesSimple">
       <thead>
         <tr>
           <th>ID</th>
@@ -136,6 +136,7 @@ if (isset($_SESSION["back-from-controller"])) {
 ?>
 
 <script>
+  let datatable;
   var url = window.location.href.split("admin")[0];
   console.log(`${url}admin/controller/product_controller`)
 
@@ -151,6 +152,9 @@ if (isset($_SESSION["back-from-controller"])) {
         },
         success: function (data) {
           alert(data);
+          if (datatable) {
+            datatable.destroy();
+          }
           fetch_product_data();
         }
       })
@@ -166,8 +170,8 @@ if (isset($_SESSION["back-from-controller"])) {
       },
       dataType: "json"
     }).done(function (result) {
-
-      loadProduct( result)
+      console.log(result)
+      loadProduct(result)
       // renderPagination(0, result);
 
     })
@@ -175,7 +179,7 @@ if (isset($_SESSION["back-from-controller"])) {
 
   fetch_product_data();
 
-  function  loadProduct( result) {
+  function loadProduct(result) {
     var html = "";
     var rootDirectory = "<?php echo $rootDirectory ?>"
     var url = "<?php echo $url ?>"
@@ -208,28 +212,24 @@ if (isset($_SESSION["back-from-controller"])) {
           </tr>`;
     }
     $('#datatablesSimple tbody').html(html)
-
     const datatablesSimple = document.getElementById('datatablesSimple');
-        if (datatablesSimple) {
-         console.log( new simpleDatatables.DataTable(datatablesSimple, {
-                searchable: true,
-                labels: {
-                    perPage: 'mục mỗi trang', // Label cho dropdown chọn số lượng item trên mỗi trang
-                    noRows: 'Không có dữ liệu', // Label hiển thị khi không có dữ liệu
-                    info: 'Hiển thị {start} đến {end} của {rows} mục', // Label hiển thị thông tin pagination
-                    placeholder: "Tìm kiếm sản phẩm...",
-                    noResults: "Không tìm thấy sản phẩm"
-                }
-                
-            }));  
 
-        }
+    datatable = new simpleDatatables.DataTable(datatablesSimple, {
+      searchable: true,
+      labels: {
+        perPage: 'mục mỗi trang', // Label cho dropdown chọn số lượng item trên mỗi trang
+        noRows: 'Không có dữ liệu', // Label hiển thị khi không có dữ liệu
+        info: 'Hiển thị {start} đến {end} của {rows} mục', // Label hiển thị thông tin pagination
+        placeholder: "Tìm kiếm sản phẩm...",
+        noResults: "Không tìm thấy sản phẩm"
+      }
+    });
 
-        console.log(datatablesSimple)
-
-        
 
   }
+
+
+
   function formatCurrency(amount) {
     // Chèn dấu phẩy vào hàng nghìn và thêm đơn vị tiền tệ
     return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "đ";
@@ -259,19 +259,19 @@ if (isset($_SESSION["back-from-controller"])) {
 
 
   $("#search-txt").keyup(function (event) {
-    if(event.keyCode == 13) {
+    if (event.keyCode == 13) {
       $(".btn-search").click();
     }
   })
-  
-  $(".btn-search").click(function() {
-    var key =  $("#search-txt").val();
+
+  $(".btn-search").click(function () {
+    var key = $("#search-txt").val();
     searchProduct(key);
     $("#search-txt").val("");
   })
 
   function searchProduct(key) {
-  $.ajax({
+    $.ajax({
       type: "POST",
       url: `${url}/admin/controller/product_controller`,
       data: {
@@ -282,5 +282,5 @@ if (isset($_SESSION["back-from-controller"])) {
       console.log(result)
     })
   }
-    
+
 </script>

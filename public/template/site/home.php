@@ -71,7 +71,7 @@ function tinhGiaGiam($Giaban,$khuyenMai) {
     </div>
     <div class="bottom row">
       <?php
-
+      
       ?>
     </div>
   </div>
