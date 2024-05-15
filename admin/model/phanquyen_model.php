@@ -76,6 +76,18 @@ class phanquyen_model {
         return false;
     }
 
+    function checkQuyenDuyetPN ($maTK) {
+        $this->db_config->connect();
+        $sql = "SELECT * FROM taikhoan,phanquyen WHERE taikhoan.MaQuyen = phanquyen.MaQuyen AND taikhoan.MaTK =".$maTK." AND phanquyen.MaCTQ = 10 ";
+        $query = $this->db_config->execute($sql);
+   
+        while ($row = mysqli_fetch_array($query)) 
+        {
+            return true;
+        }
+        return false;
+    }
+
     function checkQuyenAdmin ($maTK) {
         $this->db_config->connect();
         $sql = "SELECT * FROM taikhoan,phanquyen WHERE taikhoan.MaQuyen = phanquyen.MaQuyen AND taikhoan.MaTK =".$maTK." ";

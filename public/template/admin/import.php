@@ -5,8 +5,7 @@ $url = handle_url::getURLAdmin($request);
 if (isset($_GET['date'])) {
   $date = $_GET['date'];
 }
-
-
+$phanquyen_model = new phanquyen_model();
 
 ?>
 
@@ -132,7 +131,7 @@ if (isset($_GET['date'])) {
             </form>
           </td>
           <td>
-            <?php if ($row['TrangThaiPN'] == 0) { ?>
+            <?php if ($row['TrangThaiPN'] == 0 && $phanquyen_model->checkQuyenDuyetPN($_SESSION['MaTK']) == true ) { ?>
 
               <form action="<?php echo $url . '/import_controller' ?>" method="POST" style="display: inline-block;">
                 <input type="hidden" name="maPN" value="<?php echo $row['MaPN'] ?>">
