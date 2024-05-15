@@ -1,5 +1,5 @@
 
-<div id="overlay_details">
+<!-- <div id="overlay_details"> -->
 <div class="main-content">
 	<?php 
 	$request = $_SERVER['REQUEST_URI'];
@@ -132,7 +132,7 @@
 
 	
 
-</div>
+<!-- </div> -->
 
 </div>
 <script>

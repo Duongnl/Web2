@@ -83,18 +83,18 @@ $url = handle_url::getURLAdmin($request);
   </table>
 
   <?php
-  require_once('./public/template/admin/permission_details.php');
+  // require_once('./public/template/admin/permission_details.php');
 
   require_once('./public/template/admin/permission_form.php');
   ?>
   <script>
-    function openPopup() { // Click vào button thì gán style cho Popup là display:block để hiển thị lên
-      document.getElementById("overlay_details").style.display = "block";
-    }
+    // function openPopup() { // Click vào button thì gán style cho Popup là display:block để hiển thị lên
+    //   document.getElementById("overlay_details").style.display = "block";
+    // }
 
-    function closePopup() { // Click vào close thì gán style cho Popup là display:none để ẩn đi
-      document.getElementById("overlay_details").style.display = "none";
-    }
+    // function closePopup() { // Click vào close thì gán style cho Popup là display:none để ẩn đi
+    //   document.getElementById("overlay_details").style.display = "none";
+    // }
     
   </script>
 </div>
