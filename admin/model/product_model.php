@@ -21,6 +21,17 @@ class product_model
     $sql = "SELECT * FROM sanpham WHERE sanpham.TrangThai = 1 ORDER BY sanpham.NgayTao DESC LIMIT 0,12";
     return $this->db_config->execute($sql);
   }
+
+  function getProductsBanChay() {
+    $this->db_config->connect();
+    $sql = "SELECT sanpham.*, SUM(cthoadon.SoLuong) as sl FROM cthoadon 
+    JOIN hoadon ON cthoadon.MaHD = hoadon.MaHD 
+    JOIN sanpham ON sanpham.MaSP = cthoadon.MaSP 
+    where hoadon.TrangThai = 1
+    GROUP by cthoadon.MaSP
+    order by sl desc";
+    return $this->db_config->execute($sql);
+  }
   function insertProduct($maAnh, $maKM, $maDM, $tenSP, $moTa, $giaBan, $gioiTinh)
   {
     $conn = $this->db_config->connect();

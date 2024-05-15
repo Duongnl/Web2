@@ -47,7 +47,7 @@ switch ($baseName) {
         break;
     case 'order_form':
         require __DIR__ . $adminView . 'chiTietDonHang_page.php';
-        break;  
+        break;
     case 'import':
         require __DIR__ . $adminView . 'import_page.php';
         break;
@@ -87,9 +87,8 @@ switch ($baseName) {
     case 'permission_details':
         require __DIR__ . $adminView . 'permission_details_page.php';
         break;
-
     default:
-
+        require __DIR__ . '/site/view/404-page.php';
         break;
 }
 
