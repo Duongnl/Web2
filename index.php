@@ -52,7 +52,7 @@ switch ($baseName) {
     require __DIR__ . $userModel . 'account_model.php';
     break;
   default:
-    # code... page 404
+  require __DIR__ . $userView . '404-page.php';
   break;
 }
 
