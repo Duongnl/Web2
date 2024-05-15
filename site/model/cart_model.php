@@ -141,11 +141,18 @@ class cart_model
     //hàm xóa tất cả sản phẩm trong giỏ hàng
     
     public function deleteAll($MaTK) {
+        $this->db_config->connect();
         $sql = "DELETE FROM giohang WHERE MaTK = '$MaTK'";
         $result = $this->db_config->execute($sql);
         if ($result) {
             return true;
         }
         return false;
+    }
+
+    function countdonhang($maTK) {
+        $this->db_config->connect();
+        $sql ="SELECT COUNT(*) as total FROM giohang WHERE MaTK = '$maTK";
+        $this->db_config->execute($sql);
     }
 }
