@@ -2,19 +2,28 @@
 require_once('../model/login_register_model.php');
 require_once('../../admin/model/db_config.php');
 require_once('../../admin/model/account_manager_model.php');
+require_once('../../admin/model/phanquyen_model.php');
 
 if ( isset($_POST['taikhoan']) && isset($_POST['matkhau'])  )
 {
     $taikhoan= $_POST['taikhoan'];
     $matkhau= $_POST['matkhau'];
    $login_register_model = new login_register_model();
+   $phanquyen_model = new phanquyen_model();
    $boolean = $login_register_model->checkUsernamePassword($taikhoan,$matkhau);
    if ($boolean == true) {
     $query = $login_register_model->getTaiKhoan($taikhoan);
     $row = mysqli_fetch_array($query);
     $_SESSION['TenTK'] = $row['TenTK'];
     $_SESSION['MaTK'] = $row['MaTK'];
-    echo "correct";
+    // $boolean = $phanquyen_model->checkQuyenUser($row['MaTK']);
+    // echo $boolean;
+    if ( $phanquyen_model->checkQuyenUser($row['MaTK'])) {
+        echo "co quyen user";
+    } else {
+        echo "khong co quyen user";
+    }
+    
    } else {
     $booleanUsername =  $login_register_model->checkUsername($taikhoan);
     if ($booleanUsername == true) {
@@ -40,9 +49,9 @@ if ( isset($_POST['taikhoanDK']) && isset($_POST['emailDK']) && isset($_POST['pa
    $boolean2 = $login_register_model_DKY->checkEmailDangKy($taikhoanDK);    
 
    if ($boolean1 == true && $boolean2 == true) {
-        $login_register_model_DKY->addTaiKhoan($taikhoanDK,$emailDK,$passDK,$phonenumberDK,$addressDK);
-        //lấy tài khoản cuối cùng add vào
-        $account_manager_model = new account_manager_model();
+       $login_register_model_DKY->addTaiKhoan($taikhoanDK,$emailDK,$passDK,$phonenumberDK,$addressDK);
+       //lấy tài khoản cuối cùng add vào
+       $account_manager_model = new account_manager_model();
         $queryAccount = $account_manager_model->getAccountData();
         $lastAccount = $queryAccount->fetch_all(MYSQLI_ASSOC);
         $lastMaTK = end($lastAccount)['MaTK']; 

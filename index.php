@@ -1,4 +1,3 @@
-
 <?php
 require './site/controller/handle_url.php';
 // $folder_name = handle_url::getParent_Index();

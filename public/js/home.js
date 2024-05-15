@@ -52,5 +52,7 @@ document.querySelector('.group-nav .fa-angle-right').addEventListener('click', (
   showSlide(currentIndexSlide += 1)
 })
 
-
-
+function formatCurrency(amount) {
+  // Chèn dấu phẩy vào hàng nghìn và thêm đơn vị tiền tệ
+  return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "đ";
+}

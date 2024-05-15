@@ -2,9 +2,13 @@
 if (isset($_POST['input-search'])) {
   $input_search = $_POST['input-search'];
 }
+
+function tinhGiaGiam($Giaban,$khuyenMai) {
+  return $Giaban*(1 - $khuyenMai/100);
+}
 ?>
 <input type="hidden" value="<?php if(isset( $_POST['input-search'])) {echo $input_search;} ?>" id="input-search-hidden" name="input-search">
-
+<input type="hidden" value="<?php echo $rootDirectory  ?>"  id="rootDirectory" >
 <style>
   .tag-filtter {
     display: flex;
@@ -43,12 +47,12 @@ if (isset($_POST['input-search'])) {
     <div class="col-6 col-sm-4 col-md-2 col-Filter">
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle btn-filter-price" type="button" data-bs-toggle="dropdown" aria-expanded="false" style=" background-color: #DB4444; ">
-          Price
+          Giá
         </button>
         <ul class="dropdown-menu">
           <li>
             <p>
-              <label for="amount" style="padding-left: 10px;">Price range:</label>
+              <label for="amount" style="padding-left: 10px;">Khoảng giá:</label>
               <input type="text" class="amount" readonly style="border:0; color:#000000; font-weight:bold;padding-left: 10px;">
             </p>
             <div class="slider-range" >
@@ -62,9 +66,9 @@ if (isset($_POST['input-search'])) {
     <div class="col-6 col-sm-4 col-md-2 col-Filter">
       <select class="form-select select-filter-sex" id="sex" aria-label="Default select example">
         <option value="0" select>Tất cả giới tính</option>
-        <option value="3">Unsex</option>
-        <option value="1">Male</option>
-        <option value="2">Female</option>
+        <option value="3">Unisex</option>
+        <option value="1">Nam</option>
+        <option value="2">Nữ</option>
       </select>
     </div>
     <!-- Size -->
@@ -118,13 +122,13 @@ if (isset($_POST['input-search'])) {
 
   <!-- Nhãn sản phẩm -->
   <div class="row " style="display: flex;margin-top: 40px;justify-content: space-between; ">
-    <span style=" width:150px; font-size: 30px; display:inline;"> Product</span>
-    <select class="form-select select-filter-sort" style="width:300px;" aria-label="Default select example">
+    <span style=" width:200px; font-size: 30px; display:inline;"> Sản phẩm</span>
+    <!-- <select class="form-select select-filter-sort" style="width:300px;" aria-label="Default select example">
       <option value="" disabled selected hidden>Sort</option>
       <option value="0" select>Mặc định</option>
       <option value="1" select>Price from low to high</option>
       <option value="2">Price from high to low</option>
-    </select>
+    </select> -->
   </div>
 
   <!-- Sản phẩm -->
@@ -142,22 +146,22 @@ if (isset($_POST['input-search'])) {
 
 
     while ($row = mysqli_fetch_array($queryFollowPage)) {
+        $ptKM = $row['MaKM'] != "" ? $product_model->getPhanTramKhuyenMai($row['MaKM']) : null;
+        $giaMoi =  $ptKM ?  tinhGiaGiam($row["GiaBan"],$row["PhanTramKM"]) : "";
     ?>
       <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
         <div class="product">
-          <a href="" class="wrap-img">
-            <img class="img-product" src="<?php echo $row['Url'] ?>  ">
-            <?php if ($row['PhanTramKM'] != '') { ?>
-              <div class="deal"> <?php echo '-' . $row['PhanTramKM'] . '%'  ?> </div>
-            <?php  } ?>
+          <a href="<?php echo $rootDirectory."/product-detail?id=".$row["MaSP"] ?>" class="wrap-img">
+            <img class="img-product" src="<?php echo $rootDirectory.$row["Url"]?>">
+            <div class="deal" style="<?php echo $ptKM ? "display:block" : "display:none" ?>"><?php echo $row["PhanTramKM"]."%" ?></div>
           </a>
           <div class="product-info">
             <div class="product-body">
-              <a href="" class="product-title"> <?php echo $row['TenSP'] ?> </a>
+              <a href="<?php echo $rootDirectory."/product-detail?id=".$row["MaSP"] ?>" class="product-title"><?php echo $row["TenSP"]?></a>
               <div class="prices">
-                <div class="new-price"> <?php echo $row['GiaBan'] ?> </div>
-                <div class="old-price">$260</div>
-              </div>
+                <div class="new-price"><?php echo $ptKM ? number_format($giaMoi)."đ": number_format($row["GiaBan"])."đ" ?></div>
+                <div class="old-price"><?php echo $ptKM ? number_format($row["GiaBan"])."đ": ""?></div>
+              </div>  
             </div>
           </div>
         </div>
@@ -219,6 +223,8 @@ function formatCurrency(number) {
   var size = document.getElementById("size");
   var sale = document.getElementById("sale");
   var input_search_hidden = document.getElementById("input-search-hidden");
+  var rootDirectory =document.getElementById("rootDirectory");
+  rootDirectory_data =rootDirectory.value;
 
 
   // biến chứa dữ liệu
@@ -253,6 +259,7 @@ function formatCurrency(number) {
           size: size_data,
           sale: sale_data,
           tenSP: input_search_hidden_data,
+          rootDirectory: rootDirectory_data,
         },
 
         function(data, status) {
@@ -314,6 +321,7 @@ function formatCurrency(number) {
           size: size_data,
           sale: sale_data,
           tenSP:  input_search_hidden.value,
+          rootDirectory: rootDirectory_data,
         },
         function(data, status) {
           $('.row-product').html(data);
@@ -417,6 +425,7 @@ function formatCurrency(number) {
           size: size_data,
           sale: sale_data,
           tenSP: input_search_hidden_data,
+          rootDirectory: rootDirectory_data,
         },
 
         function(data, status) {
@@ -438,7 +447,7 @@ function formatCurrency(number) {
 
           var newSpanPrice = document.createElement('span');
           newSpanPrice.classList.add('badge', 'text-bg-danger');
-          newSpanPrice.textContent = '$' + startPrice_data + ' - $' + endPrice_data;
+          newSpanPrice.textContent =  formatCurrency(startPrice_data) + ' - ' + formatCurrency(endPrice_data);
 
           var newSpanSex = document.createElement('span');
           newSpanSex.classList.add('badge', 'text-bg-danger');
@@ -531,6 +540,7 @@ function formatCurrency(number) {
           size: size_data,
           sale: sale_data,
           tenSP: input_search_hidden_data,
+          rootDirectory: rootDirectory_data,
         },
 
         function(data, status) {

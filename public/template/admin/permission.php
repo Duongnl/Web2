@@ -1,4 +1,5 @@
-<style>
+  
+  <style>
   .btn-edit,
   .btn-permission,
   .btn-delete {
@@ -57,15 +58,19 @@ $url = handle_url::getURLAdmin($request);
       while ($row = mysqli_fetch_array($queryQuyen)) {
     ?>
         <tr class="tr-body" style="height: 55px;">
-          <th scope="row"><?php echo $row['MaQuyen'] ?></th>
+          <th scope="row" id="PermissionID"><?php echo $row['MaQuyen'] ?></th>
           <td><?php echo $row['TenQuyen'] ?></td>
-          <td>
+          <td >
+          
+            <form action="<?php echo $url.'/permission_details' ?>" method ="POST" style="margin-bottom: 10px;" >
+              <input type="hidden" name = "permissionID" value ="<?php echo $row['MaQuyen'] ?>">
+              <button id="phanquyen" class="btn btn-warning btn-edit" type="submit" >Phân Quyền </button>
+            </form>
             <!-- permission details -->
-            <button type="button" onclick="openPopup()" class="btn btn-warning btn-permission" >Phân Quyền </button>
             
             
             <!-- <form action="../controller/supplier-controller.php" method="GET">  -->
-            <button type="button" class="btn btn-warning btn-edit" onclick="permission_form('<?php echo $row['MaQuyen'] ?>' ,'<?php echo $row['TenQuyen'] ?>','Edit Staff','edit','Save')"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button type="button"  class="btn btn-warning btn-edit" onclick="permission_form('<?php echo $row['MaQuyen'] ?>' ,'<?php echo $row['TenQuyen'] ?>','Edit Staff','edit','Save')"><i class="fa-solid fa-pen-to-square"></i></button>
             <button type="button" class="btn btn-danger btn-delete"  onclick="permission_form('<?php echo $row['MaQuyen'] ?>' ,'<?php echo $row['TenQuyen'] ?>','Delete Staff','delete','Delete')"><i class="fa-solid fa-trash"></i></button>
 
             <!-- </form>  -->
@@ -78,18 +83,18 @@ $url = handle_url::getURLAdmin($request);
   </table>
 
   <?php
-  require_once('./public/template/admin/permission_details.php');
+  // require_once('./public/template/admin/permission_details.php');
 
   require_once('./public/template/admin/permission_form.php');
   ?>
   <script>
-    function openPopup() { // Click vào button thì gán style cho Popup là display:block để hiển thị lên
-    document.getElementById("overlay_details").style.display = "block";
-    }
+    // function openPopup() { // Click vào button thì gán style cho Popup là display:block để hiển thị lên
+    //   document.getElementById("overlay_details").style.display = "block";
+    // }
 
-    function closePopup() { // Click vào close thì gán style cho Popup là display:none để ẩn đi
-    document.getElementById("overlay_details").style.display = "none";
-    }
+    // function closePopup() { // Click vào close thì gán style cho Popup là display:none để ẩn đi
+    //   document.getElementById("overlay_details").style.display = "none";
+    // }
+    
   </script>
-
 </div>

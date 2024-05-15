@@ -1,6 +1,7 @@
 <?php
 
 $url = handle_url::getUrl();
+
 ?>
 <style>
   #memo-taikhoan,
@@ -158,15 +159,18 @@ $url = handle_url::getUrl();
         },
 
         function(data, status) {
+          // alert(data);
             if (data == 'Wrong password') {
               memo_taikhoan.value = "";
               memo_matkhau.value = "Wrong password";
             } else if (data == "Account does not exist"){
               memo_taikhoan.value = "Account does not exist";
               memo_matkhau.value = "";
-            } else if (data == "correct") {
-            
+            } 
+            else if (data == "co quyen user") {
               window.location.href = '<?php echo $url; ?>'
+            } else if (data == "khong co quyen user") {
+              window.location.href = '<?php echo $url.'/admin/statistic'; ?>'
             }
         });
       } else {

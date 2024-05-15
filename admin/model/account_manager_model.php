@@ -16,7 +16,7 @@ class account_manager_model
     function insertAccountData( $tenTK, $Email, $SDT, $matKhau, $maQuyen, $trangThai)
     {
         $this->db_config->connect();
-        $sql = "INSERT INTO taikhoan (  TenTK, Email, SDT, MatKhau, TrangThai ,MaQuyen) VALUES ( '$tenTK','$Email','$SDT','$matKhau', '$maQuyen','$trangThai') ";
+        $sql = "INSERT INTO taikhoan (  TenTK, Email, SDT, MatKhau ,MaQuyen, TrangThai ) VALUES ( '$tenTK','$Email','$SDT','$matKhau', '$maQuyen','$trangThai') ";
         return  $this->db_config->execute($sql);
     }
     function updateAccountData ($maTK,$tenTK,$Email, $SDT, $matKhau, $maQuyen , $trangThai)

@@ -1,17 +1,31 @@
 
-<div id="overlay_details">
+<!-- <div id="overlay_details"> -->
 <div class="main-content">
+	<?php 
+	$request = $_SERVER['REQUEST_URI'];
+	$url = handle_url::getURLAdmin($request);
+	$phanquyen = new phanquyen_model();
+
+	
+	if(isset($_POST["permissionID"]))
+	{
+		$maQuyen = $_POST["permissionID"];
+	}
+	?>
+  
 	<div class="window">
     <div class="back">
-    	<a type="button" href="javascript:void(0)" class="closebtn btn " onclick="closePopup()" >
+    	<a type="button" href="<?php echo $url . "/permission" ?>" class="closebtn btn " >
     <i class="fa-solid fa-arrow-left" style="display: inline-block; font-size: 30px; "></i>
     </a>
     </div>
-<div class="wrapper">
+<!-- <div > -->
+	<form action="<?php echo $url.'/permission_controller' ?>" method="POST" id="permission_details_form" class="wrapper">
+	<input type="hidden" value = "<?php echo $maQuyen ?>" name="maQuyen" >
     <div class="right_colum">
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input id="QuyenThongKe" type="checkbox" name="checkbox" class="checkbox_inp q1">
+			        <input id="QuyenThongKe" type="checkbox" <?php if($phanquyen->checked($_POST["permissionID"], 1)) {echo 'checked';} ?>   name="QuyenThongKe"  class="checkbox_inp q1">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản lý Thống kê </div>
@@ -19,7 +33,7 @@
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input type="checkbox" id = "QuyenSanPham" name="checkbox" class="checkbox_inp q2">
+			        <input type="checkbox" id = "QuyenSanPham"<?php if($phanquyen->checked($_POST["permissionID"], 2)) {echo 'checked';} ?>  name="QuyenSanPham" class="checkbox_inp q2">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản Lý Sản Phẩm </div>
@@ -27,7 +41,7 @@
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input id="QuyenCategory" type="checkbox" name="checkbox" class="checkbox_inp q3">
+			        <input id="QuyenCategory" type="checkbox" <?php if($phanquyen->checked($_POST["permissionID"], 3)) {echo 'checked';} ?> name="QuyenCategory" class="checkbox_inp q3">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản Lý Category  </div>
@@ -35,7 +49,7 @@
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input type="checkbox" id ="QuyenDiscount" name="checkbox" class="checkbox_inp q4">
+			        <input type="checkbox" id ="QuyenDiscount" <?php if($phanquyen->checked($_POST["permissionID"], 4)) {echo 'checked';} ?> name="QuyenDiscount" class="checkbox_inp q4">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản lý Discount </div>
@@ -43,7 +57,7 @@
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input id="QuyenSupplier" type="checkbox" name="checkbox" class="checkbox_inp q5">
+			        <input id="QuyenSupplier" type="checkbox"<?php if($phanquyen->checked($_POST["permissionID"], 5)) {echo 'checked';} ?> name="QuyenSupplier" class="checkbox_inp q5">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản lý Supplier</div>
@@ -51,27 +65,26 @@
 
 			<div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input id="QuyenUser" type="checkbox" name="checkbox" class="checkbox_inp q6">
+			        <input id="QuyenUser" type="checkbox" <?php if($phanquyen->checked($_POST["permissionID"], 11)) {echo 'checked';} ?> name="QuyenUser" class="checkbox_inp q6">
 			        <span class="checkbox_mark"></span>
 		        </label>
-		    <div class="title">Quản lý User</div>
+		    <div class="title">Quyền User</div>
 	        </div>
-
         
     </div>
     <div class="left_colum">
             
-    <div class="checkbox_item citem_1">
+    	<div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input id="QuyenStaff" type="checkbox" name="checkbox" class="checkbox_inp q7 ">
+			        <input id="QuyenStaff" type="checkbox" <?php if($phanquyen->checked($_POST["permissionID"], 6)) {echo 'checked';} ?> name="QuyenStaff" class="checkbox_inp q7 ">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản Lý Staff</div>
-	        </div>
+	    </div>
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input id="QuyenGuest" type="checkbox" name="checkbox" class="checkbox_inp q8">
+			        <input id="QuyenGuest" type="checkbox" <?php if($phanquyen->checked($_POST["permissionID"], 7)) {echo 'checked';} ?> name="QuyenGuest" class="checkbox_inp q8">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản Lý Guest</div>
@@ -79,7 +92,7 @@
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input id="QuyenOrder" type="checkbox" name="checkbox" class="checkbox_inp q9">
+			        <input id="QuyenOrder" type="checkbox" <?php if($phanquyen->checked($_POST["permissionID"], 8)) {echo 'checked';} ?> name="QuyenOrder" class="checkbox_inp q9">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản lý Order </div>
@@ -87,7 +100,7 @@
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input id="QuyenNhap" type="checkbox" name="checkbox" class="checkbox_inp q10">
+			        <input id="QuyenNhap" type="checkbox" <?php if($phanquyen->checked($_POST["permissionID"], 9)) {echo 'checked';} ?> name="QuyenNhap" class="checkbox_inp q10">
 			        <span class="checkbox_mark"></span>
 		        </label>
 		    <div class="title">Quản Lý Nhập </div>
@@ -95,7 +108,7 @@
 
             <div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input id="QuyenDuyetNhap" type="checkbox" name="checkbox" class="checkbox_inp q11">
+			        <input id="QuyenDuyetNhap" type="checkbox" <?php if($phanquyen->checked($_POST["permissionID"], 10)) {echo 'checked';} ?> name="QuyenDuyetNhap" class="checkbox_inp q11">
 			        <span class="checkbox_mark"></span>
 		        </label>	
 		    <div class="title">Quản lý Duyệt Nhập </div>
@@ -103,27 +116,94 @@
 
 			<div class="checkbox_item citem_1">
 		        <label class="checkbox_wrap">
-			        <input id="Quyen" type="checkbox" name="checkbox" class="checkbox_inp q12">
+			        <input id="Quyen" type="checkbox" <?php if($phanquyen->checked($_POST["permissionID"], 12)) {echo 'checked';} ?> name="QuyenQly" class="checkbox_inp q12">
 			        <span class="checkbox_mark"></span>
 		        </label>
-		    <div class="title">Quản lý Quyền </div>
-	        </div>
-
+		    	<div class="title">Quản lý Quyền </div>
+	    	</div>
 
 
 			</div>
+
 		</div>
-	<div class="save">
-    	<a type="button"  class="closebtn btn-save " > Save
-    </a>
-</div>
+		<input id="save" name="save" type="submit" class ="btn-save" style=" margin:0 auto;display:block; "  value="save"></input>
+
+		</form>
+
 	
-</div>
 
-
-</div>
+<!-- </div> -->
 
 </div>
+<script>
+	function closePopup() { // Click vào close thì gán style cho Popup là display:none để ẩn đi
+    	document.getElementById("overlay_details").style.display = "none";
+    }
+	function openPopup() { // Click vào button thì gán style cho Popup là display:block để hiển thị lên
+   	 	document.getElementById("overlay_details").style.display = "block";
+    }
+
+	// var QuyenQly = document.getElementById('Quyen').checked ;
+	// QuyenQly = true;
+
+
+
+// 	 $(document).ready(function() {
+
+// 		$('#save').click(function() {
+// 		var QuyenQly = document.getElementById('Quyen').checked;
+// 		var QuyenDuyetNhap = document.getElementById('QuyenDuyetNhap').checked;
+// 		var QuyenNhap = document.getElementById('QuyenNhap').checked;
+// 		var QuyenOrder = document.getElementById('QuyenOrder').checked;
+// 		var QuyenGuest = document.getElementById('QuyenGuest').checked;
+// 		var QuyenStaff = document.getElementById('QuyenStaff').checked;
+// 		var QuyenUser = document.getElementById('QuyenUser').checked;
+// 		var QuyenSupplier = document.getElementById('QuyenSupplier').checked;
+// 		var QuyenDiscount = document.getElementById('QuyenDiscount').checked;
+// 		var QuyenCategory = document.getElementById('QuyenCategory').checked;
+// 		var QuyenThongKe = document.getElementById('QuyenThongKe').checked;
+// 		var QuyenSanPham = document.getElementById('QuyenSanPham').checked;
+
+// 			$.post("./admin/controller/permission_controller.php", {
+			
+// 				QuyenQly: QuyenQly,
+// 				QuyenDuyetNhap: QuyenDuyetNhap,
+// 				QuyenNhap:QuyenNhap,
+// 				QuyenOrder:QuyenOrder,
+// 				QuyenGuest:QuyenGuest,
+// 				QuyenStaff:QuyenStaff,
+// 				QuyenUser:QuyenUser,
+// 				QuyenSupplier:QuyenSupplier,
+// 				QuyenDiscount:QuyenDiscount,
+// 				QuyenCategory:QuyenCategory,
+// 				QuyenThongKe:QuyenThongKe,
+// 				QuyenSanPham:QuyenSanPham,
+// 			},
+// 		);
+
+		
+
+// 		});
+
+// });
+	document.addEventListener("DOMContentLoaded", function() {
+            var quyenDuyetNhapCheckbox = document.getElementById("QuyenDuyetNhap");
+            var quyenDuyetCheckbox = document.getElementById("QuyenNhap");
+
+            quyenDuyetNhapCheckbox.addEventListener("change", function() {
+                if (quyenDuyetNhapCheckbox.checked) {
+                    quyenDuyetCheckbox.checked = true;
+                } else {	
+                    quyenDuyetCheckbox.checked = false; // Optional: uncheck if you want this behavior
+                }
+            });
+    });
+		
+
+
+
+
+</script>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
@@ -135,18 +215,15 @@
 	font-family: 'Open Sans', sans-serif;
 }
 
-.save {
-	display:flex;
-	justify-content:center;
 
-}
 .btn-save {
+	border:none;
 	text-decoration: none;
-    background-color: red;
-    font-size: 30px;
+	font-weight:500;
+    font-size: 25px;
     color: black;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), -3px -3px 6px rgba(255, 255, 255, 0.8);
-    border-radius:40px;
+    border-radius:20px;
 	padding: 10px 30px;
 }
 

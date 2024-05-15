@@ -5,7 +5,9 @@ $baseNameUrl = basename($requestUrl);
 
 $url = handle_url::getUrl();
 require_once('./site/model/login_register_model.php');
+require_once('./admin/model/phanquyen_model.php');
 require_once('./admin/model/db_config.php');
+$phanquyen_model = new phanquyen_model();
 $login_register_model = new login_register_model();
 ?>
 <div class="announcement-container">
@@ -30,7 +32,7 @@ $login_register_model = new login_register_model();
   <ul class="menu-mobile">
     <li><a href="<?php echo  $url; ?>">Home</a></li>
     <li><a href="<?php echo  $url . '/product'; ?>">Product</a></li>
-    <li><a href="<?php echo  $url . '/admin/supplier'; ?>">About</a></li>
+    
   </ul>
   <div class="logo">Exclusive</div>
   <!-- <div class="logo"><?php // if (isset( $_SESSION['MaTK'])) {echo $_SESSION['MaTK']; }   
@@ -38,7 +40,7 @@ $login_register_model = new login_register_model();
   <div class="menu">
     <a href="<?php echo  $url; ?>" class="home">Home</a>
     <a href="<?php echo  $url . '/product'; ?>" class="about">Product</a>
-    <a href="<?php echo  $url . '/admin/supplier'; ?>" class="about">About</a>
+  
     <!-- <a href="/store/Web2-main/Web2-main/site/view/login-register-page.php" class="sign-up">Sign Up</a> -->
   </div>
   <div class="rightNav">
@@ -75,8 +77,8 @@ $login_register_model = new login_register_model();
         <i href="" class="fa-solid fa-user fs20 p-2"></i>
       </a>
 
-      <?php if (isset($_SESSION['MaTK']) && $login_register_model->checkPositionUserAdmin($_SESSION['MaTK']) == 'admin') { ?>
-        <a href="<?php echo  $url . '/admin/supplier'; ?>">
+      <?php if (isset($_SESSION['MaTK']) && $phanquyen_model->checkQuyenAdmin($_SESSION['MaTK']) == true) { ?>
+        <a href="<?php echo  $url . '/admin/statistic'; ?>">
           <i href="" class="fa-solid fa-gear fs20 p-2"></i>
         </a>
       <?php } ?>
@@ -120,3 +122,17 @@ $login_register_model = new login_register_model();
 <?php require_once('./public/template/admin/toast.php');
 toast::memo("Success", "back_account_controller", "limegreen");
 ?>
+
+<style> 
+#button-search
+{
+  width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background-color: rgb(255, 255, 255, 0);
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+}
+</style>

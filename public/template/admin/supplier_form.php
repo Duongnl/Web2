@@ -1,45 +1,58 @@
-
-<?php 
+<?php
 $request = $_SERVER['REQUEST_URI'];
-$url =  handle_url::getURLAdmin($request);
+$url = handle_url::getURLAdmin($request);
 ?>
 
 <style>
-    #supplier_form {
-        background-color: whitesmoke;
-        border: 1px solid gray;
-        border-radius: 20px;
+#supplier_form {
+  background-color: whitesmoke;
+  border: 1px solid gray;
+  border-radius: 20px;
 
-        width: 500px;
-        transform: translate(-50%, -50%);
-        top: 50%;
-        left: 50%;
-        position: fixed;
-        display: none;
+  width: 500px;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  display: none;
 
-        z-index: 2;
+  z-index: 2;
 
-    }
-    #memo {
-        color: #DB4444;
-        font-size: 13px;
-        margin-left: 46px;
-        border: 0;
-        width: 300px;
-    }
+}
 
-    #overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        /* Màu đen với độ mờ 50% */
-        z-index: 1;
-        /* Đảm bảo lớp phủ nằm trên nội dung */
-        display: none;
-    }
+#memo {
+  color: #DB4444;
+  font-size: 13px;
+  margin-left: 46px;
+  border: 0;
+  width: 300px;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Màu đen với độ mờ 50% */
+  z-index: 1;
+  /* Đảm bảo lớp phủ nằm trên nội dung */
+  display: none;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Màu đen với độ mờ 50% */
+  z-index: 1;
+  /* Đảm bảo lớp phủ nằm trên nội dung */
+  display: none;
+}
 </style>
 <!-- ../admin/controller/supplier_controller.php -->
 <form action="<?php echo $url.'/supplier_controller' ?>" method="POST" id="supplier_form">
@@ -58,8 +71,9 @@ $url =  handle_url::getURLAdmin($request);
         </div>
         <input type="text" value="" id="memo" disabled  >
 
-        <input id="btn-supplier-form" type="submit" class="btn btn-success" style=" margin:0 auto;display:block; margin-top: 20px; " onclick="return inspect()" value=""></input>
-    </div>
+    <input id="btn-supplier-form" type="submit" class="btn btn-success"
+      style=" margin:0 auto;display:block; margin-top: 20px; " onclick="return inspect()" value=""></input>
+  </div>
 </form>
 
 <div id="overlay" onclick="click_overlay()"></div>
@@ -69,40 +83,39 @@ $url =  handle_url::getURLAdmin($request);
 
 
 <!-- Thông báo -->
-<?php require_once('./public/template/admin/toast.php');
+<?php require_once ('./public/template/admin/toast.php');
 toast::memo("Success", "back_from_controller", "limegreen");
 ?>
 
 
 
 <script>
-    function supplier_form(maNCC, tenNCC, formName, action, buttonName) {
-        document.getElementById("supplier_form").style.display = "block";
-        document.getElementById("overlay").style.display = "block";
-        document.getElementById("input-text-head").value = formName;
-        document.getElementById("supplier_id").value = maNCC;
-        document.getElementById("supplier_name").value = tenNCC;
-        document.getElementById("action").value = action;
-        document.getElementById("btn-supplier-form").value = buttonName;
-        if (action == 'delete') {
-            document.getElementById("supplier_name").readOnly = true;
-        } else {
-            document.getElementById("supplier_name").readOnly = false;
-        }
+function supplier_form(maNCC, tenNCC, formName, action, buttonName) {
+  document.getElementById("supplier_form").style.display = "block";
+  document.getElementById("overlay").style.display = "block";
+  document.getElementById("input-text-head").value = formName;
+  document.getElementById("supplier_id").value = maNCC;
+  document.getElementById("supplier_name").value = tenNCC;
+  document.getElementById("action").value = action;
+  document.getElementById("btn-supplier-form").value = buttonName;
+  if (action == 'delete') {
+    document.getElementById("supplier_name").readOnly = true;
+  } else {
+    document.getElementById("supplier_name").readOnly = false;
+  }
+}
 
-    }
+function exit_supplier() {
+  document.getElementById("supplier_form").style.display = "none";
+  document.getElementById("memo").value = "";
+  document.getElementById("overlay").style.display = "none";
+}
 
-    function exit_supplier() {
-        document.getElementById("supplier_form").style.display = "none";
-        document.getElementById("memo").value = "";
-        document.getElementById("overlay").style.display = "none";
-    }
-
-    function click_overlay() {
-        document.getElementById("supplier_form").style.display = "none";
-        document.getElementById("memo").style.display = "none";
-        document.getElementById("overlay").style.display = "none";
-    }
+function click_overlay() {
+  document.getElementById("supplier_form").style.display = "none";
+  document.getElementById("memo").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
+}
 
 
 

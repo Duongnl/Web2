@@ -61,7 +61,7 @@ Xuất Phiếu</button>
                 <div class="col-6 main_left">
                     <p>Mã Đơn Hàng:  <?php echo  $maHD ?></p>
                     <p>Thời Gian: <?php echo  $row['ThoiGianHD'] ?>  </p>
-                    <p>Tổng Thanh Toán: <?php echo  $row['ThanhToan'] ?></p>
+                    <p>Tổng Thanh Toán: <?php echo  number_format($row['ThanhToan']).'đ';?></p>
                 </div>
                 <div class="col-6">
                     <p>Tên Tài Khoản: <?php echo  $row['TenTK'] ?></p>
@@ -90,9 +90,9 @@ Xuất Phiếu</button>
                     <th scope="row"><?php echo $row['MaSP'] ?></th>
                     <td><?php echo $row['TenSP'] ?></td>
                     <td><?php echo $row['MaSize'] ?></td>
-                    <td><?php echo $row['DonGia'] ?></td>
+                    <td><?php echo number_format($row['DonGia']).'đ'; ?></td>
                     <td><?php echo $row['ctSoLuong'] ?></td>
-                    <td><?php echo $row['ThanhTien'] ?></td>
+                    <td><?php echo number_format($row['ThanhTien']).'đ' ?></td>
                 </tr>
             <?php
             }
