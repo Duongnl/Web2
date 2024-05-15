@@ -134,6 +134,15 @@ class product_model {
         return $this->db_config->execute($sql);
     }
     
+    function getPhanTramKhuyenMai($maKhuyenMai) {
+        $this->db_config->connect();
+        $sql = "SELECT * from khuyenmai WHERE MaKM = '$maKhuyenMai' AND TrangThai = 1";
+        $rs = $this->db_config->execute($sql);
+        if ($rs) {
+          $row = mysqli_fetch_array($rs);
+          return isset($row["PhanTramKM"]) ? $row["PhanTramKM"]: null ;
+        }
+      }
 
 }
 

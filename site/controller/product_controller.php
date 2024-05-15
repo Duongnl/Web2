@@ -31,20 +31,21 @@ if (isset($_POST['category']) && isset($_POST['startPrice']) && isset($_POST['en
   $query = $product_model->filterProduct($category, $startPrice, $endPrice, $sex, $size, $sale, $fromIndex, $tenSP);
   // $rootDirectory = '/Web2';
   while ($row = mysqli_fetch_array($query)) {
-    $giaMoi = tinhGiaGiam($row["GiaBan"], $row["PhanTramKM"]);
+    $ptKM = $row["MaKM"] ? $product_model->getPhanTramKhuyenMai($row["MaKM"]) : null;
+    $giaMoi =  $ptKM ? tinhGiaGiam($row["GiaBan"], $ptKM ):"";
     echo '
       <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
         <div class="product">
           <a href="' . $rootDirectory . "/product-detail?id=" . $row["MaSP"] . '" class="wrap-img">
             <img class="img-product" src="' . $rootDirectory . $row["Url"] . '">
-            <div class="deal" style="' . ($row["MaKM"] != null ? "display:block" : "display:none") . '">' . $row["PhanTramKM"] . "%" . '</div>
+            <div class="deal" style="' . ( $ptKM  ? "display:block" : "display:none") . '">' . $row["PhanTramKM"] . "%" . '</div>
           </a>
           <div class="product-info">
             <div class="product-body">
               <a href="' . $rootDirectory . "/product-detail?id=" . $row["MaSP"] . '" class="product-title">' . $row["TenSP"] . '</a>
               <div class="prices">
-                <div class="new-price">' . ($row["MaKM"] ? number_format($giaMoi) . "đ" : number_format($row["GiaBan"]) . "đ") . '</div>
-                <div class="old-price">' . ($row["MaKM"] ? number_format($row["GiaBan"]) . "đ" : "") . '</div>
+                <div class="new-price">' . ( $ptKM ? number_format($giaMoi) . "đ" : number_format($row["GiaBan"]) . "đ") . '</div>
+                <div class="old-price">' . ( $ptKM ? number_format($row["GiaBan"]) . "đ" : "") . '</div>
               </div>  
             </div>
           </div>

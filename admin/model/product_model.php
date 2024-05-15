@@ -55,7 +55,7 @@ class product_model
     $rs = $this->db_config->execute($sql);
     if ($rs) {
       $row = mysqli_fetch_array($rs);
-      return $row["PhanTramKM"];
+      return isset($row["PhanTramKM"]) ? $row["PhanTramKM"]: null ;
     }
   }
 

@@ -21,6 +21,7 @@ if (isset($_GET["id"])) {
   $anhPhu2 = mysqli_fetch_array($listAnhPhu);
   $anhPhu3 = mysqli_fetch_array($listAnhPhu);
 
+  $ptKM = $product_model->getPhanTramKhuyenMai($product["MaKM"]);
   function tinhGiaGiam($Giaban, $khuyenMai)
   {
     return $Giaban * (1 - $khuyenMai / 100);
@@ -61,11 +62,10 @@ if (isset($_GET["id"])) {
     <div class="chiTietMonHang_thongTin col-sm-12  col-md-4">
       <h1 class="chiTietMonHang_title pb" id="productName"><?php echo $product["TenSP"] ?></h1>
       <div class="chiTietMonHang_AnhChinh_price">
-        <span class="new-price"><?php echo $product["MaKM"] != null ?
-          number_format(tinhGiaGiam($product["GiaBan"], $product_model->getPhanTramKhuyenMai($product["MaKM"]))) . "đ"
+        <span class="new-price"><?php echo $ptKM != null ?
+          number_format(tinhGiaGiam($product["GiaBan"], $ptKM)) . "đ"
           : number_format($product["GiaBan"]) . "đ" ?></span>
-        <span
-          class="old-price"><?php echo $product["MaKM"] != null ? number_format($product["GiaBan"]) . "đ" : "" ?></span>
+        <span class="old-price"><?php echo $ptKM != null ? number_format($product["GiaBan"]) . "đ" : "" ?></span>
       </div>
       <p class="product-description">
         <?php echo $product["MoTa"] ?>
@@ -85,7 +85,7 @@ if (isset($_GET["id"])) {
             foreach ($listconvert as $key => $value) {
               ?>
               <?php
-              if($value["SoLuong"] != 0 && $flag) {
+              if ($value["SoLuong"] != 0 && $flag) {
                 $maSize = $value["MaSize"];
               }
               $check = $value["SoLuong"] == 0 ? "disabled" : ($flag ? "checked" . $flag = false : "");
@@ -105,14 +105,17 @@ if (isset($_GET["id"])) {
             <button type="button" id="decrease" class="btn_giamSoLuong">-</button>
             <div class="change-size">
               <input type="number" id="chiTietMonHang_thongTin_BUY_SoLuong" class="chiTietMonHang_thongTin_BUY_SoLuong"
-                value="<?php echo $product["SoLuong"] == 0 ? "0" : "1" ?>" min="<?php echo $product["SoLuong"] == 0 ? "0" : "1" ?>" max="<?php echo $product_model->getSLSP($product["MaSP"],$maSize)?>" readonly name="SoLuong">
+                value="<?php echo $product["SoLuong"] == 0 ? "0" : "1" ?>"
+                min="<?php echo $product["SoLuong"] == 0 ? "0" : "1" ?>"
+                max="<?php echo $product_model->getSLSP($product["MaSP"], $maSize) ?>" readonly name="SoLuong">
             </div>
 
             <button type="button" id="increase" class="btn_tangSoLuong">+</button>
           </div>
       </form>
       <div class=" col-12 chiTietMonHang_themVaoGioHang mt-4">
-        <button type="submit" class="btn_ThemVaoGioHang" id="addToCartBtn" onclick="return validate()">Thêm vào giỏ hàng</button>
+        <button type="submit" class="btn_ThemVaoGioHang" id="addToCartBtn" onclick="return validate()">Thêm vào giỏ
+          hàng</button>
       </div>
     </div>
     <div class="delivery-info">
@@ -158,14 +161,16 @@ if (isset($_GET["id"])) {
       ?>
       <?php
       $ptKM = $row["MaKM"] != null ? $product_model->getPhanTramKhuyenMai($row["MaKM"]) : "";
-      $giaMoi = $row["MaKM"] != null ? tinhGiaGiam($row["GiaBan"], $ptKM) : "";
+      $giaMoi = $ptKM ? tinhGiaGiam($row["GiaBan"], $ptKM) : "";
       ?>
       <div class="col-6 col-sm-4 col-md-3 col-xxl-3">
         <div class="product">
           <a href="<?php echo $rootDirectory . "/product-detail?id=" . $row["MaSP"] ?>" class="wrap-img">
-            <img class="img-product" src="<?php echo $rootDirectory . $product_model->getURLAnhChinh($row["MaAnhChinh"]) ?>">
-            <div class="deal" style="<?php echo $row["MaKM"] != null ? "display:block" : "display:none" ?>">
-              <?php echo $ptKM . "%" ?></div>
+            <img class="img-product"
+              src="<?php echo $rootDirectory . $product_model->getURLAnhChinh($row["MaAnhChinh"]) ?>">
+            <div class="deal" style="<?php echo $ptKM  ? "display:block" : "display:none" ?>">
+              <?php echo $ptKM . "%" ?>
+            </div>
           </a>
           <div class="product-info">
             <div class="product-body">
@@ -173,8 +178,9 @@ if (isset($_GET["id"])) {
                 class="product-title"><?php echo $row["TenSP"] ?></a>
               <div class="prices">
                 <div class="new-price">
-                  <?php echo $row["MaKM"] ? number_format($giaMoi) . "đ" : number_format($row["GiaBan"]) . "đ" ?></div>
-                <div class="old-price"><?php echo $row["MaKM"] ? number_format($row["GiaBan"]) . "đ" : "" ?></div>
+                  <?php echo $ptKM  ? number_format($giaMoi) . "đ" : number_format($row["GiaBan"]) . "đ" ?>
+                </div>
+                <div class="old-price"><?php echo $ptKM  ? number_format($row["GiaBan"]) . "đ" : "" ?></div>
               </div>
             </div>
           </div>
@@ -189,8 +195,8 @@ if (isset($_GET["id"])) {
 
 </div>
 
-<?php 
-if(isset($_SESSION['add'])) {
+<?php
+if (isset($_SESSION['add'])) {
   echo '<script>alert("Sản phẩm đã có trong giỏ hàng")</script>';
 }
 ?>
@@ -215,7 +221,7 @@ if(isset($_SESSION['add'])) {
           type: "POST",
           url: '',
           data: {
-             maSize
+            maSize
           }
         }).done(function (result) {
           $('.change-size').html(result)
@@ -227,10 +233,10 @@ if(isset($_SESSION['add'])) {
   function validate() {
     var SoLuong = <?php echo $product["SoLuong"] ?>;
     var dangnhap = "<?php echo isset($_SESSION['MaTK']) ? $_SESSION['MaTK'] : "" ?>";
-    if(dangnhap ==""){
+    if (dangnhap == "") {
       alert("Bạn cần đăng nhập");
       return false;
-    }else{
+    } else {
       if (SoLuong == 0) {
         alert('Sản phẩm hết hàng!')
         return false;
