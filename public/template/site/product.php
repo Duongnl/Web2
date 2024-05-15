@@ -142,7 +142,7 @@ function tinhGiaGiam($Giaban,$khuyenMai) {
   <div class="row row-product">
     <?php $product_model = new product_model();
     // echo "sao lại v".$maDM;
-    if (isset($_POST['input-search'])) {
+    if (isset($_POST['input-search']) && $_POST['input-search']!='') {
       $tenSP = $_POST['input-search'];
       $queryAll = $product_model->getAllProductFollowName($tenSP,'');
       $queryFollowPage = $product_model->getProductFollowPageName(0, $tenSP,'');
