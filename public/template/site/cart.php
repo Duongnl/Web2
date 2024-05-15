@@ -60,7 +60,7 @@ $url = handle_url::getUrl();
                                                                               echo $row['GiaBanSauKM'] . 'đ';
                                                                             }  ?> </p>
                         <div class="change_quantity">
-                          <input type="number" min="0" max="<?php echo $value['SoLuongSize'] ?>" value="<?php echo $value['SoLuong'] ?>" id="quantity_product" name="quantity[<?= $value['MaSP'] ?>][<?= $value['MaSize'] ?>]" class="input_quantity">
+                          <input type="number" min="1" max="<?php echo $value['SoLuongSize'] ?>" value="<?php echo $value['SoLuong'] ?>" id="quantity_product" name="quantity[<?= $value['MaSP'] ?>][<?= $value['MaSize'] ?>]" class="input_quantity">
                         </div>
                         <p class="product-subtotal" id="product-total">
                           <span class="total_product">Tổng tiền: </span>
