@@ -54,10 +54,13 @@ switch ($baseName) {
     case 'import_form':
         require __DIR__ . $adminView . 'import_form_page.php';
         break;
+    case 'import_detail':
+        require __DIR__ . $adminView . 'import_detail_page.php';
+        break;
     case 'controller/product_controller':
         require __DIR__ . $adminController . 'product_controller.php';
         break;
-    case 'controller/supplier_controller':
+    case 'supplier_controller':
         require __DIR__ . $adminController . 'supplier_controller.php';
         break;
     case 'discount_controller':

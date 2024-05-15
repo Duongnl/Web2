@@ -83,7 +83,7 @@ if (isset($_POST['supplier'])) {
     <p style="font-size: 18px;margin-right: 13px;">Số lượng: </p>
     <div class="input-group flex-nowrap">
       <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-plus"></i></span>
-      <input id="quantity" name="quantity" type="number" class="form-control" placeholder="Quantity product" aria-label="Username" aria-describedby="addon-wrapping">
+      <input  id="quantity" name="quantity" type="number" class="form-control" placeholder="Quantity product" aria-label="Username" aria-describedby="addon-wrapping">
     </div>
   </div>
   <input type="text" value="" id="memo_quantity" style="margin-left: 95px;margin-bottom: 10px;" disabled>
@@ -94,7 +94,7 @@ if (isset($_POST['supplier'])) {
     <p style="font-size: 18px;margin-right: 47px;">Đơn giá: </p>
     <div class="input-group flex-nowrap">
       <span class="input-group-text" id="addon-wrapping" style=" padding-right: 13px; padding-left: 16px;"><i class="fa-solid fa-dollar-sign"></i></span>
-      <input id="cost" name="cost" type="number" class="form-control" placeholder="Dollar" aria-label="Username" aria-describedby="addon-wrapping">
+      <input  id="cost" name="cost" type="number" class="form-control" placeholder="Dollar" aria-label="Username" aria-describedby="addon-wrapping">
     </div>
     <button id="button_add" type="button" class="btn btn-success" style=" margin-left : 10px; width:150px;">Thêm</button>
   </div>
@@ -189,28 +189,36 @@ if (isset($_POST['supplier'])) {
       var memo = {}; // Khai báo và khởi tạo đối tượng memo
       var flag = true;
       if (quantity == "") {
-        memo['memo_quantity'] = "Quantity is not empity !";
+        memo['memo_quantity'] = "Không được để trống số lượng !";
         flag = false;
-      } else {
+      } else if (Number(quantity) >1000000 || Number(quantity) <1) {
+        memo['memo_quantity'] = "Số lượng không hợp lệ !";
+        flag = false;
+      }
+      else {
         memo['memo_quantity'] = "";
       };
 
       if (cost == "") {
-        memo['memo_cost'] = "Cost is not empity !";
+        memo['memo_cost'] = "Không được để trống giá !";
         flag = false;
-      } else {
+      } else if (Number(cost)>10000000 || Number(cost)<1 ) {
+        memo['memo_cost'] = "Giá không hợp lệ !";
+        flag = false;
+      } 
+      else {
         memo['memo_cost'] = "";
       };
 
       if (product == 0) {
-        memo['memo_product'] = "Product is not empity !";
+        memo['memo_product'] = "Vui lòng chọn sản phẩm !";
         flag = false;
       } else {
         memo['memo_product'] = "";
       };
 
       if (size == 0) {
-        memo['memo_size'] = "Size is not empity !";
+        memo['memo_size'] = "Vui lòng chọn size !";
         flag = false;
       } else {
         memo['memo_size'] = "";
