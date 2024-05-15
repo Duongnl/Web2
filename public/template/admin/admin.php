@@ -191,7 +191,9 @@ function PhanQuyen()
                 document.getElementById("NhaCungCap").style.display = 'block';
 
             break;
-            case 'Quản Lý Staff':
+            case 'Quản lý Staff':
+                console.log("vao duoc nhanvien");
+
                 document.getElementById("NhanVien").style.display = 'block';
 
             break;
