@@ -16,23 +16,34 @@ class product_model {
         return $this->db_config->execute($sql);
     }
 
-    function getAllProductFollowName ($tenSP) {
+    function getAllProductFollowName ($tenSP,$maDM) {
         $this->db_config->connect();
         $sql = "SELECT sanpham.*, khuyenmai.*, anhchinh.* 
         FROM sanpham 
         LEFT JOIN khuyenmai ON sanpham.MaKM = khuyenmai.MaKM 
         LEFT JOIN anhchinh ON sanpham.MaAnhChinh = anhchinh.MaAnhchinh 
-        WHERE sanpham.TenSP LIKE '%".$tenSP."%'";
+        WHERE";
+        if ($tenSP !='') {
+            $sql.= " sanpham.TenSP LIKE '%".$tenSP."%'";
+        } else if ($maDM != '') {
+            $sql.= " sanpham.MaDM = ".$maDM."";
+        }
         return $this->db_config->execute($sql);
     }
-    function getProductFollowPageName ($fromIndex,$tenSP) {
+    function getProductFollowPageName ($fromIndex,$tenSP, $maDM) {
         $this->db_config->connect();
         $sql = "SELECT sanpham.*, khuyenmai.*, anhchinh.* 
         FROM sanpham 
         LEFT  JOIN khuyenmai ON sanpham.MaKM = khuyenmai.MaKM 
         LEFT JOIN anhchinh ON sanpham.MaAnhChinh = anhchinh.MaAnhchinh
-        WHERE sanpham.TenSP LIKE '%".$tenSP."%'
-        LIMIT 12 OFFSET ".$fromIndex;
+        WHERE"; 
+
+        if ($tenSP !='') {
+            $sql.= " sanpham.TenSP LIKE '%".$tenSP."%'";
+        } else if ($maDM != '') {
+            $sql.= " sanpham.MaDM = ".$maDM."";
+        }
+        $sql.= " LIMIT 12 OFFSET ".$fromIndex;
         return $this->db_config->execute($sql);
     }
 

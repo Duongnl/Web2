@@ -7,7 +7,11 @@ function tinhGiaGiam($Giaban, $khuyenMai)
   return $Giaban * (1 - $khuyenMai / 100);
 }
 if (isset($_POST['category']) && isset($_POST['startPrice']) && isset($_POST['endPrice']) && isset($_POST['sex']) && isset($_POST['size']) && isset($_POST['sale']) && isset($_POST['page']) && isset($_POST['tenSP']) && isset($_POST['rootDirectory'])) {
-  $category = $_POST['category'];
+  if (isset($_POST['maDM']) && $_POST['maDM'] != '') {
+    $category = $_POST['maDM'];
+  } else {
+    $category = $_POST['category'];
+  }
   $startPrice = $_POST['startPrice'];
   $endPrice = $_POST['endPrice'];
   $sex = $_POST['sex'];

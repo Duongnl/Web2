@@ -1,7 +1,7 @@
 <?php
 $category_model = new category_model();
 $product_model = new product_model();
-
+$url = handle_url::getUrl();
 function tinhGiaGiam($Giaban,$khuyenMai) {
     return $Giaban*(1 - $khuyenMai/100);
 }
@@ -48,10 +48,14 @@ function tinhGiaGiam($Giaban,$khuyenMai) {
       while ($row = mysqli_fetch_array($listCategory)) {
         ?>
         <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
-          <a href="" class="category-group">
-            <!-- hỏi dương lọc danh mục điền href -->
-            <?php echo $row["TenDM"] ?>
-          </a>
+          <form action="<?php echo $url.'/product' ?>" method="POST">
+            <input type="hidden" name="maDM" value="<?php echo $row['MaDM'] ?>" >
+            <input type="hidden" name="tenDM" value="<?php echo $row['TenDM'] ?>" >
+            <button  class="category-group">
+              <!-- hỏi dương lọc danh mục điền href -->
+              <?php echo $row["TenDM"] ?>
+            </button>
+          </form>
         </div>
       <?php } ?>
     </div>
