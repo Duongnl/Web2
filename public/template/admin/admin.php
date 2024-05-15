@@ -207,7 +207,7 @@ function PhanQuyen()
                 document.getElementById("KhuyenMai").style.display = 'block';
 
             break;
-            case 'Quản Lý Supplier':
+            case 'Quản lý Supplier':
                 document.getElementById("NhaCungCap").style.display = 'block';
 
             break;
