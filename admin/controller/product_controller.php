@@ -53,19 +53,18 @@ if (isset($_POST["method"])) {
 function getData($product_model)
 {
   $data = array();
-  $pagesize = 8;
+  // $pagesize = 8;
   $products = $product_model->getProducts();
-  $rowCount = mysqli_num_rows($products);
-  $pageCount = ceil($rowCount / $pagesize);
+  // $rowCount = mysqli_num_rows($products);
+  // $pageCount = ceil($rowCount / $pagesize);
+    while ($row = mysqli_fetch_array($products)) {
+      $row["DanhMuc"] = $product_model->getCategory($row["MaDM"]);
+      $row["KhuyenMai"] = $product_model->getSale($row["MaKM"]);
+      $row["AnhChinh"] = $product_model->getURLAnhChinh($row["MaAnhChinh"]);
+      $data[] = $row;
+    }
 
-  while ($row = mysqli_fetch_array($products)) {
-    $row["DanhMuc"] = $product_model->getCategory($row["MaDM"]);
-    $row["KhuyenMai"] = $product_model->getSale($row["MaKM"]);
-    $row["AnhChinh"] = $product_model->getURLAnhChinh($row["MaAnhChinh"]);
-    $data[] = $row;
-  }
-
-  echo json_encode(array("data" => $data, "pageCount" => $pageCount));
+    echo json_encode(array("data"=>$data));
 }
 
 function updateProduct($rootPath, $product_model, $url)

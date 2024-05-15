@@ -47,7 +47,7 @@ $url = handle_url::getUrl();
                   <div class="product-item-row">
                     <div class="product-info-column">
                       <div class="product-info">
-                        <img src="<?php echo $value['Url'] ?>" id="img_product" alt="LCD Monitor" class="product-image" />
+                        <img src="<?php echo $rootDirectory.$value['Url'] ?>" id="img_product" alt="LCD Monitor" class="product-image" />
                         <h6 class="product-name" id="name_product"><?php echo $value['TenSP'] ?></h6>
                       </div>
                     </div>

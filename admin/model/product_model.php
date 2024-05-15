@@ -78,11 +78,11 @@ class product_model
   function getCategory($maDM)
   {
     $this->db_config->connect();
-    $sql = "SELECT TenDM from danhmuc WHERE MaDM = '$maDM' AND TrangThai = 1";
+    $sql = "SELECT TenDM from danhmuc WHERE MaDM = '$maDM'";
     $rs = $this->db_config->execute($sql);
     if ($rs) {
       $row = mysqli_fetch_array($rs);
-      return $row["TenDM"];
+      return isset($row["TenDM"]) ? $row["TenDM"] : null;
     }
   }
 
@@ -95,7 +95,7 @@ class product_model
     $rs = $this->db_config->execute($sql);
     if ($rs) {
       $row = mysqli_fetch_array($rs);
-      return $row["TenKM"];
+      return isset($row["TenKM"])?$row["TenKM"]: null ;
     }
   }
   function updateProduct($maSP, $maKM, $maDM, $tenSP, $moTa, $giaBan, $gioiTinh)
