@@ -1,5 +1,5 @@
 
-<button?php $url=handle_url::getUrl(); ?>
+<?php $url=handle_url::getUrl(); ?>
 
 
   <div class="account">
@@ -12,8 +12,8 @@
     <div class="account-management">
     <div class="tab_left">
     <div class="button_switch">
-      <a class="user_infor active" id="user_information" onclick="showForm('account_form')"  >Thông tin người dùng</a>
-      <a class="account_infor" id="account_information" onclick="showForm('account_form_2')">Thông tin tài khoản</a>
+      <a type="button" class="user_infor active" id="user_information" onclick="showForm('account_form')">Thông tin người dùng</a>
+      <a type="button" class="account_infor" id="account_information" onclick="showForm('account_form_2')">Thông tin tài khoản</a>
       <a href="<?php echo  $url . '/order' ?>" style="text-decoration: none;" class="account_infor">Xem đơn hàng</a>
 
     </div>
@@ -147,12 +147,7 @@
 toast::memo("Success", "back_from_controller", "limegreen");
 ?>
   <script>
-        // Kiểm tra nếu biến updated là true, hiển thị alert
-        window.onload = function() {
-            <?php if ($updated): ?>
-                alert('Cập nhật thành công!');
-            <?php endif; ?>
-        };
+        
     document.addEventListener('DOMContentLoaded', function() {
       var passwordInput = document.getElementById('password');
       var newpassword = document.getElementById('newpassword');

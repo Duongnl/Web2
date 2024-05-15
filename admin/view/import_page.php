@@ -20,6 +20,7 @@
     <?php 
           require_once('./admin/model/db_config.php');
           require_once('./admin/model/import_model.php');
+          require_once('./admin/model/phanquyen_model.php');
           require_once('./admin/model/supplier_model.php');
           require('./public/template/admin/admin.php'); 
           require('./public/template/admin/import.php'); 

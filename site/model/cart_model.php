@@ -141,6 +141,7 @@ class cart_model
     //hàm xóa tất cả sản phẩm trong giỏ hàng
     
     public function deleteAll($MaTK) {
+        $this->db_config->connect();
         $sql = "DELETE FROM giohang WHERE MaTK = '$MaTK'";
         $result = $this->db_config->execute($sql);
         if ($result) {

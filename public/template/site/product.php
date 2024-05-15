@@ -2,12 +2,19 @@
 if (isset($_POST['input-search'])) {
   $input_search = $_POST['input-search'];
 }
+if (isset($_POST['maDM'])) {
+  $maDM = $_POST['maDM'];
+  $tenDM = $_POST['tenDM'];
+}
+
 
 function tinhGiaGiam($Giaban,$khuyenMai) {
   return $Giaban*(1 - $khuyenMai/100);
 }
 ?>
 <input type="hidden" value="<?php if(isset( $_POST['input-search'])) {echo $input_search;} ?>" id="input-search-hidden" name="input-search">
+<input type="hidden" value="<?php if(isset( $_POST['maDM'])) {echo $maDM;} ?>" id="maDM-hidden" name="maDM" >
+<input type="hidden" value="<?php if(isset( $_POST['tenDM'])) {echo $tenDM;} ?>" id="tenDM-hidden" name="tenDM" >
 <input type="hidden" value="<?php echo $rootDirectory  ?>"  id="rootDirectory" >
 <style>
   .tag-filtter {
@@ -34,7 +41,7 @@ function tinhGiaGiam($Giaban,$khuyenMai) {
     <h5 style="margin-top: 20px;" class="h5-filter"> <i class="fa-solid fa-filter"></i> Filter</h5>
     <div class="col-6  col-sm-4 col-md-3 col-Filter">
       <select class="form-select select-filter-type" id="category" aria-label="Default select example">
-        <option value="0" select>Tất cả loại</option>
+        <option value="0" >Tất cả loại</option>
         <?php
         $category_model = new category_model();
         $query = $category_model->getcategoryData();
@@ -134,11 +141,19 @@ function tinhGiaGiam($Giaban,$khuyenMai) {
   <!-- Sản phẩm -->
   <div class="row row-product">
     <?php $product_model = new product_model();
+    // echo "sao lại v".$maDM;
     if (isset($_POST['input-search'])) {
       $tenSP = $_POST['input-search'];
-      $queryAll = $product_model->getAllProductFollowName($tenSP);
-      $queryFollowPage = $product_model->getProductFollowPageName(0, $tenSP);
-    } else {
+      $queryAll = $product_model->getAllProductFollowName($tenSP,'');
+      $queryFollowPage = $product_model->getProductFollowPageName(0, $tenSP,'');
+    } else if (isset($_POST['maDM'])) {
+      // echo "vào damnh mục rồi";
+      // $maDM = isset($_POST['maDM']);
+      $queryAll = $product_model->getAllProductFollowName('',$maDM);
+      $queryFollowPage = $product_model->getProductFollowPageName(0,'' ,$maDM);
+     
+    } 
+    else {
       $queryAll = $product_model->getAllProduct();
       $queryFollowPage = $product_model->getProductFollowPage(0);
     }
@@ -223,6 +238,8 @@ function formatCurrency(number) {
   var size = document.getElementById("size");
   var sale = document.getElementById("sale");
   var input_search_hidden = document.getElementById("input-search-hidden");
+  var maDM_hidden =document.getElementById("maDM-hidden");
+  var tenDM_hidden =document.getElementById("tenDM-hidden");
   var rootDirectory =document.getElementById("rootDirectory");
   rootDirectory_data =rootDirectory.value;
 
@@ -233,16 +250,51 @@ function formatCurrency(number) {
   var size_data = 0;
   var sale_data = false;
   var input_search_hidden_data = '';
+  var maDM_hidden_data = '';
+  var tenDM_hidden_data ='';
   var startPrice_data = 0;
   var endPrice_data= 500;
-  
+
+
+
+
+
   // click vào chuyển trang
   $(document).ready(function() {
+
+
+    if (maDM_hidden.value !='') {
+      tenDM_hidden_data =tenDM_hidden.value;
+      maDM_hidden_data =maDM_hidden.value;
+
+      // console.log(tenDM_hidden_data);
+      // selected(maDM_hidden_data);
+      // category.value = ;
+      console.log( "madh nè"+maDM_hidden_data);
+      var tag_filtter = document.querySelector('.tag-filtter');
+      tag_filtter.innerHTML = '';
+
+      var newSpanDM = document.createElement('span');
+      newSpanDM.classList.add('badge', 'text-bg-danger');
+      newSpanDM.textContent = tenDM_hidden_data;
+
+      var buttonDeleteTag = document.createElement('button');
+      buttonDeleteTag.setAttribute('type', 'button');
+      buttonDeleteTag.setAttribute('id', 'delete-tag');
+      buttonDeleteTag.classList.add('btn', 'btn-outline-danger');
+      buttonDeleteTag.textContent = 'X';
+      tag_filtter.appendChild(newSpanDM);
+      tag_filtter.appendChild(buttonDeleteTag);
+    }
+
+  
+
+
     $('#page').on("click", "a", function() {
       var page_data = $(this).text(); // lấy số của trang khi click vào
   
       input_search_hidden_data =input_search_hidden.value;
-
+      maDM_hidden_data = maDM_hidden.value;
 
       // Bỏ lớp active khỏi tất cả các thẻ li có class="page-item"
       $('.page-item').removeClass('active');
@@ -260,6 +312,7 @@ function formatCurrency(number) {
           sale: sale_data,
           tenSP: input_search_hidden_data,
           rootDirectory: rootDirectory_data,
+          maDM :maDM_hidden_data,
         },
 
         function(data, status) {
@@ -272,7 +325,8 @@ function formatCurrency(number) {
     });
 
     $('#button-search').click(function() {
-
+     maDM_hidden.value = '';
+     maDM_hidden_data = '';
       category.value = 0;
       sex.value = 0;
       size.value = 0;
@@ -322,6 +376,7 @@ function formatCurrency(number) {
           sale: sale_data,
           tenSP:  input_search_hidden.value,
           rootDirectory: rootDirectory_data,
+          maDM :maDM_hidden_data,
         },
         function(data, status) {
           $('.row-product').html(data);
@@ -403,8 +458,8 @@ function formatCurrency(number) {
       size_data = size.value;
       sale_data = sale.checked;
       input_search_hidden_data = input_search_hidden.value;
-
-      
+      maDM_hidden.value='';
+      maDM_hidden_data = '';
       
       var page_data = 1;
       // In ra console để kiểm tra
@@ -426,6 +481,7 @@ function formatCurrency(number) {
           sale: sale_data,
           tenSP: input_search_hidden_data,
           rootDirectory: rootDirectory_data,
+          maDM :maDM_hidden_data,
         },
 
         function(data, status) {
@@ -509,6 +565,9 @@ function formatCurrency(number) {
 
       input_search_hidden.value = '';
       input_search_hidden_data = input_search_hidden.value;
+      maDM_hidden.value ='';
+      maDM_hidden_data = '';
+      
 
       category.value = 0;
       sex.value = 0;
@@ -541,6 +600,7 @@ function formatCurrency(number) {
           sale: sale_data,
           tenSP: input_search_hidden_data,
           rootDirectory: rootDirectory_data,
+          maDM :maDM_hidden_data,
         },
 
         function(data, status) {
