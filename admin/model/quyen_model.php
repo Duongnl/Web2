@@ -7,10 +7,16 @@ class quyen_model {
 
     }
 
+    function getQuyenAllData() {
+       
+        $this->db_config->connect();
+        $sql = "SELECT * FROM quyen WHERE TrangThai ";
+        return $this->db_config->execute($sql);
+    }
      function getQuyenData() {
        
         $this->db_config->connect();
-        $sql = "SELECT * FROM quyen WHERE TrangThai = 1" ;
+        $sql = "SELECT * FROM quyen WHERE TrangThai = 1 and MaQuyen != 1 and MaQuyen != 2" ;
         return $this->db_config->execute($sql);
     }
 
