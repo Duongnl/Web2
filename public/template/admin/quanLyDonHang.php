@@ -124,7 +124,7 @@
                 
                 };       
           ?>
-          <td><?php echo $row['ThanhToan'] ?></td>
+          <td><?php echo number_format($row['ThanhToan']).'đ' ?></td>
           <td class="td_form">
             <?php if($row['TrangThaiHD']==0){?>
               
