@@ -134,5 +134,6 @@ toast::memo("Success", "back_account_controller", "limegreen");
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
+    border:none;
 }
 </style>

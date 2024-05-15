@@ -81,7 +81,7 @@ $url =  handle_url::getURLAdmin($request);
                     // Tạo một đối tượng quyen_model
                     $quyen_model = new quyen_model();
                     // Gọi hàm để lấy dữ liệu quyền từ cơ sở dữ liệu
-                    $queryQuyen = $quyen_model->getQuyenData();
+                    $queryQuyen = $quyen_model->getQuyenAllData();
                     // Lặp qua kết quả và tạo các lựa chọn cho combo box
                     while ($row = mysqli_fetch_array($queryQuyen)) {
                     echo "<option value='" . $row['MaQuyen'] . "'>" . $row['TenQuyen'] . "</option>";

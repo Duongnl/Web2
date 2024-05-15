@@ -24,7 +24,7 @@ if ( isset($_POST['action']) )
     if ($action == 'add') {
        
         $queryAccount = $account_manager_model->getAccountData();
-        $account_manager_model->insertAccountData(trim($guest_tenTK), trim($guest_email), trim($guest_sdt), trim($guest_matkhau) , 5, 1);
+        $account_manager_model->insertAccountData(trim($guest_tenTK), trim($guest_email), trim($guest_sdt), trim($guest_matkhau) , 1, 1);
         
         $lastAccount = $queryAccount->fetch_all(MYSQLI_ASSOC);
         $lastMaTK = end($lastAccount)['MaTK']; 
