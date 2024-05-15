@@ -15,23 +15,7 @@
 .logo {
   font: 700 24px/100% Inter, sans-serif;
 }
-.header__cart-wrap{
-  position: relative;
-  display: inline-block;
-}
-.header__cart-notice{
-  font-family: Arial, Helvetica, sans-serif;
-  position: absolute;
-  top:-3px ;
-  right:-3px ;
-  padding: 1px 5px;
-  color: rgb(0, 0, 0);
-  font-size: 0.8rem;
-  line-height: 1rem;
-  border-radius: 50%;
-  border: 1px solid rgb(0, 0, 0);
-  background-color: #ffffff;
-}
+
 .menu {
   display: flex;
   justify-content: space-between;

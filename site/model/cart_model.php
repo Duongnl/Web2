@@ -149,10 +149,4 @@ class cart_model
         }
         return false;
     }
-
-    function countdonhang($maTK) {
-        $this->db_config->connect();
-        $sql ="SELECT COUNT(*) as total FROM giohang WHERE MaTK = '$maTK";
-        $this->db_config->execute($sql);
-    }
 }
