@@ -120,3 +120,17 @@ $login_register_model = new login_register_model();
 <?php require_once('./public/template/admin/toast.php');
 toast::memo("Success", "back_account_controller", "limegreen");
 ?>
+
+<style> 
+#button-search
+{
+  width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background-color: rgb(255, 255, 255, 0);
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+}
+</style>
