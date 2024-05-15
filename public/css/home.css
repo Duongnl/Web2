@@ -3,7 +3,7 @@
   margin: 0;
   border: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Arial", "Helvetica" sans-serif;
 }
 
 hr {
@@ -102,11 +102,6 @@ hr {
   font-size: 24px;
 }
 
-.product {
-  margin-top: 10px;
-  height: 350px;
-}
-
 .img-product:hover {
   transform: scale(1.2);
 }
@@ -125,7 +120,7 @@ hr {
   width: 100%;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  /* padding: 40px; */
   background-color: #F5F5F5
 }
 
@@ -144,16 +139,24 @@ hr {
   justify-content: center; */
 }
 
+.product {
+  margin-top: 10px;
+  height: 350px;
+  border-radius: 5px;
+  border: solid 1px #eeeeee;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
 .product-info {
   height: 20%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 8px 4px;
+  padding: 4px 8px;
 }
 
 .product-body {
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -210,6 +213,10 @@ hr {
   gap: 60px;
 }
 
+.block.categories {
+  gap: 0px;
+}
+
 .block .top {
   display: flex;
   justify-content: space-between;
@@ -223,7 +230,7 @@ hr {
 
 .block .left .desc {
   margin-top: 30px;
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 500;
 }
 
@@ -236,6 +243,7 @@ hr {
 .block .right>i {
   text-align: center;
   font-size: 20px;
+
   padding: 14px;
   border-radius: 50%;
   background-color: #F5F5F5;
@@ -272,6 +280,7 @@ hr {
   padding: 12px 24px;
 }
 
+.block .btn-view-all-products:hover,
 .block .btn-view-all-products:active {
   color: #fff;
   background-color: #DB4444;
@@ -279,7 +288,8 @@ hr {
 
 
 .category-group {
-  height: 170px;
+  padding: 10px 20px;
+  font-weight: 500;
   text-decoration: none;
   color: #000;
   display: flex;
@@ -288,7 +298,8 @@ hr {
   align-items: center;
   gap: 30px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 50px;
+  font-size: 20px;
 }
 
 .category-group:hover {
@@ -365,19 +376,19 @@ hr {
 
   .block .left .desc {
     margin-top: 10px;
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .block .right {
     align-items: center;
   }
 
-  .category-group {
-    height: 145px
+  .block .right>i {
+    font-size: 10px;
   }
 
   .product {
-    height: 300px;
+    height: 280px;
   }
 
   .wrap-img {
@@ -402,12 +413,11 @@ hr {
   }
 
   .product {
-    height: 300px;
+    height: 280px;
   }
 
-
   .wrap-img {
-    padding: 20px;
+    padding: 10px;
   }
 
   .img-product {

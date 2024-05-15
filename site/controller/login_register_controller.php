@@ -49,9 +49,9 @@ if ( isset($_POST['taikhoanDK']) && isset($_POST['emailDK']) && isset($_POST['pa
    $boolean2 = $login_register_model_DKY->checkEmailDangKy($taikhoanDK);    
 
    if ($boolean1 == true && $boolean2 == true) {
-        $login_register_model_DKY->addTaiKhoan($taikhoanDK,$emailDK,$passDK,$phonenumberDK,$addressDK);
-        //lấy tài khoản cuối cùng add vào
-        $account_manager_model = new account_manager_model();
+       $login_register_model_DKY->addTaiKhoan($taikhoanDK,$emailDK,$passDK,$phonenumberDK,$addressDK);
+       //lấy tài khoản cuối cùng add vào
+       $account_manager_model = new account_manager_model();
         $queryAccount = $account_manager_model->getAccountData();
         $lastAccount = $queryAccount->fetch_all(MYSQLI_ASSOC);
         $lastMaTK = end($lastAccount)['MaTK']; 

@@ -141,9 +141,21 @@
         <h3 style="padding-left: 15px; margin-top: 10px; " class="h1-head-name">Tình hình kinh doanh</h3>
     </div>
 
-    <div>
-        <select id="select_sp" class="form-select select-filter-type" style="width:200px;" aria-label="Default select example">
-            <option value="1">Tất cả sản phẩm</option>
+    <div style="display: flex; justify-content:baseline;">
+        <select id="select_month" class="form-select select-filter-type" style="width:200px;" aria-label="Default select example">
+            <option value="1">Tháng 1</option>
+            <option value="2">Tháng 2</option>
+            <option value="3">Tháng 3</option>
+            <option value="4">Tháng 4</option>
+            <option value="5" selected>Tháng 5</option>
+            <option value="6">Tháng 6</option>
+            <option value="7">Tháng 7</option>
+            <option value="8">Tháng 8</option>
+            <option value="9">Tháng 9</option>
+            <option value="10">Tháng 10</option>
+        </select>
+        <select id="select_sp" class="form-select select-filter-type" style="width:200px; margin-left:20px;" aria-label="Default select example">
+            <option value="0">Tất cả sản phẩm</option>
             <?php
             $category_model = new category_model();
             $query = $category_model->getcategoryData();
@@ -164,11 +176,15 @@
         var startDay = document.getElementById("startDay");
         var endDay = document.getElementById("endDay");
         var top = document.getElementById("select_top")
+        var select_month = document.getElementById("select_month");
+        var select_sp = document.getElementById("select_sp");
         var top_data = 5;
         var arrName = [];
         var arrData = [];
         let pieChart;
-
+        let myChart; // Biến toàn cục để lưu trữ tham chiếu đến biểu đồ
+        let arrDate = [];
+        let maDM_data = 0;
 
         $.post("../admin/controller/thong_ke_controller.php", {
             startFirstPieChart: 'startFirstPieChart',
@@ -181,6 +197,9 @@
             bieuDoTron(data.arrName, arrData)
             // bieuDoTron();
         }, 'json');
+
+
+       
 
 
         function bieuDoTron(arrName, arrData) {
@@ -291,32 +310,103 @@
                 }, 'json');
 
         });
-        bieuDoDuong ();
 
-        function bieuDoDuong() {
+        document.getElementById('select_sp').addEventListener('change', function() {
+            select_moth_data = select_month.value;
+            maDM_data = select_sp.value;
+            $.post("../admin/controller/thong_ke_controller.php", {
+                    moth: select_moth_data,
+                    maDM : maDM_data,
+                },
+                function(data, status) {
+                    var mangTenSP = data.mangTenSP;
+                    var mangDoanhThu = data.mangDoanhThu;
+                    bieuDoDuong(mangTenSP, mangDoanhThu, select_moth_data)
+
+
+                }, 'json');
+        });
+
+
+
+
+        document.getElementById('select_month').addEventListener('change', function() {
+            select_moth_data = select_month.value;
+            maDM_data = select_sp.value;
+            $.post("../admin/controller/thong_ke_controller.php", {
+                    moth: select_moth_data,
+                    maDM : maDM_data,
+                },
+                function(data, status) {
+                    var mangTenSP = data.mangTenSP;
+                    var mangDoanhThu = data.mangDoanhThu;
+
+                    bieuDoDuong(mangTenSP, mangDoanhThu, select_moth_data)
+
+
+                }, 'json');
+        });
+
+
+        function getDaysInMonth(month, year) {
+            // Tạo một đối tượng Date với ngày là 1 và tháng và năm được truyền vào
+            let date = new Date(year, month - 1, 1);
+
+            // Khởi tạo mảng kết quả
+            let days = [];
+
+            // Lặp qua tất cả các ngày trong tháng
+            while (date.getMonth() === month - 1) {
+                // Định dạng ngày hiện tại thành chuỗi "ngày/tháng"
+                let dayString = date.getDate() + "/" + (date.getMonth() + 1);
+
+                // Thêm chuỗi định dạng vào mảng
+                days.push(dayString);
+
+                // Chuyển sang ngày tiếp theo
+                date.setDate(date.getDate() + 1);
+            }
+
+            return days;
+        }
+
+        function bieuDoDuong(mangTenSP, mangDoanhThu, month) {
+
+            // mangTenSP = ['sp1', 'sp2'];
+            // mangDoanhThu = [
+            //     [1200, 900, 1500, 1300, 1700,4555],
+            //     [1000, 1200, 900, 1000, 1300, 1700]
+            // ];
+
+            console.log(getDaysInMonth(month, 2024));
+            if (myChart) {
+                myChart.destroy();
+            }
+            // Tạo cấu trúc data
             const data = {
-                labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6'],
-                datasets: 
-                [{
-                    label: 'Doanh số bán hàng',
-                    data: [1000, 1200, 900, 1500, 1300, 1700],
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 2}, 
-                {
-                    label: 'Doanh số bán hàng nè hh',
-                    data: [1000, 1200, 900, 1000, 1300, 1700],
-                    backgroundColor: 'rgba(153, 102, 255, 1)',
-                    borderColor: 'rgba(153, 102, 255, 1)',
-                    borderWidth: 2}
-                ]
+                label: getDaysInMonth(month, 2024), // arrDate chứa các ngày/tháng như đã tạo trước đó
+                datasets: []
             };
+
+            // Sử dụng vòng lặp để thêm dữ liệu vào datasets
+            for (let i = 0; i < mangTenSP.length; i++) {
+                var randomColor = getRandomColor(0.2); // Tạo màu nền ngẫu nhiên với độ mờ 0.2
+                var backgroundColor = randomColor.color;
+                var borderColor = `rgba(${randomColor.r}, ${randomColor.g}, ${randomColor.b}, 1)`; // Tạo màu viền tương tự nhưng với độ mờ 1
+                data.datasets.push({
+                    label: mangTenSP[i],
+                    data: mangDoanhThu[i],
+                    backgroundColor: backgroundColor,
+                    borderColor: borderColor,
+                    borderWidth: 2
+                });
+            }
 
             // Lấy thẻ canvas từ HTML
             const ctx = document.getElementById('myChart').getContext('2d');
 
             // Khởi tạo biểu đồ đường
-            const myChart = new Chart(ctx, {
+            myChart = new Chart(ctx, {
                 type: 'line',
                 data: data,
                 options: {
@@ -327,6 +417,21 @@
                     }
                 }
             });
+            console.log(getDaysInMonth(month, 2024));
+        }
+
+
+        // Hàm tạo màu ngẫu nhiên
+        function getRandomColor(opacity) {
+            const r = Math.floor(Math.random() * 255);
+            const g = Math.floor(Math.random() * 255);
+            const b = Math.floor(Math.random() * 255);
+            return {
+                r,
+                g,
+                b,
+                color: `rgba(${r}, ${g}, ${b}, ${opacity})`
+            };
         }
 
 

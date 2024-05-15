@@ -1,3 +1,4 @@
+
 <button?php $url=handle_url::getUrl(); ?>
 
 
@@ -140,7 +141,18 @@
       
     </div>
   </div>
+
+  <!-- Thông báo -->
+<?php require_once('./public/template/admin/toast.php');
+toast::memo("Success", "back_from_controller", "limegreen");
+?>
   <script>
+        // Kiểm tra nếu biến updated là true, hiển thị alert
+        window.onload = function() {
+            <?php if ($updated): ?>
+                alert('Cập nhật thành công!');
+            <?php endif; ?>
+        };
     document.addEventListener('DOMContentLoaded', function() {
       var passwordInput = document.getElementById('password');
       var newpassword = document.getElementById('newpassword');
@@ -221,4 +233,4 @@
         accountInforLink.classList.add('active');
     }
 }
-  </script>
+</script>

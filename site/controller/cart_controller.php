@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-require_once('./admin/model/db_config.php');
-require_once('./site/model/cart_model.php');
-require_once('./site/controller/handle_url.php');
+require_once ('./admin/model/db_config.php');
+require_once ('./site/model/cart_model.php');
+require_once ('./site/controller/handle_url.php');
 
 $url = handle_url::getUrl();
 
@@ -58,7 +58,7 @@ if (isset($_POST['thanhtoan']) && $_POST['thanhtoan'] == 'thanhtoan_tongtien') {
     $maSP = $_POST['productid'];
     //$Giabankm = $_POST['GiaBanKM'];
     $query = $model->getDiscountedPrice($maSP);
-    $row =  mysqli_fetch_array($query);
+    $row = mysqli_fetch_array($query);
     // Tính tổng tiền từ form
     $thanhTien = $_POST['GiaBanKM'];
 
@@ -69,6 +69,20 @@ if (isset($_POST['thanhtoan']) && $_POST['thanhtoan'] == 'thanhtoan_tongtien') {
     $cart_model->deleteAll($maTK);
 }
 
+
+if (isset($_SESSION['MaTK']) && isset($_POST['id']) && isset($_POST['MaSize']) && isset($_POST['SoLuong'])) {
+    $cart_model = new cart_model();
+    $maTK = $_SESSION['MaTK'];
+    $MaSP = $_POST['id'];
+    $MaSize = $_POST['MaSize'];
+    $SoLuong = $_POST['SoLuong'];
+    $rs = $cart_model->addToCart($maTK, $MaSP, $MaSize, $SoLuong);
+    if ($rs == null) {
+        $_SESSION['add'] = true;
+        header("Location: $url/product-detail?id=$MaSP");
+        exit;
+    }
+}
 
 $_SESSION['back_from_controller'] = true;
 header("Location: $url/card");

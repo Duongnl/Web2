@@ -1,21 +1,28 @@
-
 <?php
 require './site/controller/handle_url.php';
 $request = $_SERVER['REQUEST_URI'];
 $adminView = '/admin/view/';
 $adminController = '/admin/controller/';
-// $baseName = basename($request);
-
 $url = parse_url($request)["path"];
 $toAdmin = handle_url::getURLAdmin($request);
 $baseName = explode($toAdmin . '/', $url)[1];
-
+$rootDirectory = handle_url::getUrl();
+$rootPath = __DIR__;
 switch ($baseName) {
     case 'statistic':
         require __DIR__ . $adminView . 'thong_ke_page.php';
         break;
     case 'product':
         require __DIR__ . $adminView . 'product_page.php';
+        break;
+    case 'product/add':
+        require __DIR__ . $adminView . 'add_product_page.php';
+        break;
+    case 'product/edit':
+        require __DIR__ . $adminView . 'add_product_page.php';
+        break;
+    case 'product/view':
+        require __DIR__ . $adminView . 'add_product_page.php';
         break;
     case 'category':
         require __DIR__ . $adminView . 'category_page.php';
@@ -49,6 +56,9 @@ switch ($baseName) {
         break;
     case 'import_detail':
         require __DIR__ . $adminView . 'import_detail_page.php';
+        break;
+    case 'controller/product_controller':
+        require __DIR__ . $adminController . 'product_controller.php';
         break;
     case 'supplier_controller':
         require __DIR__ . $adminController . 'supplier_controller.php';

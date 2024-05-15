@@ -32,7 +32,7 @@ $login_register_model = new login_register_model();
   <ul class="menu-mobile">
     <li><a href="<?php echo  $url; ?>">Home</a></li>
     <li><a href="<?php echo  $url . '/product'; ?>">Product</a></li>
-    <li><a href="<?php echo  $url . '/admin/supplier'; ?>">About</a></li>
+    
   </ul>
   <div class="logo">Exclusive</div>
   <!-- <div class="logo"><?php // if (isset( $_SESSION['MaTK'])) {echo $_SESSION['MaTK']; }   
@@ -40,7 +40,7 @@ $login_register_model = new login_register_model();
   <div class="menu">
     <a href="<?php echo  $url; ?>" class="home">Home</a>
     <a href="<?php echo  $url . '/product'; ?>" class="about">Product</a>
-    <a href="<?php echo  $url . '/admin/supplier'; ?>" class="about">About</a>
+  
     <!-- <a href="/store/Web2-main/Web2-main/site/view/login-register-page.php" class="sign-up">Sign Up</a> -->
   </div>
   <div class="rightNav">

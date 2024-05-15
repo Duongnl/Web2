@@ -67,7 +67,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $_SESSION['back_from_controller'] = true;
     header("Location: $url/account");
     exit; 
-
-
-
-

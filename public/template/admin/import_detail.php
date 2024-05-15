@@ -17,24 +17,24 @@ $pdfData= export_pdf::export($maPN) ;
     <div style="display: flex; justify-content: space-between;" >
        
             <a type="button" href="<?php echo  $url . '/import'; ?>" class="btn btn-light"><i class="fa-solid fa-arrow-left" style=" font-size: 30px;"></i></a>
-            <h3 style="padding-left: 15px;" class="h1-head-name">Import detail</h3>
+            <h3 style="padding-left: 15px;" class="h1-head-name">Phiếu nhập</h3>
     
         <button  id="button-export" type="button" class="btn btn-success">
-        <i class="fa-solid fa-circle-plus"></i> Export pdf</button>
+        <i class="fa-solid fa-circle-plus"></i> Xuất pdf</button>
     </div>
 
 
 
     <div style="display: flex; justify-content: space-around; ">
         <div>
-            <p style="font-size: 18px;margin-bottom: 5px;"> Import ID : <?php echo $maPN; ?></p>
-            <p style="font-size: 18px;margin-bottom: 5px;"> Staff account : <?php echo $rowImport['TenTK'] ?> </p>
-            <p style="font-size: 18px;margin-bottom: 5px;"> Staff name : <?php echo $rowImport['TenNV'] ?> </p>
+            <p style="font-size: 18px;margin-bottom: 5px;"> Mã PN : <?php echo $maPN; ?></p>
+            <p style="font-size: 18px;margin-bottom: 5px;"> Tên TK : <?php echo $rowImport['TenTK'] ?> </p>
+            <p style="font-size: 18px;margin-bottom: 5px;"> Tên NV : <?php echo $rowImport['TenNV'] ?> </p>
         </div>
         <div>
-            <p style="font-size: 18px;margin-bottom: 5px;"> Supplier : <?php echo $rowImport['MaNCC'] . ' ' . $rowImport['TenNCC'] ?></p>
-            <p style="font-size: 18px;margin-bottom: 5px;"> Time : <?php echo $rowImport['ThoiGianPN'] ?></p>
-            <p style="font-size: 18px;margin-bottom: 5px;"> Total : <?php echo $rowImport['ThanhToan'] ?> </p>
+            <p style="font-size: 18px;margin-bottom: 5px;"> Nhà cung cấp : <?php echo $rowImport['MaNCC'] . ' ' . $rowImport['TenNCC'] ?></p>
+            <p style="font-size: 18px;margin-bottom: 5px;"> Thời gian : <?php echo $rowImport['ThoiGianPN'] ?></p>
+            <p style="font-size: 18px;margin-bottom: 5px;"> Thanh toán : <?php echo number_format($rowImport['ThanhToan']).'đ'; ?> </p>
         </div>
     </div>
 
@@ -42,12 +42,12 @@ $pdfData= export_pdf::export($maPN) ;
     <table id="detailTable" class="table table-striped table-hover" style="margin-top: 20px;" >  
         <thead>
             <tr>
-                <th scope="col">Product ID</th>
-                <th scope="col">Product name</th>
+                <th scope="col">Mã SP</th>
+                <th scope="col">Tên SP</th>
                 <th scope="col">Size</th>
-                <th scope="col">Cost</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Total</th>
+                <th scope="col">Đơn giá</th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Thành tiền</th>
             </tr>
         </thead>
         <tbody class="table-group-divider ">
@@ -60,9 +60,9 @@ $pdfData= export_pdf::export($maPN) ;
                     <th scope="row"><?php echo $rowImportDetail['MaSP'] ?></th>
                     <td><?php echo $rowImportDetail['TenSP'] ?></td>
                     <td><?php echo $rowImportDetail['MaSize'] ?></td>
-                    <td><?php echo $rowImportDetail['DonGia'] ?></td>
+                    <td><?php echo number_format($rowImportDetail['DonGia']).'đ' ?></td>
                     <td><?php echo $rowImportDetail['SoLuongCTPN'] ?></td>
-                    <td><?php echo $rowImportDetail['ThanhTien'] ?></td>
+                    <td><?php echo number_format($rowImportDetail['ThanhTien']).'đ' ?></td>
                 </tr>
             <?php
             }

@@ -1,16 +1,16 @@
 <style>
-  .btn-edit {
-    display: none;
-  }
+.btn-edit {
+  display: none;
+}
 
-  .btn-delete {
-    display: none;
-  }
+.btn-delete {
+  display: none;
+}
 
-  .tr-body:hover .btn-edit,
-  .tr-body:hover .btn-delete {
-    display: inline;
-  }
+.tr-body:hover .btn-edit,
+.tr-body:hover .btn-delete {
+  display: inline;
+}
 </style>
 
 

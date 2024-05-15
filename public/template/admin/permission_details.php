@@ -68,7 +68,7 @@
 			        <input id="QuyenUser" type="checkbox" <?php if($phanquyen->checked($_POST["permissionID"], 11)) {echo 'checked';} ?> name="QuyenUser" class="checkbox_inp q6">
 			        <span class="checkbox_mark"></span>
 		        </label>
-		    <div class="title">Quản lý User</div>
+		    <div class="title">Quyền User</div>
 	        </div>
         
     </div>

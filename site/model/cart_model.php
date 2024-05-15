@@ -37,7 +37,7 @@ class cart_model
     }
 
 
-
+    
     public function updateQuantity($userId, $productId, $newQuantity, $size)
     {
         $this->db_config->connect();
@@ -85,13 +85,17 @@ class cart_model
     public function addToCTHoaDon($maTK) {
         // Kết nối đến cơ sở dữ liệu
         $this->db_config->connect();
-
-        // Lấy thông tin từ bảng hoadon
         $queryHoaDon = "SELECT MaHD FROM hoadon WHERE MaTK = '$maTK'";
         $resultHoaDon = $this->db_config->execute($queryHoaDon);
-        $rowHoaDon = $resultHoaDon->fetch_assoc();
-        $maHD = $rowHoaDon['MaHD'];
+    while ($rowhoadon = $resultHoaDon->fetch_assoc()){
+        $maHD = $rowhoadon['MaHD'];
+        echo $maHD;
+    }
+
+        // Lấy thông tin từ bảng hoadon
     
+       
+
         // Lấy thông tin từ bảng giohang
         $queryGioHang = "SELECT * FROM giohang WHERE MaTK = '$maTK'";
         $resultGioHang = $this->db_config->execute($queryGioHang);
@@ -127,7 +131,7 @@ class cart_model
             // Tính ThanhTien
             $thanhTien = $soLuong * $donGia;
 
-            // Thêm dữ liệu vào bảng cthoadon
+            //Thêm dữ liệu vào bảng cthoadon
             $queryInsert = "INSERT INTO cthoadon (MaHD, MaSP, SoLuong, DonGia, ThanhTien, MaSize)
                             VALUES ('$maHD', '$maSP', '$soLuong', '$donGia', '$thanhTien', '$maSize')";
              $this->db_config->execute($queryInsert);
@@ -143,5 +147,18 @@ class cart_model
             return true;
         }
         return false;
+    }
+
+    // add to card
+    public function addToCart($MaTK,$MaSP,$MaSize,$soLuong){
+        $conn = $this->db_config->connect();
+        $sql = "INSERT INTO giohang (MaTK, MaSP, MaSize, SoLuong) 
+            VALUES (?, ?, ?, ?) ";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("iisi", $MaTK, $MaSP, $MaSize, $soLuong);
+    
+        return $stmt->execute();
+        
+    
     }
 }
