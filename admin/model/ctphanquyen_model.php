@@ -16,7 +16,7 @@ class ctphanquyen_model {
 
     function insertCTphanquyenData ($MaCTQ , $ChiTietQuyen)
     {
-        $this->db_config->connect();x
+        $this->db_config->connect();
         $sql = "INSERT INTO  chitietquyen (MaCTQ,ChiTietQuyen) VALUES ('$MaCTQ','$ChiTietQuyen') ";
         return $this->db_config->execute($sql);
     }

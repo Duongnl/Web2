@@ -1,6 +1,19 @@
 <?php 
 $request = $_SERVER['REQUEST_URI'];
 $url =  handle_url::getURLAdmin($request);
+require_once('./admin/model/phanquyen_model.php');
+require_once('./admin/model/db_config.php');
+$phanquyen_model = new phanquyen_model();
+// if (isset($_POST['logout'])) {
+//     session_start();
+//     session_unset();
+//     session_destroy();
+//     session_start();
+//     $_SESSION['back_account_controller'] = true;
+//     header("Location: /web2-project/Web2/login");
+//     exit;
+// }
+$maTK = $_SESSION['MaTK'];
 ?>
     <div class="sidebar">
         <div class="top">
@@ -106,14 +119,24 @@ $url =  handle_url::getURLAdmin($request);
                 </a>
                 <span class="tooltip">Nhập Hàng</span>
             </li>
+           
             <li id ="logout">
+            <?php if ($phanquyen_model->checkQuyenUser($maTK)) {?>
                 <a href="<?php $trimmed_url = str_replace("/admin", "",$url); echo $trimmed_url;?>">
                 <i class="fa-solid fa-arrow-right-from-bracket icon"></i>
                     <span class="nav-item">Thoát</span>
-
                 </a>
                 <span class="tooltip">Thoát</span>
+                <?php } else { ?>
+                <form action="<?php $trimmed_url = str_replace("/admin", "",$url); echo $trimmed_url.'/account_controller';?>" method="POST">
+                    <input type="hidden" value="logout" name="logout">
+                    <button style="height: 50px; width:50px; background-color:#12171e; color:white; border-radius:5px; border:0px;" type="submit">     <i class="fa-solid fa-arrow-right-from-bracket icon"></i></button>
+                </form>
+              
+                <?php } ?>
+              
             </li>
+          
         </ul>
     </div>
 

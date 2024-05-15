@@ -64,4 +64,32 @@ class phanquyen_model {
 
     // }
 
+    function checkQuyenUser ($maTK) {
+        $this->db_config->connect();
+        $sql = "SELECT * FROM taikhoan,phanquyen WHERE taikhoan.MaQuyen = phanquyen.MaQuyen AND taikhoan.MaTK =".$maTK." AND phanquyen.MaCTQ = 11 ";
+        $query = $this->db_config->execute($sql);
+   
+        while ($row = mysqli_fetch_array($query)) 
+        {
+            return true;
+        }
+        return false;
+    }
+
+    function checkQuyenAdmin ($maTK) {
+        $this->db_config->connect();
+        $sql = "SELECT * FROM taikhoan,phanquyen WHERE taikhoan.MaQuyen = phanquyen.MaQuyen AND taikhoan.MaTK =".$maTK." ";
+        $query = $this->db_config->execute($sql);
+        $i =0;
+        while ($row = mysqli_fetch_array($query)) 
+        {
+            $i+=1;
+        }
+        if ($i>1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

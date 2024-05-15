@@ -5,7 +5,9 @@ $baseNameUrl = basename($requestUrl);
 
 $url = handle_url::getUrl();
 require_once('./site/model/login_register_model.php');
+require_once('./admin/model/phanquyen_model.php');
 require_once('./admin/model/db_config.php');
+$phanquyen_model = new phanquyen_model();
 $login_register_model = new login_register_model();
 ?>
 <div class="announcement-container">
@@ -75,8 +77,8 @@ $login_register_model = new login_register_model();
         <i href="" class="fa-solid fa-user fs20 p-2"></i>
       </a>
 
-      <?php if (isset($_SESSION['MaTK']) && $login_register_model->checkPositionUserAdmin($_SESSION['MaTK']) == 'admin') { ?>
-        <a href="<?php echo  $url . '/admin/supplier'; ?>">
+      <?php if (isset($_SESSION['MaTK']) && $phanquyen_model->checkQuyenAdmin($_SESSION['MaTK']) == true) { ?>
+        <a href="<?php echo  $url . '/admin/statistic'; ?>">
           <i href="" class="fa-solid fa-gear fs20 p-2"></i>
         </a>
       <?php } ?>
