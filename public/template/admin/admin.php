@@ -27,7 +27,7 @@ $maTK = $_SESSION['MaTK'];
 
         </div>
         <div class="user">
-            <img src="../public/images/logo.png" class="user-img">
+            <img src="<?php echo $rootDirectory."/public/images/logo.png"?>" class="user-img">
             <div>
                 <p class="bold"> Nguyễn Văn A</p>
                 <p>Admin</p>
