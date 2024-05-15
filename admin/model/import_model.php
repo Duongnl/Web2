@@ -48,6 +48,7 @@ class import_model {
         $import_model = new import_model();
         while ($row = mysqli_fetch_array($query)) {
             $import_model->updateQuantity($row['MaSP'], $row['MaSize'], $row['SoLuong'] );
+            $import_model->updateSLSP($row['MaSP']);
         }
 
     }
@@ -60,6 +61,21 @@ class import_model {
         $soLuongUpdate = $rowGet['SoLuong'] + $soLuong;
 
         $sqlUpdate = "UPDATE size SET SoLuong = '$soLuongUpdate' WHERE MaSP = '$maSP' AND MaSize = '$maSize' ";
+        $this->db_config->execute($sqlUpdate);
+    }
+
+    function updateSLSP ($maSP) {
+        $this->db_config->connect();
+        $sql = "SELECT *, SUM(size.SoLuong) AS TongSoLuong FROM sanpham
+        JOIN size ON sanpham.MaSP = size.MaSP 
+        WHERE sanpham.MaSP = '$maSP' 
+        GROUP BY sanpham.MaSP 
+         ";
+        $queryGeT =   $this->db_config->execute($sql);
+        $rowGet = mysqli_fetch_array($queryGeT);
+        $tongSoLuong = $rowGet['TongSoLuong'] ;
+
+        $sqlUpdate  = "UPDATE sanpham SET SoLuong = '$tongSoLuong' WHERE MaSP = '$maSP'";
         $this->db_config->execute($sqlUpdate);
     }
 

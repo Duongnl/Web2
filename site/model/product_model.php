@@ -48,14 +48,28 @@ class product_model {
 
     function filterProduct ($maDM, $startPrice, $endPrice, $gioiTinh, $maSize, $sale,$fromIndex,$tenSP) {
         $this->db_config->connect();
-        $sql = "SELECT * FROM sanpham
+        $sql = "SELECT *,   CASE 
+        WHEN sanpham.MaKM IS NOT NULL THEN sanpham.GiaBan - (sanpham.GiaBan * khuyenmai.PhanTramKM / 100)
+        ELSE sanpham.GiaBan
+        END 
+        AS GiaCuoiCung
+        FROM sanpham
         JOIN danhmuc ON sanpham.MaDM = danhmuc.MaDM
         JOIN size ON sanpham.MaSP = size.MaSP
         JOIN anhchinh ON sanpham.MaAnhChinh = anhchinh.MaAnhchinh
-        LEFT JOIN khuyenmai ON sanpham.MaKM = khuyenmai.MaKM 
+        LEFT JOIN khuyenmai ON sanpham.MaKM = khuyenmai.MaKM  
         ";
-        
-        $sql .= " WHERE sanpham.GiaBan >= '$startPrice' AND sanpham.GiaBan <= '$endPrice'";
+        // $sql .= " WHERE GiaCuoiCung >= '$startPrice' AND GiaCuoiCung <= '$endPrice'";
+        $sql.=" WHERE 
+        (CASE 
+            WHEN sanpham.MaKM IS NOT NULL THEN sanpham.GiaBan - (sanpham.GiaBan * khuyenmai.PhanTramKM / 100)
+            ELSE sanpham.GiaBan
+        END) >= '$startPrice' 
+    AND 
+        (CASE 
+            WHEN sanpham.MaKM IS NOT NULL THEN sanpham.GiaBan - (sanpham.GiaBan * khuyenmai.PhanTramKM / 100)
+            ELSE sanpham.GiaBan
+        END) <= '$endPrice'";
        
         if ($gioiTinh != 0) {
             $sql.= "AND sanpham.GioiTinh = '$gioiTinh'";
@@ -77,14 +91,30 @@ class product_model {
 
     function filterAllProduct ($maDM, $startPrice, $endPrice, $gioiTinh, $maSize, $sale,$tenSP) {
         $this->db_config->connect();
-        $sql = "SELECT * FROM sanpham
+        $sql = "SELECT *,
+        CASE 
+        WHEN sanpham.MaKM IS NOT NULL THEN sanpham.GiaBan - (sanpham.GiaBan * khuyenmai.PhanTramKM / 100)
+        ELSE sanpham.GiaBan
+        END 
+        AS GiaCuoiCung
+         FROM sanpham
         JOIN danhmuc ON sanpham.MaDM = danhmuc.MaDM
         JOIN size ON sanpham.MaSP = size.MaSP
         JOIN anhchinh ON sanpham.MaAnhChinh = anhchinh.MaAnhchinh
         LEFT JOIN khuyenmai ON sanpham.MaKM = khuyenmai.MaKM 
         ";
         
-        $sql .= " WHERE sanpham.GiaBan >= '$startPrice' AND sanpham.GiaBan <= '$endPrice'";
+        // $sql .= " WHERE sanpham.GiaBan >= '$startPrice' AND sanpham.GiaBan <= '$endPrice'";
+        $sql.=" WHERE 
+        (CASE 
+            WHEN sanpham.MaKM IS NOT NULL THEN sanpham.GiaBan - (sanpham.GiaBan * khuyenmai.PhanTramKM / 100)
+            ELSE sanpham.GiaBan
+        END) >= '$startPrice' 
+    AND 
+        (CASE 
+            WHEN sanpham.MaKM IS NOT NULL THEN sanpham.GiaBan - (sanpham.GiaBan * khuyenmai.PhanTramKM / 100)
+            ELSE sanpham.GiaBan
+        END) <= '$endPrice'";
        
         if ($gioiTinh != 0) {
             $sql.= "AND sanpham.GioiTinh = '$gioiTinh'";

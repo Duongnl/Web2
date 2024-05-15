@@ -115,7 +115,7 @@ if (isset($_GET['date'])) {
           <th scope="row"><?php echo $row['MaPN'] ?></th>
           <td><?php echo $row['TenNV'] ?></td>
           <td><?php echo $row['TenNCC'] ?></td>
-          <td><?php echo $row['ThanhToan'] ?></td>
+          <td><?php echo number_format($row['ThanhToan']).'đ'; ?></td>
           <td><?php echo $row['ThoiGian'] ?></td>
           <?php if ($row['TrangThaiPN'] == 0) {
             echo '<td style="background-color: #ffc107; border-radius: 5px;">Chờ</td>';

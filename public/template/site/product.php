@@ -47,12 +47,12 @@ function tinhGiaGiam($Giaban,$khuyenMai) {
     <div class="col-6 col-sm-4 col-md-2 col-Filter">
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle btn-filter-price" type="button" data-bs-toggle="dropdown" aria-expanded="false" style=" background-color: #DB4444; ">
-          Price
+          Giá
         </button>
         <ul class="dropdown-menu">
           <li>
             <p>
-              <label for="amount" style="padding-left: 10px;">Price range:</label>
+              <label for="amount" style="padding-left: 10px;">Khoảng giá:</label>
               <input type="text" class="amount" readonly style="border:0; color:#000000; font-weight:bold;padding-left: 10px;">
             </p>
             <div class="slider-range" >
@@ -66,9 +66,9 @@ function tinhGiaGiam($Giaban,$khuyenMai) {
     <div class="col-6 col-sm-4 col-md-2 col-Filter">
       <select class="form-select select-filter-sex" id="sex" aria-label="Default select example">
         <option value="0" select>Tất cả giới tính</option>
-        <option value="3">Unsex</option>
-        <option value="1">Male</option>
-        <option value="2">Female</option>
+        <option value="3">Unisex</option>
+        <option value="1">Nam</option>
+        <option value="2">Nữ</option>
       </select>
     </div>
     <!-- Size -->
@@ -122,13 +122,13 @@ function tinhGiaGiam($Giaban,$khuyenMai) {
 
   <!-- Nhãn sản phẩm -->
   <div class="row " style="display: flex;margin-top: 40px;justify-content: space-between; ">
-    <span style=" width:150px; font-size: 30px; display:inline;"> Product</span>
-    <select class="form-select select-filter-sort" style="width:300px;" aria-label="Default select example">
+    <span style=" width:200px; font-size: 30px; display:inline;"> Sản phẩm</span>
+    <!-- <select class="form-select select-filter-sort" style="width:300px;" aria-label="Default select example">
       <option value="" disabled selected hidden>Sort</option>
       <option value="0" select>Mặc định</option>
       <option value="1" select>Price from low to high</option>
       <option value="2">Price from high to low</option>
-    </select>
+    </select> -->
   </div>
 
   <!-- Sản phẩm -->
@@ -447,7 +447,7 @@ function formatCurrency(number) {
 
           var newSpanPrice = document.createElement('span');
           newSpanPrice.classList.add('badge', 'text-bg-danger');
-          newSpanPrice.textContent = '$' + startPrice_data + ' - $' + endPrice_data;
+          newSpanPrice.textContent =  formatCurrency(startPrice_data) + ' - ' + formatCurrency(endPrice_data);
 
           var newSpanSex = document.createElement('span');
           newSpanSex.classList.add('badge', 'text-bg-danger');
