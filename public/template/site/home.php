@@ -47,7 +47,7 @@ function tinhGiaGiam($Giaban,$khuyenMai) {
       $listCategory = $category_model->getcategoryData();
       while ($row = mysqli_fetch_array($listCategory)) {
         ?>
-        <div class="col-4 col-sm-3 col-md-2 col-xxl-2">
+        <div style="width:fit-content">
           <form action="<?php echo $url.'/product' ?>" method="POST">
             <input type="hidden" name="maDM" value="<?php echo $row['MaDM'] ?>" >
             <input type="hidden" name="tenDM" value="<?php echo $row['TenDM'] ?>" >
