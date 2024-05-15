@@ -199,6 +199,7 @@ if (isset($_GET["id"])) {
 if (isset($_SESSION['add'])) {
   echo '<script>alert("Sản phẩm đã có trong giỏ hàng")</script>';
 }
+unset($_SESSION['add']);
 ?>
 </div>
 
