@@ -12,7 +12,9 @@ class product_model {
         $sql = "SELECT sanpham.*, khuyenmai.*, anhchinh.* 
         FROM sanpham 
         LEFT  JOIN khuyenmai ON sanpham.MaKM = khuyenmai.MaKM 
-        LEFT JOIN anhchinh ON sanpham.MaAnhChinh = anhchinh.MaAnhchinh;";
+        LEFT JOIN anhchinh ON sanpham.MaAnhChinh = anhchinh.MaAnhchinh
+        WHERE sanpham.TrangThai = 1
+        ;";
         return $this->db_config->execute($sql);
     }
 
@@ -22,7 +24,7 @@ class product_model {
         FROM sanpham 
         LEFT JOIN khuyenmai ON sanpham.MaKM = khuyenmai.MaKM 
         LEFT JOIN anhchinh ON sanpham.MaAnhChinh = anhchinh.MaAnhchinh 
-        WHERE";
+        WHERE sanpham.TrangThai = 1 AND ";
         if ($tenSP !='') {
             $sql.= " sanpham.TenSP LIKE '%".$tenSP."%'";
         } else if ($maDM != '') {
@@ -36,7 +38,7 @@ class product_model {
         FROM sanpham 
         LEFT  JOIN khuyenmai ON sanpham.MaKM = khuyenmai.MaKM 
         LEFT JOIN anhchinh ON sanpham.MaAnhChinh = anhchinh.MaAnhchinh
-        WHERE"; 
+        WHERE sanpham.TrangThai = 1 AND"; 
 
         if ($tenSP !='') {
             $sql.= " sanpham.TenSP LIKE '%".$tenSP."%'";
@@ -53,6 +55,7 @@ class product_model {
         FROM sanpham 
         LEFT  JOIN khuyenmai ON sanpham.MaKM = khuyenmai.MaKM 
         LEFT JOIN anhchinh ON sanpham.MaAnhChinh = anhchinh.MaAnhchinh
+        WHERE sanpham.TrangThai = 1 
         LIMIT 12 OFFSET ".$fromIndex;
         return $this->db_config->execute($sql);
     }
@@ -71,7 +74,7 @@ class product_model {
         LEFT JOIN khuyenmai ON sanpham.MaKM = khuyenmai.MaKM  
         ";
         // $sql .= " WHERE GiaCuoiCung >= '$startPrice' AND GiaCuoiCung <= '$endPrice'";
-        $sql.=" WHERE 
+        $sql.=" WHERE sanpham.TrangThai = 1 AND 
         (CASE 
             WHEN sanpham.MaKM IS NOT NULL THEN sanpham.GiaBan - (sanpham.GiaBan * khuyenmai.PhanTramKM / 100)
             ELSE sanpham.GiaBan
@@ -116,7 +119,7 @@ class product_model {
         ";
         
         // $sql .= " WHERE sanpham.GiaBan >= '$startPrice' AND sanpham.GiaBan <= '$endPrice'";
-        $sql.=" WHERE 
+        $sql.=" WHERE sanpham.TrangThai = 1 AND 
         (CASE 
             WHEN sanpham.MaKM IS NOT NULL THEN sanpham.GiaBan - (sanpham.GiaBan * khuyenmai.PhanTramKM / 100)
             ELSE sanpham.GiaBan

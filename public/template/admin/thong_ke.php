@@ -143,11 +143,12 @@
 
     <div style="display: flex; justify-content:baseline;">
         <select id="select_month" class="form-select select-filter-type" style="width:200px;" aria-label="Default select example">
+            <option value="0" selected disabled hidden >Chọn tháng</option>
             <option value="1">Tháng 1</option>
             <option value="2">Tháng 2</option>
             <option value="3">Tháng 3</option>
             <option value="4">Tháng 4</option>
-            <option value="5" selected>Tháng 5</option>
+            <option value="5">Tháng 5</option>
             <option value="6">Tháng 6</option>
             <option value="7">Tháng 7</option>
             <option value="8">Tháng 8</option>

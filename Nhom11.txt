@@ -1,0 +1,20 @@
+- Nhóm 11 :
+3121410129 Lê Ngọc Dương
+3121410320 Lê Chí Minh
+3121410300 Hoàng Bảo Lộc
+3121410100 Trần Đức Cường
+3121410088 Đinh Hoàng Chiến
+
+- User, pass từng tài khoản có trên hệ thống :
+    + Tài khoản admin :
+        * username : admin
+          password : 12345
+        * username : banhang
+          password : 12345
+    + Tài khoản user :
+        * username : user
+          password : 12345
+        * username : baoloc
+          password : 12345
+        * username : anhthu
+          password : 12345

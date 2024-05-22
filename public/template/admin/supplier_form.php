@@ -120,7 +120,7 @@ function click_overlay() {
 
 
     function inspect() {
-        var pattern = /^[a-zA-Z0-9\s]*$/;
+        var pattern = /^[\p{L} ]*$/u;
         var supplier_name = document.getElementById("supplier_name").value.trim();
         if (supplier_name == "") {
             document.getElementById("memo").value = "Không được để trống !";

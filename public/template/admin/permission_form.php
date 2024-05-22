@@ -108,7 +108,7 @@ toast::memo("Success", "back_from_controller", "limegreen");
 
 
     function inspect() {
-        var pattern = /^[a-zA-Z0-9\s]*$/;
+        var pattern =/^[\p{L} ]*$/u;
         var Permission_name = document.getElementById("Permission_name").value.trim();
         if (Permission_name == "") {
             document.getElementById("memo").value = "Permission name is empty !";

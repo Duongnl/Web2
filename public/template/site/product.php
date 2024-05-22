@@ -253,7 +253,7 @@ function formatCurrency(number) {
   var maDM_hidden_data = '';
   var tenDM_hidden_data ='';
   var startPrice_data = 0;
-  var endPrice_data= 500;
+  var endPrice_data= 10000000;
 
 
 

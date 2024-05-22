@@ -94,7 +94,7 @@ if (isset($_POST['supplier'])) {
     <p style="font-size: 18px;margin-right: 47px;">Đơn giá: </p>
     <div class="input-group flex-nowrap">
       <span class="input-group-text" id="addon-wrapping" style=" padding-right: 13px; padding-left: 16px;"><i class="fa-solid fa-dollar-sign"></i></span>
-      <input  id="cost" name="cost" type="number" class="form-control" placeholder="Dollar" aria-label="Username" aria-describedby="addon-wrapping">
+      <input  id="cost" name="cost" type="number" class="form-control" placeholder="VND" aria-label="Username" aria-describedby="addon-wrapping">
     </div>
     <button id="button_add" type="button" class="btn btn-success" style=" margin-left : 10px; width:150px;">Thêm</button>
   </div>
