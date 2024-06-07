@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 22, 2024 lúc 06:41 PM
+-- Thời gian đã tạo: Th6 07, 2024 lúc 06:28 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.1.17
 
@@ -241,7 +241,8 @@ INSERT INTO `ctphieunhap` (`MaCTPN`, `MaPN`, `MaSP`, `DonGia`, `SoLuong`, `Thanh
 (80, 20, 50, 230000, 23, 5290000, 'XL'),
 (81, 20, 51, 230000, 23, 5290000, 'L'),
 (82, 20, 51, 230000, 23, 5290000, 'M'),
-(83, 20, 51, 230000, 23, 5290000, 'S');
+(83, 20, 51, 230000, 23, 5290000, 'S'),
+(84, 21, 35, 2132131, 123, 262252113, 'L');
 
 -- --------------------------------------------------------
 
@@ -430,7 +431,8 @@ INSERT INTO `phanquyen` (`MaQuyen`, `MaCTQ`) VALUES
 (7, 3),
 (7, 4),
 (7, 5),
-(7, 9),
+(7, 7),
+(7, 8),
 (7, 10),
 (7, 11),
 (8, 1),
@@ -465,7 +467,8 @@ INSERT INTO `phieunhap` (`MaPN`, `MaTK`, `MaNCC`, `ThanhToan`, `ThoiGian`, `Tran
 (17, 1, 14, 25200000, '2024-05-22', 1),
 (18, 1, 15, 52900000, '2024-05-22', 1),
 (19, 1, 15, 38640000, '2024-05-22', 1),
-(20, 1, 14, 89930000, '2024-05-22', 1);
+(20, 1, 14, 89930000, '2024-05-22', 1),
+(21, 1, 15, 262252113, '2024-06-07', 1);
 
 -- --------------------------------------------------------
 
@@ -487,7 +490,8 @@ INSERT INTO `quyen` (`MaQuyen`, `TenQuyen`, `TrangThai`) VALUES
 (1, 'User', 1),
 (2, 'Admin', 1),
 (7, 'Quyền QL Nhập hàng', 1),
-(8, 'Quyền QL Bán hàng', 1);
+(8, 'Quyền QL Bán hàng', 1),
+(9, 'Quyền mới', 1);
 
 -- --------------------------------------------------------
 
@@ -517,7 +521,7 @@ INSERT INTO `sanpham` (`MaSP`, `MaAnhChinh`, `MaKM`, `MaDM`, `TenSP`, `MoTa`, `G
 (32, 19, 4, 4, 'Áo khoác dù', 'Áo khoác dù mới, chất lượng', 300000, 1, '2024-05-22', 40, 2),
 (33, 20, NULL, 4, 'Áo khoác gió', 'Áo khoác ấm, chống gió', 250000, 1, '2024-05-22', 145, 3),
 (34, 21, 4, 4, 'Áo khoác jean', 'Áo đẹp, phong cách', 400000, 1, '2024-05-22', 115, 2),
-(35, 22, 5, 4, 'Áo khoác kaki', 'Áo nâu, chất lượng, bền', 450000, 1, '2024-05-22', 36, 2),
+(35, 22, 5, 4, 'Áo khoác kaki', 'Áo nâu, chất lượng, bền', 450000, 1, '2024-05-22', 159, 2),
 (36, 23, NULL, 7, 'Áo polo nam', 'Áo thoáng mát', 200000, 1, '2024-05-22', 36, 2),
 (37, 24, 4, 7, 'Áo polo nam đen', 'Áo đen, thời thượng, co giãn', 250000, 1, '2024-05-22', 48, 2),
 (38, 25, 4, 5, 'Áo sơ mi tay ngắn', 'Áo sơ mi thoáng mát', 500000, 1, '2024-05-22', 69, 2),
@@ -563,7 +567,7 @@ INSERT INTO `size` (`MaSP`, `MaSize`, `SoLuong`) VALUES
 (34, 'S', 23),
 (34, 'XL', 23),
 (34, 'XXL', 23),
-(35, 'L', 12),
+(35, 'L', 135),
 (35, 'M', 12),
 (35, 'S', 12),
 (36, 'L', 12),
@@ -699,7 +703,6 @@ ALTER TABLE `danhmuc`
 -- Chỉ mục cho bảng `giohang`
 --
 ALTER TABLE `giohang`
-  ADD PRIMARY KEY (`MaTK`,`MaSP`),
   ADD KEY `giohang_fk1` (`MaSP`),
   ADD KEY `giohang_fk2` (`MaTK`) USING BTREE;
 
@@ -822,7 +825,7 @@ ALTER TABLE `cthoadon`
 -- AUTO_INCREMENT cho bảng `ctphieunhap`
 --
 ALTER TABLE `ctphieunhap`
-  MODIFY `MaCTPN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `MaCTPN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT cho bảng `danhmuc`
@@ -870,13 +873,13 @@ ALTER TABLE `phanquyen`
 -- AUTO_INCREMENT cho bảng `phieunhap`
 --
 ALTER TABLE `phieunhap`
-  MODIFY `MaPN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `MaPN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `quyen`
 --
 ALTER TABLE `quyen`
-  MODIFY `MaQuyen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `MaQuyen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `sanpham`
