@@ -17,8 +17,8 @@
 <div class="main-content">
 
   <h3 class="h1-head-name">Staff management</h3>
-
-  <button type="button" class="btn btn-success" style="float:right; margin-top: 10px; margin-bottom: 10px; " onclick="staff_manager_form('', '', '', '', '', '', '', '' , 'ADD STAFF', 'add', 'ADD')">
+                                                                                                                       
+  <button type="button" class="btn btn-success" style="float:right; margin-top: 10px; margin-bottom: 10px; " onclick="staff_manager_form('', '', '', '', '', '', '','','','', 'ADD STAFF', 'add', 'ADD')">
 
     <i class="fa-solid fa-circle-plus"></i> Add Staff</button>
 
@@ -50,13 +50,13 @@
           <td><?php echo $row['TenNV'] ?></td>
           <td><?php echo $row['TenQuyen'] ?></td>
           <td><?php echo $row['ThoiGian'] ?></td>
-          <td><?php if($row['TrangThai'] == 0) {echo 'Lock';}
-          else if ($row['TrangThai'] == 1){
+          <td><?php if($row['TrangThaiTK'] == 0) {echo 'Lock';}
+          else if ($row['TrangThaiTK'] == 1){
            echo 'Active';}?></td>
           <td>
             <!-- <form action="../controller/supplier-controller.php" method="GET">  -->
-            <button type="button" class="btn btn-warning btn-edit" onclick="staff_manager_form('<?php echo $row['MaNV'] ?>' ,'<?php echo $row['TenNV'] ?>','<?php echo $row['TenTK']?> ','<?php echo $row ['Email']?>','<?php echo '0'.$row ['SDT']?>','<?php echo $row ['MatKhau']?>', '<?php echo $row ['ThoiGian']?>','<?php echo $row ['DiaChi']?>','Edit Staff','edit','Save')"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button type="button" class="btn btn-danger btn-delete"  onclick="staff_manager_form('<?php echo $row['MaNV'] ?>' ,'<?php echo $row['TenNV'] ?>','<?php echo $row ['TenTK']?>' ,'<?php echo $row ['Email']?>','<?php echo '0'.$row ['SDT']?>','<?php echo $row ['MatKhau']?>','<?php echo $row ['ThoiGian']?>','<?php echo $row ['DiaChi']?>','Delete Staff','delete','Delete')"><i class="fa-solid fa-trash"></i></button>
+            <button type="button" class="btn btn-warning btn-edit" onclick="staff_manager_form('<?php echo $row['MaNV'] ?>' ,'<?php echo $row['TenNV'] ?>','<?php echo $row['TenTK']?> ','<?php echo $row ['Email']?>','<?php echo '0'.$row ['SDT']?>','<?php echo $row ['MatKhau']?>', '<?php echo $row ['ThoiGian']?>','<?php echo $row ['DiaChi']?>','<?php echo $row ['MaTK']?>','<?php echo $row ['MaQuyen']?>','Edit Staff','edit','Save')"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button type="button" class="btn btn-danger btn-delete"  onclick="staff_manager_form('<?php echo $row['MaNV'] ?>' ,'<?php echo $row['TenNV'] ?>','<?php echo $row ['TenTK']?>' ,'<?php echo $row ['Email']?>','<?php echo '0'.$row ['SDT']?>','<?php echo $row ['MatKhau']?>','<?php echo $row ['ThoiGian']?>','<?php echo $row ['DiaChi']?>','<?php echo $row ['MaTK']?>','<?php echo $row ['MaQuyen']?>','Delete Staff','delete','Delete')"><i class="fa-solid fa-trash"></i></button>
             <!-- </form>  -->
           </td>
         </tr>

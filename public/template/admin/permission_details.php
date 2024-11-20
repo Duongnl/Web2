@@ -20,7 +20,7 @@
     </a>
     </div>
 <!-- <div > -->
-	<form action="<?php echo $url.'/permission_controller' ?>" method="POST" id="permission_details_form" class="wrapper">
+	<form action="<?php echo $url.'/permission_controller' ?>" method="POST" id="permission_details_form" class="wrapper" style="padding-top:0px">
 	<input type="hidden" value = "<?php echo $maQuyen ?>" name="maQuyen" >
     <div class="right_colum">
             <div class="checkbox_item citem_1">

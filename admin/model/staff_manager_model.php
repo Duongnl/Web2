@@ -9,7 +9,7 @@ class staff_manager_model {
 
      function getStaffData() {
         $this->db_config->connect();
-        $sql = "SELECT * FROM nhanvien,taikhoan,quyen WHERE nhanvien.MaTK = taikhoan.MaTK AND taikhoan.MaQuyen =quyen.MaQuyen AND taikhoan.TrangThai <> 2  ";
+        $sql = "SELECT *, taikhoan.TrangThai as TrangThaiTK FROM nhanvien,taikhoan,quyen WHERE nhanvien.MaTK = taikhoan.MaTK AND taikhoan.MaQuyen =quyen.MaQuyen AND taikhoan.TrangThai <> 2  ";
         return $this->db_config->execute($sql);
     }
     

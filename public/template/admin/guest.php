@@ -18,7 +18,7 @@
 
   <h3 class="h1-head-name">Guest management</h3>
 
-  <button type="button" class="btn btn-success" style="float:right; margin-top: 10px; margin-bottom: 10px; " onclick="guest_form('', '', '', '', '', '', '', '' , 'ADD STAFF', 'add', 'ADD')">
+  <button type="button" class="btn btn-success" style="float:right; margin-top: 10px; margin-bottom: 10px; " onclick="guest_form('', '', '', '', '', '', '', '','' , 'ADD STAFF', 'add', 'ADD')">
 
     <i class="fa-solid fa-circle-plus"></i> Add Guest </button>
 
@@ -49,8 +49,8 @@
            echo 'Active';}?></td>
           <td>
             <!-- <form action="../controller/supplier-controller.php" method="GET">  -->
-            <button type="button" class="btn btn-warning btn-edit" onclick="guest_form('<?php echo $row['MaKH'] ?>' ,'<?php echo $row['TenKH'] ?>','<?php echo $row['TenTK']?> ','<?php echo$row ['MaQuyen'] ?> ','<?php echo $row ['Email']?>','<?php echo '0'.$row ['SDT']?>','<?php echo $row ['MatKhau']?>', '<?php echo $row ['DiaChi']?>','Edit Staff','edit','Save')"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button type="button" class="btn btn-danger btn-delete"  onclick="guest_form('<?php echo $row['MaKH'] ?>' ,'<?php echo $row['TenKH'] ?>','<?php echo $row ['TenTK']?>','<?php echo $row['MaQuyen']?> ' ,'<?php echo $row ['Email']?>','<?php echo '0'.$row ['SDT']?>','<?php echo $row ['MatKhau']?>','<?php echo $row ['DiaChi']?>','Delete Staff','delete','Delete')"><i class="fa-solid fa-trash"></i></button>
+            <button type="button" class="btn btn-warning btn-edit" onclick="guest_form('<?php echo $row['MaKH'] ?>' ,'<?php echo $row['TenKH'] ?>','<?php echo $row['TenTK']?> ','<?php echo$row ['MaQuyen'] ?> ','<?php echo $row ['Email']?>','<?php echo '0'.$row ['SDT']?>','<?php echo $row ['MatKhau']?>', '<?php echo $row ['DiaChi']?>','<?php echo $row ['MaTK']?>','Edit Staff','edit','Save')"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button type="button" class="btn btn-danger btn-delete"  onclick="guest_form('<?php echo $row['MaKH'] ?>' ,'<?php echo $row['TenKH'] ?>','<?php echo $row ['TenTK']?>','<?php echo $row['MaQuyen']?> ' ,'<?php echo $row ['Email']?>','<?php echo '0'.$row ['SDT']?>','<?php echo $row ['MatKhau']?>','<?php echo $row ['DiaChi']?>','<?php echo $row ['MaTK']?>','Delete Staff','delete','Delete')"><i class="fa-solid fa-trash"></i></button>
             <!-- </form>  -->
           </td>
         </tr>

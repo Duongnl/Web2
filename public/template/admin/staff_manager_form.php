@@ -54,6 +54,7 @@ $url =  handle_url::getURLAdmin($request);
 
 <form action="<?php echo $url.'/staff_controller'  ?>   " method="POST" id="staff_manager_form">
     <input type="hidden" id="action" name="action" value="">
+    <input type="hidden" id="maTK" name="maTK" value="">
     <button name="exit-staff_manager" type="button" class="btn btn-outline-danger" style="border: 0px; border-radius:20px;float:right" onclick="exit_staff()"> <b>X</b> </button>
     <div style=" padding: 20px;">
         <!-- <h3 style="text-align: center;" >Edit supplier</h3> -->
@@ -123,7 +124,7 @@ $url =  handle_url::getURLAdmin($request);
         </div>
         </div>
         </div>
-        <input id="memo" value =""></input>
+        <input id="memo" disabled value ="" style="text-align: center; margin-left:0px"></input>
         <input id="btn-staff-form" type="submit" class="btn btn-success" style=" margin:0 auto;display:block; margin-top: 20px; " onclick="return inspect()" value=""></input>
     </div>
 </form>
@@ -142,7 +143,9 @@ toast::memo("Success", "back_from_controller", "limegreen");
 
 
 <script>
-    function staff_manager_form(maNV, tenNV, tenTK, email, sdt, matKhau, thoiGian, diaChiNV , formName, action, buttonName) {
+    
+
+    function staff_manager_form(maNV, tenNV, tenTK, email, sdt, matKhau, thoiGian, diaChiNV, maTK,maQuyen,formName, action, buttonName) {
         document.getElementById("staff_manager_form").style.display = "block";
         document.getElementById("overlay").style.display = "block";
         document.getElementById("input-text-head").value = formName;
@@ -155,6 +158,16 @@ toast::memo("Success", "back_from_controller", "limegreen");
         document.getElementById("staff_matkhau").value = matKhau;
         document.getElementById("staff_diaChiNV").value = diaChiNV;
         document.getElementById("action").value = action;
+        document.getElementById("maTK").value = maTK;
+        if (maQuyen == '')
+            {
+                document.getElementById("Position").value = 2
+             } else {
+
+                document.getElementById("Position").value = maQuyen
+             }
+
+
 
 
         document.getElementById("btn-staff-form").value = buttonName ;
@@ -200,7 +213,7 @@ toast::memo("Success", "back_from_controller", "limegreen");
         var staff_sdt = document.getElementById("staff_sdt").value.trim();
         var staff_matkhau = document.getElementById("staff_matkhau").value.trim();
         var staff_diaChiNV = document.getElementById("staff_diaChiNV").value.trim();
-        
+       
         
         function checkEmail(email)
         {
@@ -248,7 +261,11 @@ toast::memo("Success", "back_from_controller", "limegreen");
             return pattern.test(PhoneNumber);
         }
         function checkUserName(UserName)
-        {
+        {      
+             var maTK =  document.getElementById("maTK").value
+            //  var tenTK =  document.getElementById("staff_tenTK").value
+             
+             
             <?php
                     // require('../model/account_manager_model.php');
                     $account_manager_model = new account_manager_model();
@@ -256,13 +273,26 @@ toast::memo("Success", "back_from_controller", "limegreen");
                     $ArrayTenTK = [];
                     while($row = mysqli_fetch_array($queryTenTK))
                     {
-                        $ArrayTenTK = $row['TenTK'];
+                        $ArrayTenTK[] = $row['TenTK'].'-'.$row['MaTK'];
                     }
             ?>
 
             var ArrayUserName = <?php echo json_encode($ArrayTenTK); ?>;
-            return ArrayUserName.includes(UserName);
-            
+            console.log(ArrayUserName)    
+
+            var flag =true;
+            ArrayUserName.forEach(element => {
+                const parts = element.split("-");
+                console.log("parts>>>",parts)
+                console.log("UserName>>>",UserName)
+                console.log("maTK>>>",maTK)
+                if (UserName == parts[0] && maTK != parts[1]){
+                    console.log("đã vào")
+                    flag =false
+                    return;
+                } 
+            });
+            return flag;
         }
 
 
@@ -278,6 +308,14 @@ toast::memo("Success", "back_from_controller", "limegreen");
             notification.value = "Sai định dạng về Email ! ";
             return false;
         }
+        else if(checkUserName(staff_tenTK) == false)
+        {
+           notification = document.getElementById("memo");
+            notification.style.display = "block";
+           notification.value = "Ten tài khoản đã tồn tại ";
+           console.log("Đã vào đây nè")
+            return false;
+        }
         else if (!checkPhoneNumber(staff_sdt))
         {
             notification = document.getElementById("memo");
@@ -285,27 +323,6 @@ toast::memo("Success", "back_from_controller", "limegreen");
             notification.value = "Sai định dạng về Số điện thoại ! ";
             return false;
         }
-         else if(checkUserName(staff_tenTK))
-         {
-            notification = document.getElementById("memo");
-             notification.style.display = "block";
-            notification.value = "Ten tài khoản đã tồn tại ";
-             return false;
-         }
-         else if (checkValidEmail(staff_email))
-         {
-            notification = document.getElementById("memo");
-             notification.style.display = "block";
-            notification.value = "Email đã tồn tại ";
-             return false;
-         }
-         else if (checkValidPhone(staff_sdt))
-         {
-            notification = document.getElementById("memo");
-            notification.style.display = "block";
-            notification.value = "Số điện thoại đã tồn tại ";
-             return false;
-         }
         else
         {
             return true;

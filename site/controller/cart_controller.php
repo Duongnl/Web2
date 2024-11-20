@@ -76,7 +76,20 @@ if (isset($_SESSION['MaTK']) && isset($_POST['id']) && isset($_POST['MaSize']) &
     $MaSP = $_POST['id'];
     $MaSize = $_POST['MaSize'];
     $SoLuong = $_POST['SoLuong'];
-    $rs = $cart_model->addToCart($maTK, $MaSP, $MaSize, $SoLuong);
+
+    if ($cart_model->checkCartExist($maTK, $MaSP, $MaSize )){
+        $queryCart = $cart_model->getCartExist($maTK, $MaSP, $MaSize );
+        $rowCart = mysqli_fetch_array($queryCart);
+
+        $cart_model->updateQuantity($userId, $productId, $newQuantity + $row['SoLuong'], $size);
+    } else {
+        $rs = $cart_model->addToCart($maTK, $MaSP, $MaSize, $SoLuong);
+    }
+
+
+
+
+
     if ($rs == null) {
         $_SESSION['add'] = true;
         header("Location: $url/product-detail?id=$MaSP");
