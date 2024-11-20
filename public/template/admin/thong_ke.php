@@ -154,6 +154,8 @@
             <option value="8">Tháng 8</option>
             <option value="9">Tháng 9</option>
             <option value="10">Tháng 10</option>
+            <option value="11">Tháng 11</option>
+            <option value="12">Tháng 12</option>
         </select>
         <select id="select_sp" class="form-select select-filter-type" style="width:200px; margin-left:20px;" aria-label="Default select example">
             <option value="0">Tất cả sản phẩm</option>

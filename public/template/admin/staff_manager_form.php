@@ -152,7 +152,7 @@ toast::memo("Success", "back_from_controller", "limegreen");
         document.getElementById("staff_id").value = maNV;
         document.getElementById("staff_name").value = tenNV;
         // $tenQuyen = $_GET['Position'];
-        document.getElementById("staff_tenTK").value = tenTK;
+        document.getElementById("staff_tenTK").value = tenTK.trim();
         document.getElementById("staff_email").value = email;
         document.getElementById("staff_sdt").value = sdt;
         document.getElementById("staff_matkhau").value = matKhau;
@@ -260,6 +260,12 @@ toast::memo("Success", "back_from_controller", "limegreen");
             var pattern = /^(0[1-9])+([0-9]{8})\b/;
             return pattern.test(PhoneNumber);
         }
+
+        function checkRegexUserName(UserName)
+        {
+            var pattern = /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){2,18}[a-zA-Z0-9]$/;
+            return pattern.test(UserName.trim());
+        }
         function checkUserName(UserName)
         {      
              var maTK =  document.getElementById("maTK").value
@@ -321,6 +327,13 @@ toast::memo("Success", "back_from_controller", "limegreen");
             notification = document.getElementById("memo");
             notification.style.display = "block";
             notification.value = "Sai định dạng về Số điện thoại ! ";
+            return false;
+        } 
+        else if (checkRegexUserName(staff_tenTK)==false)
+        {
+            notification = document.getElementById("memo");
+            notification.style.display = "block";
+            notification.value = "Sai định dạng tài khoản ! ";
             return false;
         }
         else
