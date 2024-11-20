@@ -145,7 +145,7 @@ toast::memo("Success", "back_from_controller", "limegreen");
         document.getElementById("guest_name").value = tenKH;
         document.getElementById("guest_QuyenKH").value = "";
         document.getElementById("guest_QuyenKH").readOnly = true;
-        document.getElementById("guest_tenTK").value = tenTK;
+        document.getElementById("guest_tenTK").value = tenTK.trim();
 
         document.getElementById("guest_email").value = email;
         document.getElementById("guest_sdt").value = sdt;
@@ -217,6 +217,11 @@ toast::memo("Success", "back_from_controller", "limegreen");
         {
             const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             return emailRegex.test(email);
+        }
+        function checkRegexUserName(UserName)
+        {
+            var pattern = /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){2,18}[a-zA-Z0-9]$/;
+            return pattern.test(UserName.trim());
         }
         function checkValidEmail(email)
         {
@@ -317,7 +322,14 @@ toast::memo("Success", "back_from_controller", "limegreen");
              notification.style.display = "block";
             notification.value = "Ten tài khoản đã tồn tại ";
              return false;
-         }
+         } 
+          else if (checkRegexUserName(guest_tenTK)==false)
+        {
+            notification = document.getElementById("memo");
+            notification.style.display = "block";
+            notification.value = "Sai định dạng tài khoản ! ";
+            return false;
+        }
         else
         {
             return true;

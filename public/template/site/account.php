@@ -85,7 +85,7 @@
 
             <!-- button -->
             <div class="account-profile-actions">
-              <button class="account-profile-cancel"><a style="color: #db4444 ; text-decoration: none;" href="<?php echo  $url; ?>" class="nav-item">Thoát</a></button>
+              <button type="button" class="account-profile-cancel"><a style="color: #db4444 ; text-decoration: none;" href="<?php echo  $url; ?>" class="nav-item">Thoát</a></button>
               <input id="btn-user-info-form" type="submit" class="account-profile-save user-infor" value="Cập nhật"></input>
             </div>
           </form>
@@ -131,7 +131,7 @@
             </div>
             </div>
             <div class="account-profile-actions">
-              <button class="account-profile-cancel"><a style="color: #db4444 ; text-decoration: none;" href="<?php echo  $url; ?>" class="nav-item">Thoát</a></button>
+              <button type="button" class="account-profile-cancel"><a style="color: #db4444 ; text-decoration: none;" href="<?php echo  $url; ?>" class="nav-item">Thoát</a></button>
               <input id="btn-account-form" type="submit" class="account-profile-save user-infor" value="Cập nhật"></input>
               </div>
           </form>

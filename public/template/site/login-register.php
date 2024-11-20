@@ -18,7 +18,7 @@ $url = handle_url::getUrl();
     <!-- Đăng nhập -->
     <div class="form sign-in">
       <section>
-        <form method="post" action="login_register.php " class="xulylogin">
+        <div method="post" action="login_register.php " class="xulylogin">
           <h1>Login</h1>
 
           <!-- Nhập tài khoản -->
@@ -49,7 +49,7 @@ $url = handle_url::getUrl();
               Register
             </button>
 
-        </form>
+        </di>
       </section>
     </div>
 
@@ -71,7 +71,7 @@ $url = handle_url::getUrl();
       </div>
       <div class="form sign-up">
         <section>
-          <form method="post" action="login_register.php " class="xulylogin" style="width:500px">
+          <div method="post" action="login_register.php " class="xulylogin" style="width:500px">
             <h1>Register</h1>
             <div class="row">
                   <div class="col-6">
@@ -119,7 +119,7 @@ $url = handle_url::getUrl();
               Register
             </button>
 
-          </form>
+          </div>
         </section>
       </div>
     </div>
@@ -196,9 +196,13 @@ $url = handle_url::getUrl();
         boolean=0;
       }
       var gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-
+      var tkregex  = /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){2,18}[a-zA-Z0-9]$/;
       if(email_dangky.trim()==""){
         alert("Không được để trống email");
+        boolean=0;
+      }
+      if (tkregex.test(taikhoan_dangky.trim()) == false) {
+        alert("Sai định dạng tài khoản !");
         boolean=0;
       }
       if(!gmailPattern.test(email_dangky)) {
