@@ -13,10 +13,18 @@ class account_manager_model
         return  $this->db_config->execute($sql); 
     }
 
+    function getAccountDataEnd()
+    {
+        $this->db_config->connect();
+        $sql = 'SELECT * FROM taikhoan ORDER BY MaTK DESC LIMIT 1';
+        return  $this->db_config->execute($sql); 
+    }
+
     function insertAccountData( $tenTK, $Email, $SDT, $matKhau, $maQuyen, $trangThai)
     {
         $this->db_config->connect();
-        $sql = "INSERT INTO taikhoan (  TenTK, Email, SDT, MatKhau ,MaQuyen, TrangThai ) VALUES ( '$tenTK','$Email','$SDT','$matKhau', '$maQuyen','$trangThai') ";
+        $time = date("Y-m-d H:i:s");
+        $sql = "INSERT INTO taikhoan (  TenTK, Email, SDT, MatKhau ,MaQuyen,ThoiGian ,TrangThai ) VALUES ( '$tenTK','$Email','$SDT','$matKhau', '$maQuyen', '$time','$trangThai') ";
         return  $this->db_config->execute($sql);
     }
     function updateAccountData ($maTK,$tenTK,$Email, $SDT, $matKhau, $maQuyen , $trangThai)
@@ -26,15 +34,17 @@ class account_manager_model
         return $this->db_config->execute($sql);
     }
 
+
+
     function deleteAccountData ($maTK){
         $this->db_config->connect();
-        $sql = "DELETE FROM taikhoan WHERE MaTK = '$maTK'";
+        $sql = "UPDATE taikhoan   SET TrangThai = 2 WHERE MaTK = '$maTK'";
         return $this->db_config->execute($sql);
     }
     function FilterTenTK()
     {
         $this->db_config->connect();
-        $sql = "SELECT TenTK FROM taikhoan ";
+        $sql = "SELECT TenTK, MaTK FROM taikhoan ";
         return $this->db_config->execute($sql);
     }
     function FilterEmail()

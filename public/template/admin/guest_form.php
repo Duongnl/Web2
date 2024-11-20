@@ -52,6 +52,7 @@ $url =  handle_url::getURLAdmin($request);
 ?>
 <form action="<?php echo $url.'/guest_controller' ?>" method="POST" id="guest_form">
     <input type="hidden" id="action" name="action" value="">
+    <input type="hidden" id="maTK" name="maTK" value="">
     <button name="exit-guest_manager" type="button" class="btn btn-outline-danger" style="border: 0px; border-radius:20px;float:right" onclick="exit_guest()"> <b>X</b> </button>
     <div style=" padding: 20px;">
         <!-- <h3 style="text-align: center;" >Edit supplier</h3> -->
@@ -116,7 +117,7 @@ $url =  handle_url::getURLAdmin($request);
         </div>
         </div>
         </div>
-        <input id="memo" value =""></input>
+        <input id="memo" disabled value ="" style="text-align: center; margin-left:0px"></input>
         <input id="btn-guest-form" type="submit" class="btn btn-success" style=" margin:0 auto;display:block; margin-top: 20px; " onclick="return inspect()" value=""></input>
     </div>
 </form>
@@ -135,7 +136,7 @@ toast::memo("Success", "back_from_controller", "limegreen");
 
 
 <script>
-    function guest_form(maKH, tenKH, tenTK, quyen, email, sdt, matKhau, diaChiKH , formName, action, buttonName) {
+    function guest_form(maKH, tenKH, tenTK, quyen, email, sdt, matKhau, diaChiKH,maTK , formName, action, buttonName) {
         document.getElementById("guest_form").style.display = "block";
         document.getElementById("overlay").style.display = "block";
         document.getElementById("input-text-head").value = formName;
@@ -151,8 +152,8 @@ toast::memo("Success", "back_from_controller", "limegreen");
         document.getElementById("guest_matkhau").value = matKhau;
         document.getElementById("guest_diaChi").value = diaChiKH;
         document.getElementById("action").value = action;
-
-
+        document.getElementById("maTK").value = maTK;
+        document.getElementById("btn-guest-form").value = buttonName;
 
 
 
@@ -256,6 +257,10 @@ toast::memo("Success", "back_from_controller", "limegreen");
         }
         function checkUserName(UserName)
         {
+            var maTK =  document.getElementById("maTK").value
+            //  var tenTK =  document.getElementById("staff_tenTK").value
+             
+             
             <?php
                     // require('../model/account_manager_model.php');
                     $account_manager_model = new account_manager_model();
@@ -263,12 +268,26 @@ toast::memo("Success", "back_from_controller", "limegreen");
                     $ArrayTenTK = [];
                     while($row = mysqli_fetch_array($queryTenTK))
                     {
-                        $ArrayTenTK = $row['TenTK'];
+                        $ArrayTenTK[] = $row['TenTK'].'-'.$row['MaTK'];
                     }
             ?>
 
             var ArrayUserName = <?php echo json_encode($ArrayTenTK); ?>;
-            return ArrayUserName.includes(UserName);
+            console.log(ArrayUserName)    
+
+            var flag =true;
+            ArrayUserName.forEach(element => {
+                const parts = element.split("-");
+                console.log("parts>>>",parts)
+                console.log("UserName>>>",UserName)
+                console.log("maTK>>>",maTK)
+                if (UserName == parts[0] && maTK != parts[1]){
+                    console.log("đã vào")
+                    flag =false
+                    return;
+                } 
+            });
+            return flag;
             
         }
 
@@ -292,25 +311,11 @@ toast::memo("Success", "back_from_controller", "limegreen");
             notification.value = "Sai định dạng về Số điện thoại ! ";
             return false;
         }
-        else if(checkUserName(guest_tenTK))
+        else if(checkUserName(guest_tenTK)==false)
          {
             notification = document.getElementById("memo");
              notification.style.display = "block";
             notification.value = "Ten tài khoản đã tồn tại ";
-             return false;
-         }
-         else if (checkValidEmail(guest_email))
-         {
-            notification = document.getElementById("memo");
-             notification.style.display = "block";
-            notification.value = "Email đã tồn tại ";
-             return false;
-         }
-         else if (checkValidPhone(guest_sdt))
-         {
-            notification = document.getElementById("memo");
-            notification.style.display = "block";
-            notification.value = "Số điện thoại đã tồn tại ";
              return false;
          }
         else

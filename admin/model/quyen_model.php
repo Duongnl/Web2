@@ -40,4 +40,18 @@ class quyen_model {
         $sql = "DELETE FROM quyen WHERE MaQuyen = '$maQuyen'";
         return  $this->db_config->execute($sql);
     }
+
+    function UpdateAccountPhanQuyen ( $maTK) {
+        $this->db_config->connect();
+        $sql = "UPDATE taikhoan SET  MaQuyen = 2 WHERE taikhoan.MaTK = '$maTK'";
+        return  $this->db_config->execute($sql);
+    }
+
+    function getAccountDataForPhanQuyen($maQuyen)
+    {
+        $this->db_config->connect();
+        $sql = "SELECT * FROM taikhoan WHERE taikhoan.MaQuyen = '$maQuyen' ";
+        return  $this->db_config->execute($sql); 
+    }
+
 }

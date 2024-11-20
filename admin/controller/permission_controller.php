@@ -26,6 +26,11 @@ if ( isset($_POST['action']) )
     } else if ($action == 'delete') {
         // echo $permission_id . $Permission_name ;
         $quyen_model->UpdateQuyenData( $permission_id, $Permission_name,0);
+        
+        $query = $quyen_model->getAccountDataForPhanQuyen($permission_id);
+        while ($row = mysqli_fetch_array($query)) {
+            $quyen_model->UpdateAccountPhanQuyen($row['MaTK']);
+        }
 
     }
     

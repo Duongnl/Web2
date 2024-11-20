@@ -16,7 +16,7 @@ if ( isset($_POST['action']) )
     $guest_diachi = $_POST['guest_diaChi'];
     $guest_position = 5;
     $action = $_POST['action'];
-
+    $maTK = $_POST['maTK'];
     
     
     $guest_model = new guest_model();
@@ -25,28 +25,20 @@ if ( isset($_POST['action']) )
        
         $queryAccount = $account_manager_model->getAccountData();
         $account_manager_model->insertAccountData(trim($guest_tenTK), trim($guest_email), trim($guest_sdt), trim($guest_matkhau) , 1, 1);
-        
-        $lastAccount = $queryAccount->fetch_all(MYSQLI_ASSOC);
-        $lastMaTK = end($lastAccount)['MaTK']; 
+       
+        $lastAccount = $account_manager_model->getAccountDataEnd();
+        $row = mysqli_fetch_array($lastAccount);
+        $lastMaTK = $row['MaTK'];
         
         $guest_model->insertGuestData( $lastMaTK , $guest_name, $guest_diachi, 1);
     }
     else if ($action =='edit') {
     
-        $result = $guest_model->SearchMaTK($guest_id);
-        $row = $result->fetch_assoc();
-        $MaTK = $row['MaTK'];
-        
-        $account_manager_model->updateAccountData($MaTK,trim($guest_tenTK),trim($guest_email), $guest_sdt, trim($guest_matkhau),5, 1);
+        $account_manager_model->updateAccountData($maTK,trim($guest_tenTK),trim($guest_email), $guest_sdt, trim($guest_matkhau),1, 1);
         $guest_model->UpdateGuestData( $guest_id,trim($guest_name),$guest_diachi, 1 );
         
     } else if ($action == 'delete') {
-        $result = $guest_model->SearchMaTK($guest_id);
-        $row = $result->fetch_assoc();
-        $MaTK = $row['MaTK'];
-        
-        $account_manager_model->updateAccountData($MaTK,trim($guest_tenTK),trim($guest_email), $guest_sdt, trim($guest_matkhau),5, 0);
-        $guest_model->UpdateGuestData( $guest_id,trim($guest_name),$guest_diachi, 0 );
+        $account_manager_model->deleteAccountData($maTK);
     }
     
     $_SESSION['back_from_controller'] = true;

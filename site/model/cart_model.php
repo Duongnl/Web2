@@ -52,6 +52,27 @@ class cart_model
         }
     }
 
+    public function checkCartExist($userId, $productId,$size)
+    {
+        $this->db_config->connect();
+        $sql = "SELECT * FROM giohang WHERE MaTK = '$userId' AND MaSP = '$productId' AND MaSize = '$size'";
+        $query =  $this->db_config->execute($sql);
+        while( mysqli_fetch_array($query)) {
+            return true;
+        }
+        return false;
+
+    }
+
+    public function getCartExist($userId, $productId,$size)
+    {
+        $this->db_config->connect();
+        $sql = "SELECT * FROM giohang WHERE MaTK = '$userId' AND MaSP = '$productId' AND MaSize = '$size'";
+        return $this->db_config->execute($sql);
+       
+
+    }
+
     public function deleteProduct($MaTK, $MaSP, $MaSize)
     {
         $this->db_config->connect();

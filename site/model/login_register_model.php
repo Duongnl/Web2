@@ -9,7 +9,7 @@ class login_register_model {
 
      function checkUsernamePassword ($userName, $passWord) {
         $this->db_config->connect();
-        $sql = "SELECT * FROM taikhoan WHERE taikhoan.TenTK = '$userName'  AND taikhoan.MatKhau = '$passWord'";
+        $sql = "SELECT * FROM taikhoan WHERE taikhoan.TenTK = '$userName'  AND taikhoan.MatKhau = '$passWord' AND taikhoan.TrangThai =1";
         $query = $this->db_config->execute($sql);
         while( mysqli_fetch_array($query)) {
             return true;
