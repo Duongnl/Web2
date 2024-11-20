@@ -31,7 +31,7 @@ class import_model {
 
     function getProductData () {
         $this->db_config->connect();
-        $sql = "SELECT * FROM sanpham ";
+        $sql = "SELECT * FROM sanpham WHERE sanpham.TrangThai =1";
         return $this->db_config->execute($sql);
     }
 
